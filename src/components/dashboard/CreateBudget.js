@@ -7,7 +7,10 @@ function CreateBudget() {
 
   const openOptions = (e) => {
     e.preventDefault();
-    setShowOptions(true);
+
+    if (budgetName) {
+      setShowOptions(true);
+    }
   };
 
   const setName = (e) => {
