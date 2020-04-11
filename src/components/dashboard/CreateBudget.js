@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CreateOptions from './CreateOptions';
 
 function CreateBudget() {
+  const [showOptions, setShowOptions] = useState(false);
+  const [budgetName, setBudgetName] = useState('');
+
+  const openOptions = (e) => {
+    e.preventDefault();
+    setShowOptions(true);
+  };
+
+  const setName = (e) => {
+    setBudgetName(e.target.value);
+  };
+
   return (
-    <form>
-      <div className="new-budget-options">
-        <span>I want to spend </span>
-        <input type="text" placeholder="$" id="new-budget-currency" />
-        <input type="number" placeholder="100" id="new-budget-limit" />
-        <span>per </span>
-        <select>
-          <option>Week</option>
-          <option>Month</option>
-        </select>
-      </div>
+    <div>
+      <form>    
+        <div className="new-budget-name">
+          <input type="text" 
+            placeholder="New Budget Name" 
+            id="new-budget-name"
+            onChange={setName}
+            value={budgetName} />
+          <button onClick={openOptions}>+</button>
+        </div>
+      </form>
+
+      { showOptions ? 
+        <CreateOptions 
+          setShowOptions={setShowOptions} 
+          budgetName={budgetName} /> : '' 
+      }
+    </div>
     
-      <div className="new-budget-name">
-        <input type="text" placeholder="New Budget Name" id="new-budget-name" />
-        <button>+</button>
-      </div>
-    </form>
   )
 }
 
