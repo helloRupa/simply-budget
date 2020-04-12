@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 /*
 TODO: Factor out handleChange
-      Save and close only if data is filled in
+      Save Budget to JSON
       Error message if data is wrong
 */
 
@@ -16,7 +16,10 @@ function CreateOptions({ setShowOptions, budgetName }) {
   };
 
   const saveOptions = () => {
-    // only save and close if currency and limit set
+    if (currency && limit) {
+      // do saving stuff here
+      closeOptions();
+    }
   };
 
   const handleChange = (e, callback) => {
