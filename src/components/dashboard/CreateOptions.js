@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 
+/*
+TODO: Factor out handleChange
+      Save and close only if data is filled in
+      Error message if data is wrong
+*/
+
 function CreateOptions({ setShowOptions, budgetName }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
+  const [frequency, setFrequency] = useState('week');
 
   const closeOptions = () => {
     setShowOptions(false);
@@ -33,7 +40,7 @@ function CreateOptions({ setShowOptions, budgetName }) {
         type="text"
         placeholder="$" 
         id="new-budget-currency" 
-        onChange={(e) => handleChange(e, setCurrency)}
+        onChange={e => handleChange(e, setCurrency)}
         value={currency}
         maxLength="2" />
       <input 
@@ -43,9 +50,9 @@ function CreateOptions({ setShowOptions, budgetName }) {
         onChange={handleLimit}
         value={limit} />
       <span>per </span>
-      <select>
-        <option>Week</option>
-        <option>Month</option>
+      <select onChange={e => handleChange(e, setFrequency)} value={frequency}>
+        <option value="week">Week</option>
+        <option value="month">Month</option>
       </select>
       <button onClick={saveOptions}>Save Budget</button>
       <button onClick={closeOptions}>Cancel</button>
