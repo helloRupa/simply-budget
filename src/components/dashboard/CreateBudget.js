@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
+import { handleChange } from '../../shared/handlers';
 
 function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);
@@ -13,10 +14,6 @@ function CreateBudget() {
     }
   };
 
-  const setName = (e) => {
-    setBudgetName(e.target.value);
-  };
-
   return (
     <div>
       <form>    
@@ -24,7 +21,7 @@ function CreateBudget() {
           <input type="text" 
             placeholder="New Budget Name" 
             id="new-budget-name"
-            onChange={setName}
+            onChange={(e) => handleChange(e, setBudgetName)}
             value={budgetName} />
           <button onClick={openOptions}>+</button>
         </div>
@@ -33,7 +30,8 @@ function CreateBudget() {
       { showOptions ? 
         <CreateOptions 
           setShowOptions={setShowOptions} 
-          budgetName={budgetName} /> : '' 
+          budgetName={budgetName} /> : 
+          '' 
       }
     </div>
     

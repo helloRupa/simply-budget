@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { handleChange } from '../../shared/handlers';
 
 /*
-TODO: Factor out handleChange
+TODO: 
       Save Budget to JSON
       Error message if data is wrong
 */
@@ -20,10 +21,6 @@ function CreateOptions({ setShowOptions, budgetName }) {
       // do saving stuff here
       closeOptions();
     }
-  };
-
-  const handleChange = (e, callback) => {
-    callback(e.target.value);
   };
 
   const handleLimit = (e) => {
