@@ -7,12 +7,13 @@ TODO:
     Error message if data is wrong
 */
 
-function CreateOptions({ setShowOptions, budgetName }) {
+function CreateOptions({ setShowOptions, budgetName, setBudgetName }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
 
   const closeOptions = () => {
+    setBudgetName('');
     setShowOptions(false);
   };
 

@@ -30,6 +30,7 @@ function CreateBudget() {
       { showOptions ? 
         <CreateOptions 
           setShowOptions={setShowOptions} 
+          setBudgetName={setBudgetName}
           budgetName={budgetName} /> : 
           '' 
       }

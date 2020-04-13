@@ -1,9 +1,11 @@
 const url = 'http://localhost:8000/budgets';
+
 const generalFetch = (url, options) => {
   return fetch(url, options)
     .then(res => res.json())
     .catch(console.log)
 };
+
 const formatLimit = limit => {
   const dotIndex = limit.indexOf('.');
 
