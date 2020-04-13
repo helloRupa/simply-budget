@@ -4,7 +4,7 @@ import BudgetMenu from './BudgetMenu';
 function Budget() {
   const [showMenu, setShowMenu] = useState(false);
 
-  const toggleMenu = function() {
+  const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 

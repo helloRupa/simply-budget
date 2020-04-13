@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { handleChange } from '../../shared/handlers';
+import { createBudget } from '../../shared/fileUtils';
 
 /*
 TODO: 
-      Save Budget to JSON
-      Error message if data is wrong
+    Error message if data is wrong
 */
 
 function CreateOptions({ setShowOptions, budgetName }) {
@@ -18,12 +18,15 @@ function CreateOptions({ setShowOptions, budgetName }) {
 
   const saveOptions = () => {
     if (currency && limit) {
-      // do saving stuff here
+      const budgetSettings = { currency, limit, frequency };
+      budgetSettings.name = budgetName;
+
+      createBudget(budgetSettings);
       closeOptions();
     }
   };
 
-  const handleLimit = (e) => {
+  const handleLimit = e => {
     const regex = RegExp(/^\d+(\.\d?\d?)?$/);
     const value = e.target.value;
 
@@ -33,7 +36,7 @@ function CreateOptions({ setShowOptions, budgetName }) {
   };
 
   return (
-    <div className="new-budget-options">
+    <form className="new-budget-options">
       <h2>{budgetName}</h2>
       <span>I want to spend </span>
       <input 
@@ -56,7 +59,7 @@ function CreateOptions({ setShowOptions, budgetName }) {
       </select>
       <button onClick={saveOptions}>Save Budget</button>
       <button onClick={closeOptions}>Cancel</button>
-    </div>
+    </form>
   )
 }
 

@@ -6,7 +6,7 @@ function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
 
-  const openOptions = (e) => {
+  const openOptions = e => {
     e.preventDefault();
 
     if (budgetName) {
