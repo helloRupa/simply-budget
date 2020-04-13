@@ -21,6 +21,10 @@ const formatLimit = limit => {
   }
 };
 
+export function getBudgets() {
+  return generalFetch(url);
+}
+
 export function createBudget(settingsObj) {
   const date = new Date();
   const budgetObj =  {
