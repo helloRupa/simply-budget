@@ -35,3 +35,16 @@ export function createBudget(settingsObj) {
 
   return generalFetch(url, options);
 };
+
+export function updateBudget(id, budget) {
+  const patchUrl = `${url}/${id}`;
+  const options = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(budget)
+  }
+
+  return generalFetch(patchUrl, options);
+} 
