@@ -44,7 +44,19 @@ export function updateBudget(id, budget) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(budget)
-  }
+  };
 
   return generalFetch(patchUrl, options);
 } 
+
+export function deleteBudget(id) {
+  const deleteUrl = `${url}/${id}`;
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  return generalFetch(deleteUrl, options);
+}

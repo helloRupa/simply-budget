@@ -10,28 +10,6 @@
       "currentPeriod": 1,
       "expenditures": [],
       "id": 1
-    },
-    {
-      "name": "Budget Two",
-      "currency": "$",
-      "frequency": "month",
-      "limit": "500.00",
-      "startDate": "2020/3/18",
-      "tracking": "-500.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 2
-    },
-    {
-      "name": "Budget Three",
-      "currency": "$",
-      "frequency": "week",
-      "limit": "55.60",
-      "startDate": "2020/3/18",
-      "tracking": "-55.60",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 3
     }
   ]
 }
