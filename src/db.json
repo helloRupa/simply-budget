@@ -1,15 +1,3 @@
 {
-  "budgets": [
-    {
-      "name": "Budget One",
-      "currency": "$",
-      "frequency": "week",
-      "limit": "100.00",
-      "startDate": "2020/3/18",
-      "tracking": "-100.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 1
-    }
-  ]
+  "budgets": []
 }
