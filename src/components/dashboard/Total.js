@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Total() {
+function Total({ budgets }) {
+  const calculateTotal = () => budgets.reduce((total, budget) => parseFloat(budget.tracking) + total, 0);
+
   return (
     <div>
       <span className="all-budgets-label">Total</span>
-      <span className="all-budgets-total">$-3,567.89</span>
+      <span className="all-budgets-total">{calculateTotal()}</span>
     </div>
   )
 }

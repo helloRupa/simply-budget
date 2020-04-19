@@ -33,7 +33,7 @@ export function createBudget(settingsObj) {
     frequency: settingsObj.frequency,
     limit: formatLimit(settingsObj.limit),
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
-    tracking: `-${settingsObj.limit}`,
+    tracking: `-${formatLimit(settingsObj.limit)}`,
     currentPeriod: 1,
     expenditures: [
     ]

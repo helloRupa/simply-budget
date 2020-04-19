@@ -7,11 +7,13 @@ import allBudgets from '../db.json';
 // import { fetchBudgets } from '../shared/fileUtils';
 
 function Dashboard() {
+  const budgets = allBudgets.budgets;
+
   return (
     <div>
       <CreateBudget />
-      <Budgets allBudgets={allBudgets} />
-      <Total />
+      <Budgets budgets={budgets} />
+      <Total budgets={budgets} />
     </div>
   )
 }

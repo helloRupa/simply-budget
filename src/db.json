@@ -1,34 +1,34 @@
 {
   "budgets": [
     {
-      "name": "Teting",
+      "name": "Budget One",
       "currency": "$",
       "frequency": "week",
       "limit": "100.00",
-      "startDate": "2020/3/12",
-      "tracking": "-100",
+      "startDate": "2020/3/18",
+      "tracking": "-100.00",
       "currentPeriod": 1,
       "expenditures": [],
       "id": 1
     },
     {
-      "name": "test",
+      "name": "Budget Two",
       "currency": "$",
       "frequency": "month",
       "limit": "500.00",
-      "startDate": "2020/3/12",
-      "tracking": "-500",
+      "startDate": "2020/3/18",
+      "tracking": "-500.00",
       "currentPeriod": 1,
       "expenditures": [],
       "id": 2
     },
     {
-      "name": "test yarn",
+      "name": "Budget Three",
       "currency": "$",
       "frequency": "week",
-      "limit": "300000.00",
-      "startDate": "2020/3/12",
-      "tracking": "-300000",
+      "limit": "55.60",
+      "startDate": "2020/3/18",
+      "tracking": "-55.60",
       "currentPeriod": 1,
       "expenditures": [],
       "id": 3

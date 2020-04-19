@@ -1,12 +1,10 @@
 import React from 'react';
 import Budget from './Budget';
 
-function Budgets() {
+function Budgets({ budgets }) {
   return (
     <ul>
-      <li><Budget /></li>
-      <li><Budget /></li>
-      <li><Budget /></li>
+      { budgets.map(budget => <li key={budget.id}><Budget budget={budget}/></li>) }
     </ul>
   )
 }

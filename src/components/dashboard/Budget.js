@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BudgetMenu from './BudgetMenu';
 
-function Budget() {
+function Budget({ budget: { name, currency, tracking } }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -11,9 +11,9 @@ function Budget() {
   return (
     <div>
       <button className="budget-menu" onClick={toggleMenu}>M</button>
-      <span className="budget-name">Groceries</span>
-      <span className="budget-currency">$</span>
-      <span className="budget-tracking">+1,200.56</span>
+      <span className="budget-name">{name}</span>
+      <span className="budget-currency">{currency}</span>
+      <span className="budget-tracking">{tracking}</span>
       <div>{ showMenu ? <BudgetMenu /> : '' }</div>
     </div>
   )
