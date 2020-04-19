@@ -1,24 +1,11 @@
+import { formatNumber } from './format';
+
 const url = 'http://localhost:8000/budgets';
 
 const generalFetch = (url, options) => {
   return fetch(url, options)
     .then(res => res.json())
     .catch(console.log)
-};
-
-const formatLimit = limit => {
-  const dotIndex = limit.indexOf('.');
-
-  switch (dotIndex) {
-    case -1:
-      return `${limit}.00`;
-    case limit.length - 1:
-      return `${limit}00`;
-    case limit.length - 2:
-      return `${limit}0`;
-    default:
-      return limit;
-  }
 };
 
 export function getBudgets() {
@@ -31,9 +18,9 @@ export function createBudget(settingsObj) {
     name: settingsObj.name,
     currency: settingsObj.currency,
     frequency: settingsObj.frequency,
-    limit: formatLimit(settingsObj.limit),
+    limit: formatNumber(settingsObj.limit),
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
-    tracking: `-${formatLimit(settingsObj.limit)}`,
+    tracking: `-${formatNumber(settingsObj.limit)}`,
     currentPeriod: 1,
     expenditures: [
     ]
