@@ -76,28 +76,6 @@
       "currentPeriod": 1,
       "expenditures": [],
       "id": 9
-    },
-    {
-      "name": "test parties",
-      "currency": "#",
-      "frequency": "month",
-      "limit": "45.00",
-      "startDate": "2020/6/5",
-      "tracking": "-45.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 10
-    },
-    {
-      "name": "blurbies",
-      "currency": "£",
-      "frequency": "week",
-      "limit": "38.00",
-      "startDate": "2020/6/5",
-      "tracking": "-38.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 11
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
-import { handleChange } from '../../shared/handlers';
+import { handleChange } from '../../utils/handlers';
 import Error from '../../shared/Error';
 
 function CreateBudget({ setBudgets }) {

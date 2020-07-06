@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { handleChange } from '../../shared/handlers';
-import { updateBudget } from '../../shared/fileUtils';
+import { handleChange } from '../../utils/handlers';
+import { updateBudget } from '../../utils/comms';
 import Error from '../../shared/Error';
 
 function Rename({ budget, setRename, setBudgetName }) {

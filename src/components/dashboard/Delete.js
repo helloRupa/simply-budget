@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteBudget } from '../../shared/fileUtils';
+import { deleteBudget } from '../../utils/comms';
 
 function Delete({ budget, setRemove, removeBudget }) {
   const close = () => {

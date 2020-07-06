@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatNumber } from '../../shared/format';
+import { formatNumber } from '../../utils/format';
 
 function Total({ budgets }) {
   const calculateTotal = () => 

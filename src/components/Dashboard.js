@@ -3,7 +3,7 @@ import './dashboard/CreateBudget';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import Total from './dashboard/Total';
-import { getBudgets } from '../shared/fileUtils';
+import { getBudgets } from '../utils/comms';
 
 function Dashboard() {
   const [budgets, setBudgets] = useState([]);
