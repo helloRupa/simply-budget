@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { handleChange } from '../../shared/handlers';
 import { updateBudget } from '../../shared/fileUtils';
+import Error from '../../shared/Error';
 
 function Rename({ budget, setRename, setBudgetName }) {
   const [name, setName] = useState(budget.name);
@@ -29,6 +30,7 @@ function Rename({ budget, setRename, setBudgetName }) {
         value={name} />
       <input type="submit" value="Update" />
       <button onClick={close}>Cancel</button>
+      <Error msg="Budget name is required" condition={!name} />
     </form>
   )
 }
