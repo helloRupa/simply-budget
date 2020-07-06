@@ -21,10 +21,6 @@ function CreateBudget({ setBudgets }) {
     }
   };
 
-  // const showError = () => showError && !showOptions;
-
-  // const displayError = () => (showError && !showOptions) ? <Error msg="Budget name is required" /> : '';
-
   return (
     <div>
       <form onSubmit={openOptions}>    
@@ -38,7 +34,6 @@ function CreateBudget({ setBudgets }) {
         </div>
       </form>
 
-      {/* { displayError() } */}
       <Error msg="Budget name is required" condition={showError} />
 
       { showOptions ? 

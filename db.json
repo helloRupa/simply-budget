@@ -34,28 +34,6 @@
       "id": 3
     },
     {
-      "name": "eeee",
-      "currency": "$",
-      "frequency": "month",
-      "limit": "222.00",
-      "startDate": "2020/6/5",
-      "tracking": "-222.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 4
-    },
-    {
-      "name": "",
-      "currency": "$",
-      "frequency": "week",
-      "limit": "4.00",
-      "startDate": "2020/6/5",
-      "tracking": "-4.00",
-      "currentPeriod": 1,
-      "expenditures": [],
-      "id": 5
-    },
-    {
       "name": "terst",
       "currency": "$",
       "frequency": "week",
@@ -109,6 +87,17 @@
       "currentPeriod": 1,
       "expenditures": [],
       "id": 10
+    },
+    {
+      "name": "blurbies",
+      "currency": "£",
+      "frequency": "week",
+      "limit": "38.00",
+      "startDate": "2020/6/5",
+      "tracking": "-38.00",
+      "currentPeriod": 1,
+      "expenditures": [],
+      "id": 11
     }
   ]
 }

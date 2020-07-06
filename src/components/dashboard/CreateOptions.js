@@ -3,16 +3,10 @@ import { handleChange } from '../../shared/handlers';
 import { createBudget, getBudgets } from '../../shared/fileUtils';
 import Error from '../../shared/Error';
 
-/*
-TODO: 
-    Error message if data is wrong
-*/
-
 function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
-  // const [showError, setShowError] = useState(false);
 
   const closeOptions = () => {
     setBudgetName('');
@@ -29,9 +23,6 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
       createBudget(budgetSettings)
         .then(() => getBudgets().then(setBudgets));
       closeOptions();
-      // setShowError(false);
-    // } else {
-    //   // setShowError(true);
     }
   };
 
@@ -45,8 +36,6 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
   };
 
   const showError = () => !(currency && limit && budgetName);
-
-  // const displayError = () => (showError) ? <Error msg="All details are required" /> : '';
 
   return (
     <form className="new-budget-options" onSubmit={saveOptions}>
@@ -72,7 +61,6 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
       </select>
       <input type="submit" value="Save Budget" />
       <button onClick={closeOptions}>Cancel</button>
-      {/* { displayError() } */}
       <Error msg="All details are required" condition={showError()} />
     </form>
   )
