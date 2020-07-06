@@ -1,21 +1,22 @@
 import React from 'react';
 import { deleteBudget } from '../../shared/fileUtils';
 
-function Delete({ budget, setRemove }) {
+function Delete({ budget, setRemove, removeBudget }) {
   const close = () => {
     setRemove(false);
   };
 
-  const removeBudget = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    deleteBudget(budget.id);
+    deleteBudget(budget.id)
+      .then(() => removeBudget(budget.id));
     close();
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2>Delete {budget.name}?</h2>
-      <button onClick={removeBudget}>Yes</button>
+      <input type="submit" value="Yes"/>
       <button onClick={close}>No</button>
     </form>
   )

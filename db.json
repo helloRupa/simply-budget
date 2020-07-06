@@ -1,0 +1,26 @@
+{
+  "budgets": [
+    {
+      "name": "Testing",
+      "currency": "$",
+      "frequency": "month",
+      "limit": "300.00",
+      "startDate": "2020/6/5",
+      "tracking": "-300.00",
+      "currentPeriod": 1,
+      "expenditures": [],
+      "id": 1
+    },
+    {
+      "name": "Again",
+      "currency": "$",
+      "frequency": "week",
+      "limit": "300.00",
+      "startDate": "2020/6/5",
+      "tracking": "-300.00",
+      "currentPeriod": 1,
+      "expenditures": [],
+      "id": 2
+    }
+  ]
+}

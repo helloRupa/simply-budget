@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './dashboard/CreateBudget';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import Total from './dashboard/Total';
-import allBudgets from '../db.json';
-// import { fetchBudgets } from '../shared/fileUtils';
+import { getBudgets } from '../shared/fileUtils';
 
 function Dashboard() {
-  const budgets = allBudgets.budgets;
+  const [budgets, setBudgets] = useState([]);
+
+  const removeBudget = id => {
+    setBudgets(budgets.filter(budget => budget.id !== id));
+  };
+
+  useEffect(() => {
+    getBudgets().then(setBudgets);
+  }, []);
 
   return (
     <div>
-      <CreateBudget />
-      <Budgets budgets={budgets} />
+      <CreateBudget setBudgets={setBudgets} />
+      <Budgets budgets={budgets} removeBudget={removeBudget} />
       <Total budgets={budgets} />
     </div>
   )

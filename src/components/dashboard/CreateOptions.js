@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { handleChange } from '../../shared/handlers';
-import { createBudget } from '../../shared/fileUtils';
+import { createBudget, getBudgets } from '../../shared/fileUtils';
 
 /*
 TODO: 
     Error message if data is wrong
 */
 
-function CreateOptions({ setShowOptions, budgetName, setBudgetName }) {
+function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
@@ -17,12 +17,15 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName }) {
     setShowOptions(false);
   };
 
-  const saveOptions = () => {
+  const saveOptions = e => {
+    e.preventDefault();
+
     if (currency && limit) {
       const budgetSettings = { currency, limit, frequency };
       budgetSettings.name = budgetName;
 
-      createBudget(budgetSettings);
+      createBudget(budgetSettings)
+        .then(() => getBudgets().then(setBudgets));
       closeOptions();
     }
   };
@@ -37,7 +40,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName }) {
   };
 
   return (
-    <form className="new-budget-options">
+    <form className="new-budget-options" onSubmit={saveOptions}>
       <h2>{budgetName}</h2>
       <span>I want to spend </span>
       <input 
@@ -58,7 +61,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName }) {
         <option value="week">Week</option>
         <option value="month">Month</option>
       </select>
-      <button onClick={saveOptions}>Save Budget</button>
+      <input type="submit" value="Save Budget" />
       <button onClick={closeOptions}>Cancel</button>
     </form>
   )

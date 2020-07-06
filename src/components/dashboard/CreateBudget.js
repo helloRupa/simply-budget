@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
 import { handleChange } from '../../shared/handlers';
 
-function CreateBudget() {
+function CreateBudget({ setBudgets }) {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
 
@@ -29,6 +29,7 @@ function CreateBudget() {
 
       { showOptions ? 
         <CreateOptions 
+          setBudgets={setBudgets}
           setShowOptions={setShowOptions} 
           setBudgetName={setBudgetName}
           budgetName={budgetName} /> : 
