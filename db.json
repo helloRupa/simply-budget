@@ -21,6 +21,17 @@
       "currentPeriod": 1,
       "expenditures": [],
       "id": 2
+    },
+    {
+      "name": "Test",
+      "currency": "$",
+      "frequency": "month",
+      "limit": "300.00",
+      "startDate": "2020/6/5",
+      "tracking": "-300.00",
+      "currentPeriod": 1,
+      "expenditures": [],
+      "id": 3
     }
   ]
 }

@@ -16,14 +16,14 @@ function CreateBudget({ setBudgets }) {
 
   return (
     <div>
-      <form>    
+      <form onSubmit={openOptions}>    
         <div className="new-budget-name">
           <input type="text" 
             placeholder="New Budget Name" 
             id="new-budget-name"
             onChange={(e) => handleChange(e, setBudgetName)}
             value={budgetName} />
-          <button onClick={openOptions}>+</button>
+          <input type="submit" value="+" />
         </div>
       </form>
 
