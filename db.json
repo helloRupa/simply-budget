@@ -26,7 +26,7 @@
       "id": 1
     },
     {
-      "name": "Again",
+      "name": "Agains",
       "currency": "$",
       "frequency": "week",
       "limit": "300.00",
@@ -34,6 +34,17 @@
       "tracking": "-300.00",
       "currentPeriod": 1,
       "id": 2
+    },
+    {
+      "name": "TestingsTest",
+      "currency": "$",
+      "frequency": "week",
+      "limit": "5.00",
+      "startDate": "2020/6/7",
+      "tracking": "-5.00",
+      "currentPeriod": 1,
+      "expenditures": [],
+      "id": 3
     }
   ],
   "expenditures": [

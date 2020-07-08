@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
+import { getSettings } from '../../utils/comms';
 
 function Settings() {
   const [currency, setCurrency] = useState('');
   const [maxItems, setMaxItems] = useState('');
+
+  useEffect(() => {
+    getSettings()
+      .then(settings => {
+        setCurrency(settings['default-currency']);
+        setMaxItems(settings['max-length']);
+      });
+  }, []);
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
