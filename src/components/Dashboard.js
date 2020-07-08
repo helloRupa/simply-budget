@@ -4,6 +4,7 @@ import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import Total from './dashboard/Total';
 import { getBudgets } from '../utils/comms';
+import Settings from './dashboard/Settings';
 
 function Dashboard() {
   const [budgets, setBudgets] = useState([]);
@@ -21,6 +22,7 @@ function Dashboard() {
       <CreateBudget setBudgets={setBudgets} />
       <Budgets budgets={budgets} removeBudget={removeBudget} />
       <Total budgets={budgets} />
+      <Settings />
     </div>
   )
 }

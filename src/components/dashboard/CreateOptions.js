@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { handleChange } from '../../utils/handlers';
+import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
 import { createBudget, getBudgets } from '../../utils/comms';
 import Error from '../../shared/Error';
 
@@ -27,12 +27,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
   };
 
   const handleLimit = e => {
-    const regex = RegExp(/^\d+(\.\d?\d?)?$/);
-    const value = e.target.value;
-
-    if (regex.test(value) || !value) {
-      handleChange(e, setLimit);
-    }
+    handleChangeWithRegex(e, /^\d+(\.\d?\d?)?$/, setLimit);
   };
 
   const showError = () => !(currency && limit && budgetName);
