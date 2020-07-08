@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
-import { getSettings } from '../../utils/comms';
+import { getSettings, updateSettings } from '../../utils/comms';
 
 function Settings() {
   const [currency, setCurrency] = useState('');
@@ -20,6 +20,10 @@ function Settings() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    updateSettings({
+      "default-currency": currency,
+      "max-length": maxItems
+    });
   };
 
   return <div>

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "default-currency": "",
-      "max-length": 250,
+      "max-length": "250",
       "categories": [
         "Groceries",
         "Bills",

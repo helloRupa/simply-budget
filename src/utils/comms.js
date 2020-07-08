@@ -66,3 +66,16 @@ export function deleteBudget(id) {
 export function getSettings() {
   return generalFetch(settingsUrl);
 }
+
+export function updateSettings(settings) {
+  const patchUrl = settingsUrl;
+  const options = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(settings)
+  };
+
+  return generalFetch(patchUrl, options);
+} 
