@@ -4,11 +4,27 @@ const baseUrl = 'http://localhost:8000';
 const budgetsUrl = `${baseUrl}/budgets`;
 const settingsUrl = `${baseUrl}/settings/1`;
 
-const generalFetch = (url, options) => {
+function createOptions(method, body={}) {
+  return {
+    method,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  };
+}
+
+function generalFetch(url, options) {
   return fetch(url, options)
     .then(res => res.json())
     .catch(console.log)
-};
+}
+
+function changeData(url, method, body={}) {
+  const options = createOptions(method, body);
+
+  return generalFetch(url, options);
+}
 
 export function getBudgets() {
   return generalFetch(budgetsUrl);
@@ -27,40 +43,18 @@ export function createBudget(settingsObj) {
     expenditures: [
     ]
   };
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(budgetObj)
-  };
 
-  return generalFetch(budgetsUrl, options);
+  return changeData(budgetsUrl, 'POST', budgetObj);
 };
 
 export function updateBudget(id, budget) {
   const patchUrl = `${budgetsUrl}/${id}`;
-  const options = {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(budget)
-  };
-
-  return generalFetch(patchUrl, options);
+  return changeData(patchUrl, 'PATCH', budget);
 } 
 
 export function deleteBudget(id) {
   const deleteUrl = `${budgetsUrl}/${id}`;
-  const options = {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-
-  return generalFetch(deleteUrl, options);
+  return changeData(deleteUrl, 'DELETE');
 }
 
 export function getSettings() {
@@ -68,14 +62,5 @@ export function getSettings() {
 }
 
 export function updateSettings(settings) {
-  const patchUrl = settingsUrl;
-  const options = {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(settings)
-  };
-
-  return generalFetch(patchUrl, options);
+  return changeData(settingsUrl, 'PATCH', settings);
 } 
