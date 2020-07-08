@@ -8,21 +8,31 @@ import Settings from './dashboard/Settings';
 
 function Dashboard() {
   const [budgets, setBudgets] = useState([]);
+  const [showSettings, setShowSettings] = useState(false);
+
+  useEffect(() => {
+    getBudgets().then(setBudgets);
+  }, []);
 
   const removeBudget = id => {
     setBudgets(budgets.filter(budget => budget.id !== id));
   };
 
-  useEffect(() => {
-    getBudgets().then(setBudgets);
-  }, []);
+  const handleShowSettingsClick = () => {
+    setShowSettings(!showSettings);
+  };
+
+  const updateSettingsButton = () => (showSettings) ? 'Close Settings' : 'Show Settings';
+
+  const displaySettings = () => (showSettings) ? <Settings /> : '';
 
   return (
     <div>
       <CreateBudget setBudgets={setBudgets} />
       <Budgets budgets={budgets} removeBudget={removeBudget} />
       <Total budgets={budgets} />
-      <Settings />
+      {displaySettings()}
+      <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
     </div>
   )
 }
