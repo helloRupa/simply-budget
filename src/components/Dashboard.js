@@ -24,7 +24,7 @@ function Dashboard() {
 
   const updateSettingsButton = () => (showSettings) ? 'Close Settings' : 'Show Settings';
 
-  const displaySettings = () => (showSettings) ? <Settings /> : '';
+  const displaySettings = () => (showSettings) ? <Settings setShowSettings={setShowSettings} /> : '';
 
   return (
     <div>

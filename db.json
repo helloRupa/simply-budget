@@ -2,7 +2,7 @@
   "settings": [
     {
       "id": 1,
-      "default-currency": "",
+      "default-currency": "£",
       "max-length": "250",
       "categories": [
         "Groceries",

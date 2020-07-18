@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
 import { getSettings, updateSettings } from '../../utils/comms';
 
-function Settings() {
+function Settings({ setShowSettings }) {
   const [currency, setCurrency] = useState('');
   const [maxItems, setMaxItems] = useState('');
 
@@ -24,6 +24,7 @@ function Settings() {
       "default-currency": currency,
       "max-length": maxItems
     });
+    setShowSettings(false);
   };
 
   return <div>

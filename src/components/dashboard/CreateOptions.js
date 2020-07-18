@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
-import { createBudget, getBudgets } from '../../utils/comms';
+import { createBudget, getBudgets, getSettings } from '../../utils/comms';
 import Error from '../../shared/Error';
 
 function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
+
+  useEffect(() => {
+    getSettings()
+      .then(settings => {
+        setCurrency(settings['default-currency']);
+      });
+  }, []);
 
   const closeOptions = () => {
     setBudgetName('');
