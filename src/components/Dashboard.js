@@ -6,7 +6,7 @@ import Total from './dashboard/Total';
 import { getBudgets } from '../utils/comms';
 import Settings from './dashboard/Settings';
 
-function Dashboard() {
+function Dashboard({ selectBudget }) {
   const [budgets, setBudgets] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
 
@@ -29,7 +29,7 @@ function Dashboard() {
   return (
     <div>
       <CreateBudget setBudgets={setBudgets} />
-      <Budgets budgets={budgets} removeBudget={removeBudget} />
+      <Budgets budgets={budgets} removeBudget={removeBudget} selectBudget={selectBudget} />
       <Total budgets={budgets} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
