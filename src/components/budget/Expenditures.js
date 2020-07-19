@@ -11,12 +11,12 @@ function Expenditures() {
     </div>
 
     <div>
-      <h3>Older Expenditures</h3>
+      <h3>Older</h3>
       <ul>
         <li>10/15/2020: Food $52.56 <button>Edit</button></li>
         <li>10/12/2020: Electronics $180.99 <button>Edit</button></li>
       </ul>
-      <button>Load More</button>
+      
     </div>
   </section>
 }
