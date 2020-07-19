@@ -10,7 +10,7 @@ function Budget({ budget, budget: { name, currency, tracking }, removeBudget, se
   };
 
   const handleClick = () => {
-    selectBudget(budget.id);
+    selectBudget(budget);
   }
 
   return (
