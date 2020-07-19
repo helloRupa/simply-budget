@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from './budget/Form';
 import Expenditures from './budget/Expenditures';
+import { getBudgetExpenditures } from '../utils/comms';
 
 function Budget({ budget: { id, name, currency, limit, frequency, tracking } }) {
-  
+  const [expenditures, setExpenditures] = useState({});
+
+  useEffect(() => {
+    getBudgetExpenditures(id)
+      .then(setExpenditures);
+  }, [id]);
+
   return (
     <div>
       <h2>{ name }</h2>
@@ -15,7 +22,7 @@ function Budget({ budget: { id, name, currency, limit, frequency, tracking } }) 
         <li>Spent (period): $30.00</li>
       </ul>
 
-      <Expenditures />
+      <Expenditures expenditures={expenditures} />
       <Form />
     </div>
   )

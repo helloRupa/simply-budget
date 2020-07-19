@@ -3,6 +3,8 @@ import { formatNumber } from './format';
 const baseUrl = 'http://localhost:8000';
 const budgetsUrl = `${baseUrl}/budgets`;
 const settingsUrl = `${baseUrl}/settings/1`;
+const expendituresUrl = `${baseUrl}/expenditures`;
+const budgetExpendituresUrl = id => `${baseUrl}/budgets/${id}/expenditures`;
 
 function createOptions(method, body={}) {
   return {
@@ -28,7 +30,7 @@ function changeData(url, method, body={}) {
 
 export function getBudgets() {
   return generalFetch(budgetsUrl);
-}
+};
 
 export function createBudget(settingsObj) {
   const date = new Date();
@@ -50,17 +52,21 @@ export function createBudget(settingsObj) {
 export function updateBudget(id, budget) {
   const patchUrl = `${budgetsUrl}/${id}`;
   return changeData(patchUrl, 'PATCH', budget);
-} 
+};
 
 export function deleteBudget(id) {
   const deleteUrl = `${budgetsUrl}/${id}`;
   return changeData(deleteUrl, 'DELETE');
-}
+};
 
 export function getSettings() {
   return generalFetch(settingsUrl);
-}
+};
 
 export function updateSettings(settings) {
   return changeData(settingsUrl, 'PATCH', settings);
-} 
+};
+
+export function getBudgetExpenditures(id) {
+  return generalFetch(budgetExpendituresUrl(id));
+};
