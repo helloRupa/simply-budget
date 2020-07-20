@@ -1,5 +1,3 @@
-import { formatNumber } from './format';
-
 const baseUrl = 'http://localhost:8000';
 const budgetsUrl = `${baseUrl}/budgets`;
 const settingsUrl = `${baseUrl}/settings/1`;
@@ -38,9 +36,9 @@ export function createBudget(settingsObj) {
     name: settingsObj.name,
     currency: settingsObj.currency,
     frequency: settingsObj.frequency,
-    limit: formatNumber(settingsObj.limit),
+    limit: settingsObj.limit,
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
-    tracking: `-${formatNumber(settingsObj.limit)}`,
+    tracking: -settingsObj.limit,
     currentPeriod: 1,
     expenditures: [
     ]

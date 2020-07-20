@@ -8,6 +8,8 @@ import { selectExpenditures } from '../utils/selectors';
 // show another period when clicking button
 // add an expenditure
 
+// show error messages for forms
+
 function Budget({ budget: { id, name, currency, limit, frequency, tracking, currentPeriod } }) {
   const [expenditures, setExpenditures] = useState([]);
 

@@ -24,7 +24,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
     e.preventDefault();
 
     if (currency && limit && budgetName) {
-      const budgetSettings = { currency, limit, frequency };
+      const budgetSettings = { currency, frequency, limit: parseFloat(limit) };
       budgetSettings.name = budgetName;
 
       createBudget(budgetSettings)

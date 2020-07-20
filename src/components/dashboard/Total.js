@@ -3,7 +3,7 @@ import { formatNumber } from '../../utils/format';
 
 function Total({ budgets }) {
   const calculateTotal = () => 
-    budgets.reduce((total, budget) => parseFloat(budget.tracking) + total, 0);
+    budgets.reduce((total, budget) => budget.tracking + total, 0);
 
   const displayTotal = () => formatNumber(calculateTotal());
 
