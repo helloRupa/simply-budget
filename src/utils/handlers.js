@@ -10,3 +10,7 @@ export function handleChangeWithRegex(e, expr, callback) {
     handleChange(e, callback);
   }
 };
+
+export function handleAmountChange(e, callback) {
+  handleChangeWithRegex(e, /^\d+(\.\d?\d?)?$/, callback);
+};

@@ -70,3 +70,7 @@ export function updateSettings(settings) {
 export function getBudgetExpenditures(id) {
   return generalFetch(budgetExpendituresUrl(id));
 };
+
+export function updateExpenditure(id, expenditure) {
+  return changeData(`${expendituresUrl}/${id}`, 'PATCH', expenditure);
+};
