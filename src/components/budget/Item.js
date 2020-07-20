@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EditItem from './EditItem';
 
-function Item({ item, item: { id, date, title, amount }, currency }) {
+function Item({ item, item: { id, date, title, amount }, currency, setExpenditures }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleClick = () => {
@@ -11,7 +11,13 @@ function Item({ item, item: { id, date, title, amount }, currency }) {
   return (
     <>
       { date }: { title } { currency }{ amount } <button onClick={handleClick}>Edit</button>
-      { (showEdit) ? <EditItem item={item} currency={currency} setShowEdit={setShowEdit} /> : '' }
+      { (showEdit) ? 
+        <EditItem 
+          item={item} 
+          currency={currency} 
+          setShowEdit={setShowEdit} 
+          setExpenditures={setExpenditures}
+        /> : '' }
     </>
   );
 }

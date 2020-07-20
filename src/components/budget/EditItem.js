@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
-import { updateExpenditure } from '../../utils/comms';
+import { updateExpenditure, getBudgetExpenditures } from '../../utils/comms';
 
-function EditForm({ item: { id, title, amount }, currency, setShowEdit }) {
+function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit, setExpenditures }) {
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) });
+    updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) })
+      .then(() => {
+        getBudgetExpenditures(budgetId)
+      .then(setExpenditures);
+      });
     setShowEdit(false);
   }
 

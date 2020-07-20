@@ -38,7 +38,12 @@ function Budget({ budget: { id, name, currency, limit, frequency, tracking, curr
         <li>Spent (period): { currency }{ totalSpentForPeriod() }</li>
       </ul>
 
-      <Expenditures expenditures={expenditures} currentPeriod={currentPeriod} currency={currency} />
+      <Expenditures 
+        expenditures={expenditures} 
+        currentPeriod={currentPeriod} 
+        currency={currency} 
+        setExpenditures={setExpenditures}
+      />
       <button>Load More</button>
       <Form />
     </div>
