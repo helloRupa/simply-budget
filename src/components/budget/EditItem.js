@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
 import { updateExpenditure, getBudgetExpenditures } from '../../utils/comms';
+import Error from '../../shared/Error';
 
 function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit, setExpenditures }) {
   const [newTitle, setTitle] = useState(title);
@@ -8,13 +9,17 @@ function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) })
+
+    if (newAmount !== '') {
+      updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) })
       .then(() => {
         getBudgetExpenditures(budgetId)
-          .then(setExpenditures);
+        .then(setExpenditures);
       });
-    setShowEdit(false);
-  }
+
+      setShowEdit(false);
+    } 
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -32,6 +37,8 @@ function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit
       />
       <input type="submit" value="Update Item" />
       <button onClick={() => { setShowEdit(false) }}>Cancel</button>
+
+      <Error msg="Amount is required" condition={ newAmount === '' } />
     </form>
   )
 }

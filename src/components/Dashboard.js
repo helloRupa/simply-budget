@@ -6,6 +6,8 @@ import Total from './dashboard/Total';
 import { getBudgets } from '../utils/comms';
 import Settings from './dashboard/Settings';
 
+// ADD ARCHIVING
+
 function Dashboard({ selectBudget }) {
   const [budgets, setBudgets] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
