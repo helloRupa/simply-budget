@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import EditItem from './EditItem';
+import { deleteExpenditure, getBudgetExpenditures } from '../../utils/comms';
 
-function Item({ item, item: { id, date, title, amount }, currency, setExpenditures }) {
+function Item({ item, item: { id, date, title, amount, budgetId }, currency, setExpenditures }) {
   const [showEdit, setShowEdit] = useState(false);
 
-  const handleClick = () => {
+  const handleEdit = () => {
     setShowEdit(!showEdit);
+  };
+
+  const handleDelete = () => {
+    deleteExpenditure(id)
+      .then(() => {
+        getBudgetExpenditures(budgetId)
+          .then(setExpenditures);
+      });
   };
 
   return (
     <>
-      { date }: { title } { currency }{ amount } <button onClick={handleClick}>Edit</button>
+      { date }: { title } { currency }{ amount } <button onClick={handleEdit}>Edit</button> 
+      <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 
         <EditItem 
           item={item} 

@@ -11,7 +11,7 @@ function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit
     updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) })
       .then(() => {
         getBudgetExpenditures(budgetId)
-      .then(setExpenditures);
+          .then(setExpenditures);
       });
     setShowEdit(false);
   }

@@ -36,22 +36,5 @@
       "id": 2
     }
   ],
-  "expenditures": [
-    {
-      "id": 1,
-      "budgetId": 1,
-      "title": "",
-      "amount": 50,
-      "date": "2020/6/8",
-      "period": 1
-    },
-    {
-      "id": 2,
-      "budgetId": 1,
-      "title": "",
-      "amount": 15,
-      "date": "2020/6/6",
-      "period": 1
-    }
-  ]
+  "expenditures": []
 }

@@ -74,3 +74,8 @@ export function getBudgetExpenditures(id) {
 export function updateExpenditure(id, expenditure) {
   return changeData(`${expendituresUrl}/${id}`, 'PATCH', expenditure);
 };
+
+export function deleteExpenditure(id) {
+  const deleteUrl = `${expendituresUrl}/${id}`;
+  return changeData(deleteUrl, 'DELETE');
+};
