@@ -3,6 +3,7 @@ import Form from './budget/Form';
 import Expenditures from './budget/Expenditures';
 import { getBudgetExpenditures } from '../utils/comms';
 import { selectExpenditures } from '../utils/selectors';
+import { formatNumber } from '../utils/format';
 // populate expenditures, handle empty expenditures
 // show current and old expenditures
 // show another period when clicking button
@@ -10,7 +11,7 @@ import { selectExpenditures } from '../utils/selectors';
 
 // show error messages for forms
 
-function Budget({ budget: { id, name, currency, limit, frequency, tracking, currentPeriod } }) {
+function Budget({ budget: { id, name, currency, limit=500, frequency, tracking=-500, currentPeriod } }) {
   const [expenditures, setExpenditures] = useState([]);
 
   useEffect(() => {
@@ -26,18 +27,18 @@ function Budget({ budget: { id, name, currency, limit, frequency, tracking, curr
   const currentTracking = () => {
     // sum all expend amounts for current period
     // subtract from limit
-    return parseFloat(limit) - totalSpentForPeriod();
+    return limit - totalSpentForPeriod();
   };
 
   return (
     <div>
       <h2>{ name }</h2>
-      <p>Spend { currency }{ limit } per { frequency } or less!</p>
-      <p>Tracking (lifetime): { currency }{ tracking }</p>
+      <p>Spend { currency }{ formatNumber(limit) } per { frequency } or less!</p>
+      <p>Tracking (lifetime): { currency }{ formatNumber(tracking) }</p>
 
       <ul>
-        <li>Left to Spend (period): { currency }{ currentTracking() }</li>
-        <li>Spent (period): { currency }{ totalSpentForPeriod() }</li>
+        <li>Left to Spend (period): { currency }{ formatNumber(currentTracking()) }</li>
+        <li>Spent (period): { currency }{ formatNumber(totalSpentForPeriod()) }</li>
       </ul>
 
       <Expenditures 
