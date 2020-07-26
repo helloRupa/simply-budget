@@ -16,3 +16,10 @@ export function formatNumber(value) {
       return value;
   }
 };
+
+export function formatBudgets(budgets) {
+  return budgets.reduce((accum, el) => { 
+    accum[el.id] = el; 
+    return accum; 
+  }, {});
+};
