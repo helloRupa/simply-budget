@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 
 function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) {
   const [showMenu, setShowMenu] = useState(false);
-  const [budgetName, setBudgetName] = useState(name);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -20,11 +19,11 @@ function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) 
     <div>
       <button className="budget-menu" onClick={toggleMenu}>M</button>
       <span onClick={handleClick}>
-        <span className="budget-name">{budgetName}</span>
+        <span className="budget-name">{name}</span>
         <span className="budget-currency">{currency}</span>
         <span className="budget-tracking">{formatNumber(tracking)}</span>
       </span>
-      <div>{ showMenu ? <BudgetMenu budget={budget} setBudgetName={setBudgetName} /> : '' }</div>
+      <div>{ showMenu ? <BudgetMenu budget={budget} setShowMenu={setShowMenu} /> : '' }</div>
     </div>
   )
 }

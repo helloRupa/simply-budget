@@ -1,4 +1,4 @@
-import { getBudgets, deleteBudget } from '../utils/comms';
+import { getBudgets, deleteBudget, updateBudget } from '../utils/comms';
 // import { formatBudgets } from '../utils/format';
 
 export const addBudgets = budgets => ({
@@ -7,7 +7,7 @@ export const addBudgets = budgets => ({
 });
 
 export function fetchBudgets() {
-  return (dispatch) => {
+  return dispatch => {
     getBudgets()
     .then(budgets => {
       dispatch(addBudgets(budgets));
@@ -26,10 +26,24 @@ export const removeBudget = id => ({
 });
 
 export function destroyBudget(id) {
-  return (dispatch) => {
+  return dispatch => {
     deleteBudget(id)
     .then(budget => {
       dispatch(removeBudget(id));
+    });
+  };
+};
+
+export const changeBudget = budget => ({
+  type: 'CHANGE_BUDGET',
+  budget
+});
+
+export function patchBudget(id, budget) {
+  return dispatch => {
+    updateBudget(id, budget)
+    .then(budget => {
+      dispatch(changeBudget(budget));
     });
   };
 };

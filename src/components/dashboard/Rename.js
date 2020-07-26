@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { handleChange } from '../../utils/handlers';
-import { updateBudget } from '../../utils/comms';
+// import { updateBudget } from '../../utils/comms';
+import { patchBudget } from '../../actions/budget_actions';
+import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function Rename({ budget, setRename, setBudgetName }) {
+function Rename({ budget, setShowMenu, patchBudget }) {
   const [name, setName] = useState(budget.name);
 
   const close = () => {
-    setRename(false);
+    setShowMenu(false);
   }
 
   const updateName = e => {
     e.preventDefault();
 
     if (name.length > 1) {
-      updateBudget(budget.id, { name })
-        .then(budget => setBudgetName(budget.name));
+      patchBudget(budget.id, { name });
       close();
     }
   }
@@ -35,4 +36,4 @@ function Rename({ budget, setRename, setBudgetName }) {
   )
 }
 
-export default Rename;
+export default connect(null, { patchBudget })(Rename);

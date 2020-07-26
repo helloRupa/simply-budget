@@ -5,9 +5,14 @@ const budgetState = {
 
 function budgetReducer(state = budgetState, action) {
   switch(action.type) {
+    case 'CHANGE_BUDGET':
+      return {
+        ...state,
+        budgets: state.budgets.map(budget => 
+          (budget.id === action.budget.id) ? action.budget : budget
+        )
+      };
     case 'REMOVE_BUDGET':
-      console.log(action);
-      console.log(state.budgets);
       return {
         ...state,
         budgets: state.budgets.filter(budget => budget.id !== action.id)

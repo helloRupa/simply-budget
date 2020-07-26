@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 // ADD ARCHIVING
 
 function Dashboard({ selectBudget, budgets, fetchBudgets }) {
-  const [budgetsss, setBudgets] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {

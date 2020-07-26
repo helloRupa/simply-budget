@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Rename from './Rename';
 import Delete from './Delete';
 
-function BudgetMenu({ budget, setBudgetName }) {
+function BudgetMenu({ budget, setShowMenu }) {
   const [rename, setRename] = useState(false);
   const [remove, setRemove] = useState(false);
 
@@ -13,7 +13,7 @@ function BudgetMenu({ budget, setBudgetName }) {
         <li><button onClick={() => setRemove(true)}>Delete</button></li>
       </ul>
 
-      { rename ? <Rename budget={budget} setRename={setRename} setBudgetName={setBudgetName} /> : ''}
+      { rename ? <Rename budget={budget} setShowMenu={setShowMenu} /> : ''}
       { remove ? <Delete budget={budget} setRemove={setRemove} /> : '' }
     </div>
   )
