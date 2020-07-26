@@ -33,7 +33,7 @@
       "startDate": "2020/6/5",
       "tracking": -300,
       "currentPeriod": 1,
-      "id": 2
+      "id": 3
     }
   ],
   "expenditures": [
@@ -41,23 +41,15 @@
       "id": 1,
       "budgetId": 1,
       "title": "",
-      "amount": 25.50,
+      "amount": 25.5,
       "date": "2020/7/13",
-      "period": 1
-    },
-    {
-      "id": 2,
-      "budgetId": 2,
-      "title": "Food",
-      "amount": 36.52,
-      "date": "2020/7/12",
       "period": 1
     },
     {
       "id": 3,
       "budgetId": 1,
       "title": "",
-      "amount": 15.50,
+      "amount": 15.5,
       "date": "2020/7/14",
       "period": 1
     }

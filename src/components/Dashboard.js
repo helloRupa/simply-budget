@@ -36,19 +36,17 @@ function Dashboard({ selectBudget, budgets, fetchBudgets }) {
 
   return (
     <div>
-      {/* <CreateBudget setBudgets={setBudgets} />
-      <Budgets budgets={budgets} removeBudget={removeBudget} selectBudget={selectBudget} />
-      <Total budgets={budgets} />
+      {/* <CreateBudget setBudgets={setBudgets} /> */}
+      <Budgets budgets={budgets} />
+      {/*<Total budgets={budgets} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button> */}
     </div>
   )
 }
 
-// export default Dashboard;
-
 const mapStateToProps = state => ({
-  budgets: state.budgets
+  budgets: state.budget.budgets
 });
 
 export default connect(mapStateToProps, { fetchBudgets })(Dashboard);

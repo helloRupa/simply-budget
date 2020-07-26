@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import BudgetMenu from './BudgetMenu';
 import { formatNumber } from '../../utils/format';
+import { selectBudget } from '../../actions/budget_actions';
+import { connect } from 'react-redux';
 
-function Budget({ budget, budget: { name, currency, tracking }, removeBudget, selectBudget }) {
+function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) {
   const [showMenu, setShowMenu] = useState(false);
   const [budgetName, setBudgetName] = useState(name);
 
@@ -22,9 +24,11 @@ function Budget({ budget, budget: { name, currency, tracking }, removeBudget, se
         <span className="budget-currency">{currency}</span>
         <span className="budget-tracking">{formatNumber(tracking)}</span>
       </span>
-      <div>{ showMenu ? <BudgetMenu budget={budget} setBudgetName={setBudgetName} removeBudget={removeBudget} /> : '' }</div>
+      <div>{ showMenu ? <BudgetMenu budget={budget} setBudgetName={setBudgetName} /> : '' }</div>
     </div>
   )
 }
 
-export default Budget;
+// export default Budget;
+
+export default connect(null, { selectBudget })(Budget);

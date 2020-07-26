@@ -1,15 +1,15 @@
 import React from 'react';
-import { deleteBudget } from '../../utils/comms';
+import { destroyBudget } from '../../actions/budget_actions';
+import { connect } from 'react-redux';
 
-function Delete({ budget, setRemove, removeBudget }) {
+function Delete({ budget, setRemove, destroyBudget }) {
   const close = () => {
     setRemove(false);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    deleteBudget(budget.id)
-      .then(() => removeBudget(budget.id));
+    destroyBudget(budget.id);
     close();
   };
 
@@ -22,4 +22,4 @@ function Delete({ budget, setRemove, removeBudget }) {
   )
 }
 
-export default Delete;
+export default connect(null, { destroyBudget })(Delete);

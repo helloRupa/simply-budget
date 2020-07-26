@@ -5,6 +5,13 @@ const budgetState = {
 
 function budgetReducer(state = budgetState, action) {
   switch(action.type) {
+    case 'REMOVE_BUDGET':
+      console.log(action);
+      console.log(state.budgets);
+      return {
+        ...state,
+        budgets: state.budgets.filter(budget => budget.id !== action.id)
+      };
     case 'ADD_BUDGETS':
       return {
         ...state,
