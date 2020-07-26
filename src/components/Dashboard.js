@@ -3,7 +3,6 @@ import './dashboard/CreateBudget';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import Total from './dashboard/Total';
-// import { getBudgets } from '../utils/comms';
 import { fetchBudgets } from '../actions/budget_actions';
 import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
@@ -14,17 +13,9 @@ function Dashboard({ selectBudget, budgets, fetchBudgets }) {
   const [budgetsss, setBudgets] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
 
-  // useEffect(() => {
-  //   getBudgets().then(setBudgets);
-  // }, []);
-
   useEffect(() => {
     fetchBudgets();
   }, []);
-
-  const removeBudget = id => {
-    setBudgets(budgets.filter(budget => budget.id !== id));
-  };
 
   const handleShowSettingsClick = () => {
     setShowSettings(!showSettings);

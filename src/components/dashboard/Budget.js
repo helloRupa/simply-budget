@@ -29,6 +29,4 @@ function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) 
   )
 }
 
-// export default Budget;
-
 export default connect(null, { selectBudget })(Budget);

@@ -20,7 +20,7 @@ function budgetReducer(state = budgetState, action) {
     case 'SELECT_BUDGET':
       return {
         ...state,
-        selected: action.selected
+        selected: action.budget
       };
     default: 
       return state;
