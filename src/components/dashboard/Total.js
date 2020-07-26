@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatNumber } from '../../utils/format';
 
-function Total({ budgets }) {
+function Total({ budgets=[] }) {
   const calculateTotal = () => 
     budgets.reduce((total, budget) => budget.tracking + total, 0);
 

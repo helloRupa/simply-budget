@@ -21,7 +21,7 @@
       "frequency": "month",
       "limit": 300,
       "startDate": "2020/6/5",
-      "tracking": -300,
+      "truncatedValue": 0,
       "currentPeriod": 1,
       "id": 1
     },
@@ -31,7 +31,7 @@
       "frequency": "week",
       "limit": 300,
       "startDate": "2020/6/5",
-      "tracking": -300,
+      "truncatedValue": 0,
       "currentPeriod": 1,
       "id": 2
     }

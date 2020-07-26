@@ -11,7 +11,7 @@ import { formatNumber } from '../utils/format';
 
 // show error messages for forms
 
-function Budget({ budget: { id, name, currency, limit=500, frequency, tracking=-500, currentPeriod } }) {
+function Budget({ budget: { id, name, currency, limit=500, frequency, truncatedValue=0, currentPeriod } }) {
   const [expenditures, setExpenditures] = useState([]);
 
   useEffect(() => {
@@ -24,17 +24,18 @@ function Budget({ budget: { id, name, currency, limit=500, frequency, tracking=-
     return currentExpends.reduce((total, item) => total + item.amount, 0);
   };
 
-  const currentTracking = () => {
-    // sum all expend amounts for current period
-    // subtract from limit
-    return limit - totalSpentForPeriod();
-  };
+  // current period only
+  const currentTracking = () => limit - totalSpentForPeriod();
+
+  const totalSpentForLifetime = () => expenditures.reduce((total, item) => total + item.amount, 0);
+
+  const lifetimeTracking = () => limit * currentPeriod - truncatedValue - totalSpentForLifetime();
 
   return (
     <div>
       <h2>{ name }</h2>
       <p>Spend { currency }{ formatNumber(limit) } per { frequency } or less!</p>
-      <p>Tracking (lifetime): { currency }{ formatNumber(tracking) }</p>
+      <p>Tracking (lifetime): { currency }{ formatNumber(lifetimeTracking()) }</p>
 
       <ul>
         <li>Left to Spend (period): { currency }{ formatNumber(currentTracking()) }</li>
