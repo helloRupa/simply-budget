@@ -21,13 +21,12 @@ const store = createStore(
 );
 
 function App() {
-  const [budget, selectBudget] = useState({});
 
   return (
     <Provider store={store}>
     <div className="App">
-      <Dashboard selectBudget={selectBudget} />
-      <Budget budget={budget} />
+      <Dashboard />
+      {/* <Budget budget={budget} /> */}
     </div>
     </Provider>
   );

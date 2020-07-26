@@ -5,6 +5,11 @@ const budgetState = {
 
 function budgetReducer(state = budgetState, action) {
   switch(action.type) {
+    case 'ADD_BUDGET':
+      return {
+        ...state,
+        budgets: [...state.budgets, action.budget]
+      };
     case 'CHANGE_BUDGET':
       return {
         ...state,

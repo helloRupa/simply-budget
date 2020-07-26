@@ -39,9 +39,7 @@ export function createBudget(settingsObj) {
     limit: settingsObj.limit,
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
     tracking: -settingsObj.limit,
-    currentPeriod: 1,
-    expenditures: [
-    ]
+    currentPeriod: 1
   };
 
   return changeData(budgetsUrl, 'POST', budgetObj);

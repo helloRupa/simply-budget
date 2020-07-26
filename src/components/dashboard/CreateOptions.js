@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
-import { createBudget, getBudgets, getSettings } from '../../utils/comms';
+import { getSettings } from '../../utils/comms';
+import { newBudget } from '../../actions/budget_actions';
+import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }) {
+function CreateOptions({ setShowOptions, budgetName, setBudgetName, newBudget }) {
   const [currency, setCurrency] = useState('');
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
@@ -26,9 +28,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
     if (currency && limit && budgetName) {
       const budgetSettings = { currency, frequency, limit: parseFloat(limit) };
       budgetSettings.name = budgetName;
-
-      createBudget(budgetSettings)
-        .then(() => getBudgets().then(setBudgets));
+      newBudget(budgetSettings);
       closeOptions();
     }
   };
@@ -68,4 +68,4 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
   )
 }
 
-export default CreateOptions;
+export default connect(null, { newBudget })(CreateOptions);

@@ -33,6 +33,16 @@
       "startDate": "2020/6/5",
       "tracking": -300,
       "currentPeriod": 1,
+      "id": 2
+    },
+    {
+      "name": "rt",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 56,
+      "startDate": "2020/6/25",
+      "tracking": -56,
+      "currentPeriod": 1,
       "id": 3
     }
   ],

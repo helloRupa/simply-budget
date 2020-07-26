@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 // ADD ARCHIVING
 
-function Dashboard({ selectBudget, budgets, fetchBudgets }) {
+function Dashboard({ budgets, fetchBudgets }) {
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Dashboard({ selectBudget, budgets, fetchBudgets }) {
 
   return (
     <div>
-      {/* <CreateBudget setBudgets={setBudgets} /> */}
+      <CreateBudget />
       <Budgets budgets={budgets} />
       {/*<Total budgets={budgets} />
       {displaySettings()}

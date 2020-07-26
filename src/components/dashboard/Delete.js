@@ -10,7 +10,6 @@ function Delete({ budget, setRemove, destroyBudget }) {
   const handleSubmit = e => {
     e.preventDefault();
     destroyBudget(budget.id);
-    close();
   };
 
   return (

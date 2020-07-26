@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { handleChange } from '../../utils/handlers';
-// import { updateBudget } from '../../utils/comms';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Error from '../../shared/Error';
