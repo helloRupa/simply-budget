@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import budgetReducer from './reducers/budget_reducer';
 import expenditureReducer from './reducers/expenditure_reducer';
+import settingsReducer from './reducers/settings_reducer';
 
 const store = createStore(
   combineReducers({
     budget: budgetReducer,
-    expenditure: expenditureReducer
+    expenditure: expenditureReducer,
+    settings: settingsReducer
   }),
   compose(
     applyMiddleware(thunk),
