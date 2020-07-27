@@ -23,6 +23,7 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, newBudget, d
 
     if (currency && limit && budgetName) {
       const budgetSettings = { currency, frequency, limit: parseFloat(limit) };
+      
       budgetSettings.name = budgetName;
       newBudget(budgetSettings);
       closeOptions();
