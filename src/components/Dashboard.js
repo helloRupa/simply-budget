@@ -10,6 +10,7 @@ import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
 
 // ADD ARCHIVING
+// SPLIT TOTALS BY CURRENCY
 
 function Dashboard({ 
   budgets, 
