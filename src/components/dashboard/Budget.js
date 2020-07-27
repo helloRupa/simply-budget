@@ -4,7 +4,7 @@ import { formatNumber } from '../../utils/format';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 
-function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) {
+function Budget({ budget, budget: { name, currency, truncated }, selectBudget }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -13,7 +13,7 @@ function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) 
 
   const handleClick = () => {
     selectBudget(budget);
-  }
+  };
 
   return (
     <div>
@@ -21,7 +21,7 @@ function Budget({ budget, budget: { name, currency, tracking }, selectBudget }) 
       <span onClick={handleClick}>
         <span className="budget-name">{name}</span>
         <span className="budget-currency">{currency}</span>
-        <span className="budget-tracking">{formatNumber(tracking)}</span>
+        <span className="budget-tracking">{formatNumber(truncated)}</span>
       </span>
       <div>{ showMenu ? <BudgetMenu budget={budget} setShowMenu={setShowMenu} /> : '' }</div>
     </div>

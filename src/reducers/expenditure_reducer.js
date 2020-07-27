@@ -1,10 +1,14 @@
 // id = budget id
 const expenditureState = {
-  expenditures: {}
 };
 
 function expenditureReducer(state = expenditureState, action) {
   switch(action.type) {
+    case 'ADD_EXPENDITURES':
+      return {
+        ...state,
+        ...action.expenditures
+      }
     default: 
       return state;
   }

@@ -5,18 +5,20 @@ import Budgets from './dashboard/Budgets';
 import Total from './dashboard/Total';
 import { fetchBudgets } from '../actions/budget_actions';
 import { fetchSettings } from '../actions/settings_actions';
+import { fetchExpenditures } from '../actions/expenditure_actions';
 import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
 
 // ADD ARCHIVING
 
-function Dashboard({ budgets, fetchBudgets, fetchSettings }) {
+function Dashboard({ budgets, fetchBudgets, fetchSettings, fetchExpenditures }) {
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     fetchBudgets();
     fetchSettings();
-  }, [fetchBudgets, fetchSettings]);
+    fetchExpenditures();
+  }, [fetchBudgets, fetchSettings, fetchExpenditures]);
 
   const handleShowSettingsClick = () => {
     setShowSettings(!showSettings);
@@ -41,4 +43,8 @@ const mapStateToProps = state => ({
   budgets: state.budget.budgets
 });
 
-export default connect(mapStateToProps, { fetchBudgets, fetchSettings })(Dashboard);
+export default connect(mapStateToProps, { 
+  fetchBudgets, 
+  fetchSettings, 
+  fetchExpenditures 
+})(Dashboard);

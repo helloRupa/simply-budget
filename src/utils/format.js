@@ -17,9 +17,21 @@ export function formatNumber(value) {
   }
 };
 
-export function formatBudgets(budgets) {
-  return budgets.reduce((accum, el) => { 
-    accum[el.id] = el; 
+// export function formatBudgets(budgets) {
+//   return budgets.reduce((accum, el) => { 
+//     accum[el.id] = el; 
+//     return accum; 
+//   }, {});
+// };
+
+export function formatExpenditures(expenditures) {
+  return expenditures.reduce((accum, el) => { 
+    if (!accum[el.budgetId]) {
+      accum[el.budgetId] = []; 
+    }
+    
+    accum[el.budgetId].push(el);
+
     return accum; 
   }, {});
 };
