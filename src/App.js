@@ -13,7 +13,7 @@ import settingsReducer from './reducers/settings_reducer';
 const store = createStore(
   combineReducers({
     budget: budgetReducer,
-    expenditure: expenditureReducer,
+    expenditures: expenditureReducer,
     settings: settingsReducer
   }),
   compose(

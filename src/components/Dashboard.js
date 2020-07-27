@@ -11,13 +11,19 @@ import { connect } from 'react-redux';
 
 // ADD ARCHIVING
 
-function Dashboard({ budgets, fetchBudgets, fetchSettings, fetchExpenditures }) {
+function Dashboard({ 
+  budgets, 
+  fetchBudgets, 
+  fetchSettings, 
+  fetchExpenditures,
+  expenditures
+}) {
   const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     fetchBudgets();
-    fetchSettings();
     fetchExpenditures();
+    fetchSettings();
   }, [fetchBudgets, fetchSettings, fetchExpenditures]);
 
   const handleShowSettingsClick = () => {
@@ -32,7 +38,7 @@ function Dashboard({ budgets, fetchBudgets, fetchSettings, fetchExpenditures }) 
     <div>
       <CreateBudget />
       <Budgets budgets={budgets} />
-      <Total budgets={budgets} />
+      <Total budgets={budgets} expenditures={expenditures} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
     </div>
@@ -40,7 +46,8 @@ function Dashboard({ budgets, fetchBudgets, fetchSettings, fetchExpenditures }) 
 }
 
 const mapStateToProps = state => ({
-  budgets: state.budget.budgets
+  budgets: state.budget.budgets,
+  expenditures: state.expenditures
 });
 
 export default connect(mapStateToProps, { 
