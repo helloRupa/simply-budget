@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
-import { getSettings, updateSettings } from '../../utils/comms';
+import { updateSettings } from '../../utils/comms';
 
-function Settings({ setShowSettings }) {
+import { connect } from 'react-redux';
+
+function Settings({ setShowSettings, settings }) {
   const [currency, setCurrency] = useState('');
   const [maxItems, setMaxItems] = useState('');
 
   useEffect(() => {
-    getSettings()
-      .then(settings => {
-        setCurrency(settings['default-currency']);
-        setMaxItems(settings['max-length']);
-      });
+    setCurrency(settings['default-currency']);
+    setMaxItems(settings['max-length']);
+    // getSettings()
+    //   .then(settings => {
+    //     setCurrency(settings['default-currency']);
+    //     setMaxItems(settings['max-length']);
+    //   });
   }, []);
 
   const handleMaxItems = e => {
@@ -58,4 +62,8 @@ function Settings({ setShowSettings }) {
   </div>
 }
 
-export default Settings;
+const mapStateToProps = state => ({
+  settings: state.settings
+});
+
+export default connect(mapStateToProps)(Settings);

@@ -30,9 +30,9 @@ function Dashboard({ budgets, fetchBudgets, fetchSettings }) {
     <div>
       <CreateBudget />
       <Budgets budgets={budgets} />
-      {/*<Total budgets={budgets} />
+      <Total budgets={budgets} />
       {displaySettings()}
-      <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button> */}
+      <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
     </div>
   )
 }
