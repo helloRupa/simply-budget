@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
 import { patchSettings } from '../../actions/settings_actions';
 import { connect } from 'react-redux';
 
 function Settings({ setShowSettings, settings, patchSettings }) {
-  const [currency, setCurrency] = useState('');
-  const [maxItems, setMaxItems] = useState('');
-
-  useEffect(() => {
-    setCurrency(settings['default-currency']);
-    setMaxItems(settings['max-length']);
-  }, []);
+  const [currency, setCurrency] = useState(settings['default-currency']);
+  const [maxItems, setMaxItems] = useState(settings['max-length']);
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);

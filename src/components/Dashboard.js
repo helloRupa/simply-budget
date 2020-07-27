@@ -16,7 +16,7 @@ function Dashboard({ budgets, fetchBudgets, fetchSettings }) {
   useEffect(() => {
     fetchBudgets();
     fetchSettings();
-  }, []);
+  }, [fetchBudgets, fetchSettings]);
 
   const handleShowSettingsClick = () => {
     setShowSettings(!showSettings);
