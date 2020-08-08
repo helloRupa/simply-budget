@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './dashboard/CreateBudget';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
-import Total from './dashboard/Total';
+import Totals from './dashboard/Totals';
 import { fetchBudgets } from '../actions/budget_actions';
 import { fetchSettings } from '../actions/settings_actions';
 import { fetchExpenditures } from '../actions/expenditure_actions';
@@ -10,7 +10,6 @@ import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
 
 // ADD ARCHIVING
-// SPLIT TOTALS BY CURRENCY
 
 function Dashboard({ 
   budgets, 
@@ -39,7 +38,7 @@ function Dashboard({
     <div>
       <CreateBudget />
       <Budgets budgets={budgets} />
-      <Total budgets={budgets} expenditures={expenditures} />
+      <Totals budgets={budgets} expenditures={expenditures} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
     </div>

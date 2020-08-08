@@ -4,7 +4,13 @@ import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function CreateOptions({ setShowOptions, budgetName, setBudgetName, newBudget, defaultCurrency }) {
+function CreateOptions({ 
+  setShowOptions, 
+  budgetName, 
+  setBudgetName, 
+  newBudget, 
+  defaultCurrency 
+}) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');

@@ -44,6 +44,36 @@
       "truncated": 0,
       "currentPeriod": 1,
       "id": 3
+    },
+    {
+      "name": "pounds",
+      "currency": "£",
+      "frequency": "month",
+      "limit": 400,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 4
+    },
+    {
+      "name": "pounds again",
+      "currency": "£",
+      "frequency": "week",
+      "limit": 200,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 5
+    },
+    {
+      "name": "whatevers",
+      "currency": "¢",
+      "frequency": "week",
+      "limit": 20,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 6
     }
   ],
   "expenditures": [
