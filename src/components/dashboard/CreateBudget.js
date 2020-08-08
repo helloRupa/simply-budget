@@ -3,7 +3,7 @@ import CreateOptions from './CreateOptions';
 import { handleChange } from '../../utils/handlers';
 import Error from '../../shared/Error';
 
-function CreateBudget({ setBudgets }) {
+function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
   const [showError, setShowError] = useState(false);
@@ -38,7 +38,6 @@ function CreateBudget({ setBudgets }) {
 
       { showOptions ? 
         <CreateOptions 
-          setBudgets={setBudgets}
           setShowOptions={setShowOptions} 
           setBudgetName={setBudgetName}
           budgetName={budgetName} /> : 

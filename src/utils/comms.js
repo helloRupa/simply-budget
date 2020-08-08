@@ -30,18 +30,16 @@ export function getBudgets() {
   return generalFetch(budgetsUrl);
 };
 
-export function createBudget(settingsObj) {
+export function createBudget({ name, currency, frequency, limit }) {
   const date = new Date();
   const budgetObj =  {
-    name: settingsObj.name,
-    currency: settingsObj.currency,
-    frequency: settingsObj.frequency,
-    limit: settingsObj.limit,
+    name,
+    currency,
+    frequency,
+    limit,
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
-    tracking: -settingsObj.limit,
-    currentPeriod: 1,
-    expenditures: [
-    ]
+    truncated: 0,
+    currentPeriod: 1
   };
 
   return changeData(budgetsUrl, 'POST', budgetObj);
@@ -63,6 +61,10 @@ export function getSettings() {
 
 export function updateSettings(settings) {
   return changeData(settingsUrl, 'PATCH', settings);
+};
+
+export function getExpenditures() {
+  return generalFetch(expendituresUrl);
 };
 
 export function getBudgetExpenditures(id) {

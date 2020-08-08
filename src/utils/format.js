@@ -16,3 +16,30 @@ export function formatNumber(value) {
       return value;
   }
 };
+
+// export function formatBudgets(budgets) {
+//   return budgets.reduce((accum, el) => { 
+//     accum[el.id] = el; 
+//     return accum; 
+//   }, {});
+// };
+
+function objectMapper(itemsArray, selector) {
+  return itemsArray.reduce((accum, el) => { 
+    if (!accum[el[selector]]) {
+      accum[el[selector]] = []; 
+    }
+    
+    accum[el[selector]].push(el);
+
+    return accum; 
+  }, {});
+};
+
+export function budgetsByCurrency(budgets) {
+  return objectMapper(budgets, 'currency');
+};
+
+export function formatExpenditures(expenditures) {
+  return objectMapper(expenditures, 'budgetId');
+};

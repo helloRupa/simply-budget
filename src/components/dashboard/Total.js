@@ -1,16 +1,15 @@
 import React from 'react';
 import { formatNumber } from '../../utils/format';
+import { calculateTotalTracking } from '../../utils/calculate';
 
-function Total({ budgets=[] }) {
-  const calculateTotal = () => 
-    budgets.reduce((total, budget) => budget.tracking + total, 0);
-
-  const displayTotal = () => formatNumber(calculateTotal());
-
-  return (
+function Total({ budgets=[], expenditures, currency }) {
+    return (
     <div>
       <span className="all-budgets-label">Total</span>
-      <span className="all-budgets-total">{displayTotal()}</span>
+      <span className="all-budgets-total">
+        {currency} 
+        {formatNumber(calculateTotalTracking(budgets, expenditures))}
+      </span>
     </div>
   )
 }

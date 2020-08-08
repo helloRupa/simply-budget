@@ -2,7 +2,7 @@
   "settings": [
     {
       "id": 1,
-      "default-currency": "",
+      "default-currency": "$",
       "max-length": "250",
       "categories": [
         "Groceries",
@@ -21,7 +21,7 @@
       "frequency": "month",
       "limit": 300,
       "startDate": "2020/6/5",
-      "truncatedValue": 0,
+      "truncated": 0,
       "currentPeriod": 1,
       "id": 1
     },
@@ -31,9 +31,49 @@
       "frequency": "week",
       "limit": 300,
       "startDate": "2020/6/5",
-      "truncatedValue": 0,
+      "truncated": 0,
       "currentPeriod": 1,
       "id": 2
+    },
+    {
+      "name": "rt",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 56,
+      "startDate": "2020/6/25",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 3
+    },
+    {
+      "name": "pounds",
+      "currency": "£",
+      "frequency": "month",
+      "limit": 400,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 4
+    },
+    {
+      "name": "pounds again",
+      "currency": "£",
+      "frequency": "week",
+      "limit": 200,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 5
+    },
+    {
+      "name": "whatevers",
+      "currency": "¢",
+      "frequency": "week",
+      "limit": 20,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 6
     }
   ],
   "expenditures": [
@@ -41,23 +81,23 @@
       "id": 1,
       "budgetId": 1,
       "title": "",
-      "amount": 25.50,
+      "amount": 25.5,
       "date": "2020/7/13",
       "period": 1
     },
     {
       "id": 2,
       "budgetId": 2,
-      "title": "Food",
-      "amount": 36.52,
-      "date": "2020/7/12",
+      "title": "Pop Tarts",
+      "amount": 16.65,
+      "date": "2020/7/14",
       "period": 1
     },
     {
       "id": 3,
       "budgetId": 1,
       "title": "",
-      "amount": 15.50,
+      "amount": 15.5,
       "date": "2020/7/14",
       "period": 1
     }

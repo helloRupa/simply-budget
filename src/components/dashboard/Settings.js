@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
-import { getSettings, updateSettings } from '../../utils/comms';
+import { patchSettings } from '../../actions/settings_actions';
+import { connect } from 'react-redux';
 
-function Settings({ setShowSettings }) {
-  const [currency, setCurrency] = useState('');
-  const [maxItems, setMaxItems] = useState('');
-
-  useEffect(() => {
-    getSettings()
-      .then(settings => {
-        setCurrency(settings['default-currency']);
-        setMaxItems(settings['max-length']);
-      });
-  }, []);
+function Settings({ setShowSettings, settings, patchSettings }) {
+  const [currency, setCurrency] = useState(settings['default-currency']);
+  const [maxItems, setMaxItems] = useState(settings['max-length']);
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
@@ -20,7 +13,7 @@ function Settings({ setShowSettings }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateSettings({
+    patchSettings({
       "default-currency": currency,
       "max-length": maxItems
     });
@@ -50,7 +43,9 @@ function Settings({ setShowSettings }) {
           value={maxItems}
           onChange={handleMaxItems}
         />
-        <span>Once a budget goes over the maximum, items will be deleted in first-in-first-out order.</span>
+        <span>
+          Once a budget goes over the maximum, items will be deleted in first-in-first-out order.
+        </span>
       </div>
 
       <input type="submit" value="Save" />
@@ -58,4 +53,8 @@ function Settings({ setShowSettings }) {
   </div>
 }
 
-export default Settings;
+const mapStateToProps = state => ({
+  settings: state.settings
+});
+
+export default connect(mapStateToProps, { patchSettings })(Settings);

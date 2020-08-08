@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
-import { createBudget, getBudgets, getSettings } from '../../utils/comms';
+import { newBudget } from '../../actions/budget_actions';
+import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }) {
-  const [currency, setCurrency] = useState('');
+function CreateOptions({ 
+  setShowOptions, 
+  budgetName, 
+  setBudgetName, 
+  newBudget, 
+  defaultCurrency 
+}) {
+  const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
-
-  useEffect(() => {
-    getSettings()
-      .then(settings => {
-        setCurrency(settings['default-currency']);
-      });
-  }, []);
 
   const closeOptions = () => {
     setBudgetName('');
@@ -25,10 +25,9 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
 
     if (currency && limit && budgetName) {
       const budgetSettings = { currency, frequency, limit: parseFloat(limit) };
+      
       budgetSettings.name = budgetName;
-
-      createBudget(budgetSettings)
-        .then(() => getBudgets().then(setBudgets));
+      newBudget(budgetSettings);
       closeOptions();
     }
   };
@@ -68,4 +67,8 @@ function CreateOptions({ setShowOptions, budgetName, setBudgetName, setBudgets }
   )
 }
 
-export default CreateOptions;
+const mapStateToProps = state => ({
+  defaultCurrency: state.settings['default-currency']
+});
+
+export default connect(mapStateToProps, { newBudget })(CreateOptions);
