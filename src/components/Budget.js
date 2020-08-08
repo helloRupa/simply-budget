@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from './budget/Form';
 import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
@@ -17,18 +17,36 @@ function Budget({
   expenditures,
   setShowBudget
 }) {
+  const [periods, setPeriods] = useState([currentPeriod, currentPeriod]);
 
   return (
     <div>
-      <h2>{ name }</h2>
-      <button onClick={() => setShowBudget(false)}>Close</button>
-      <p>Spend { currency }{ formatNumber(limit) } per { frequency } or less!</p>
-      <p>Tracking (lifetime): { currency }{ formatNumber(calculateTracking({expenditures, budget})) }</p>
+      <h2>
+        { name }
+      </h2>
+      <button onClick={() => setShowBudget(false)}>
+        Close
+      </button>
+      <p>
+        Spend { currency }{ formatNumber(limit) } per { frequency } or less!
+      </p>
+      <p>
+        Tracking (lifetime): { currency }
+          { formatNumber(calculateTracking({expenditures, budget})) }
+      </p>
 
       <ul>
-        <li>Left to Spend (period): { currency }{ formatNumber(calculateRemainingSpend({expenditures, budget})) }</li>
-        <li>Spent (period): { currency }{ formatNumber(calculatePeriodSpent({expenditures, budget})) }</li>
+        <li>
+          Left to Spend (period): { currency }
+            { formatNumber(calculateRemainingSpend({expenditures, budget})) }
+        </li>
+        <li>
+          Spent (period): { currency }
+            { formatNumber(calculatePeriodSpent({expenditures, budget})) }
+        </li>
       </ul>
+
+
 
       {/* <Expenditures 
         expenditures={expenditures} 
