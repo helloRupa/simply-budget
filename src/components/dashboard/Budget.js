@@ -9,7 +9,8 @@ function Budget({
   budget, 
   budget: { name, currency }, 
   selectBudget, 
-  expenditures
+  expenditures,
+  setShowBudget
 }) {
   const [showMenu, setShowMenu] = useState(false);
 
@@ -19,6 +20,7 @@ function Budget({
 
   const handleClick = () => {
     selectBudget(budget);
+    setShowBudget(true);
   };
 
   return (

@@ -14,7 +14,8 @@ function Dashboard({
   fetchBudgets, 
   fetchSettings, 
   fetchExpenditures,
-  expenditures
+  expenditures, 
+  setShowBudget
 }) {
   const [showSettings, setShowSettings] = useState(false);
 
@@ -37,7 +38,7 @@ function Dashboard({
   return (
     <div>
       <CreateBudget />
-      <Budgets budgets={budgets} />
+      <Budgets budgets={budgets} setShowBudget={setShowBudget} />
       <Totals budgets={budgets} expenditures={expenditures} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>

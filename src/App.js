@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import './components/Dashboard';
 import Dashboard from './components/Dashboard';
@@ -23,12 +23,13 @@ const store = createStore(
 );
 
 function App() {
+  const [showBudget, setShowBudget] = useState(false);
 
   return (
     <Provider store={store}>
     <div className="App">
-      <Dashboard />
-      {/* <Budget budget={budget} /> */}
+    <Dashboard setShowBudget={setShowBudget} />
+    { showBudget ? <Budget setShowBudget={setShowBudget} /> : ''}
     </div>
     </Provider>
   );

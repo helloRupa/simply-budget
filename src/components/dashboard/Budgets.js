@@ -1,7 +1,7 @@
 import React from 'react';
 import Budget from './Budget';
 
-function Budgets({ budgets=[] }) {
+function Budgets({ budgets=[], setShowBudget }) {
   const noBudgets = () => 
     budgets.length === 0 ? <li>You don't have any budgets</li> : '';
 
@@ -10,7 +10,7 @@ function Budgets({ budgets=[] }) {
       { noBudgets() }
       { budgets.map(budget => 
         <li key={budget.id}>
-          <Budget budget={budget} />
+          <Budget budget={budget} setShowBudget={setShowBudget} />
         </li>) }
     </ul>
   )

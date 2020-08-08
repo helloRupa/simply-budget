@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Form from './budget/Form';
 import Expenditures from './budget/Expenditures';
-import { getBudgetExpenditures } from '../utils/comms';
-import { selectExpenditures } from '../utils/selectors';
 import { formatNumber } from '../utils/format';
+import { connect } from 'react-redux';
+import { calculateTracking, calculateRemainingSpend, calculatePeriodSpent } from '../utils/calculate';
 // populate expenditures, handle empty expenditures
 // show current and old expenditures
 // show another period when clicking button
@@ -11,46 +11,39 @@ import { formatNumber } from '../utils/format';
 
 // show error messages for forms
 
-function Budget({ budget: { id, name, currency, limit=500, frequency, tracking=-500, currentPeriod } }) {
-  const [expenditures, setExpenditures] = useState([]);
-
-  useEffect(() => {
-    getBudgetExpenditures(id)
-      .then(setExpenditures);
-  }, [id]);
-
-  const totalSpentForPeriod = () => {
-    const currentExpends = selectExpenditures(expenditures, currentPeriod);
-    return currentExpends.reduce((total, item) => total + item.amount, 0);
-  };
-
-  const currentTracking = () => {
-    // sum all expend amounts for current period
-    // subtract from limit
-    return limit - totalSpentForPeriod();
-  };
+function Budget({ 
+  budget, 
+  budget: { name, currency, limit, frequency, currentPeriod },
+  expenditures,
+  setShowBudget
+}) {
 
   return (
     <div>
       <h2>{ name }</h2>
+      <button onClick={() => setShowBudget(false)}>Close</button>
       <p>Spend { currency }{ formatNumber(limit) } per { frequency } or less!</p>
-      <p>Tracking (lifetime): { currency }{ formatNumber(tracking) }</p>
+      <p>Tracking (lifetime): { currency }{ formatNumber(calculateTracking({expenditures, budget})) }</p>
 
       <ul>
-        <li>Left to Spend (period): { currency }{ formatNumber(currentTracking()) }</li>
-        <li>Spent (period): { currency }{ formatNumber(totalSpentForPeriod()) }</li>
+        <li>Left to Spend (period): { currency }{ formatNumber(calculateRemainingSpend({expenditures, budget})) }</li>
+        <li>Spent (period): { currency }{ formatNumber(calculatePeriodSpent({expenditures, budget})) }</li>
       </ul>
 
-      <Expenditures 
+      {/* <Expenditures 
         expenditures={expenditures} 
         currentPeriod={currentPeriod} 
         currency={currency} 
-        setExpenditures={setExpenditures}
       />
       <button>Load More</button>
-      <Form />
+      <Form /> */}
     </div>
   )
 }
 
-export default Budget;
+const mapStateToProps = state => ({
+  budget: state.budget.selected,
+  expenditures: state.expenditures
+});
+
+export default connect(mapStateToProps)(Budget);
