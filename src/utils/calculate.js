@@ -9,5 +9,7 @@ export function calculateTracking({
 };
 
 export function calculateTotalTracking(budgets, expenditures) {
-  return budgets.reduce((sum, budget) => sum + calculateTracking({ expenditures, budget }), 0);
+  return budgets.reduce((sum, budget) => 
+    sum + calculateTracking({ expenditures, budget }), 
+    0);
 };

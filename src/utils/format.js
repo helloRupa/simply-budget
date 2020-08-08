@@ -24,14 +24,22 @@ export function formatNumber(value) {
 //   }, {});
 // };
 
-export function formatExpenditures(expenditures) {
-  return expenditures.reduce((accum, el) => { 
-    if (!accum[el.budgetId]) {
-      accum[el.budgetId] = []; 
+function objectMapper(itemsArray, selector) {
+  return itemsArray.reduce((accum, el) => { 
+    if (!accum[el[selector]]) {
+      accum[el[selector]] = []; 
     }
     
-    accum[el.budgetId].push(el);
+    accum[el[selector]].push(el);
 
     return accum; 
   }, {});
+};
+
+export function budgetsByCurrency(budgets) {
+  return objectMapper(budgets, 'currency');
+};
+
+export function formatExpenditures(expenditures) {
+  return objectMapper(expenditures, 'budgetId');
 };

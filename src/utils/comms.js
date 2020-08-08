@@ -33,10 +33,10 @@ export function getBudgets() {
 export function createBudget({ name, currency, frequency, limit }) {
   const date = new Date();
   const budgetObj =  {
-    name: name,
-    currency: currency,
-    frequency: frequency,
-    limit: limit,
+    name,
+    currency,
+    frequency,
+    limit,
     startDate: `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`,
     truncated: 0,
     currentPeriod: 1

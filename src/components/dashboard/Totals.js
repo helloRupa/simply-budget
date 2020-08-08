@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { budgetsByCurrency } from '../../utils/organize';
+import { budgetsByCurrency } from '../../utils/format';
 import Total from './Total';
 
 function Totals({ budgets, expenditures }) {
