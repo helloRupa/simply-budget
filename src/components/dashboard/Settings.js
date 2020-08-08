@@ -43,7 +43,9 @@ function Settings({ setShowSettings, settings, patchSettings }) {
           value={maxItems}
           onChange={handleMaxItems}
         />
-        <span>Once a budget goes over the maximum, items will be deleted in first-in-first-out order.</span>
+        <span>
+          Once a budget goes over the maximum, items will be deleted in first-in-first-out order.
+        </span>
       </div>
 
       <input type="submit" value="Save" />

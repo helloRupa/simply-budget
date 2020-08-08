@@ -28,9 +28,11 @@ function Dashboard({
     setShowSettings(!showSettings);
   };
 
-  const updateSettingsButton = () => (showSettings) ? 'Close Settings' : 'Show Settings';
+  const updateSettingsButton = () => 
+    showSettings ? 'Close Settings' : 'Show Settings';
 
-  const displaySettings = () => (showSettings) ? <Settings setShowSettings={setShowSettings} /> : '';
+  const displaySettings = () => 
+    showSettings ? <Settings setShowSettings={setShowSettings} /> : '';
 
   return (
     <div>
@@ -38,7 +40,9 @@ function Dashboard({
       <Budgets budgets={budgets} />
       <Totals budgets={budgets} expenditures={expenditures} />
       {displaySettings()}
-      <button onClick={handleShowSettingsClick}>{updateSettingsButton()}</button>
+      <button onClick={handleShowSettingsClick}>
+        {updateSettingsButton()}
+      </button>
     </div>
   )
 }
