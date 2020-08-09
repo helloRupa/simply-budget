@@ -17,7 +17,17 @@ function Budget({
   expenditures,
   setShowBudget
 }) {
-  const [periods, setPeriods] = useState(1);
+  const [periods, setPeriods] = useState(0);
+  const [showMore, setShowMore] = useState(true);
+
+  const incrementPeriods = () => {
+    if (periods < currentPeriod - 1) {
+      setPeriods(periods + 1);
+      setShowMore(true);
+    } else {
+      setShowMore(false);
+    }
+  }
 
   return (
     <div>
@@ -42,7 +52,7 @@ function Budget({
         periods={periods}
         budget={budget}
       />
-      <button onClick={() => setPeriods(periods + 1)}>Load More</button>
+      <button onClick={incrementPeriods} disabled={!showMore}>Load More</button>
       <Form />
     </div>
   )

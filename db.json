@@ -74,6 +74,16 @@
       "truncated": 0,
       "currentPeriod": 1,
       "id": 6
+    },
+    {
+      "name": "old expends",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 100,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 4,
+      "id": 7
     }
   ],
   "expenditures": [
@@ -100,6 +110,78 @@
       "amount": 15.5,
       "date": "2020/7/14",
       "period": 1
+    },
+    {
+      "id": 4,
+      "budgetId": 7,
+      "title": "Bread",
+      "amount": 15.5,
+      "date": "2020/7/7",
+      "period": 1
+    },
+    {
+      "id": 5,
+      "budgetId": 7,
+      "title": "Tea",
+      "amount": 10.5,
+      "date": "2020/7/8",
+      "period": 1
+    },
+    {
+      "id": 6,
+      "budgetId": 7,
+      "title": "Croissants",
+      "amount": 15.5,
+      "date": "2020/7/10",
+      "period": 1
+    },
+    {
+      "id": 7,
+      "budgetId": 7,
+      "title": "Noodles",
+      "amount": 20.75,
+      "date": "2020/7/14",
+      "period": 2
+    },
+    {
+      "id": 8,
+      "budgetId": 7,
+      "title": "Milk",
+      "amount": 30,
+      "date": "2020/7/14",
+      "period": 2
+    },
+    {
+      "id": 9,
+      "budgetId": 7,
+      "title": "Mix tapes",
+      "amount": 100,
+      "date": "2020/7/22",
+      "period": 3
+    },
+    {
+      "id": 10,
+      "budgetId": 7,
+      "title": "Ham",
+      "amount": 40.5,
+      "date": "2020/7/29",
+      "period": 4
+    },
+    {
+      "id": 11,
+      "budgetId": 7,
+      "title": "Toast",
+      "amount": 21.76,
+      "date": "2020/7/30",
+      "period": 4
+    },
+    {
+      "id": 12,
+      "budgetId": 7,
+      "title": "Spam",
+      "amount": 31.25,
+      "date": "2020/7/31",
+      "period": 4
     }
   ]
 }
