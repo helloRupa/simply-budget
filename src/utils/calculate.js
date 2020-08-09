@@ -11,8 +11,6 @@ export function calculateTracking({
   expenditures, 
   budget: { id, limit, currentPeriod, truncated }
 }) {
-  // const spent = (expenditures[id]) ? 
-  //   expenditures[id].reduce((sum, exp) => sum + exp.amount, 0) : 0;
 
   const spent = expenditures[id] ? sumExpenditures(expenditures[id]) : 0;
 
@@ -50,11 +48,13 @@ export function calculatePeriodSpent({
 // subtract sum from limit
 export function calculateRemainingSpend({
   expenditures, 
-  budget: { id, limit, currentPeriod }
+  budget: { id, limit, currentPeriod },
+  period = null
 }) {
+  const selectedPeriod = period || currentPeriod;
   const currentExpenditures = getCurrentExpenditures(
     id,
-    currentPeriod,
+    selectedPeriod,
     expenditures
   );
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import Period from './Period';
-import { selectExpenditures } from '../../utils/selectors';
 
-function Expenditures({ expenditures, currentPeriod, currency, setExpenditures }) {
+function Expenditures({ budget, expenditures, currentPeriod, currency, periods }) {
   return( 
   <section>
     <Period 
       title="Current Period" 
-      expenditures={selectExpenditures(expenditures, currentPeriod)} 
+      budget={budget}
+      expenditures={expenditures} 
       currency={currency}
-      setExpenditures={setExpenditures}
+      period={currentPeriod}
     />
     {/* <div>
       <h3>Current Period</h3>

@@ -17,7 +17,7 @@ function Budget({
   expenditures,
   setShowBudget
 }) {
-  const [periods, setPeriods] = useState([currentPeriod, currentPeriod]);
+  const [periods, setPeriods] = useState(1);
 
   return (
     <div>
@@ -46,15 +46,15 @@ function Budget({
         </li>
       </ul>
 
-
-
-      {/* <Expenditures 
+      <Expenditures 
         expenditures={expenditures} 
         currentPeriod={currentPeriod} 
         currency={currency} 
+        periods={periods}
+        budget={budget}
       />
-      <button>Load More</button>
-      <Form /> */}
+      <button onClick={() => setPeriods(periods + 1)}>Load More</button>
+      <Form />
     </div>
   )
 }
