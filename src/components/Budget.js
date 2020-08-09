@@ -3,7 +3,7 @@ import Form from './budget/Form';
 import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
-import { calculateTracking, calculateRemainingSpend, calculatePeriodSpent } from '../utils/calculate';
+import { calculateTracking } from '../utils/calculate';
 // populate expenditures, handle empty expenditures
 // show current and old expenditures
 // show another period when clicking button
@@ -34,17 +34,6 @@ function Budget({
         Tracking (lifetime): { currency }
           { formatNumber(calculateTracking({expenditures, budget})) }
       </p>
-
-      <ul>
-        <li>
-          Left to Spend (period): { currency }
-            { formatNumber(calculateRemainingSpend({expenditures, budget})) }
-        </li>
-        <li>
-          Spent (period): { currency }
-            { formatNumber(calculatePeriodSpent({expenditures, budget})) }
-        </li>
-      </ul>
 
       <Expenditures 
         expenditures={expenditures} 

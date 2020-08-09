@@ -32,11 +32,13 @@ function getCurrentExpenditures(budgetId, currentPeriod, expenditures) {
 
 export function calculatePeriodSpent({
   expenditures, 
-  budget: { id, currentPeriod }
+  budget: { id, currentPeriod },
+  period = null
 }) {
+  const selectedPeriod = period || currentPeriod;
   const currentExpenditures = getCurrentExpenditures(
     id,
-    currentPeriod,
+    selectedPeriod,
     expenditures
   );
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import Item from './Item';
 import { selectExpenditures } from '../../utils/selectors';
+import { formatNumber } from '../../utils/format';
+import { calculatePeriodSpent, calculateRemainingSpend } from '../../utils/calculate';
 
 function Period({ title, expenditures, currency, budget, period }) {
 
@@ -23,16 +25,16 @@ function Period({ title, expenditures, currency, budget, period }) {
     <div>
       <h3>{ title }</h3>
       { displayExpenditures() }
-      {/* <ul>
-        { expenditures.map(item => 
-          <li>
-            <Item 
-              item={item} 
-              currency={currency} 
-            />
-          </li>
-        ) }
-      </ul> */}
+      <ul>
+        <li>
+          Left to Spend (period): { currency }
+            { formatNumber(calculateRemainingSpend({expenditures, budget})) }
+        </li>
+        <li>
+          Spent (period): { currency }
+            { formatNumber(calculatePeriodSpent({expenditures, budget})) }
+        </li>
+      </ul>
     </div>
   )
 }
