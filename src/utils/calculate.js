@@ -63,3 +63,19 @@ export function calculateRemainingSpend({
   return (currentExpenditures.length === 0) ? 
     limit : limit - sumExpenditures(currentExpenditures);
 };
+
+
+// to calculate current period from start date, subtract dates
+// add a day to make count inclusive, and then divide by ms in a day
+// to get correct period, round up to nearest int
+
+const msInDay = 24 * 60 * 60 * 1000;
+
+export function calculatePeriod(expDate, startDate, frequency) {
+  const spendDate = new Date(expDate);
+  const startingDate = new Date(startDate);
+  const daysDiff = (spendDate - startingDate + msInDay) / msInDay;
+  const ratio = (frequency === 'week') ? daysDiff / 7 : daysDiff / 30;
+
+  return Math.ceil(ratio);
+};

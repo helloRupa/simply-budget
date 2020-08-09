@@ -17,7 +17,10 @@ function EditForm({
     e.preventDefault();
 
     if (newAmount !== '') {
-      patchExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) });
+      patchExpenditure(id, { 
+        title: newTitle, 
+        amount: parseFloat(newAmount) 
+      });
       setShowEdit(false);
     } 
   };
