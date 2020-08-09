@@ -12,6 +12,7 @@ function Expenditures({ budget, expenditures, currentPeriod, currency, periods }
           expenditures={expenditures} 
           currency={currency}
           period={currentPeriod - i}
+          key={`${budget.name}-${i}`}
         />
       );
     }

@@ -28,11 +28,11 @@ function Period({ title, expenditures, currency, budget, period }) {
       <ul>
         <li>
           Left to Spend (period): { currency }
-            { formatNumber(calculateRemainingSpend({expenditures, budget})) }
+            { formatNumber(calculateRemainingSpend({expenditures, budget, period})) }
         </li>
         <li>
           Spent (period): { currency }
-            { formatNumber(calculatePeriodSpent({expenditures, budget})) }
+            { formatNumber(calculatePeriodSpent({expenditures, budget, period})) }
         </li>
       </ul>
     </div>
