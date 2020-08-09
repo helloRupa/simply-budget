@@ -4,11 +4,8 @@ import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
 import { calculateTracking } from '../utils/calculate';
-// populate expenditures, handle empty expenditures
-// show current and old expenditures
-// show another period when clicking button
-// add an expenditure
 
+// add an expenditure
 // show error messages for forms
 
 function Budget({ 
@@ -52,7 +49,9 @@ function Budget({
         periods={periods}
         budget={budget}
       />
-      <button onClick={incrementPeriods} disabled={!showMore}>Load More</button>
+      <button onClick={incrementPeriods} disabled={!showMore}>
+        Load More
+      </button>
       <Form />
     </div>
   )

@@ -84,6 +84,16 @@
       "truncated": 0,
       "currentPeriod": 4,
       "id": 7
+    },
+    {
+      "name": "delete expends",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 200,
+      "startDate": "2020/7/7",
+      "truncated": 0,
+      "currentPeriod": 4,
+      "id": 8
     }
   ],
   "expenditures": [

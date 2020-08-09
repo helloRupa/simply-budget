@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import EditItem from './EditItem';
-import { deleteExpenditure, getBudgetExpenditures } from '../../utils/comms';
 import { formatNumber } from '../../utils/format';
+import { connect } from 'react-redux';
+import { destroyExpenditure } from '../../actions/expenditure_actions';
 
-function Item({ item, item: { id, date, title, amount, budgetId }, currency, setExpenditures }) {
+function Item({ 
+  item, 
+  item: { id, date, title, amount, budgetId }, 
+  currency, 
+  setExpenditures,
+  destroyExpenditure
+}) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleEdit = () => {
@@ -11,11 +18,7 @@ function Item({ item, item: { id, date, title, amount, budgetId }, currency, set
   };
 
   const handleDelete = () => {
-    deleteExpenditure(id)
-      .then(() => {
-        getBudgetExpenditures(budgetId)
-          .then(setExpenditures);
-      });
+    destroyExpenditure(item);
   };
 
   return (
@@ -28,9 +31,9 @@ function Item({ item, item: { id, date, title, amount, budgetId }, currency, set
           currency={currency} 
           setShowEdit={setShowEdit} 
           setExpenditures={setExpenditures}
-        /> : '' }
+        /> : null }
     </>
   );
 }
 
-export default Item;
+export default connect(null, { destroyExpenditure })(Item);

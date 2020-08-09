@@ -9,6 +9,14 @@ function expenditureReducer(state = expenditureState, action) {
         ...state,
         ...action.expenditures
       }
+    case 'REMOVE_EXPENDITURE':
+      const budgetId = action.expenditure.budgetId;
+
+      return {
+         ...state,
+         [budgetId]: state[budgetId].filter(exp => 
+            exp.id !== action.expenditure.id)
+      };
     default: 
       return state;
   }
