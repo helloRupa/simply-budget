@@ -3,6 +3,8 @@ const expenditureState = {
 };
 
 function expenditureReducer(state = expenditureState, action) {
+  let budgetId;
+
   switch(action.type) {
     case 'ADD_EXPENDITURES':
       return {
@@ -10,12 +12,21 @@ function expenditureReducer(state = expenditureState, action) {
         ...action.expenditures
       }
     case 'REMOVE_EXPENDITURE':
-      const budgetId = action.expenditure.budgetId;
+      budgetId = action.expenditure.budgetId;
 
       return {
          ...state,
          [budgetId]: state[budgetId].filter(exp => 
             exp.id !== action.expenditure.id)
+      };
+    case 'UPDATE_EXPENDITURE':
+      budgetId = action.expenditure.budgetId;
+
+      return {
+        ...state,
+        [budgetId]: state[budgetId].map(exp =>
+          (exp.id !== action.expenditure.id) ? exp : action.expenditure
+        )
       };
     default: 
       return state;

@@ -1,5 +1,5 @@
 import { formatExpenditures } from '../utils/format';
-import { getExpenditures, deleteExpenditure } from '../utils/comms';
+import { getExpenditures, deleteExpenditure, updateExpenditure } from '../utils/comms';
 
 export const addExpenditures = expenditures => ({
   type: 'ADD_EXPENDITURES',
@@ -26,6 +26,20 @@ export function destroyExpenditure(expenditure) {
     deleteExpenditure(expenditure.id)
     .then(exp => {
       dispatch(removeExpenditure(expenditure));
+    });
+  };
+};
+
+export const editExpenditure = expenditure => ({
+  type: 'UPDATE_EXPENDITURE',
+  expenditure
+});
+
+export function patchExpenditure(id, updated) {
+  return dispatch => {
+    updateExpenditure(id, updated)
+    .then(exp => {
+      dispatch(editExpenditure(exp));
     });
   };
 };

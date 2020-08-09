@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
-import { updateExpenditure, getBudgetExpenditures } from '../../utils/comms';
+import { patchExpenditure } from '../../actions/expenditure_actions';
+import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit, setExpenditures }) {
+function EditForm({ 
+  item: { id, title, amount }, 
+  currency, 
+  setShowEdit, 
+  patchExpenditure 
+}) {
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);
 
@@ -11,12 +17,7 @@ function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit
     e.preventDefault();
 
     if (newAmount !== '') {
-      updateExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) })
-      .then(() => {
-        getBudgetExpenditures(budgetId)
-        .then(setExpenditures);
-      });
-
+      patchExpenditure(id, { title: newTitle, amount: parseFloat(newAmount) });
       setShowEdit(false);
     } 
   };
@@ -43,4 +44,4 @@ function EditForm({ item: { id, title, amount, budgetId }, currency, setShowEdit
   )
 }
 
-export default EditForm;
+export default connect(null, { patchExpenditure })(EditForm);

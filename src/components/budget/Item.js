@@ -6,9 +6,8 @@ import { destroyExpenditure } from '../../actions/expenditure_actions';
 
 function Item({ 
   item, 
-  item: { id, date, title, amount, budgetId }, 
+  item: { date, title, amount }, 
   currency, 
-  setExpenditures,
   destroyExpenditure
 }) {
   const [showEdit, setShowEdit] = useState(false);
@@ -23,14 +22,14 @@ function Item({
 
   return (
     <>
-      { date }: { title } { currency }{ formatNumber(amount) } <button onClick={handleEdit}>Edit</button> 
+      { date }: { title } { currency }{ formatNumber(amount) } 
+      <button onClick={handleEdit}>Edit</button> 
       <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 
         <EditItem 
           item={item} 
           currency={currency} 
           setShowEdit={setShowEdit} 
-          setExpenditures={setExpenditures}
         /> : null }
     </>
   );
