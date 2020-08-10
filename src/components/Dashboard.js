@@ -9,6 +9,8 @@ import { fetchExpenditures } from '../actions/expenditure_actions';
 import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
 
+// UPDATE CURRENTPERIOD FOR ALL BUDGETS ON LOAD
+
 function Dashboard({ 
   budgets, 
   fetchBudgets, 
