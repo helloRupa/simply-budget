@@ -1,5 +1,10 @@
-import { getBudgets, deleteBudget, updateBudget, createBudget } from '../utils/comms';
-// import { formatBudgets } from '../utils/format';
+import { 
+  getBudgets, 
+  deleteBudget, 
+  updateBudget, 
+  createBudget,
+  updateBudgetCurrentPeriod
+} from '../utils/comms';
 
 export const addBudgets = budgets => ({
   type: 'ADD_BUDGETS',
@@ -59,5 +64,21 @@ export function newBudget(budget) {
     .then(budget => {
       dispatch(addBudget(budget));
     });
+  };
+};
+
+export function updateBudgetsCurrentPeriods() {
+  return dispatch => {
+    getBudgets()
+    .then(budgets => {
+      Promise.all(budgets.map(budget => 
+        updateBudgetCurrentPeriod(budget))
+      ).then(_ => {
+        getBudgets()
+        .then(budgets => {
+          dispatch(addBudgets(budgets));
+        });
+      });
+    })
   };
 };

@@ -22,7 +22,7 @@
       "limit": 300,
       "startDate": "2020/6/5",
       "truncated": 0,
-      "currentPeriod": 3,
+      "currentPeriod": 1,
       "id": 1
     },
     {
@@ -32,7 +32,7 @@
       "limit": 300,
       "startDate": "2020/6/5",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 1,
       "id": 2
     },
     {
@@ -42,7 +42,7 @@
       "limit": 56,
       "startDate": "2020/6/25",
       "truncated": 0,
-      "currentPeriod": 7,
+      "currentPeriod": 1,
       "id": 3
     },
     {
@@ -52,7 +52,7 @@
       "limit": 400,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 2,
+      "currentPeriod": 1,
       "id": 4
     },
     {
@@ -62,7 +62,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 1,
       "id": 5
     },
     {
@@ -72,7 +72,7 @@
       "limit": 20,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 1,
       "id": 6
     },
     {
@@ -82,7 +82,7 @@
       "limit": 100,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 4,
       "id": 7
     },
     {
@@ -92,7 +92,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 4,
       "id": 8
     }
   ],
@@ -216,22 +216,6 @@
       "date": "2020/7/9",
       "period": 3,
       "id": 15
-    },
-    {
-      "title": "test",
-      "amount": 14.24,
-      "budgetId": 7,
-      "date": "2020/8/9",
-      "period": 5,
-      "id": 16
-    },
-    {
-      "title": "new one",
-      "amount": 10,
-      "budgetId": 7,
-      "date": "2020/8/9",
-      "period": 5,
-      "id": 17
     }
   ]
 }

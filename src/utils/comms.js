@@ -31,7 +31,7 @@ function changeData(url, method, body={}) {
 function makeDate() {
   const date = new Date();
 
-  return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 }
 
 export function getBudgets() {
@@ -98,4 +98,14 @@ export function createExpenditure(expenditure, { id, startDate, frequency }) {
   options.period = calculatePeriod(options.date, startDate, frequency);
 
   return changeData(expendituresUrl, 'POST', options);
+};
+
+export function updateBudgetCurrentPeriod(budget) {
+  budget.currentPeriod =  calculatePeriod(
+    makeDate(), 
+    budget.startDate, 
+    budget.frequency
+  );
+
+  return updateBudget(budget.id, budget);
 };
