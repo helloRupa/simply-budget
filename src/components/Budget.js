@@ -7,7 +7,7 @@ import { calculateTracking } from '../utils/calculate';
 
 function Budget({ 
   budget, 
-  budget: { name, currency, limit, frequency, currentPeriod },
+  budget: { id, name, currency, limit, frequency, currentPeriod },
   expenditures,
   setShowBudget
 }) {
@@ -55,7 +55,7 @@ function Budget({
       <button onClick={incrementPeriods} disabled={!showMore}>
         Load More
       </button>
-      <Form />
+      <Form expenditures={expenditures[id] || []} />
     </div>
   )
 }

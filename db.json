@@ -3,7 +3,7 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": "250",
+      "max-length": 500,
       "categories": [
         "Groceries",
         "Bills",
@@ -248,6 +248,38 @@
       "date": "2020/8/9",
       "period": 5,
       "id": 19
+    },
+    {
+      "title": "goAway0",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 1,
+      "id": 20
+    },
+    {
+      "title": "goAway1",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 1,
+      "id": 21
+    },
+    {
+      "title": "goAway2",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 1,
+      "id": 22
+    },
+    {
+      "title": "stay",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 3,
+      "id": 23
     }
   ]
 }

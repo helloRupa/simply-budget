@@ -2,8 +2,10 @@ import React from 'react';
 import Item from './Item';
 import { selectExpenditures } from '../../utils/selectors';
 import { formatNumber } from '../../utils/format';
-import { calculatePeriodSpent, 
-  calculateRemainingSpend } from '../../utils/calculate';
+import { 
+  calculatePeriodSpent, 
+  calculateRemainingSpend 
+} from '../../utils/calculate';
 
 function Period({ title, expenditures, currency, budget, period }) {
 

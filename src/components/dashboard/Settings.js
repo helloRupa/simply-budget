@@ -15,7 +15,7 @@ function Settings({ setShowSettings, settings, patchSettings }) {
     e.preventDefault();
     patchSettings({
       "default-currency": currency,
-      "max-length": maxItems
+      "max-length": parseInt(maxItems, 10)
     });
     setShowSettings(false);
   };
@@ -44,7 +44,8 @@ function Settings({ setShowSettings, settings, patchSettings }) {
           onChange={handleMaxItems}
         />
         <span>
-          Once a budget goes over the maximum, items will be deleted in first-in-first-out order.
+          Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
+          one whole period at a time.
         </span>
       </div>
 

@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { postExpenditure } from '../../actions/expenditure_actions';
+import { postExpenditure, truncateExpenditures } from '../../actions/expenditure_actions';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
 import Error from '../../shared/Error';
 
-function Form({ budget, budget: { currency }, postExpenditure }) {
+function Form({ 
+  budget, 
+  budget: { currency, currentPeriod }, 
+  postExpenditure, 
+  truncateExpenditures,
+  expenditures,
+  maxLength 
+}) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [showError, setShowError] = useState(false);
@@ -13,7 +20,13 @@ function Form({ budget, budget: { currency }, postExpenditure }) {
     e.preventDefault();
 
     if (amount !== '') {
-      postExpenditure({ title, amount: parseFloat(amount) }, budget);
+      postExpenditure({ title, amount: parseFloat(amount) }, budget)
+      .then(_ => {
+        if (expenditures.length > maxLength && expenditures[0].period !== currentPeriod) {
+          console.log('will truncate')
+          truncateExpenditures(expenditures, budget);
+        }
+      });
       setShowError(false);
       setTitle('');
       setAmount('');
@@ -42,7 +55,11 @@ function Form({ budget, budget: { currency }, postExpenditure }) {
 }
 
 const mapStateToProps = state => ({
-  budget: state.budget.selected
+  budget: state.budget.selected,
+  maxLength: state.settings['max-length']
 });
 
-export default connect(mapStateToProps, { postExpenditure })(Form);
+export default connect(mapStateToProps, { 
+  postExpenditure, 
+  truncateExpenditures 
+})(Form);
