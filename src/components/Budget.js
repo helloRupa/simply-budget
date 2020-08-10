@@ -5,9 +5,6 @@ import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
 import { calculateTracking } from '../utils/calculate';
 
-// add an expenditure
-// show error messages for forms
-
 function Budget({ 
   budget, 
   budget: { name, currency, limit, frequency, currentPeriod },
@@ -17,8 +14,14 @@ function Budget({
   const [periods, setPeriods] = useState(0);
   const [showMore, setShowMore] = useState(true);
 
+  const budgetExpenditures = expenditures[budget.id];
+  const lowestPeriod = budgetExpenditures ? 
+    budgetExpenditures[0].period :
+    currentPeriod;
+
   const incrementPeriods = () => {
-    if (periods < currentPeriod - 1) {
+    if ((periods < currentPeriod - 1) && 
+      (currentPeriod - periods > lowestPeriod)) {
       setPeriods(periods + 1);
       setShowMore(true);
     } else {

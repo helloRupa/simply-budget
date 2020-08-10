@@ -197,7 +197,7 @@
       "id": 13,
       "budgetId": 8,
       "title": "Spamoni",
-      "amount": 20.25,
+      "amount": 20,
       "date": "2020/7/31",
       "period": 4
     },
@@ -243,7 +243,7 @@
     },
     {
       "title": "test",
-      "amount": 56,
+      "amount": 60,
       "budgetId": 8,
       "date": "2020/8/9",
       "period": 5,
