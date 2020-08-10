@@ -22,7 +22,7 @@ function Item({
 
   return (
     <>
-      { date }: { title } { currency }{ formatNumber(amount) } 
+      { date }: { title || 'Untitled' } { currency }{ formatNumber(amount) } 
       <button onClick={handleEdit}>Edit</button> 
       <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 
