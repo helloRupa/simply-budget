@@ -15,6 +15,8 @@ function Form({ budget, budget: { currency }, postExpenditure }) {
     if (amount !== '') {
       postExpenditure({ title, amount: parseFloat(amount) }, budget);
       setShowError(false);
+      setTitle('');
+      setAmount('');
     } else {
       setShowError(true);
     }
