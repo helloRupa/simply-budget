@@ -5,6 +5,10 @@
       "default-currency": "$",
       "max-length": 500,
       "categories": [
+        "Groceries",
+        "Electronics",
+        "Clothes",
+        "Entertainment"
       ]
     }
   ],

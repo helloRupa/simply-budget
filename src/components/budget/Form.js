@@ -58,7 +58,11 @@ function Form({
       placeholder="Expenditure name (optional)" 
       value={title}
       onChange={e => handleChange(e, setTitle)}
+      list="saved-categories"
     />
+    <datalist id="saved-categories">
+      { categories.map(name => <option value={name} key={name} />) }
+    </datalist>
     {currency}
     <input 
       type="text" 
