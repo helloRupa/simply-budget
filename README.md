@@ -1,8 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To Do:
+
+- Test fully
+- Style
+
+## Future Features:
+
+- Pause a budget
+- Remove a category
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run dev`
+
+Start the json-server and app at same time: 8000 and 3000, respectively
 
 ### `yarn start`
 
