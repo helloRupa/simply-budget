@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { postExpenditure, truncateExpenditures } from '../../actions/expenditure_actions';
+import { 
+  postExpenditure, 
+  truncateExpenditures } from '../../actions/expenditure_actions';
 import { handleChange, handleAmountChange } from '../../utils/handlers';
 import Error from '../../shared/Error';
+import { patchSettings } from '../../actions/settings_actions';
 
 function Form({ 
   budget, 
@@ -10,11 +13,26 @@ function Form({
   postExpenditure, 
   truncateExpenditures,
   expenditures,
-  maxLength 
+  maxLength,
+  categories,
+  patchSettings
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [showError, setShowError] = useState(false);
+
+  const handleTruncation = () => {
+    if (expenditures.length > maxLength && 
+      expenditures[0].period !== currentPeriod) {
+      truncateExpenditures(expenditures, budget);
+    }
+  };
+
+  const handleCategory = title => {
+    if (!categories.includes(title)) {
+      patchSettings({ categories: [...categories, title] });
+    }
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -22,14 +40,13 @@ function Form({
     if (amount !== '') {
       postExpenditure({ title, amount: parseFloat(amount) }, budget)
       .then(_ => {
-        if (expenditures.length > maxLength && expenditures[0].period !== currentPeriod) {
-          console.log('will truncate')
-          truncateExpenditures(expenditures, budget);
-        }
+        handleTruncation();
+        handleCategory(title);
       });
-      setShowError(false);
+
       setTitle('');
       setAmount('');
+      setShowError(false);
     } else {
       setShowError(true);
     }
@@ -56,10 +73,12 @@ function Form({
 
 const mapStateToProps = state => ({
   budget: state.budget.selected,
-  maxLength: state.settings['max-length']
+  maxLength: state.settings['max-length'],
+  categories: state.settings.categories
 });
 
 export default connect(mapStateToProps, { 
   postExpenditure, 
-  truncateExpenditures 
+  truncateExpenditures,
+  patchSettings
 })(Form);

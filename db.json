@@ -5,12 +5,6 @@
       "default-currency": "$",
       "max-length": 500,
       "categories": [
-        "Groceries",
-        "Bills",
-        "Rent/Mortgage",
-        "Going Out",
-        "Health",
-        "Travel"
       ]
     }
   ],
@@ -240,14 +234,6 @@
       "date": "2020/8/9",
       "period": 5,
       "id": 18
-    },
-    {
-      "title": "test",
-      "amount": 60,
-      "budgetId": 8,
-      "date": "2020/8/9",
-      "period": 5,
-      "id": 19
     },
     {
       "title": "goAway0",
