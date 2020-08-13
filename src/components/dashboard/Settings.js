@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { handleChange, handleChangeWithRegex } from '../../utils/handlers';
+import FormHOC from '../../shared/FormHOC';
 import { patchSettings } from '../../actions/settings_actions';
 import { connect } from 'react-redux';
 
-function Settings({ setShowSettings, settings, patchSettings }) {
+function Settings({ 
+  setShowSettings, 
+  settings, 
+  patchSettings, 
+  handleChange, 
+  handleChangeWithRegex 
+}) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
 
@@ -58,4 +64,4 @@ const mapStateToProps = state => ({
   settings: state.settings
 });
 
-export default connect(mapStateToProps, { patchSettings })(Settings);
+export default connect(mapStateToProps, { patchSettings })(FormHOC(Settings));

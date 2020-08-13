@@ -3,12 +3,14 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": 500,
+      "max-length": 300,
       "categories": [
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        "testhoc",
+        "test"
       ]
     }
   ],
@@ -40,7 +42,7 @@
       "limit": 56,
       "startDate": "2020/6/25",
       "truncated": 0,
-      "currentPeriod": 7,
+      "currentPeriod": 8,
       "id": 3
     },
     {
@@ -60,7 +62,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 6,
       "id": 5
     },
     {
@@ -70,7 +72,7 @@
       "limit": 20,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 6,
       "id": 6
     },
     {
@@ -80,7 +82,7 @@
       "limit": 100,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 6,
       "id": 7
     },
     {
@@ -90,7 +92,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 6,
       "id": 8
     }
   ],

@@ -79,6 +79,6 @@ export function updateBudgetsCurrentPeriods() {
           dispatch(addBudgets(budgets));
         });
       });
-    })
+    });
   };
 };

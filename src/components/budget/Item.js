@@ -26,11 +26,7 @@ function Item({
       <button onClick={handleEdit}>Edit</button> 
       <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 
-        <EditItem 
-          item={item} 
-          currency={currency} 
-          setShowEdit={setShowEdit} 
-        /> : null }
+        <EditItem {...{ item, currency, setShowEdit }} /> : null }
     </>
   );
 }

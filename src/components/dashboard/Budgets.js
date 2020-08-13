@@ -10,7 +10,7 @@ function Budgets({ budgets=[], setShowBudget }) {
       { noBudgets() }
       { budgets.map(budget => 
         <li key={budget.id}>
-          <Budget budget={budget} setShowBudget={setShowBudget} />
+          <Budget {...{ budget, setShowBudget }} />
         </li>) }
     </ul>
   )

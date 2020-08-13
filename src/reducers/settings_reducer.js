@@ -1,7 +1,7 @@
 const settingsState = {
-  "default-currency": "",
-  "max-length": 250,
-  "categories": []
+  'default-currency': '',
+  'max-length': 250,
+  'categories': []
 };
 
 function settingsReducer(state = settingsState, action) {

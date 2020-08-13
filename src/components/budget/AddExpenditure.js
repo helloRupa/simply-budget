@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { 
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
-import { handleChange, handleAmountChange } from '../../utils/handlers';
+import FormHOC from '../../shared/FormHOC';
 import Error from '../../shared/Error';
 import { patchSettings } from '../../actions/settings_actions';
 
-function Form({ 
+function AddExpenditure({ 
   budget, 
   budget: { currency, currentPeriod }, 
   postExpenditure, 
@@ -15,7 +15,9 @@ function Form({
   expenditures,
   maxLength,
   categories,
-  patchSettings
+  patchSettings,
+  handleChange,
+  handleAmountChange
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -85,4 +87,4 @@ export default connect(mapStateToProps, {
   postExpenditure, 
   truncateExpenditures,
   patchSettings
-})(Form);
+})(FormHOC(AddExpenditure));

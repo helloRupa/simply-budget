@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { handleChange, handleAmountChange } from '../../utils/handlers';
+import FormHOC from '../../shared/FormHOC';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import Error from '../../shared/Error';
@@ -8,7 +8,9 @@ function EditForm({
   item: { id, title, amount }, 
   currency, 
   setShowEdit, 
-  patchExpenditure 
+  patchExpenditure,
+  handleChange,
+  handleAmountChange
 }) {
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);
@@ -47,4 +49,4 @@ function EditForm({
   )
 }
 
-export default connect(null, { patchExpenditure })(EditForm);
+export default connect(null, { patchExpenditure })(FormHOC(EditForm));

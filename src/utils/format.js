@@ -2,13 +2,6 @@ export function formatNumber(value) {
   return parseFloat(value).toFixed(2);
 };
 
-// export function formatBudgets(budgets) {
-//   return budgets.reduce((accum, el) => { 
-//     accum[el.id] = el; 
-//     return accum; 
-//   }, {});
-// };
-
 function objectMapper(itemsArray, selector) {
   return itemsArray.reduce((accum, el) => { 
     if (!accum[el[selector]]) {

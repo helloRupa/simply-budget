@@ -35,7 +35,7 @@ function Budget({
       </span>
       <div>
         { showMenu ? 
-          <BudgetMenu budget={budget} setShowMenu={setShowMenu} /> : '' }
+          <BudgetMenu {...{ budget, setShowMenu }} /> : null }
       </div>
     </div>
   )

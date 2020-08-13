@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { handleChange, handleAmountChange } from '../../utils/handlers';
+import FormHOC from '../../shared/FormHOC';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Error from '../../shared/Error';
@@ -9,7 +9,9 @@ function CreateOptions({
   budgetName, 
   setBudgetName, 
   newBudget, 
-  defaultCurrency 
+  defaultCurrency,
+  handleAmountChange,
+  handleChange
 }) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
@@ -71,4 +73,4 @@ const mapStateToProps = state => ({
   defaultCurrency: state.settings['default-currency']
 });
 
-export default connect(mapStateToProps, { newBudget })(CreateOptions);
+export default connect(mapStateToProps, { newBudget })(FormHOC(CreateOptions));

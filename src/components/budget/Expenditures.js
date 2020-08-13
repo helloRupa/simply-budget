@@ -1,16 +1,19 @@
 import React from 'react';
 import Period from './Period';
 
-function Expenditures({ budget, expenditures, currentPeriod, currency, periods }) {
+function Expenditures({ 
+  budget, 
+  expenditures, 
+  currentPeriod, 
+  currency, 
+  periods 
+}) {
   const makePeriods = () => {
     const components = [];
 
     for (let i = 1; i <= periods; i++) {
       components.push(
-        <Period 
-          budget={budget}
-          expenditures={expenditures} 
-          currency={currency}
+        <Period {...{ budget, expenditures, currency }}
           period={currentPeriod - i}
           key={`${budget.name}-${i}`}
         />
@@ -22,11 +25,8 @@ function Expenditures({ budget, expenditures, currentPeriod, currency, periods }
 
   return( 
   <section>
-    <Period 
+    <Period {...{ budget, expenditures, currency }}
       title="Current Period" 
-      budget={budget}
-      expenditures={expenditures} 
-      currency={currency}
       period={currentPeriod}
     />
 

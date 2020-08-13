@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form from './budget/Form';
+import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
@@ -42,20 +42,16 @@ function Budget({
       </p>
       <p>
         Tracking (lifetime): { currency }
-          { formatNumber(calculateTracking({expenditures, budget})) }
+          { formatNumber(calculateTracking({ expenditures, budget })) }
       </p>
 
       <Expenditures 
-        expenditures={expenditures} 
-        currentPeriod={currentPeriod} 
-        currency={currency} 
-        periods={periods}
-        budget={budget}
+        {...{ expenditures, currentPeriod, currency, periods, budget }}
       />
       <button onClick={incrementPeriods} disabled={!showMore}>
         Load More
       </button>
-      <Form expenditures={expenditures[id] || []} />
+      <AddExpenditure expenditures={ expenditures[id] || [] } />
     </div>
   )
 }

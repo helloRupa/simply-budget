@@ -20,7 +20,7 @@ function Period({ title, expenditures, currency, budget, period }) {
   const displayExpenditures = () => budgetExpenditures().length > 0 ? 
     <ul>
       { budgetExpenditures().map(item => <li key={`exp-${item.id}`}>
-        <Item item={item} currency={currency} />
+        <Item {...{ item, currency }} />
       </li>) }
     </ul> : 'No expenses for this period';
 

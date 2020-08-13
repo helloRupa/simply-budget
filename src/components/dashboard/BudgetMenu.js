@@ -17,8 +17,8 @@ function BudgetMenu({ budget, setShowMenu }) {
         <li><button onClick={() => setRemove(true)}>Delete</button></li>
       </ul>
 
-      { rename ? <Rename budget={budget} setShowMenu={setShowMenu} /> : ''}
-      { remove ? <Delete budget={budget} setRemove={setRemove} /> : '' }
+      {rename ? <Rename {...{ budget, setShowMenu }} /> : null}
+      {remove ? <Delete {...{ budget, setRemove }} /> : null}
     </div>
   )
 }

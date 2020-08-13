@@ -7,6 +7,7 @@ import {
 } from '../utils/comms';
 import { updateBudget } from '../utils/comms';
 import { changeBudget, selectBudget } from './budget_actions';
+import { selectDeletions} from '../utils/selectors';
 
 export const addExpenditures = expenditures => ({
   type: 'ADD_EXPENDITURES',
@@ -27,11 +28,10 @@ export const removeExpenditure = expenditure => ({
   expenditure
 });
 
-
 export function destroyExpenditure(expenditure) {
   return dispatch => {
     deleteExpenditure(expenditure.id)
-    .then(exp => {
+    .then(_ => {
       dispatch(removeExpenditure(expenditure));
     });
   };
@@ -66,27 +66,19 @@ export function postExpenditure(expenditure, budget) {
 };
 
 export function truncateExpenditures(expenditures, budget) {
-  const oldestPeriod = expenditures[0].period;
   const budgetId = budget.id;
-  const deletions = expenditures.reduce((res, exp) => {
-    if (exp.period === oldestPeriod) {
-      res.exps.push(exp);
-      res.truncate += exp.amount;
-    }
-
-    return res;
-  }, { exps: [], truncate: budget.truncated });
+  const deletions = selectDeletions(expenditures, budget);
 
   return dispatch => {
     Promise.all(deletions.exps.map(exp => {
       return deleteExpenditure(exp.id)
-      .then(_ => dispatch(removeExpenditure(exp)))
+      .then(_ => dispatch(removeExpenditure(exp)));
     })).then(_ => {
       updateBudget(budgetId, { truncated: deletions.truncate })
       .then(budget => {
         dispatch(changeBudget(budget));
         dispatch(selectBudget(budget));
-      })
+      });
     });
   };
 };

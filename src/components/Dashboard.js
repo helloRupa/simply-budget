@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './dashboard/CreateBudget';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import Totals from './dashboard/Totals';
@@ -33,13 +32,13 @@ function Dashboard({
     showSettings ? 'Close Settings' : 'Show Settings';
 
   const displaySettings = () => 
-    showSettings ? <Settings setShowSettings={setShowSettings} /> : '';
+    showSettings ? <Settings {...{ setShowSettings }} /> : null;
 
   return (
     <div>
       <CreateBudget />
-      <Budgets budgets={budgets} setShowBudget={setShowBudget} />
-      <Totals budgets={budgets} expenditures={expenditures} />
+      <Budgets {...{ budgets, setShowBudget }} />
+      <Totals {...{ budgets, expenditures }} />
       {displaySettings()}
       <button onClick={handleShowSettingsClick}>
         {updateSettingsButton()}

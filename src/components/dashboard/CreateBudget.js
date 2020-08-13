@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
-import { handleChange } from '../../utils/handlers';
+import FormHOC from '../../shared/FormHOC';
 import Error from '../../shared/Error';
 
-function CreateBudget() {
+function CreateBudget({ handleChange }) {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
   const [showError, setShowError] = useState(false);
@@ -44,8 +44,7 @@ function CreateBudget() {
           '' 
       }
     </div>
-    
   )
 }
 
-export default CreateBudget;
+export default FormHOC(CreateBudget);
