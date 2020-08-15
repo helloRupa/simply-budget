@@ -4,6 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Style
+- Be able to start a budget on a date of your choosing
+    - Until start date, gray it out and disable it
+    - Edit start date of budget if no expenditures are present
+- Edit date of expenditure
+- Add date to new expenditure for a catch-up
+- Archive
+    - Calculate total spent
+    - Put in archives structure
+        - name
+        - start date
+        - end date
+        - total spent
+        - total leftover (or just this)
 
 ## Future Features:
 
