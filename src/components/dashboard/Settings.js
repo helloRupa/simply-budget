@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchSettings } from '../../actions/settings_actions';
 import { connect } from 'react-redux';
+import Close from '../../shared/Close';
 
 function Settings({ 
   setShowSettings, 
@@ -38,6 +39,7 @@ function Settings({
 
   return <div>
     <h2>Settings</h2>
+    <Close callback={() => setShowSettings(false)} display='Close' />
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="default-currency">Default Currency</label>
@@ -66,7 +68,10 @@ function Settings({
       </div>
 
       <input type="submit" value="Save" />
-      <Error msg="Maximum number of line items must be 10 or more" condition={!isValidLineItems()} />
+      <Error 
+        msg="Maximum number of line items must be 10 or more" 
+        condition={!isValidLineItems()} 
+      />
     </form>
   </div>
 }

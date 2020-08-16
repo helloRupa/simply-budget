@@ -4,6 +4,7 @@ import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
 import { calculateTracking } from '../utils/calculate';
+import Close from '../shared/Close';
 
 function Budget({ 
   budget, 
@@ -34,9 +35,7 @@ function Budget({
       <h2>
         { name }
       </h2>
-      <button onClick={() => setShowBudget(false)}>
-        Close
-      </button>
+      <Close callback={() => setShowBudget(false)} display={'Close'} />
       <p>
         Spend { currency }{ formatNumber(limit) } per { frequency } or less!
       </p>

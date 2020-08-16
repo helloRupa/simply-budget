@@ -24,13 +24,6 @@ function Dashboard({
     fetchSettings();
   }, [updateBudgetsCurrentPeriods, fetchSettings, fetchExpenditures]);
 
-  const handleShowSettingsClick = () => {
-    setShowSettings(!showSettings);
-  };
-
-  const updateSettingsButton = () => 
-    showSettings ? 'Close Settings' : 'Show Settings';
-
   const displaySettings = () => 
     showSettings ? <Settings {...{ setShowSettings }} /> : null;
 
@@ -40,8 +33,8 @@ function Dashboard({
       <Budgets {...{ budgets, setShowBudget }} />
       <Totals {...{ budgets, expenditures }} />
       {displaySettings()}
-      <button onClick={handleShowSettingsClick}>
-        {updateSettingsButton()}
+      <button onClick={() => setShowSettings(true)}>
+        Show Settings
       </button>
     </div>
   )

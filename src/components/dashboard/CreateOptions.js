@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
+import Close from '../../shared/Close';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -63,7 +64,8 @@ function CreateOptions({
         <option value="month">Month</option>
       </select>
       <input type="submit" value="Save Budget" />
-      <button onClick={closeOptions}>Cancel</button>
+      
+      <Close callback={closeOptions} display='Cancel' />
       <Error msg="All details are required" condition={showError()} />
     </form>
   )

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
+import Close from '../../shared/Close';
 
 function EditItem({ 
   item: { id, title, amount }, 
@@ -47,8 +48,8 @@ function EditItem({
         onChange={e => { handleAmountChange(e, setAmount) }}
       />
       <input type="submit" value="Update Item" />
-      <button onClick={() => close()}>Cancel</button>
 
+      <Close callback={close} display='Cancel' />
       <Error msg="Amount is required" condition={ newAmount === '' } />
     </form>
   )
