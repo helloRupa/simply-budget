@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BudgetMenu from './BudgetMenu';
+import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking } from '../../utils/calculate';
@@ -11,11 +11,7 @@ function Budget({
   expenditures,
   setShowBudget
 }) {
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+  const [showBudgetSettings, setShowBudgetSettings] = useState(false);
 
   const handleClick = () => {
     selectBudget(budget);
@@ -24,7 +20,7 @@ function Budget({
 
   return (
     <div>
-      <button className="budget-menu" onClick={toggleMenu}>M</button>
+      <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
       <span onClick={handleClick}>
         <span className="budget-name">{name}</span>
         <span className="budget-currency">{currency}</span>
@@ -32,9 +28,11 @@ function Budget({
           {formattedSingleBudgetTracking(expenditures, budget)}
         </span>
       </span>
+
       <div>
-        { showMenu ? 
-          <BudgetMenu {...{ budget, setShowMenu }} /> : null }
+        {showBudgetSettings ? 
+          <BudgetSettings {...{ budget, setShowBudgetSettings }} /> : null
+        }
       </div>
     </div>
   )

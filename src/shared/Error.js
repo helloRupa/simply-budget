@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Error({ msg, condition }) {
-  const displayError = () => (condition) ? msg : '';
+  const displayError = () => (condition) ? msg : null;
 
   return <div className="error">
     { displayError() }

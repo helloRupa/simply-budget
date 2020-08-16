@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Close from '../../shared/Close';
 import Rename from './Rename';
 import Delete from './Delete';
 
@@ -6,21 +7,26 @@ import Delete from './Delete';
 /** THIS IS DEFAULT BEHAVIOR WITH JSON-SERVER BUT NOT **/
 /** FOR OTHER FORMS OF DATA STORAGE **/
 
-function BudgetMenu({ budget, setShowMenu }) {
-  const [rename, setRename] = useState(false);
+function BudgetSettings({ 
+  setShowBudgetSettings, 
+  budget,
+  budget: { name }
+}) {
   const [remove, setRemove] = useState(false);
+
+  const close = () => setShowBudgetSettings(false);
 
   return (
     <div>
-      <ul>
-        <li><button onClick={() => setRename(true)}>Rename</button></li>
-        <li><button onClick={() => setRemove(true)}>Delete</button></li>
-      </ul>
+      <h2>Edit {name}</h2>
 
-      {rename ? <Rename {...{ budget, setShowMenu }} /> : null}
+      <Close callback={close} display='Close' />
+      <Rename {...{ budget, close }} />
+
+      <button onClick={() => setRemove(true)}>Delete</button>
       {remove ? <Delete {...{ budget, setRemove }} /> : null}
     </div>
   )
 }
 
-export default BudgetMenu;
+export default BudgetSettings;

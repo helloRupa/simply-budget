@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
-import Close from '../../shared/Close';
 
 function Rename({ 
   budget, 
-  setShowMenu, 
+  close,
   patchBudget, 
   handleChange, 
   Error 
 }) {
   const [name, setName] = useState(budget.name);
-
-  const close = () => {
-    setShowMenu(false);
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -28,7 +23,6 @@ function Rename({
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Rename {budget.name}</h2>
       <input 
         type="text" 
         placeholder={budget.name}
@@ -36,7 +30,6 @@ function Rename({
         value={name} />
       <input type="submit" value="Update" />
 
-      <Close callback={close} display='Cancel' />
       <Error msg="Budget name is required" condition={!name} />
     </form>
   )
