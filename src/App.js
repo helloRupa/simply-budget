@@ -28,8 +28,8 @@ function App() {
   return (
     <Provider store={store}>
     <div className="App">
-    <Dashboard setShowBudget={setShowBudget} />
-    { showBudget ? <Budget setShowBudget={setShowBudget} /> : ''}
+      <Dashboard setShowBudget={setShowBudget} />
+      { showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
     </div>
     </Provider>
   );

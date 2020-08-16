@@ -5,6 +5,7 @@ import {
   truncateExpenditures } from '../../actions/expenditure_actions';
 import FormHOC from '../../shared/FormHOC';
 import { patchSettings } from '../../actions/settings_actions';
+import { earliestPeriod } from '../../utils/selectors';
 
 function AddExpenditure({ 
   budget, 
@@ -23,9 +24,10 @@ function AddExpenditure({
   const [amount, setAmount] = useState('');
   const [showError, setShowError] = useState(false);
 
+  // Only truncate periods earlier than current period when over limit
   const handleTruncation = () => {
     if (expenditures.length > maxLength && 
-      expenditures[0].period !== currentPeriod) {
+      earliestPeriod(expenditures) !== currentPeriod) {
       truncateExpenditures(expenditures, budget);
     }
   };

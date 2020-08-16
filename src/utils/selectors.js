@@ -3,7 +3,7 @@ export function selectExpenditures(expenditures, period) {
 };
 
 export function selectDeletions(expenditures, budget) {
-  const oldestPeriod = expenditures[0].period;
+  const oldestPeriod = earliestPeriod(expenditures);
 
   return expenditures.reduce((res, exp) => {
     if (exp.period === oldestPeriod) {
@@ -17,4 +17,8 @@ export function selectDeletions(expenditures, budget) {
 
 export function selectBudgetExpenditures(expenditures, budget) {
   return expenditures[budget.id];
+};
+
+export function earliestPeriod(expenditures) {
+  return expenditures[0].period;
 };
