@@ -4,7 +4,6 @@ import {
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
 import FormHOC from '../../shared/FormHOC';
-import Error from '../../shared/Error';
 import { patchSettings } from '../../actions/settings_actions';
 
 function AddExpenditure({ 
@@ -17,7 +16,8 @@ function AddExpenditure({
   categories,
   patchSettings,
   handleChange,
-  handleAmountChange
+  handleAmountChange,
+  Error
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');

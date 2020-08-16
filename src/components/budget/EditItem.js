@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
-import Error from '../../shared/Error';
 
 function EditItem({ 
   item: { id, title, amount }, 
@@ -10,7 +9,8 @@ function EditItem({
   setShowEdit, 
   patchExpenditure,
   handleChange,
-  handleAmountChange
+  handleAmountChange,
+  Error
 }) {
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);

@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchSettings } from '../../actions/settings_actions';
 import { connect } from 'react-redux';
-import Error from '../../shared/Error';
 
 function Settings({ 
   setShowSettings, 
   settings, 
   patchSettings, 
   handleChange, 
-  handleChangeWithRegex 
+  handleChangeWithRegex,
+  Error
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);

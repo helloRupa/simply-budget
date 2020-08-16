@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
-import Error from '../../shared/Error';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -11,7 +10,8 @@ function CreateOptions({
   newBudget, 
   defaultCurrency,
   handleAmountChange,
-  handleChange
+  handleChange,
+  Error
 }) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');

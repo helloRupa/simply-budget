@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
-import Error from '../../shared/Error';
 
-function Rename({ budget, setShowMenu, patchBudget, handleChange }) {
+function Rename({ 
+  budget, 
+  setShowMenu, 
+  patchBudget, 
+  handleChange, 
+  Error 
+}) {
   const [name, setName] = useState(budget.name);
 
   const close = () => {

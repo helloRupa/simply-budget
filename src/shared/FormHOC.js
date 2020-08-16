@@ -1,4 +1,5 @@
 import React from 'react';
+import Error from './Error';
 
 function Form(FormComponent) {
   return function({...props}) {
@@ -21,7 +22,12 @@ function Form(FormComponent) {
 
     return <FormComponent 
       {...props} 
-      {...{ handleChange, handleAmountChange, handleChangeWithRegex }}
+      {...{ 
+        handleChange, 
+        handleAmountChange, 
+        handleChangeWithRegex,
+        Error 
+      }}
     />
   }
 }

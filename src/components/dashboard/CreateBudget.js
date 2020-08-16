@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
 import FormHOC from '../../shared/FormHOC';
-import Error from '../../shared/Error';
 
-function CreateBudget({ handleChange }) {
+function CreateBudget({ handleChange, Error }) {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
   const [showError, setShowError] = useState(false);
