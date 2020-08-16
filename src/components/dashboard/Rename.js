@@ -9,19 +9,19 @@ function Rename({ budget, setShowMenu, patchBudget, handleChange }) {
 
   const close = () => {
     setShowMenu(false);
-  }
+  };
 
-  const updateName = e => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     if (name.length > 1) {
       patchBudget(budget.id, { name });
       close();
     }
-  }
+  };
 
   return (
-    <form onSubmit={updateName}>
+    <form onSubmit={handleSubmit}>
       <h2>Rename {budget.name}</h2>
       <input 
         type="text" 

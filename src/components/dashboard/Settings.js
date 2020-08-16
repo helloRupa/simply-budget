@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchSettings } from '../../actions/settings_actions';
 import { connect } from 'react-redux';
+import Error from '../../shared/Error';
 
 function Settings({ 
   setShowSettings, 
@@ -13,17 +14,26 @@ function Settings({
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
 
+  const close = () => setShowSettings(false);
+
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
-  }
+  };
+
+  const parseMaxItems = () => parseInt(maxItems, 10);
+
+  const isValidLineItems = () => parseMaxItems() >= 10;
 
   const handleSubmit = e => {
     e.preventDefault();
-    patchSettings({
-      "default-currency": currency,
-      "max-length": parseInt(maxItems, 10)
-    });
-    setShowSettings(false);
+
+    if (isValidLineItems()) {
+      patchSettings({
+        "default-currency": currency,
+        "max-length": parseMaxItems()
+      });
+      close();
+    }
   };
 
   return <div>
@@ -56,6 +66,7 @@ function Settings({
       </div>
 
       <input type="submit" value="Save" />
+      <Error msg="Maximum number of line items must be 10 or more" condition={!isValidLineItems()} />
     </form>
   </div>
 }

@@ -17,6 +17,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         - end date
         - total spent
         - total leftover (or just this)
+- Catch update and create failures
 
 ## Future Features:
 

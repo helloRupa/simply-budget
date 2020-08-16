@@ -4,7 +4,7 @@ import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import Error from '../../shared/Error';
 
-function EditForm({ 
+function EditItem({ 
   item: { id, title, amount }, 
   currency, 
   setShowEdit, 
@@ -15,6 +15,10 @@ function EditForm({
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);
 
+  const close = () => {
+    setShowEdit(false);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -23,7 +27,8 @@ function EditForm({
         title: newTitle, 
         amount: parseFloat(newAmount) 
       });
-      setShowEdit(false);
+      
+      close();
     } 
   };
 
@@ -42,11 +47,11 @@ function EditForm({
         onChange={e => { handleAmountChange(e, setAmount) }}
       />
       <input type="submit" value="Update Item" />
-      <button onClick={() => { setShowEdit(false) }}>Cancel</button>
+      <button onClick={() => close()}>Cancel</button>
 
       <Error msg="Amount is required" condition={ newAmount === '' } />
     </form>
   )
 }
 
-export default connect(null, { patchExpenditure })(FormHOC(EditForm));
+export default connect(null, { patchExpenditure })(FormHOC(EditItem));
