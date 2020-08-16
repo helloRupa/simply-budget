@@ -5,6 +5,7 @@ import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
 import { calculateTracking } from '../utils/calculate';
 import Close from '../shared/Close';
+import { selectBudgetExpenditures } from '../utils/selectors';
 
 function Budget({ 
   budget, 
@@ -15,11 +16,12 @@ function Budget({
   const [periods, setPeriods] = useState(0);
   const [showMore, setShowMore] = useState(true);
 
-  const budgetExpenditures = expenditures[budget.id];
+  const budgetExpenditures = selectBudgetExpenditures(expenditures, budget);
   const lowestPeriod = budgetExpenditures ? 
     budgetExpenditures[0].period :
     currentPeriod;
 
+  // only increment if there are more periods to show
   const incrementPeriods = () => {
     if ((periods < currentPeriod - 1) && 
       (currentPeriod - periods > lowestPeriod)) {

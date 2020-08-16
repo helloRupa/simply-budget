@@ -14,3 +14,7 @@ export function selectDeletions(expenditures, budget) {
     return res;
   }, { exps: [], truncate: budget.truncated });
 };
+
+export function selectBudgetExpenditures(expenditures, budget) {
+  return expenditures[budget.id];
+};

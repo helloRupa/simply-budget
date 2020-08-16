@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './Item';
-import { selectExpenditures } from '../../utils/selectors';
+import { selectExpenditures, selectBudgetExpenditures } from '../../utils/selectors';
 import { formatNumber } from '../../utils/format';
 import { 
   calculatePeriodSpent, 
@@ -10,7 +10,7 @@ import {
 function Period({ title, expenditures, currency, budget, period }) {
 
   const budgetExpenditures = () => {
-    const expendituresFromBudget = expenditures[budget.id];
+    const expendituresFromBudget = selectBudgetExpenditures(expenditures, budget);
     
     return expendituresFromBudget ? 
       selectExpenditures(expendituresFromBudget, period) :

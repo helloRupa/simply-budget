@@ -3,7 +3,7 @@ import Budget from './Budget';
 
 function Budgets({ budgets=[], setShowBudget }) {
   const noBudgets = () => 
-    budgets.length === 0 ? <li>You don't have any budgets</li> : '';
+    budgets.length === 0 ? <li>You don't have any budgets</li> : null;
 
   return (
     <ul>
