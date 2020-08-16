@@ -3,14 +3,27 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": 300,
+      "max-length": 3,
       "categories": [
         "Groceries",
         "Electronics",
         "Clothes",
         "Entertainment",
-        "testhoc",
-        "test"
+        "candy",
+        "corn flakes",
+        "jam",
+        "beans",
+        "test",
+        "staying",
+        "say",
+        "what",
+        "ew one",
+        "blah",
+        "dfdf",
+        "dfdfdf",
+        "adf",
+        "fdfd",
+        "adfdf"
       ]
     }
   ],
@@ -94,6 +107,16 @@
       "truncated": 0,
       "currentPeriod": 6,
       "id": 8
+    },
+    {
+      "name": "new testy face",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 120,
+      "startDate": "2020/8/6",
+      "truncated": 0,
+      "currentPeriod": 2,
+      "id": 9
     }
   ],
   "expenditures": [
@@ -272,6 +295,30 @@
       "date": "2020/7/15",
       "period": 3,
       "id": 23
+    },
+    {
+      "title": "should go",
+      "amount": 100,
+      "budgetId": 9,
+      "date": "2020/8/8",
+      "period": 1,
+      "id": 24
+    },
+    {
+      "title": "should go too",
+      "amount": 20,
+      "budgetId": 9,
+      "date": "2020/8/7",
+      "period": 1,
+      "id": 25
+    },
+    {
+      "title": "should stay",
+      "amount": 100,
+      "budgetId": 9,
+      "date": "2020/8/15",
+      "period": 2,
+      "id": 29
     }
   ]
 }

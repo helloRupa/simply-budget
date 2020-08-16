@@ -1,12 +1,19 @@
 import React from 'react';
 import Item from './Item';
-import { selectExpenditures, selectBudgetExpenditures } from '../../utils/selectors';
-import { formattedPeriodSpent, formattedRemainingSpend } from '../../utils/calculate';
+import { 
+  selectExpenditures, 
+  selectBudgetExpenditures 
+} from '../../utils/selectors';
+import { 
+  formattedPeriodSpent, 
+  formattedRemainingSpend 
+} from '../../utils/calculate';
 
 function Period({ title, expenditures, currency, budget, period }) {
 
   const budgetExpenditures = () => {
-    const expendituresFromBudget = selectBudgetExpenditures(expenditures, budget);
+    const expendituresFromBudget = 
+      selectBudgetExpenditures(expenditures, budget);
     
     return expendituresFromBudget ? 
       selectExpenditures(expendituresFromBudget, period) :

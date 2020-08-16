@@ -33,7 +33,7 @@ export const removeBudget = id => ({
 export function destroyBudget(id) {
   return dispatch => {
     deleteBudget(id)
-    .then(budget => {
+    .then(_ => {
       dispatch(removeBudget(id));
     });
   };

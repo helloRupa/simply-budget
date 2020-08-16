@@ -5,7 +5,10 @@ import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking } from '../utils/calculate';
 import Close from '../shared/Close';
-import { selectBudgetExpenditures, earliestPeriod } from '../utils/selectors';
+import { 
+  selectBudgetExpenditures, 
+  earliestPeriod 
+} from '../utils/selectors';
 
 function Budget({ 
   budget, 

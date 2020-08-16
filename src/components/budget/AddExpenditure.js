@@ -26,7 +26,7 @@ function AddExpenditure({
 
   // Only truncate periods earlier than current period when over limit
   const handleTruncation = () => {
-    if (expenditures.length > maxLength && 
+    if (expenditures.length >= maxLength && 
       earliestPeriod(expenditures) !== currentPeriod) {
       truncateExpenditures(expenditures, budget);
     }
@@ -36,6 +36,12 @@ function AddExpenditure({
     if (!categories.includes(title)) {
       patchSettings({ categories: [...categories, title] });
     }
+  };
+
+  const reset = () => {
+    setTitle('');
+    setAmount('');
+    setShowError(false);
   };
 
   const onSubmit = e => {
@@ -48,9 +54,7 @@ function AddExpenditure({
         handleCategory(title);
       });
 
-      setTitle('');
-      setAmount('');
-      setShowError(false);
+      reset();
     } else {
       setShowError(true);
     }
