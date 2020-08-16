@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import BudgetMenu from './BudgetMenu';
-import { formatNumber } from '../../utils/format';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
-import { calculateTracking } from '../../utils/calculate';
+import { formattedSingleBudgetTracking } from '../../utils/calculate';
 
 function Budget({ 
   budget, 
@@ -30,7 +29,7 @@ function Budget({
         <span className="budget-name">{name}</span>
         <span className="budget-currency">{currency}</span>
         <span className="budget-tracking">
-          {formatNumber(calculateTracking({expenditures, budget}))}
+          {formattedSingleBudgetTracking(expenditures, budget)}
         </span>
       </span>
       <div>

@@ -1,3 +1,5 @@
+import { formatNumber } from './format';
+
 function sum(array, selector) {
   return array.reduce((sum, el) => sum + el[selector], 0);
 }
@@ -17,11 +19,19 @@ export function calculateTracking({
   return limit * currentPeriod - truncated - spent;
 };
 
+export function formattedSingleBudgetTracking(expenditures, budget) {
+  return formatNumber(calculateTracking({ expenditures, budget }));
+};
+
 // Overall tracking for many budgets
 export function calculateTotalTracking(budgets, expenditures) {
   return budgets.reduce((sum, budget) => 
     sum + calculateTracking({ expenditures, budget }), 
     0);
+};
+
+export function formattedTotalTracking(budgets, expenditures) {
+  return formatNumber(calculateTotalTracking(budgets, expenditures));
 };
 
 function getCurrentExpenditures(budgetId, currentPeriod, expenditures) {
@@ -45,6 +55,14 @@ export function calculatePeriodSpent({
   return sumExpenditures(currentExpenditures);
 };
 
+export function formattedPeriodSpent(expenditures, budget, period) {
+  return formatNumber(calculatePeriodSpent({
+    expenditures, 
+    budget, 
+    period
+  }));
+};
+
 // Tracking for a single budget during the current period
 // get all expenditures for current period, sum them
 // subtract sum from limit
@@ -64,6 +82,13 @@ export function calculateRemainingSpend({
     limit : limit - sumExpenditures(currentExpenditures);
 };
 
+export function formattedRemainingSpend(expenditures, budget, period) {
+  return formatNumber(calculateRemainingSpend({
+    expenditures, 
+    budget, 
+    period
+  }));
+};
 
 // to calculate current period from start date, subtract dates
 // add a day to make count inclusive, and then divide by ms in a day

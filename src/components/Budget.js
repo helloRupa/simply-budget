@@ -3,7 +3,7 @@ import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
 import { connect } from 'react-redux';
-import { calculateTracking } from '../utils/calculate';
+import { formattedSingleBudgetTracking } from '../utils/calculate';
 import Close from '../shared/Close';
 import { selectBudgetExpenditures, earliestPeriod } from '../utils/selectors';
 
@@ -44,7 +44,7 @@ function Budget({
       </p>
       <p>
         Tracking (lifetime): { currency }
-          { formatNumber(calculateTracking({ expenditures, budget })) }
+          {formattedSingleBudgetTracking(expenditures, budget)}
       </p>
 
       <Expenditures 
