@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - Until start date, gray it out and disable it
     - Edit start date of budget if no expenditures are present
 - Edit date of expenditure
+    - Will affect ordering of expenditures for finding period
 - Add date to new expenditure for a catch-up
+    - Will also affect ordering for finding period
 - Archive
     - Calculate total spent
     - Put in archives structure
@@ -17,7 +19,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         - end date
         - total spent
         - total leftover (or just this)
+    - Delete expenditures for that budget
+    - How should this affect totals?
 - Catch update and create failures
+    - Truncaton failure
+        - Needs to be all or nothing
+        - If it fails at any point during deletion of exps or patching of budget, roll back to previous state
+            - Know which budget and exps are affected
+            - Fetch old data from backup, use it to patch new data
+            - Backup file or backup state? Could just have a backup in Redux store instead of a file
+            - json-server: Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.
+        - If it fails when fetching updated data, just reload after showing a message
+    - Insert budget or expenditure failure
+        - Show message, reload, ask to try again, db should still be fine
+    - Single deletion failure
+        - Show message, reload, ask to try again, db should still be fine
+    - Basic getting failure
+        - Show message, reload, ask to try again, db is fine
 
 ## Future Features:
 
