@@ -4,8 +4,9 @@ import {
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
 import FormHOC from '../../shared/FormHOC';
-import { patchSettings } from '../../actions/settings_actions';
 import { earliestPeriod } from '../../utils/selectors';
+
+import ExpenditureForm from './ExpenditureForm';
 
 function AddExpenditure({ 
   budget, 
@@ -14,8 +15,6 @@ function AddExpenditure({
   truncateExpenditures,
   expenditures,
   maxLength,
-  categories,
-  patchSettings,
   handleChange,
   handleAmountChange,
   Error
@@ -32,12 +31,6 @@ function AddExpenditure({
     }
   };
 
-  const handleCategory = title => {
-    if (!categories.includes(title)) {
-      patchSettings({ categories: [...categories, title] });
-    }
-  };
-
   const reset = () => {
     setTitle('');
     setAmount('');
@@ -45,13 +38,10 @@ function AddExpenditure({
   };
 
   const onSubmit = e => {
-    e.preventDefault();
-
     if (amount !== '') {
       postExpenditure({ title, amount: parseFloat(amount) }, budget)
       .then(_ => {
         handleTruncation();
-        handleCategory(title);
       });
 
       reset();
@@ -60,37 +50,24 @@ function AddExpenditure({
     }
   };
 
-  return <form onSubmit={onSubmit}>
-    <input 
-      type="text" 
-      placeholder="Expenditure name (optional)" 
-      value={title}
-      onChange={e => handleChange(e, setTitle)}
-      list="saved-categories"
+  return (
+    <>
+    <ExpenditureForm {...{ onSubmit, title, currency, amount }} 
+      handleTextChange={e => handleChange(e, setTitle)}
+      handleCostChange={e => handleAmountChange(e, setAmount)}
     />
-    <datalist id="saved-categories">
-      { categories.map(name => <option value={name} key={name} />) }
-    </datalist>
-    {currency}
-    <input 
-      type="text" 
-      placeholder="20.60" 
-      value={amount}
-      onChange={e => handleAmountChange(e, setAmount)}
-    />
-    <input type="submit" value="Save" />
+
     <Error msg="Amount is required" condition={showError} />
-  </form>
+    </>
+  )
 }
 
 const mapStateToProps = state => ({
   budget: state.budget.selected,
-  maxLength: state.settings['max-length'],
-  categories: state.settings.categories
+  maxLength: state.settings['max-length']
 });
 
 export default connect(mapStateToProps, { 
   postExpenditure, 
-  truncateExpenditures,
-  patchSettings
+  truncateExpenditures
 })(FormHOC(AddExpenditure));

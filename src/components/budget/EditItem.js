@@ -3,6 +3,7 @@ import FormHOC from '../../shared/FormHOC';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import Close from '../../shared/Close';
+import ExpenditureForm from './ExpenditureForm';
 
 function EditItem({ 
   item: { id, title, amount }, 
@@ -20,9 +21,7 @@ function EditItem({
     setShowEdit(false);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
+  const onSubmit = e => {
     if (newAmount !== '') {
       patchExpenditure(id, { 
         title: newTitle, 
@@ -34,24 +33,18 @@ function EditItem({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        value={newTitle} 
-        placeholder="Title (optional)" 
-        onChange={e => { handleChange(e, setTitle) }}
+    <>
+      <ExpenditureForm 
+        onSubmit={onSubmit}
+        title={newTitle}
+        handleTextChange={e => { handleChange(e, setTitle) }}
+        currency={currency}
+        amount={newAmount}
+        handleCostChange={e => { handleAmountChange(e, setAmount) }}
       />
-      { currency }
-      <input 
-        type="text" 
-        value={newAmount} 
-        onChange={e => { handleAmountChange(e, setAmount) }}
-      />
-      <input type="submit" value="Update Item" />
-
       <Close callback={close} display='Cancel' />
       <Error msg="Amount is required" condition={ newAmount === '' } />
-    </form>
+    </>
   )
 }
 
