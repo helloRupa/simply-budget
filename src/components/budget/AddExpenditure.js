@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { 
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
-import FormHOC from '../../shared/FormHOC';
 import { earliestPeriod } from '../../utils/selectors';
-
 import ExpenditureForm from './ExpenditureForm';
 
 function AddExpenditure({ 
@@ -14,10 +12,7 @@ function AddExpenditure({
   postExpenditure, 
   truncateExpenditures,
   expenditures,
-  maxLength,
-  handleChange,
-  handleAmountChange,
-  Error
+  maxLength
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -52,12 +47,15 @@ function AddExpenditure({
 
   return (
     <>
-    <ExpenditureForm {...{ onSubmit, title, currency, amount }} 
-      handleTextChange={e => handleChange(e, setTitle)}
-      handleCostChange={e => handleAmountChange(e, setAmount)}
-    />
-
-    <Error msg="Amount is required" condition={showError} />
+    <ExpenditureForm {...{ 
+      onSubmit, 
+      title, 
+      currency, 
+      amount, 
+      setAmount, 
+      setTitle, 
+      showError 
+    }} />
     </>
   )
 }
@@ -70,4 +68,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { 
   postExpenditure, 
   truncateExpenditures
-})(FormHOC(AddExpenditure));
+})(AddExpenditure);

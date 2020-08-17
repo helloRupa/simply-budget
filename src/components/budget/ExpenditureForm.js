@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { patchSettings } from '../../actions/settings_actions';
+import FormHOC from '../../shared/FormHOC';
 
 function ExpenditureForm({
   onSubmit,
   title,
-  handleTextChange,
+  setTitle,
   categories,
   currency,
   amount,
-  handleCostChange,
-  patchSettings
+  setAmount,
+  patchSettings,
+  handleChange,
+  handleAmountChange,
+  Error,
+  showError
 }) {
   const handleCategory = title => {
     if (!categories.includes(title)) {
@@ -29,7 +34,7 @@ function ExpenditureForm({
       type="text" 
       placeholder="Title (optional)" 
       value={title}
-      onChange={handleTextChange}
+      onChange={e => handleChange(e, setTitle)}
       list="saved-categories"
     />
     <datalist id="saved-categories">
@@ -40,9 +45,10 @@ function ExpenditureForm({
       type="text" 
       placeholder="20.60" 
       value={amount}
-      onChange={handleCostChange}
+      onChange={e => handleAmountChange(e, setAmount)}
     />
     <input type="submit" value="Save" />
+    <Error msg="Amount is required" condition={showError} />
   </form>
 }
 
@@ -50,4 +56,4 @@ const mapStateToProps = state => ({
   categories: state.settings.categories
 });
 
-export default connect(mapStateToProps, { patchSettings })(ExpenditureForm);
+export default connect(mapStateToProps, { patchSettings })(FormHOC(ExpenditureForm));

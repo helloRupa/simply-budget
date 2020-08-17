@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FormHOC from '../../shared/FormHOC';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import Close from '../../shared/Close';
@@ -9,10 +8,7 @@ function EditItem({
   item: { id, title, amount }, 
   currency, 
   setShowEdit, 
-  patchExpenditure,
-  handleChange,
-  handleAmountChange,
-  Error
+  patchExpenditure
 }) {
   const [newTitle, setTitle] = useState(title);
   const [newAmount, setAmount] = useState(amount);
@@ -34,18 +30,14 @@ function EditItem({
 
   return (
     <>
-      <ExpenditureForm 
-        onSubmit={onSubmit}
+      <ExpenditureForm {...{ onSubmit, setTitle, currency, setAmount }}
         title={newTitle}
-        handleTextChange={e => { handleChange(e, setTitle) }}
-        currency={currency}
         amount={newAmount}
-        handleCostChange={e => { handleAmountChange(e, setAmount) }}
+        showError={newAmount === ''}
       />
       <Close callback={close} display='Cancel' />
-      <Error msg="Amount is required" condition={ newAmount === '' } />
     </>
   )
 }
 
-export default connect(null, { patchExpenditure })(FormHOC(EditItem));
+export default connect(null, { patchExpenditure })(EditItem);
