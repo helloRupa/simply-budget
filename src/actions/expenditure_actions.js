@@ -70,7 +70,7 @@ export function truncateExpenditures(expenditures, budget) {
   const deletions = selectDeletions(expenditures, budget);
 
   return dispatch => {
-    Promise.all(deletions.exps.map(exp => {
+    return Promise.all(deletions.exps.map(exp => {
       return deleteExpenditure(exp.id)
       .then(_ => dispatch(removeExpenditure(exp)));
     })).then(_ => {

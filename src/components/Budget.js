@@ -18,6 +18,7 @@ function Budget({
 }) {
   const [periods, setPeriods] = useState(0);
   const [showMore, setShowMore] = useState(true);
+  const [isTruncating, setIsTruncating] = useState(false);
 
   const budgetExpenditures = selectBudgetExpenditures(expenditures, budget);
 
@@ -56,7 +57,11 @@ function Budget({
       <button onClick={incrementPeriods} disabled={!showMore}>
         Load More
       </button>
-      <AddExpenditure expenditures={ expenditures[id] || [] } />
+      { isTruncating ? <p><strong>Truncating oldest expenses</strong></p> : null }
+      <AddExpenditure 
+        expenditures={ expenditures[id] || [] } 
+        setIsTruncating={setIsTruncating} 
+      />
     </div>
   )
 }

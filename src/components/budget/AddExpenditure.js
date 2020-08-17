@@ -12,7 +12,8 @@ function AddExpenditure({
   postExpenditure, 
   truncateExpenditures,
   expenditures,
-  maxLength
+  maxLength,
+  setIsTruncating
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -22,7 +23,9 @@ function AddExpenditure({
   const handleTruncation = () => {
     if (expenditures.length >= maxLength && 
       earliestPeriod(expenditures) !== currentPeriod) {
-      truncateExpenditures(expenditures, budget);
+        setIsTruncating(true);
+        truncateExpenditures(expenditures, budget)
+        .then(_ => setTimeout(() => setIsTruncating(false), 2500));
     }
   };
 
