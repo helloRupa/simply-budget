@@ -21,7 +21,7 @@ function Budget({
 
   const budgetExpenditures = selectBudgetExpenditures(expenditures, budget);
 
-  const lowestPeriod = budgetExpenditures ? 
+  const lowestPeriod = budgetExpenditures && budgetExpenditures.length > 0 ? 
     earliestPeriod(budgetExpenditures) :
     currentPeriod;
 

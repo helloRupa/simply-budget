@@ -8,7 +8,10 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        "Ice Cream",
+        "eclaires",
+        "holland and barrett"
       ]
     }
   ],
@@ -102,6 +105,16 @@
       "truncated": 0,
       "currentPeriod": 2,
       "id": 9
+    },
+    {
+      "name": "delete me soon",
+      "currency": "£",
+      "frequency": "week",
+      "limit": 120,
+      "startDate": "2020/8/16",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 10
     }
   ],
   "expenditures": [
