@@ -3,7 +3,7 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": 3,
+      "max-length": 250,
       "categories": [
         "Groceries",
         "Electronics",
@@ -107,16 +107,6 @@
       "truncated": 0,
       "currentPeriod": 2,
       "id": 9
-    },
-    {
-      "name": "delete me soon",
-      "currency": "£",
-      "frequency": "week",
-      "limit": 120,
-      "startDate": "2020/8/7",
-      "truncated": 150,
-      "currentPeriod": 2,
-      "id": 10
     }
   ],
   "expenditures": [
@@ -327,30 +317,6 @@
       "date": "2020/8/15",
       "period": 2,
       "id": 29
-    },
-    {
-      "title": "staying",
-      "amount": 50,
-      "budgetId": 10,
-      "date": "2020/8/16",
-      "period": 2,
-      "id": 32
-    },
-    {
-      "title": "test",
-      "amount": 10,
-      "budgetId": 10,
-      "date": "2020/8/16",
-      "period": 2,
-      "id": 33
-    },
-    {
-      "title": "test",
-      "amount": 10,
-      "budgetId": 10,
-      "date": "2020/8/16",
-      "period": 2,
-      "id": 34
     }
   ]
 }
