@@ -41,7 +41,7 @@ export function destroyBudget(id) {
       dispatch(setError({ 
         error: 'Budget might not have deleted. You may need to try again.',
         location: 'destroyBudget()',
-        debug: error.message
+        debug: error
       }));
     });
   };
@@ -61,7 +61,7 @@ export function patchBudget(id, budget) {
       dispatch(setError({ 
         error: 'Budget might not have updated. You may need to try again.',
         location: 'patchBudget()',
-        debug: error.message
+        debug: error
       }));
     });
   };
@@ -81,7 +81,7 @@ export function newBudget(budget) {
       dispatch(setError({ 
         error: 'Budget might not have been created. You may need to try again.',
         location: 'newBudget()',
-        debug: error.message
+        debug: error
       }));
     });
   };
@@ -93,7 +93,7 @@ function getBudgetsWithCatch(callback, dispatch, location) {
   .catch(error => {
     dispatch(setError({ 
       error: 'Could not fetch all budgets.',
-      debug: error.message,
+      debug: error,
       location
     }));
   });
@@ -109,7 +109,7 @@ function updateAllBudgets(budgets, dispatch) {
     dispatch(setError({ 
       error: 'Could not update all budget periods.',
       location: 'Promise.all([updateBudgetCurrentPeriod])',
-      debug: error.message
+      debug: error
     }));
   });
 }
