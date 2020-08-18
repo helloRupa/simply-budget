@@ -5,7 +5,7 @@ import {
   createBudget,
   updateBudgetCurrentPeriod
 } from '../utils/comms';
-import { setError } from './error_actions';
+import { dispatchError } from './error_actions';
 
 export const addBudgets = budgets => ({
   type: 'ADD_BUDGETS',
@@ -38,11 +38,11 @@ export function destroyBudget(id) {
     .then(_ => {
       dispatch(removeBudget(id));
     }).catch(error => {
-      dispatch(setError({ 
+      dispatchError(dispatch, { 
         error: 'Budget might not have deleted. You may need to try again.',
         location: 'destroyBudget()',
         debug: error
-      }));
+      });
     });
   };
 };
@@ -58,11 +58,11 @@ export function patchBudget(id, budget) {
     .then(budget => {
       dispatch(changeBudget(budget));
     }).catch(error => {
-      dispatch(setError({ 
+      dispatchError(dispatch, { 
         error: 'Budget might not have updated. You may need to try again.',
         location: 'patchBudget()',
         debug: error
-      }));
+      });
     });
   };
 };
@@ -78,11 +78,11 @@ export function newBudget(budget) {
     .then(budget => {
       dispatch(addBudget(budget));
     }).catch(error => {
-      dispatch(setError({ 
+      dispatchError(dispatch, { 
         error: 'Budget might not have been created. You may need to try again.',
         location: 'newBudget()',
         debug: error
-      }));
+      });
     });
   };
 };
@@ -91,11 +91,11 @@ function getBudgetsWithCatch(callback, dispatch, location) {
   return getBudgets()
   .then(budgets => callback(budgets))
   .catch(error => {
-    dispatch(setError({ 
+    dispatchError(dispatch, { 
       error: 'Could not fetch all budgets.',
       debug: error,
       location
-    }));
+    });
   });
 }
 
@@ -106,11 +106,11 @@ function updateAllBudgets(budgets, dispatch) {
     getBudgetsWithCatch(budgets => dispatch(addBudgets(budgets)),
       dispatch, 'updateBudgetsCurrentPeriods() > getBudgets()');
   }).catch(error => {
-    dispatch(setError({ 
+    dispatchError(dispatch, { 
       error: 'Could not update all budget periods.',
       location: 'Promise.all([updateBudgetCurrentPeriod])',
       debug: error
-    }));
+    });
   });
 }
 

@@ -3,11 +3,12 @@ import {
   getExpenditures, 
   deleteExpenditure, 
   updateExpenditure,
-  createExpenditure
+  createExpenditure,
+  updateBudget
 } from '../utils/comms';
-import { updateBudget } from '../utils/comms';
 import { changeBudget, selectBudget } from './budget_actions';
 import { selectDeletions} from '../utils/selectors';
+import { dispatchError } from './error_actions';
 
 export const addExpenditures = expenditures => ({
   type: 'ADD_EXPENDITURES',
@@ -19,6 +20,12 @@ export function fetchExpenditures() {
     getExpenditures()
     .then(exps => {
       dispatch(addExpenditures(formatExpenditures(exps)));
+    }).catch(error => {
+      dispatchError(dispatch, { 
+        error: 'Could not fetch all expenditures.',
+        location: 'fetchExpenditures()',
+        debug: error
+      });
     });
   };
 };
@@ -33,6 +40,12 @@ export function destroyExpenditure(expenditure) {
     deleteExpenditure(expenditure.id)
     .then(_ => {
       dispatch(removeExpenditure(expenditure));
+    }).catch(error => {
+      dispatchError(dispatch, { 
+        error: 'Could not delete expenditure.',
+        location: 'destroyExpenditure()',
+        debug: error
+      });
     });
   };
 };
@@ -47,6 +60,12 @@ export function patchExpenditure(id, updated) {
     updateExpenditure(id, updated)
     .then(exp => {
       dispatch(editExpenditure(exp));
+    }).catch(error => {
+      dispatchError(dispatch, { 
+        error: 'Could not edit all expenditure.',
+        location: 'patchExpenditure()',
+        debug: error
+      });
     });
   };
 };
@@ -61,6 +80,12 @@ export function postExpenditure(expenditure, budget) {
     return createExpenditure(expenditure, budget)
     .then(exp => {
       dispatch(addExpenditure(exp));
+    }).catch(error => {
+      dispatchError(dispatch, { 
+        error: 'Could not create expenditure.',
+        location: 'postExpenditure()',
+        debug: error
+      });
     });
   };
 };

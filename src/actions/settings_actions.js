@@ -1,5 +1,5 @@
 import { getSettings, updateSettings } from '../utils/comms';
-import { setError } from './error_actions';
+import { dispatchError } from './error_actions';
 
 export const setSettings = settings => ({
   type: 'SET_SETTINGS',
@@ -13,11 +13,11 @@ export function fetchSettings() {
       dispatch(setSettings(settings));
     })
     .catch(error => {
-      dispatch(setError({
-        error: 'Could not fetch settings',
+      dispatchError(dispatch, {
+        error: 'Could not fetch settings.',
         location: 'fetchSettings()',
         debug: error
-      }));
+      });
     });
   };
 };
@@ -29,11 +29,11 @@ export function patchSettings(settings) {
       dispatch(setSettings(settings));
     })
     .catch(error => {
-      dispatch(setError({
-        error: 'Could not update settings',
+      dispatchError(dispatch, {
+        error: 'Could not update settings.',
         location: 'patchSetting()',
         debug: error
-      }));
+      });
     });
   };
 };
