@@ -65,7 +65,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 6,
+      "currentPeriod": 7,
       "id": 5
     },
     {
@@ -75,7 +75,7 @@
       "limit": 20,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 6,
+      "currentPeriod": 7,
       "id": 6
     },
     {
@@ -85,7 +85,7 @@
       "limit": 100,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 6,
+      "currentPeriod": 7,
       "id": 7
     },
     {
@@ -95,7 +95,7 @@
       "limit": 200,
       "startDate": "2020/7/7",
       "truncated": 0,
-      "currentPeriod": 6,
+      "currentPeriod": 7,
       "id": 8
     },
     {

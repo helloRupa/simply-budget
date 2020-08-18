@@ -1,6 +1,7 @@
 export const setError = ({ error, location, debug }) => ({
   type: 'SET_ERROR',
-  error, location, debug
+  debug: debug.message,
+  error, location
 });
 
 export const clearError = () => ({ 
