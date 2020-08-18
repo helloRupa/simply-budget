@@ -1,6 +1,6 @@
-export const setError = (error, location) => ({
+export const setError = ({ error, location, debug }) => ({
   type: 'SET_ERROR',
-  error, location
+  error, location, debug
 });
 
 export const clearError = () => ({ 

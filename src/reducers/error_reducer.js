@@ -1,6 +1,7 @@
 const errorState = {
   error: null,
-  location: null
+  location: null,
+  debug: null
 };
 
 function errorReducer(state = errorState, action) {
@@ -9,13 +10,15 @@ function errorReducer(state = errorState, action) {
       return {
         ...state,
         error: action.error,
-        location: action.location
+        location: action.location,
+        debug: action.debug
       };
     case 'CLEAR_ERROR':
       return {
         ...state,
         error: null,
-        location: null
+        location: null,
+        debug: null
       };
     default:
       return state;

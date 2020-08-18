@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { clearError } from './actions/error_actions';
 
 function Error({ 
-  errors: { error, location }, 
+  errors: { error, location, debug }, 
   clearError, 
   setForceUpdate, 
   forceUpdate 
@@ -19,6 +19,7 @@ function Error({
         <h2>Oops, something went wrong</h2>
         <p>{error}</p>
         <p>Location: {location}</p>
+        <p>Debug Message: {debug}</p>
         <button onClick={reload}>Reload</button>
       </div> : null  }
     </div>
