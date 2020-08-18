@@ -14,7 +14,8 @@ function Dashboard({
   fetchSettings, 
   fetchExpenditures,
   expenditures, 
-  setShowBudget
+  setShowBudget,
+  forceUpdate
 }) {
   const [showSettings, setShowSettings] = useState(false);
 
@@ -22,7 +23,7 @@ function Dashboard({
     updateBudgetsCurrentPeriods();
     fetchExpenditures();
     fetchSettings();
-  }, [updateBudgetsCurrentPeriods, fetchSettings, fetchExpenditures]);
+  }, [updateBudgetsCurrentPeriods, fetchSettings, fetchExpenditures, forceUpdate]);
 
   const displaySettings = () => 
     showSettings ? <Settings {...{ setShowSettings }} /> : null;

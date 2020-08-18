@@ -5,6 +5,7 @@ import {
   createBudget,
   updateBudgetCurrentPeriod
 } from '../utils/comms';
+import { setError } from './error_actions';
 
 export const addBudgets = budgets => ({
   type: 'ADD_BUDGETS',
@@ -79,6 +80,6 @@ export function updateBudgetsCurrentPeriods() {
           dispatch(addBudgets(budgets));
         });
       });
-    });
+    }).catch(error => dispatch(setError(error.message)));
   };
 };

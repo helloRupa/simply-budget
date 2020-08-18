@@ -1,8 +1,8 @@
-export const setError = error => ({
+export const setError = (error, location) => ({
   type: 'SET_ERROR',
-  error
+  error, location
 });
 
-export const clearError = { 
+export const clearError = () => ({ 
   type: 'CLEAR_ERROR' 
-};
+});

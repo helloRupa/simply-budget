@@ -27,13 +27,14 @@ const store = createStore(
 
 function App() {
   const [showBudget, setShowBudget] = useState(false);
+  const [forceUpdate, setForceUpdate] = useState(0);
 
   return (
     <Provider store={store}>
     <div className="App">
-      <Dashboard setShowBudget={setShowBudget} />
-      { showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
-      <Error />
+      <Dashboard {...{ setShowBudget, forceUpdate }} />
+      {showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
+      <Error {...{ setForceUpdate, forceUpdate }} />
     </div>
     </Provider>
   );
