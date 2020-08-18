@@ -36,6 +36,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         - Show message, reload, ask to try again, db should still be fine
     - Basic getting failure
         - Show message, reload, ask to try again, db is fine
+    - Updating all budget periods
+        - Try again
 
 ## Future Features:
 

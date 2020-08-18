@@ -18,8 +18,7 @@ function createOptions(method, body={}) {
 
 function generalFetch(url, options) {
   return fetch(url, options)
-    .then(res => res.json())
-    .catch(console.log)
+    .then(res => res.json());
 }
 
 function changeData(url, method, body={}) {

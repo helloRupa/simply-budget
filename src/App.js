@@ -9,12 +9,15 @@ import thunk from 'redux-thunk';
 import budgetReducer from './reducers/budget_reducer';
 import expenditureReducer from './reducers/expenditure_reducer';
 import settingsReducer from './reducers/settings_reducer';
+import errorReducer from './reducers/error_reducer';
+import Error from './Error';
 
 const store = createStore(
   combineReducers({
     budget: budgetReducer,
     expenditures: expenditureReducer,
-    settings: settingsReducer
+    settings: settingsReducer,
+    errors: errorReducer
   }),
   compose(
     applyMiddleware(thunk),
@@ -30,6 +33,7 @@ function App() {
     <div className="App">
       <Dashboard setShowBudget={setShowBudget} />
       { showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
+      <Error />
     </div>
     </Provider>
   );
