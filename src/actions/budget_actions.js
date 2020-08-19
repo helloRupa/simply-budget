@@ -130,3 +130,9 @@ export function updateBudgetsCurrentPeriods() {
       dispatch, 'getBudgets()');
   };
 };
+
+export const makeBackup = (budget, expenditures) => ({
+  type: 'MAKE_BACKUP',
+  budget,
+  expenditures
+});

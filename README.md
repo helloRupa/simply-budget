@@ -30,14 +30,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
             - Backup file or backup state? Could just have a backup in Redux store instead of a file
             - json-server: Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.
         - If it fails when fetching updated data, just reload after showing a message
-    - Insert budget or expenditure failure
-        - Show message, reload, ask to try again, db should still be fine
-    - Single deletion failure
-        - Show message, reload, ask to try again, db should still be fine
-    - Basic getting failure
-        - Show message, reload, ask to try again, db is fine
-    - Updating all budget periods
-        - Try again
 
 ## Future Features:
 

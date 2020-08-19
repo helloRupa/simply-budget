@@ -6,7 +6,7 @@ import {
   createExpenditure,
   updateBudget
 } from '../utils/comms';
-import { changeBudget, selectBudget } from './budget_actions';
+import { changeBudget, selectBudget, makeBackup } from './budget_actions';
 import { selectDeletions} from '../utils/selectors';
 import { chainPromise } from './error_actions';
 
@@ -94,11 +94,17 @@ export function postExpenditure(expenditure, budget) {
   };
 };
 
+
+// backup is done
+// now need to restore from it
+// what to do about the new added expenditure? anything?
 export function truncateExpenditures(expenditures, budget) {
   const budgetId = budget.id;
   const deletions = selectDeletions(expenditures, budget);
 
   return dispatch => {
+    dispatch(makeBackup(budget, deletions.exps));
+
     return Promise.all(deletions.exps.map(exp => {
       return deleteExpenditure(exp.id)
       .then(_ => dispatch(removeExpenditure(exp)));

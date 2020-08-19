@@ -1,6 +1,7 @@
 const budgetState = {
   budgets: [],
-  selected: null
+  selected: null,
+  backup: {}
 };
 
 function budgetReducer(state = budgetState, action) {
@@ -31,6 +32,14 @@ function budgetReducer(state = budgetState, action) {
       return {
         ...state,
         selected: action.budget
+      };
+    case 'MAKE_BACKUP':
+      return {
+        ...state,
+        backup: {
+          budget: action.budget,
+          expenditures: action.expenditures
+        }
       };
     default: 
       return state;
