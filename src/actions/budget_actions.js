@@ -5,7 +5,7 @@ import {
   createBudget,
   updateBudgetCurrentPeriod
 } from '../utils/comms';
-import { dispatchError } from './error_actions';
+import { chainPromise } from './error_actions';
 
 export const addBudgets = budgets => ({
   type: 'ADD_BUDGETS',
@@ -33,17 +33,18 @@ export const removeBudget = id => ({
 });
 
 export function destroyBudget(id) {
+  const errorObj = { 
+    error: 'Budget might not have deleted. You may need to try again.',
+    location: 'destroyBudget()' 
+  };
+
   return dispatch => {
-    deleteBudget(id)
-    .then(_ => {
-      dispatch(removeBudget(id));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Budget might not have deleted. You may need to try again.',
-        location: 'destroyBudget()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      () => deleteBudget(id),
+      [() => dispatch(removeBudget(id))],
+      errorObj
+    );
   };
 };
 
@@ -53,17 +54,18 @@ export const changeBudget = budget => ({
 });
 
 export function patchBudget(id, budget) {
+  const errorObj = {
+    error: 'Budget might not have updated. You may need to try again.',
+    location: 'patchBudget()'
+  };
+
   return dispatch => {
-    updateBudget(id, budget)
-    .then(budget => {
-      dispatch(changeBudget(budget));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Budget might not have updated. You may need to try again.',
-        location: 'patchBudget()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      () => updateBudget(id, budget),
+      [budget => dispatch(changeBudget(budget))],
+      errorObj
+    );
   };
 };
 
@@ -73,50 +75,58 @@ export const addBudget = budget => ({
 });
 
 export function newBudget(budget) {
+  const errorObj = { 
+    error: 'Budget might not have been created. You may need to try again.',
+    location: 'newBudget()'
+  };
+
   return dispatch => {
-    createBudget(budget)
-    .then(budget => {
-      dispatch(addBudget(budget));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Budget might not have been created. You may need to try again.',
-        location: 'newBudget()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      () => createBudget(budget),
+      [budget => dispatch(addBudget(budget))],
+      errorObj
+    );
   };
 };
 
-function getBudgetsWithCatch(callback, dispatch, location) {
-  return getBudgets()
-  .then(budgets => callback(budgets))
-  .catch(error => {
-    dispatchError(dispatch, { 
-      error: 'Could not fetch all budgets.',
-      debug: error,
-      location
-    });
-  });
+function getBudgetsChained(callback, dispatch, location) {
+  const errorObj = {
+    error: 'Could not fetch all budgets.',
+    location
+  };
+
+  return chainPromise(
+    dispatch,
+    getBudgets,
+    [budgets => callback(budgets)],
+    errorObj
+  );
 }
 
 function updateAllBudgets(budgets, dispatch) {
-  return Promise.all(budgets.map(budget => 
-    updateBudgetCurrentPeriod(budget))
-  ).then(_ => {
-    getBudgetsWithCatch(budgets => dispatch(addBudgets(budgets)),
+  const errorObj = {
+    error: 'Could not update all budget periods.',
+    location: 'Promise.all([updateBudgetCurrentPeriod])'
+  };
+
+  const getBudgets = () => {
+    getBudgetsChained(budgets => dispatch(addBudgets(budgets)),
       dispatch, 'updateBudgetsCurrentPeriods() > getBudgets()');
-  }).catch(error => {
-    dispatchError(dispatch, { 
-      error: 'Could not update all budget periods.',
-      location: 'Promise.all([updateBudgetCurrentPeriod])',
-      debug: error
-    });
-  });
+  };
+
+  return chainPromise(
+    dispatch,
+    () => Promise.all(budgets.map(budget => 
+      updateBudgetCurrentPeriod(budget))),
+    [getBudgets],
+    errorObj
+  );
 }
 
 export function updateBudgetsCurrentPeriods() {
   return dispatch => {
-    getBudgetsWithCatch(budgets => updateAllBudgets(budgets, dispatch), 
+    getBudgetsChained(budgets => updateAllBudgets(budgets, dispatch), 
       dispatch, 'getBudgets()');
   };
 };

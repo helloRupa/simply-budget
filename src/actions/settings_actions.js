@@ -1,5 +1,5 @@
 import { getSettings, updateSettings } from '../utils/comms';
-import { dispatchError } from './error_actions';
+import { chainPromise } from './error_actions';
 
 export const setSettings = settings => ({
   type: 'SET_SETTINGS',
@@ -8,32 +8,22 @@ export const setSettings = settings => ({
 
 export function fetchSettings() {
   return dispatch => {
-    getSettings()
-    .then(settings => {
-      dispatch(setSettings(settings));
-    })
-    .catch(error => {
-      dispatchError(dispatch, {
-        error: 'Could not fetch settings.',
-        location: 'fetchSettings()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch, 
+      getSettings, 
+      [settings => dispatch(setSettings(settings))], 
+      { error: 'Could not fetch settings.', location: 'fetchSettings()' }
+    );
   };
 };
 
 export function patchSettings(settings) {
   return dispatch => {
-    updateSettings(settings)
-    .then(settings => {
-      dispatch(setSettings(settings));
-    })
-    .catch(error => {
-      dispatchError(dispatch, {
-        error: 'Could not update settings.',
-        location: 'patchSetting()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch, 
+      () => updateSettings(settings),
+      [settings => dispatch(setSettings(settings))],
+      { error: 'Could not update settings,', location: 'patchSettings()' }
+    );
   };
 };

@@ -8,7 +8,7 @@ import {
 } from '../utils/comms';
 import { changeBudget, selectBudget } from './budget_actions';
 import { selectDeletions} from '../utils/selectors';
-import { dispatchError } from './error_actions';
+import { chainPromise } from './error_actions';
 
 export const addExpenditures = expenditures => ({
   type: 'ADD_EXPENDITURES',
@@ -16,17 +16,18 @@ export const addExpenditures = expenditures => ({
 });
 
 export function fetchExpenditures() {
+  const errorObj = { 
+    error: 'Could not fetch all expenditures.',
+    location: 'fetchExpenditures()'
+  };
+
   return dispatch => {
-    getExpenditures()
-    .then(exps => {
-      dispatch(addExpenditures(formatExpenditures(exps)));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Could not fetch all expenditures.',
-        location: 'fetchExpenditures()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      getExpenditures,
+      [exps => dispatch(addExpenditures(formatExpenditures(exps)))],
+      errorObj
+    );
   };
 };
 
@@ -36,17 +37,18 @@ export const removeExpenditure = expenditure => ({
 });
 
 export function destroyExpenditure(expenditure) {
+  const errorObj = {
+    error: 'Could not delete expenditure.',
+    location: 'destroyExpenditure()'
+  };
+
   return dispatch => {
-    deleteExpenditure(expenditure.id)
-    .then(_ => {
-      dispatch(removeExpenditure(expenditure));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Could not delete expenditure.',
-        location: 'destroyExpenditure()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      () => deleteExpenditure(expenditure.id),
+      [() => dispatch(removeExpenditure(expenditure))],
+      errorObj
+    );
   };
 };
 
@@ -56,17 +58,18 @@ export const editExpenditure = expenditure => ({
 });
 
 export function patchExpenditure(id, updated) {
+  const errorObj = {
+    error: 'Could not edit all expenditure.',
+    location: 'patchExpenditure()'
+  };
+
   return dispatch => {
-    updateExpenditure(id, updated)
-    .then(exp => {
-      dispatch(editExpenditure(exp));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Could not edit all expenditure.',
-        location: 'patchExpenditure()',
-        debug: error
-      });
-    });
+    chainPromise(
+      dispatch,
+      () => updateExpenditure(id, updated),
+      [exp =>dispatch(editExpenditure(exp))],
+      errorObj
+    );
   };
 };
 
@@ -76,17 +79,18 @@ export const addExpenditure = expenditure => ({
 });
 
 export function postExpenditure(expenditure, budget) {
+  const errorObj = {
+    error: 'Could not create expenditure.',
+    location: 'postExpenditure()'
+  };
+
   return dispatch => {
-    return createExpenditure(expenditure, budget)
-    .then(exp => {
-      dispatch(addExpenditure(exp));
-    }).catch(error => {
-      dispatchError(dispatch, { 
-        error: 'Could not create expenditure.',
-        location: 'postExpenditure()',
-        debug: error
-      });
-    });
+    return chainPromise(
+      dispatch,
+      () => createExpenditure(expenditure, budget),
+      [exp => dispatch(addExpenditure(exp))],
+      errorObj
+    );
   };
 };
 

@@ -8,7 +8,12 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        "should stay toowow",
+        "should stay too",
+        "testing",
+        "tertterr",
+        "asdf"
       ]
     }
   ],
@@ -288,14 +293,6 @@
       "date": "2020/8/7",
       "period": 1,
       "id": 24
-    },
-    {
-      "title": "should go too",
-      "amount": 10,
-      "budgetId": 9,
-      "date": "2020/8/8",
-      "period": 1,
-      "id": 25
     },
     {
       "title": "should stay",
