@@ -60,7 +60,7 @@ export function patchBudget(id, budget) {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       () => updateBudget(id, budget),
       [budget => dispatch(changeBudget(budget))],
@@ -135,4 +135,8 @@ export const makeBackup = (budget, expenditures) => ({
   type: 'MAKE_BACKUP',
   budget,
   expenditures
+});
+
+export const clearBackup = () => ({
+  type: 'CLEAR_BACKUP'
 });

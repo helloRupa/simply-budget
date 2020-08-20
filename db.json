@@ -3,7 +3,7 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": 250,
+      "max-length": 3,
       "categories": [
         "Groceries",
         "Electronics",
@@ -282,20 +282,20 @@
       "id": 23
     },
     {
-      "title": "old",
-      "amount": 40,
+      "title": "old one",
+      "amount": 5,
+      "budgetId": 9,
+      "date": "2020/8/8",
+      "period": 1,
+      "id": 24
+    },
+    {
+      "title": "old one too",
+      "amount": 5,
       "budgetId": 9,
       "date": "2020/8/8",
       "period": 1,
       "id": 25
-    },
-    {
-      "title": "old boos",
-      "amount": 20.5,
-      "budgetId": 9,
-      "date": "2020/8/8",
-      "period": 1,
-      "id": 26
     },
     {
       "title": "should stay",

@@ -41,6 +41,11 @@ function budgetReducer(state = budgetState, action) {
           expenditures: action.expenditures
         }
       };
+    case 'CLEAR_BACKUP':
+      return {
+        ...state,
+        backup: {}
+      };
     default: 
       return state;
   }

@@ -99,6 +99,10 @@ export function createExpenditure(expenditure, { id, startDate, frequency }) {
   return changeData(expendituresUrl, 'POST', options);
 };
 
+export function recreateExpenditure(expenditure) {
+  return changeData(expendituresUrl, 'POST', expenditure);
+};
+
 export function updateBudgetCurrentPeriod(budget) {
   budget.currentPeriod =  calculatePeriod(
     makeDate(), 
