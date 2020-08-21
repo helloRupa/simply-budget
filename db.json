@@ -3,7 +3,7 @@
     {
       "id": 1,
       "default-currency": "$",
-      "max-length": 3,
+      "max-length": 250,
       "categories": [
         "Groceries",
         "Electronics",

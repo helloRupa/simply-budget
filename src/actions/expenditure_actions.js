@@ -115,8 +115,6 @@ export function repostExpenditure(expenditure) {
 // IDEAL WAY WOULD BE TO COPY THE FILE, MUTATE COPY, REPLACE ORIGINAL
 // ONLY ON SUCCESSFUL TRUNCATION OF COPY
 // ALL OTHER METHODS LEAVE ROOM FOR ERROR
-
-// NEED TO CHANGE THE WAY OLDEST PERIOD IS SELECTED, probably in selectors file
 export function truncateExpenditures(expenditures, budget) {
   const budgetId = budget.id;
   const deletions = selectDeletions(expenditures, budget);

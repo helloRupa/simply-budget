@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
 import { formatNumber } from '../utils/format';
@@ -35,7 +35,13 @@ function Budget({
     } else {
       setShowMore(false);
     }
-  }
+  };
+
+  useEffect(() => {
+    if (currentPeriod - periods < lowestPeriod) {
+      setPeriods(periods - 1);
+    }
+  }, [lowestPeriod, currentPeriod, periods]);
 
   return (
     <div>
