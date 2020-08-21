@@ -40,7 +40,7 @@
       "limit": 56,
       "startDate": "2020/6/25",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 3
     },
     {
@@ -100,7 +100,7 @@
       "limit": 120,
       "startDate": "2020/8/6",
       "truncated": 0,
-      "currentPeriod": 2,
+      "currentPeriod": 3,
       "id": 9
     }
   ],
@@ -298,20 +298,12 @@
       "id": 25
     },
     {
-      "title": "should stay",
-      "amount": 100,
+      "title": "newest",
+      "amount": 5.49,
       "budgetId": 9,
-      "date": "2020/8/15",
-      "period": 2,
-      "id": 29
-    },
-    {
-      "title": "should stay too",
-      "amount": 13.21,
-      "budgetId": 9,
-      "date": "2020/8/15",
-      "period": 2,
-      "id": 30
+      "date": "2020/8/20",
+      "period": 3,
+      "id": 31
     }
   ]
 }

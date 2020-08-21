@@ -20,5 +20,6 @@ export function selectBudgetExpenditures(expenditures, budget) {
 };
 
 export function earliestPeriod(expenditures) {
-  return expenditures[0].period;
+  return expenditures.reduce((earliest, exp) => 
+    earliest < exp.period ? earliest : exp.period, expenditures[0].period);
 };

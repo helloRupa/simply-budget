@@ -31,8 +31,6 @@ function Error({
 
       patchBudget(budget.id, budget)
       .then(_ => {
-        // need to use a different method for adding expenditure
-        // or update comms function to not always add date
         Promise.all(deleted.map(exp => repostExpenditure(exp)))
         .then(_ => clearBackup());
       });

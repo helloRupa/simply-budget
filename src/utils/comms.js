@@ -95,11 +95,11 @@ export function createExpenditure(expenditure, { id, startDate, frequency }) {
   };
 
   options.period = calculatePeriod(options.date, startDate, frequency);
-
-  return changeData(expendituresUrl, 'POST', options);
+  
+  return makeExpenditure(options);
 };
 
-export function recreateExpenditure(expenditure) {
+export function makeExpenditure(expenditure) {
   return changeData(expendituresUrl, 'POST', expenditure);
 };
 
