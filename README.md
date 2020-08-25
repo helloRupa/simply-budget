@@ -21,15 +21,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
         - total leftover (or just this)
     - Delete expenditures for that budget
     - How should this affect totals?
-- Catch update and create failures
-    - Truncaton failure
-        - Needs to be all or nothing
-        - If it fails at any point during deletion of exps or patching of budget, roll back to previous state
-            - Know which budget and exps are affected
-            - Fetch old data from backup, use it to patch new data
-            - Backup file or backup state? Could just have a backup in Redux store instead of a file
-            - json-server: Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.
-        - If it fails when fetching updated data, just reload after showing a message
 
 ## Future Features:
 
