@@ -21,3 +21,7 @@ export function budgetsByCurrency(budgets) {
 export function formatExpenditures(expenditures) {
   return objectMapper(expenditures, 'budgetId');
 };
+
+export function sortByDateDesc(exps) {
+  return [...exps].sort((a, b) => new Date(b.date) - new Date(a.date));
+};

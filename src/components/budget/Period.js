@@ -8,15 +8,15 @@ import {
   formattedPeriodSpent, 
   formattedRemainingSpend 
 } from '../../utils/calculate';
+import { sortByDateDesc } from '../../utils/format';
 
 function Period({ title, expenditures, currency, budget, period }) {
-
   const budgetExpenditures = () => {
     const expendituresFromBudget = 
       selectBudgetExpenditures(expenditures, budget);
     
     return expendituresFromBudget ? 
-      selectExpenditures(expendituresFromBudget, period) :
+      sortByDateDesc(selectExpenditures(expendituresFromBudget, period)) :
       [];
   };
 
