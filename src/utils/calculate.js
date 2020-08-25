@@ -16,7 +16,8 @@ export function calculateTracking({
 
   const spent = expenditures[id] ? sumExpenditures(expenditures[id]) : 0;
 
-  return limit * currentPeriod - truncated - spent;
+  return currentPeriod > 0 ? limit * currentPeriod - truncated - spent :
+    0;
 };
 
 export function formattedSingleBudgetTracking(expenditures, budget) {

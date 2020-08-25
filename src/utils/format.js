@@ -25,3 +25,19 @@ export function formatExpenditures(expenditures) {
 export function sortByDateDesc(exps) {
   return [...exps].sort((a, b) => new Date(b.date) - new Date(a.date));
 };
+
+function addLeadingZero(int) {
+  return (int).toString().padStart(2, 0);
+}
+
+export function formatDate(dateObj, delimiter = '/') {
+  const year = dateObj.getFullYear();
+  const month = addLeadingZero(dateObj.getMonth() + 1);
+  const day = addLeadingZero(dateObj.getDate());
+
+  return `${year}${delimiter}${month}${delimiter}${day}`;
+};
+
+export function replaceHyphens(str) {
+  return str.replace(/-/g, '/');
+};

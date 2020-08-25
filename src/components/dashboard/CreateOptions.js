@@ -3,6 +3,7 @@ import FormHOC from '../../shared/FormHOC';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Close from '../../shared/Close';
+import DateComp from '../../shared/DateComp';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -17,6 +18,7 @@ function CreateOptions({
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
+  const [startDate, setStartDate] = useState(null);
 
   const closeOptions = () => {
     setBudgetName('');
@@ -30,6 +32,7 @@ function CreateOptions({
       const budgetSettings = { 
         currency, 
         frequency, 
+        date: startDate,
         limit: parseFloat(limit),
         name: budgetName
       };
@@ -67,6 +70,11 @@ function CreateOptions({
         <option value="week">Week</option>
         <option value="month">Month</option>
       </select>
+      <label>
+        Choose a start date (optional): 
+        <DateComp setStartDate={setStartDate} />
+      </label>
+      
       <input type="submit" value="Save Budget" />
       
       <Close callback={closeOptions} display='Cancel' />

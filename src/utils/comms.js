@@ -1,4 +1,5 @@
 import { calculatePeriod } from './calculate';
+import { formatDate } from './format';
 
 const baseUrl = 'http://localhost:8000';
 const budgetsUrl = `${baseUrl}/budgets`;
@@ -30,22 +31,26 @@ function changeData(url, method, body={}) {
 function makeDate() {
   const date = new Date();
 
-  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+  return formatDate(date);
+
+  // return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 }
 
 export function getBudgets() {
   return generalFetch(budgetsUrl);
 };
 
-export function createBudget({ name, currency, frequency, limit }) {
+export function createBudget({ name, currency, frequency, limit, date = null }) {
+  const startDate = date || makeDate();
+
   const budgetObj =  {
     name,
     currency,
     frequency,
     limit,
-    startDate: makeDate(),
+    startDate,
     truncated: 0,
-    currentPeriod: 1
+    currentPeriod: calculatePeriod(makeDate(), startDate, frequency)
   };
 
   return changeData(budgetsUrl, 'POST', budgetObj);

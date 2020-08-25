@@ -6,7 +6,7 @@ import { formattedSingleBudgetTracking } from '../../utils/calculate';
 
 function Budget({ 
   budget, 
-  budget: { name, currency }, 
+  budget: { name, currency, currentPeriod }, 
   selectBudget, 
   expenditures,
   setShowBudget
@@ -14,8 +14,10 @@ function Budget({
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
 
   const handleClick = () => {
-    selectBudget(budget);
-    setShowBudget(true);
+    if (currentPeriod > 0) {
+      selectBudget(budget);
+      setShowBudget(true);
+    }
   };
 
   return (
