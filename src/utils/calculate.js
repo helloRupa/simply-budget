@@ -93,10 +93,8 @@ export function formattedRemainingSpend(expenditures, budget, period) {
 // to calculate current period from start date, subtract dates
 // add a day to make count inclusive, and then divide by ms in a day
 // to get correct period, round up to nearest int
-
-const msInDay = 24 * 60 * 60 * 1000;
-
 export function calculatePeriod(expDate, startDate, frequency) {
+  const msInDay = 24 * 60 * 60 * 1000;
   const spendDate = new Date(expDate);
   const startingDate = new Date(startDate);
   const daysDiff = (spendDate - startingDate + msInDay) / msInDay;
