@@ -32,8 +32,6 @@ function makeDate() {
   const date = new Date();
 
   return formatDate(date);
-
-  // return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 }
 
 export function getBudgets() {

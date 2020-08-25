@@ -12,7 +12,7 @@ import {
 
 function Budget({ 
   budget, 
-  budget: { id, name, currency, limit, frequency, currentPeriod },
+  budget: { id, name, currency, limit, frequency, currentPeriod, startDate },
   expenditures,
   setShowBudget
 }) {
@@ -48,6 +48,9 @@ function Budget({
       <h2>
         { name }
       </h2>
+      <p>
+        { startDate }
+      </p>
       <Close callback={() => setShowBudget(false)} display={'Close'} />
       <p>
         Spend { currency }{ formatNumber(limit) } per { frequency } or less!

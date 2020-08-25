@@ -10,7 +10,7 @@ import Delete from './Delete';
 function BudgetSettings({ 
   setShowBudgetSettings, 
   budget,
-  budget: { name }
+  budget: { name, startDate }
 }) {
   const [remove, setRemove] = useState(false);
 
