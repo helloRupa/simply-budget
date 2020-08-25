@@ -4,7 +4,7 @@ import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
 
-function Rename({ 
+function UpdateBudget({ 
   budget, 
   close,
   patchBudget, 
@@ -18,7 +18,7 @@ function Rename({
     e.preventDefault();
 
     if (name.length > 1) {
-      patchBudget(budget.id, { name, date: startDate });
+      patchBudget(budget.id, { name, startDate });
       close();
     }
   };
@@ -32,7 +32,7 @@ function Rename({
         placeholder={budget.name}
         onChange={e => handleChange(e, setName)}
         value={name} />
-      <DateComp setStartDate={setStartDate} disabled={disableDate()} />
+      <DateComp setStartDate={setStartDate} disabled={disableDate()} date={startDate} />
       <input type="submit" value="Update" />
 
       <Error msg="Budget name is required" condition={!name} />
@@ -40,4 +40,4 @@ function Rename({
   )
 }
 
-export default connect(null, { patchBudget })(FormHOC(Rename));
+export default connect(null, { patchBudget })(FormHOC(UpdateBudget));

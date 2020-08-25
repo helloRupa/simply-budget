@@ -18,7 +18,7 @@ function CreateOptions({
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
   const [frequency, setFrequency] = useState('week');
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState('');
 
   const closeOptions = () => {
     setBudgetName('');
@@ -72,7 +72,7 @@ function CreateOptions({
       </select>
       <label>
         Choose a start date (optional): 
-        <DateComp setStartDate={setStartDate} />
+        <DateComp setStartDate={setStartDate} date={startDate} />
       </label>
       
       <input type="submit" value="Save Budget" />

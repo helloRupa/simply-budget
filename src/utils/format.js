@@ -41,3 +41,7 @@ export function formatDate(dateObj, delimiter = '/') {
 export function replaceHyphens(str) {
   return str.replace(/-/g, '/');
 };
+
+export function replaceForwardSlashes(str) {
+  return str.replace(/\//g, '-');
+};

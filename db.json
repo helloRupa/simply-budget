@@ -105,15 +105,14 @@
       "id": 9
     },
     {
-      "name": "future budge",
+      "name": "new",
       "currency": "$",
       "frequency": "week",
-      "limit": 500,
-      "startDate": "2020/10/6",
+      "limit": 345,
+      "startDate": "2020/08/26",
       "truncated": 0,
-      "currentPeriod": -5,
-      "id": 10,
-      "date": "2020/09/25"
+      "currentPeriod": 0,
+      "id": 10
     }
   ],
   "expenditures": [

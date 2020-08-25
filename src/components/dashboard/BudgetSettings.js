@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Close from '../../shared/Close';
-import Rename from './Rename';
+import UpdateBudget from './UpdateBudget';
 import Delete from './Delete';
 
 /** DELETING A BUDGET DELETES ALL DEPENDENT RECORDS **/
@@ -10,7 +10,7 @@ import Delete from './Delete';
 function BudgetSettings({ 
   setShowBudgetSettings, 
   budget,
-  budget: { name, startDate }
+  budget: { name }
 }) {
   const [remove, setRemove] = useState(false);
 
@@ -21,7 +21,7 @@ function BudgetSettings({
       <h2>Edit {name}</h2>
 
       <Close callback={close} display='Close' />
-      <Rename {...{ budget, close }} />
+      <UpdateBudget {...{ budget, close }} />
 
       <button onClick={() => setRemove(true)}>Delete</button>
       {remove ? <Delete {...{ budget, setRemove }} /> : null}
