@@ -1,4 +1,5 @@
 import { formatNumber } from './format';
+import { makeDate } from './format';
 
 function sum(array, selector) {
   return array.reduce((sum, el) => sum + el[selector], 0);
@@ -94,7 +95,7 @@ export function formattedRemainingSpend(expenditures, budget, period) {
 // to calculate current period from start date, subtract dates
 // add a day to make count inclusive, and then divide by ms in a day
 // to get correct period, round up to nearest int
-export function calculatePeriod(expDate, startDate, frequency) {
+export function calculatePeriod(expDate, { startDate, frequency }) {
   const msInDay = 24 * 60 * 60 * 1000;
   const spendDate = new Date(expDate);
   const startingDate = new Date(startDate);
@@ -102,4 +103,8 @@ export function calculatePeriod(expDate, startDate, frequency) {
   const ratio = (frequency === 'week') ? daysDiff / 7 : daysDiff / 30;
 
   return Math.ceil(ratio);
+};
+
+export function calculatePeriodFromToday(budget) {
+  return calculatePeriod(makeDate(), budget);
 };

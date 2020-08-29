@@ -45,3 +45,9 @@ export function replaceHyphens(str) {
 export function replaceForwardSlashes(str) {
   return str.replace(/\//g, '-');
 };
+
+export function makeDate() {
+  const date = new Date();
+
+  return formatDate(date);
+};

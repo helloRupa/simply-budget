@@ -3,6 +3,7 @@ import FormHOC from '../../shared/FormHOC';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
+import { calculatePeriodFromToday } from '../../utils/calculate';
 
 function UpdateBudget({ 
   budget, 
@@ -19,13 +20,18 @@ function UpdateBudget({
     e.preventDefault();
 
     if (name.length > 1) {
-      patchBudget(budget.id, { name, startDate });
+      const currentPeriod = calculatePeriodFromToday({ 
+        startDate, 
+        frequency: budget.frequency 
+      });
+      patchBudget(budget.id, { name, startDate, currentPeriod });
       close();
     }
   };
   
   useEffect(() => {
     setShouldDisableDate(Date.now() >= new Date(startDate));
+    // eslint-disable-next-line 
   }, []);
 
   return (
@@ -35,7 +41,10 @@ function UpdateBudget({
         placeholder={budget.name}
         onChange={e => handleChange(e, setName)}
         value={name} />
-      <DateComp setStartDate={setStartDate} disabled={shouldDisableDate} date={startDate} />
+      <DateComp 
+        setStartDate={setStartDate} 
+        disabled={shouldDisableDate} 
+        date={startDate} />
       <input type="submit" value="Update" />
 
       <Error msg="Budget name is required" condition={!name} />

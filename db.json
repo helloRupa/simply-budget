@@ -103,16 +103,6 @@
       "truncated": 0,
       "currentPeriod": 4,
       "id": 9
-    },
-    {
-      "name": "test",
-      "currency": "$",
-      "frequency": "month",
-      "limit": 3333,
-      "startDate": "2020/08/29",
-      "truncated": 0,
-      "currentPeriod": 0,
-      "id": 10
     }
   ],
   "expenditures": [

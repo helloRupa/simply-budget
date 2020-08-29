@@ -1,5 +1,5 @@
 import { calculatePeriod } from './calculate';
-import { formatDate } from './format';
+import { makeDate } from './format';
 
 const baseUrl = 'http://localhost:8000';
 const budgetsUrl = `${baseUrl}/budgets`;
@@ -28,12 +28,6 @@ function changeData(url, method, body={}) {
   return generalFetch(url, options);
 }
 
-function makeDate() {
-  const date = new Date();
-
-  return formatDate(date);
-}
-
 export function getBudgets() {
   return generalFetch(budgetsUrl);
 };
@@ -48,7 +42,7 @@ export function createBudget({ name, currency, frequency, limit, date = null }) 
     limit,
     startDate,
     truncated: 0,
-    currentPeriod: calculatePeriod(makeDate(), startDate, frequency)
+    currentPeriod: calculatePeriod(makeDate(), { startDate, frequency })
   };
 
   return changeData(budgetsUrl, 'POST', budgetObj);
@@ -97,7 +91,7 @@ export function createExpenditure(expenditure, { id, startDate, frequency }) {
     date: makeDate()
   };
 
-  options.period = calculatePeriod(options.date, startDate, frequency);
+  options.period = calculatePeriod(options.date, { startDate, frequency });
   
   return makeExpenditure(options);
 };
@@ -107,11 +101,7 @@ export function makeExpenditure(expenditure) {
 };
 
 export function updateBudgetCurrentPeriod(budget) {
-  budget.currentPeriod =  calculatePeriod(
-    makeDate(), 
-    budget.startDate, 
-    budget.frequency
-  );
+  budget.currentPeriod = calculatePeriod(makeDate(), budget);
 
   return updateBudget(budget.id, budget);
 };
