@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormHOC from '../../shared/FormHOC';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
@@ -13,6 +13,7 @@ function UpdateBudget({
 }) {
   const [name, setName] = useState(budget.name);
   const [startDate, setStartDate] = useState(budget.startDate);
+  const [shouldDisableDate, setShouldDisableDate] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,8 +23,10 @@ function UpdateBudget({
       close();
     }
   };
-
-  const disableDate = () => Date.now() >= new Date(startDate);
+  
+  useEffect(() => {
+    setShouldDisableDate(Date.now() >= new Date(startDate));
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -32,7 +35,7 @@ function UpdateBudget({
         placeholder={budget.name}
         onChange={e => handleChange(e, setName)}
         value={name} />
-      <DateComp setStartDate={setStartDate} disabled={disableDate()} date={startDate} />
+      <DateComp setStartDate={setStartDate} disabled={shouldDisableDate} date={startDate} />
       <input type="submit" value="Update" />
 
       <Error msg="Budget name is required" condition={!name} />
