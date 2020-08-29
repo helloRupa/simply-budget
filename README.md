@@ -4,9 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Style
-- Be able to start a budget on a date of your choosing
-    - Until start date, gray it out and disable it
-    - Edit start date of budget if no expenditures are present
 - Edit date of expenditure
     - Will affect ordering of expenditures for finding period
 - Add date to new expenditure for a catch-up
