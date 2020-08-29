@@ -1,4 +1,4 @@
-import { calculatePeriod } from './calculate';
+import { calculatePeriod, calculatePeriodFromToday } from './calculate';
 import { makeDate } from './format';
 
 const baseUrl = 'http://localhost:8000';
@@ -42,7 +42,7 @@ export function createBudget({ name, currency, frequency, limit, date = null }) 
     limit,
     startDate,
     truncated: 0,
-    currentPeriod: calculatePeriod(makeDate(), { startDate, frequency })
+    currentPeriod: calculatePeriodFromToday({ startDate, frequency })
   };
 
   return changeData(budgetsUrl, 'POST', budgetObj);
@@ -101,7 +101,7 @@ export function makeExpenditure(expenditure) {
 };
 
 export function updateBudgetCurrentPeriod(budget) {
-  budget.currentPeriod = calculatePeriod(makeDate(), budget);
+  budget.currentPeriod = calculatePeriodFromToday(budget);
 
   return updateBudget(budget.id, budget);
 };
