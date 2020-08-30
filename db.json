@@ -14,7 +14,8 @@
         "tet",
         "test",
         "one",
-        "two"
+        "two",
+        "hi there"
       ]
     }
   ],
@@ -310,6 +311,14 @@
       "budgetId": 9,
       "period": 3,
       "id": 26
+    },
+    {
+      "title": "hi there",
+      "amount": 34.52,
+      "date": "2020/08/25",
+      "budgetId": 9,
+      "period": 3,
+      "id": 27
     }
   ]
 }

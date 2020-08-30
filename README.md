@@ -4,10 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Style
-- Edit date of expenditure
-    - Will affect ordering of expenditures for finding period
-- Add date to new expenditure for a catch-up
-    - Will also affect ordering for finding period
 - Archive
     - Calculate total spent
     - Put in archives structure
