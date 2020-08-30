@@ -88,7 +88,7 @@ export function createExpenditure(expenditure, { id, startDate, frequency }) {
   const options = {
     ...expenditure,
     budgetId: id,
-    date: makeDate()
+    date: expenditure.date || makeDate()
   };
 
   options.period = calculatePeriod(options.date, { startDate, frequency });

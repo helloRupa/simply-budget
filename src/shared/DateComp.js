@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { formatDate, replaceHyphens, replaceForwardSlashes } from '../utils/format';
 
-function DateComp({ setStartDate, date, disabled = false }) {
+function DateComp({ setStartDate, date, disabled = false, shouldHaveMin = true }) {
   const [dateVal, setDateVal] = useState(replaceForwardSlashes(date));
   const today = formatDate(new Date(), '-');
+
+  useEffect(() => {
+    if (date === '') {
+      setDateVal(date);
+    }
+  }, [date]);
+
+  console.log('rendering date comp and date is: ', dateVal)
 
   const handleChange = e => {
     const date = replaceHyphens(e.target.value);
@@ -15,7 +23,7 @@ function DateComp({ setStartDate, date, disabled = false }) {
   return (
     <input 
       type="date" 
-      min={today} 
+      min={shouldHaveMin ? today : '' }
       onChange={handleChange} 
       disabled={disabled} 
       value={dateVal}

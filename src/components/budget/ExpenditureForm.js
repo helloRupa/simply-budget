@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { patchSettings } from '../../actions/settings_actions';
 import FormHOC from '../../shared/FormHOC';
+import DateComp from '../../shared/DateComp';
 
 function ExpenditureForm({
   onSubmit,
@@ -15,7 +16,9 @@ function ExpenditureForm({
   handleChange,
   handleAmountChange,
   Error,
-  showError
+  showError,
+  setExpenseDate,
+  expenseDate
 }) {
   const handleCategory = title => {
     if (!categories.includes(title)) {
@@ -47,6 +50,15 @@ function ExpenditureForm({
       value={amount}
       onChange={e => handleAmountChange(e, setAmount)}
     />
+
+    <label>
+      Set date of expense (optional): 
+      <DateComp 
+        setStartDate={setExpenseDate} 
+        date={expenseDate} 
+        shouldHaveMin={false} />
+    </label>
+
     <input type="submit" value="Save" />
     <Error msg="Amount is required" condition={showError} />
   </form>

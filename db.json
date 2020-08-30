@@ -9,7 +9,10 @@
         "Electronics",
         "Clothes",
         "Entertainment",
-        "new format"
+        "new format",
+        "hi",
+        "tet",
+        "test"
       ]
     }
   ],
@@ -297,14 +300,6 @@
       "date": "2020/8/8",
       "period": 1,
       "id": 25
-    },
-    {
-      "title": "newest",
-      "amount": 5.49,
-      "budgetId": 9,
-      "date": "2020/8/20",
-      "period": 3,
-      "id": 31
     }
   ]
 }

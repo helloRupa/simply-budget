@@ -17,6 +17,7 @@ function AddExpenditure({
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
+  const [expenseDate, setExpenseDate] = useState('');
   const [showError, setShowError] = useState(false);
 
   // Only truncate periods earlier than current period when over limit
@@ -33,11 +34,16 @@ function AddExpenditure({
     setTitle('');
     setAmount('');
     setShowError(false);
+    setExpenseDate('');
   };
 
   const onSubmit = e => {
     if (amount !== '') {
-      postExpenditure({ title, amount: parseFloat(amount) }, budget)
+      postExpenditure({ 
+        title, 
+        amount: parseFloat(amount), 
+        date: expenseDate 
+      }, budget)
       .then(_ => {
         handleTruncation();
       });
@@ -57,7 +63,9 @@ function AddExpenditure({
       amount, 
       setAmount, 
       setTitle, 
-      showError 
+      showError,
+      expenseDate,
+      setExpenseDate
     }} />
     </>
   )
