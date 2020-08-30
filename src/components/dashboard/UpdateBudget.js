@@ -20,11 +20,19 @@ function UpdateBudget({
     e.preventDefault();
 
     if (name.length > 1) {
-      const currentPeriod = calculatePeriodFromToday({ 
-        startDate, 
-        frequency: budget.frequency 
-      });
-      patchBudget(budget.id, { name, startDate, currentPeriod });
+      const budgetOptions = { name };
+
+      if (startDate) {
+        const currentPeriod = calculatePeriodFromToday({ 
+          startDate, 
+          frequency: budget.frequency 
+        });
+
+        budgetOptions.startDate = startDate;
+        budgetOptions.currentPeriod = currentPeriod;
+      }
+
+      patchBudget(budget.id, budgetOptions);
       close();
     }
   };
