@@ -8,7 +8,8 @@ function Item({
   item, 
   item: { date, title, amount }, 
   currency, 
-  destroyExpenditure
+  destroyExpenditure,
+  budget
 }) {
   const [showEdit, setShowEdit] = useState(false);
 
@@ -26,7 +27,7 @@ function Item({
       <button onClick={handleEdit}>Edit</button> 
       <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 
-        <EditItem {...{ item, currency, setShowEdit }} /> : null }
+        <EditItem {...{ item, currency, setShowEdit, budget }} /> : null }
     </>
   );
 }

@@ -12,7 +12,9 @@
         "new format",
         "hi",
         "tet",
-        "test"
+        "test",
+        "one",
+        "two"
       ]
     }
   ],
@@ -22,7 +24,7 @@
       "currency": "$",
       "frequency": "month",
       "limit": 300,
-      "startDate": "2020/6/5",
+      "startDate": "2020/06/05",
       "truncated": 0,
       "currentPeriod": 3,
       "id": 1
@@ -32,7 +34,7 @@
       "currency": "$",
       "frequency": "week",
       "limit": 300,
-      "startDate": "2020/6/5",
+      "startDate": "2020/06/05",
       "truncated": 0,
       "currentPeriod": 13,
       "id": 2
@@ -42,7 +44,7 @@
       "currency": "$",
       "frequency": "week",
       "limit": 56,
-      "startDate": "2020/6/25",
+      "startDate": "2020/06/25",
       "truncated": 0,
       "currentPeriod": 10,
       "id": 3
@@ -52,7 +54,7 @@
       "currency": "£",
       "frequency": "month",
       "limit": 400,
-      "startDate": "2020/7/7",
+      "startDate": "2020/07/07",
       "truncated": 0,
       "currentPeriod": 2,
       "id": 4
@@ -62,7 +64,7 @@
       "currency": "£",
       "frequency": "week",
       "limit": 200,
-      "startDate": "2020/7/7",
+      "startDate": "2020/07/07",
       "truncated": 0,
       "currentPeriod": 8,
       "id": 5
@@ -72,7 +74,7 @@
       "currency": "¢",
       "frequency": "week",
       "limit": 20,
-      "startDate": "2020/7/7",
+      "startDate": "2020/07/07",
       "truncated": 0,
       "currentPeriod": 8,
       "id": 6
@@ -82,7 +84,7 @@
       "currency": "$",
       "frequency": "week",
       "limit": 100,
-      "startDate": "2020/7/7",
+      "startDate": "2020/07/07",
       "truncated": 0,
       "currentPeriod": 8,
       "id": 7
@@ -92,7 +94,7 @@
       "currency": "$",
       "frequency": "week",
       "limit": 200,
-      "startDate": "2020/7/7",
+      "startDate": "2020/07/07",
       "truncated": 0,
       "currentPeriod": 8,
       "id": 8
@@ -102,7 +104,7 @@
       "currency": "$",
       "frequency": "week",
       "limit": 120,
-      "startDate": "2020/8/6",
+      "startDate": "2020/08/06",
       "truncated": 0,
       "currentPeriod": 4,
       "id": 9
@@ -300,6 +302,14 @@
       "date": "2020/8/8",
       "period": 1,
       "id": 25
+    },
+    {
+      "title": "test",
+      "amount": 4.4,
+      "date": "2020/08/26",
+      "budgetId": 9,
+      "period": 3,
+      "id": 26
     }
   ]
 }

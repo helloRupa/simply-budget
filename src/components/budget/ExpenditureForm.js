@@ -18,7 +18,8 @@ function ExpenditureForm({
   Error,
   showError,
   setExpenseDate,
-  expenseDate
+  expenseDate,
+  startDate
 }) {
   const handleCategory = title => {
     if (!categories.includes(title)) {
@@ -56,7 +57,8 @@ function ExpenditureForm({
       <DateComp 
         setStartDate={setExpenseDate} 
         date={expenseDate} 
-        shouldHaveMin={false} />
+        minDate={startDate}
+        maxDate={new Date()} />
     </label>
 
     <input type="submit" value="Save" />

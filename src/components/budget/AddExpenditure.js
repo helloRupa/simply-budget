@@ -8,7 +8,7 @@ import ExpenditureForm from './ExpenditureForm';
 
 function AddExpenditure({ 
   budget, 
-  budget: { currency, currentPeriod }, 
+  budget: { currency, currentPeriod, startDate }, 
   postExpenditure, 
   truncateExpenditures,
   expenditures,
@@ -65,7 +65,8 @@ function AddExpenditure({
       setTitle, 
       showError,
       expenseDate,
-      setExpenseDate
+      setExpenseDate,
+      startDate
     }} />
     </>
   )
