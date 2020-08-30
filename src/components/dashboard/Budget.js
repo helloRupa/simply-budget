@@ -6,7 +6,7 @@ import { formattedSingleBudgetTracking } from '../../utils/calculate';
 
 function Budget({ 
   budget, 
-  budget: { name, currency, currentPeriod }, 
+  budget: { name, currency, currentPeriod, startDate }, 
   selectBudget, 
   expenditures,
   setShowBudget
@@ -29,6 +29,7 @@ function Budget({
         <span className="budget-tracking">
           {formattedSingleBudgetTracking(expenditures, budget)}
         </span>
+        <span>Start Date: {startDate}</span>
       </span>
 
       <div>
