@@ -125,7 +125,7 @@ export function postArchive(budget, expenditures) {
     frequency,
     limit,
     startDate,
-    totalTracking: calculateTracking(expenditures, budget),
+    totalTracking: calculateTracking({ expenditures, budget }),
     totalSpent: totalSpent(expenditures, id)
   };
 

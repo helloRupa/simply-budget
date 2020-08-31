@@ -1,6 +1,7 @@
 import { getArchives, postArchive, deleteArchived } from '../utils/comms';
 import { chainPromise } from './error_actions';
 import { destroyBudget } from './budget_actions';
+import { removeBudgetExpenditures } from './expenditure_actions';
 
 export const addArchived = budgets => ({
   type: 'ADD_ARCHIVED',
@@ -23,7 +24,8 @@ export const addToArchive = budget => ({
   budget
 });
 
-// Still need to delete the budget, which will automatically delete its expenditures
+// Deleting budget will automatically delete its expenditures
+// Also update expenditures in store
 export function archiveBudget(budget, expenditures) {
   return dispatch => {
     return chainPromise(
@@ -31,7 +33,8 @@ export function archiveBudget(budget, expenditures) {
       () => postArchive(budget, expenditures),
       [
         archived => dispatch(addToArchive(archived)), 
-        () => destroyBudget(budget.id)(dispatch)
+        () => destroyBudget(budget.id)(dispatch),
+        () => dispatch(removeBudgetExpenditures(budget.id))
       ],
       { error: 'Could not archive budget', location: 'archiveBudget()' }
     );

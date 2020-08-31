@@ -53,6 +53,11 @@ export function destroyExpenditure(expenditure) {
   };
 };
 
+export const removeBudgetExpenditures = budgetId => ({
+  type: 'REMOVE_BUDGET_EXPENDITURES',
+  budgetId
+});
+
 export const editExpenditure = expenditure => ({
   type: 'UPDATE_EXPENDITURE',
   expenditure

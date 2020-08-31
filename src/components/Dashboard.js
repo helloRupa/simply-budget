@@ -5,6 +5,7 @@ import Totals from './dashboard/Totals';
 import { updateBudgetsCurrentPeriods } from '../actions/budget_actions';
 import { fetchSettings } from '../actions/settings_actions';
 import { fetchExpenditures } from '../actions/expenditure_actions';
+import { fetchArchives } from '../actions/archive_actions';
 import Settings from './dashboard/Settings';
 import { connect } from 'react-redux';
 
@@ -13,6 +14,7 @@ function Dashboard({
   updateBudgetsCurrentPeriods, 
   fetchSettings, 
   fetchExpenditures,
+  fetchArchives,
   expenditures, 
   setShowBudget,
   forceUpdate
@@ -23,7 +25,14 @@ function Dashboard({
     updateBudgetsCurrentPeriods();
     fetchExpenditures();
     fetchSettings();
-  }, [updateBudgetsCurrentPeriods, fetchSettings, fetchExpenditures, forceUpdate]);
+    fetchArchives();
+  }, [
+    updateBudgetsCurrentPeriods, 
+    fetchSettings, 
+    fetchExpenditures, 
+    forceUpdate, 
+    fetchArchives
+  ]);
 
   const displaySettings = () => 
     showSettings ? <Settings {...{ setShowSettings }} /> : null;
@@ -49,5 +58,6 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { 
   updateBudgetsCurrentPeriods, 
   fetchSettings, 
-  fetchExpenditures 
+  fetchExpenditures,
+  fetchArchives 
 })(Dashboard);

@@ -29,6 +29,11 @@ function expenditureReducer(state = expenditureState, action) {
           (exp.id !== action.expenditure.id) ? exp : action.expenditure
         )
       };
+    case 'REMOVE_BUDGET_EXPENDITURES':
+      let copy = {...state};
+      delete copy[action.budgetId];
+
+      return copy;
     default: 
       return state;
   }
