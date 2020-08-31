@@ -17,6 +17,7 @@ function Dashboard({
   fetchArchives,
   expenditures, 
   setShowBudget,
+  setShowArchive,
   forceUpdate
 }) {
   const [showSettings, setShowSettings] = useState(false);
@@ -45,6 +46,10 @@ function Dashboard({
       {displaySettings()}
       <button onClick={() => setShowSettings(true)}>
         Show Settings
+      </button>
+
+      <button onClick={() => setShowArchive(true)}>
+        Show Archive
       </button>
     </div>
   )

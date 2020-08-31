@@ -30,14 +30,15 @@ const store = createStore(
 
 function App() {
   const [showBudget, setShowBudget] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
   const [forceUpdate, setForceUpdate] = useState(0);
 
   return (
     <Provider store={store}>
     <div className="App">
-      <Dashboard {...{ setShowBudget, forceUpdate }} />
+      <Dashboard {...{ setShowBudget, forceUpdate, setShowArchive }} />
       {showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
-      <Archive />
+      {showArchive ? <Archive setShowArchive={setShowArchive} /> : null}
       <Error {...{ setForceUpdate, forceUpdate }} />
     </div>
     </Provider>
