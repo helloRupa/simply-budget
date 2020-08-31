@@ -9,13 +9,17 @@ function sumExpenditures(expenditures) {
   return sum(expenditures, 'amount');
 }
 
+export function totalSpent(expenditures, budgetId) {
+  return expenditures[budgetId] ? sumExpenditures(expenditures[budgetId]) : 0;
+};
+
 // Overall tracking for a single budget
 export function calculateTracking({
   expenditures, 
   budget: { id, limit, currentPeriod, truncated }
 }) {
 
-  const spent = expenditures[id] ? sumExpenditures(expenditures[id]) : 0;
+  const spent = totalSpent(expenditures, id);
 
   return currentPeriod > 0 ? limit * currentPeriod - truncated - spent :
     0;

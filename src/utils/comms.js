@@ -1,4 +1,9 @@
-import { calculatePeriod, calculatePeriodFromToday } from './calculate';
+import { 
+  calculatePeriod, 
+  calculatePeriodFromToday, 
+  calculateTracking,
+  totalSpent
+} from './calculate';
 import { makeDate } from './format';
 
 const baseUrl = 'http://localhost:8000';
@@ -6,6 +11,7 @@ const budgetsUrl = `${baseUrl}/budgets`;
 const settingsUrl = `${baseUrl}/settings/1`;
 const expendituresUrl = `${baseUrl}/expenditures`;
 const budgetExpendituresUrl = id => `${baseUrl}/budgets/${id}/expenditures`;
+const archivesUrl = `${baseUrl}/archives`;
 
 function createOptions(method, body={}) {
   return {
@@ -104,4 +110,30 @@ export function updateBudgetCurrentPeriod(budget) {
   budget.currentPeriod = calculatePeriodFromToday(budget);
 
   return updateBudget(budget.id, budget);
+};
+
+export function getArchives() {
+  return generalFetch(archivesUrl);
+};
+
+export function postArchives(budget, expenditures) {
+  const { name, currency, frequency, limit, startDate, id } = budget;
+
+  const archivedBudget = {
+    name,
+    currency,
+    frequency,
+    limit,
+    startDate,
+    totalTracking: calculateTracking(expenditures, budget),
+    totalSpent: totalSpent(expenditures, id)
+  };
+
+  return changeData(archivesUrl, 'POST', archivedBudget);
+};
+
+export function deleteArchived(id) {
+  const deleteUrl = `${archivesUrl}/${id}`;
+
+  return changeData(deleteUrl, 'DELETE');
 };
