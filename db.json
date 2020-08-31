@@ -10,7 +10,8 @@
         "Clothes",
         "Entertainment",
         "stuff",
-        "more stuff"
+        "more stuff",
+        "things"
       ]
     }
   ],
@@ -21,6 +22,7 @@
       "frequency": "month",
       "limit": 300,
       "startDate": "2020/06/06",
+      "endDate": "2020/08/30",
       "totalSpent": 1290.56,
       "totalTracking": 50.89,
       "id": 1
@@ -31,6 +33,7 @@
       "frequency": "week",
       "limit": 100,
       "startDate": "2020/06/09",
+      "endDate": "2020/08/29",
       "totalSpent": 2190.56,
       "totalTracking": 340.86,
       "id": 2

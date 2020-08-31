@@ -126,7 +126,8 @@ export function postArchive(budget, expenditures) {
     limit,
     startDate,
     totalTracking: calculateTracking({ expenditures, budget }),
-    totalSpent: totalSpent(expenditures, id)
+    totalSpent: totalSpent(expenditures, id),
+    endDate: makeDate()
   };
 
   return changeData(archivesUrl, 'POST', archivedBudget);

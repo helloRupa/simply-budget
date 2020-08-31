@@ -12,6 +12,7 @@ import settingsReducer from './reducers/settings_reducer';
 import errorReducer from './reducers/error_reducer';
 import Error from './Error';
 import archiveReducer from './reducers/archive_reducer';
+import Archive from './components/Archive';
 
 const store = createStore(
   combineReducers({
@@ -36,6 +37,7 @@ function App() {
     <div className="App">
       <Dashboard {...{ setShowBudget, forceUpdate }} />
       {showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
+      <Archive />
       <Error {...{ setForceUpdate, forceUpdate }} />
     </div>
     </Provider>
