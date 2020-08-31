@@ -11,13 +11,15 @@ import expenditureReducer from './reducers/expenditure_reducer';
 import settingsReducer from './reducers/settings_reducer';
 import errorReducer from './reducers/error_reducer';
 import Error from './Error';
+import archiveReducer from './reducers/archive_reducer';
 
 const store = createStore(
   combineReducers({
     budget: budgetReducer,
     expenditures: expenditureReducer,
     settings: settingsReducer,
-    errors: errorReducer
+    errors: errorReducer,
+    archive: archiveReducer
   }),
   compose(
     applyMiddleware(thunk),

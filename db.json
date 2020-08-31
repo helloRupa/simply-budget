@@ -12,6 +12,28 @@
       ]
     }
   ],
+  "archives": [
+    {
+      "name": "First Archived",
+      "currency": "$",
+      "frequency": "month",
+      "limit": 300,
+      "startDate": "2020/06/06",
+      "totalSpent": 1290.56,
+      "totalTracking": 50.89,
+      "id": 1
+    },
+    {
+      "name": "Second Archived",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 100,
+      "startDate": "2020/06/09",
+      "totalSpent": 2190.56,
+      "totalTracking": 340.86,
+      "id": 2
+    }
+  ],
   "budgets": [
     {
       "name": "Testing",
