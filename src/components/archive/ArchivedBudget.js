@@ -1,17 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { destroyArchived } from '../../actions/archive_actions';
+import React, { useState } from 'react';
+import Delete from './Delete';
 
-function ArchivedBudget({ 
-  archived: { 
+function ArchivedBudget({ archived, archived: { 
     name, 
     startDate, 
     currency, 
     totalTracking, 
     totalSpent, 
-    endDate}, 
-  destroyArchived 
+    endDate
+  }
 }) {
+  const [showDelete, setShowDelete] = useState(false);
 
   return (
     <>
@@ -19,8 +18,10 @@ function ArchivedBudget({
       <p>Started on {startDate}, Ended on {endDate}</p>
       <p>Total Spent: {currency}{totalSpent}</p>
       <p>Total Tracking: {currency}{totalTracking}</p>
+      <button onClick={() => setShowDelete(true)}>Delete</button>
+      {showDelete ? <Delete {...{ setShowDelete, archived }} /> : null}
     </>
   );
 }
 
-export default connect(null, { destroyArchived })(ArchivedBudget);
+export default ArchivedBudget;
