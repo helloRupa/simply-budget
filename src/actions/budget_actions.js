@@ -39,7 +39,7 @@ export function destroyBudget(id) {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       () => deleteBudget(id),
       [() => dispatch(removeBudget(id))],

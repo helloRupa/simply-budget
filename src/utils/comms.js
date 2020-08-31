@@ -116,7 +116,7 @@ export function getArchives() {
   return generalFetch(archivesUrl);
 };
 
-export function postArchives(budget, expenditures) {
+export function postArchive(budget, expenditures) {
   const { name, currency, frequency, limit, startDate, id } = budget;
 
   const archivedBudget = {
