@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Dashboard from './components/Dashboard';
-import Budget from './components/Budget';
+import Dashboard from './Dashboard';
+import Budget from './Budget';
 import Error from './Error';
-import Archive from './components/Archive';
-import Settings from './components/Settings';
+import Archive from './Archive';
+import Settings from './Settings';
 import { connect } from 'react-redux';
 
 function App({ currentView }) {

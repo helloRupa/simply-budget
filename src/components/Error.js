@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearError } from './actions/error_actions';
-import { patchBudget, clearBackup } from './actions/budget_actions';
-import { repostExpenditure } from './actions/expenditure_actions';
-import { selectBudgetExpenditures } from './utils/selectors';
+import { clearError } from '../actions/error_actions';
+import { patchBudget, clearBackup } from '../actions/budget_actions';
+import { repostExpenditure } from '../actions/expenditure_actions';
+import { selectBudgetExpenditures } from '../utils/selectors';
 
 function Error({ 
   errors: { error, location, debug }, 
