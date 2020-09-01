@@ -15,11 +15,13 @@ function Archive({ archive, fetchArchives, chooseDashboard }) {
       <h2>Archived Budgets</h2>
       <Close callback={chooseDashboard} display='Close' />
 
-      <ul>
+      { archive.length === 0 ? <p>
+          Nothing to see here! Why don't you archive something...or not, is OK!
+        </p> : <ul>
         {archive.map(archived => <li key={archived.id}>
           <ArchivedBudget {...{archived}} />
         </li>)}
-      </ul>
+      </ul>}
     </div>
   )
 }
