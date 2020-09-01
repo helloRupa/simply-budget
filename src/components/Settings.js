@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormHOC from '../shared/FormHOC';
-import { patchSettings } from '../actions/settings_actions';
+import { patchSettings, fetchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
 
 function Settings({ 
+  fetchSettings,
   settings, 
   patchSettings, 
   handleChange, 
@@ -16,7 +17,13 @@ function Settings({
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
 
-  const close = () => chooseDashboard();
+  useEffect(() => {
+    fetchSettings()
+    .then(settings => {
+      setCurrency(settings.settings['default-currency']);
+      setMaxItems(settings.settings['max-length']);
+    });
+  }, [fetchSettings]);
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
@@ -34,13 +41,13 @@ function Settings({
         "default-currency": currency,
         "max-length": parseMaxItems()
       });
-      close();
+      chooseDashboard();
     }
   };
 
   return <div>
     <h2>Settings</h2>
-    <Close callback={close} display='Close' />
+    <Close callback={chooseDashboard} display='Close' />
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="default-currency">Default Currency</label>
@@ -81,4 +88,4 @@ const mapStateToProps = state => ({
   settings: state.settings
 });
 
-export default connect(mapStateToProps, { patchSettings, chooseDashboard })(FormHOC(Settings));
+export default connect(mapStateToProps, { fetchSettings, patchSettings, chooseDashboard })(FormHOC(Settings));

@@ -4,29 +4,25 @@ import Budgets from './dashboard/Budgets';
 import Totals from './dashboard/Totals';
 import { updateBudgetsCurrentPeriods } from '../actions/budget_actions';
 import { fetchExpenditures } from '../actions/expenditure_actions';
-import { fetchArchives } from '../actions/archive_actions';
 import { connect } from 'react-redux';
-import { chooseSettings } from '../actions/ui_actions';
+import { chooseSettings, chooseArchive } from '../actions/ui_actions';
 
 function Dashboard({ 
   budgets, 
   updateBudgetsCurrentPeriods, 
   fetchExpenditures,
-  fetchArchives,
   expenditures, 
-  setShowArchive,
   forceUpdate,
-  chooseSettings
+  chooseSettings,
+  chooseArchive
 }) {
   useEffect(() => {
     updateBudgetsCurrentPeriods();
     fetchExpenditures();
-    fetchArchives();
   }, [
     updateBudgetsCurrentPeriods, 
     fetchExpenditures, 
-    forceUpdate, 
-    fetchArchives
+    forceUpdate
   ]);
 
   return (
@@ -35,11 +31,11 @@ function Dashboard({
       <Budgets {...{ budgets }} />
       <Totals {...{ budgets, expenditures }} />
 
-      <button onClick={() => chooseSettings()}>
+      <button onClick={chooseSettings}>
         Show Settings
       </button>
 
-      <button onClick={() => setShowArchive(true)}>
+      <button onClick={chooseArchive}>
         Show Archive
       </button>
     </div>
@@ -48,13 +44,12 @@ function Dashboard({
 
 const mapStateToProps = state => ({
   budgets: state.budget.budgets,
-  expenditures: state.expenditures,
-  currentView: state.currentView
+  expenditures: state.expenditures
 });
 
 export default connect(mapStateToProps, { 
   updateBudgetsCurrentPeriods, 
   fetchExpenditures,
-  fetchArchives,
-  chooseSettings
+  chooseSettings,
+  chooseArchive
 })(Dashboard);

@@ -8,7 +8,7 @@ export const setSettings = settings => ({
 
 export function fetchSettings() {
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch, 
       getSettings, 
       [settings => dispatch(setSettings(settings))], 
