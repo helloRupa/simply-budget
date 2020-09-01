@@ -9,12 +9,13 @@ import {
   selectBudgetExpenditures, 
   earliestPeriod 
 } from '../utils/selectors';
+import { chooseDashboard } from '../actions/ui_actions';
 
 function Budget({ 
   budget, 
   budget: { id, name, currency, limit, frequency, currentPeriod, startDate },
   expenditures,
-  setShowBudget
+  chooseDashboard
 }) {
   const [periods, setPeriods] = useState(0);
   const [showMore, setShowMore] = useState(true);
@@ -51,7 +52,7 @@ function Budget({
       <p>
         { startDate }
       </p>
-      <Close callback={() => setShowBudget(false)} display={'Close'} />
+      <Close callback={chooseDashboard} display={'Close'} />
       <p>
         Spend { currency }{ formatNumber(limit) } per { frequency } or less!
       </p>
@@ -80,4 +81,4 @@ const mapStateToProps = state => ({
   expenditures: state.expenditures
 });
 
-export default connect(mapStateToProps)(Budget);
+export default connect(mapStateToProps, { chooseDashboard })(Budget);

@@ -14,7 +14,6 @@ function Dashboard({
   fetchExpenditures,
   fetchArchives,
   expenditures, 
-  setShowBudget,
   setShowArchive,
   forceUpdate,
   chooseSettings
@@ -33,7 +32,7 @@ function Dashboard({
   return (
     <div>
       <CreateBudget />
-      <Budgets {...{ budgets, setShowBudget }} />
+      <Budgets {...{ budgets }} />
       <Totals {...{ budgets, expenditures }} />
 
       <button onClick={() => chooseSettings()}>

@@ -3,20 +3,21 @@ import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking } from '../../utils/calculate';
+import { chooseBudget } from '../../actions/ui_actions';
 
 function Budget({ 
   budget, 
   budget: { name, currency, currentPeriod, startDate }, 
   selectBudget, 
   expenditures,
-  setShowBudget
+  chooseBudget
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
 
   const handleClick = () => {
     if (currentPeriod > 0) {
       selectBudget(budget);
-      setShowBudget(true);
+      chooseBudget();
     }
   };
 
@@ -45,4 +46,4 @@ const mapStateToProps = state => ({
   expenditures: state.expenditures
 });
 
-export default connect(mapStateToProps, { selectBudget })(Budget);
+export default connect(mapStateToProps, { selectBudget, chooseBudget })(Budget);

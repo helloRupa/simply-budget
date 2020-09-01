@@ -7,7 +7,6 @@ import Settings from './components/Settings';
 import { connect } from 'react-redux';
 
 function App({ currentView }) {
-  const [showBudget, setShowBudget] = useState(false);
   const [showArchive, setShowArchive] = useState(false);
   const [forceUpdate, setForceUpdate] = useState(0);
 
@@ -15,16 +14,16 @@ function App({ currentView }) {
     switch(currentView) {
       case 'SETTINGS':
         return <Settings />
+      case 'BUDGET':
+        return <Budget />
       default:
-        return <Dashboard {...{ setShowBudget, forceUpdate, setShowArchive }} />
+        return <Dashboard {...{ forceUpdate, setShowArchive }} />
     }
   };
 
   return (
     <div className="App">
-
       {chooseView()}
-      {showBudget ? <Budget setShowBudget={setShowBudget} /> : null}
       {showArchive ? <Archive setShowArchive={setShowArchive} /> : null}
       <Error {...{ setForceUpdate, forceUpdate }} />
     </div>
