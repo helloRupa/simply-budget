@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import FormHOC from '../../shared/FormHOC';
-import { patchSettings } from '../../actions/settings_actions';
+import FormHOC from '../shared/FormHOC';
+import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
-import Close from '../../shared/Close';
+import Close from '../shared/Close';
+import { chooseDashboard } from '../actions/ui_actions';
 
 function Settings({ 
-  setShowSettings, 
   settings, 
   patchSettings, 
   handleChange, 
   handleChangeWithRegex,
-  Error
+  Error,
+  chooseDashboard
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
 
-  const close = () => setShowSettings(false);
+  const close = () => chooseDashboard();
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
@@ -39,7 +40,7 @@ function Settings({
 
   return <div>
     <h2>Settings</h2>
-    <Close callback={() => setShowSettings(false)} display='Close' />
+    <Close callback={close} display='Close' />
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="default-currency">Default Currency</label>
@@ -80,4 +81,4 @@ const mapStateToProps = state => ({
   settings: state.settings
 });
 
-export default connect(mapStateToProps, { patchSettings })(FormHOC(Settings));
+export default connect(mapStateToProps, { patchSettings, chooseDashboard })(FormHOC(Settings));
