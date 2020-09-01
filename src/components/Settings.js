@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormHOC from '../shared/FormHOC';
-import { patchSettings, fetchSettings } from '../actions/settings_actions';
+import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
 
 function Settings({ 
-  fetchSettings,
   settings, 
   patchSettings, 
   handleChange, 
@@ -16,14 +15,6 @@ function Settings({
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
-
-  useEffect(() => {
-    fetchSettings()
-    .then(settings => {
-      setCurrency(settings.settings['default-currency']);
-      setMaxItems(settings.settings['max-length']);
-    });
-  }, [fetchSettings]);
 
   const handleMaxItems = e => {
     handleChangeWithRegex(e, /^\d+$/, setMaxItems);
@@ -88,4 +79,4 @@ const mapStateToProps = state => ({
   settings: state.settings
 });
 
-export default connect(mapStateToProps, { fetchSettings, patchSettings, chooseDashboard })(FormHOC(Settings));
+export default connect(mapStateToProps, { patchSettings, chooseDashboard })(FormHOC(Settings));

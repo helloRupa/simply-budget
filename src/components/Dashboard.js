@@ -6,6 +6,7 @@ import { updateBudgetsCurrentPeriods } from '../actions/budget_actions';
 import { fetchExpenditures } from '../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import { chooseSettings, chooseArchive } from '../actions/ui_actions';
+import { fetchSettings } from '../actions/settings_actions';
 
 function Dashboard({ 
   budgets, 
@@ -14,15 +15,18 @@ function Dashboard({
   expenditures, 
   forceUpdate,
   chooseSettings,
-  chooseArchive
+  chooseArchive,
+  fetchSettings
 }) {
   useEffect(() => {
     updateBudgetsCurrentPeriods();
     fetchExpenditures();
+    fetchSettings();
   }, [
     updateBudgetsCurrentPeriods, 
     fetchExpenditures, 
-    forceUpdate
+    forceUpdate,
+    fetchSettings
   ]);
 
   return (
@@ -50,6 +54,7 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { 
   updateBudgetsCurrentPeriods, 
   fetchExpenditures,
+  fetchSettings,
   chooseSettings,
   chooseArchive
 })(Dashboard);
