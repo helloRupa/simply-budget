@@ -13,6 +13,7 @@ import errorReducer from './reducers/error_reducer';
 import Error from './Error';
 import archiveReducer from './reducers/archive_reducer';
 import Archive from './components/Archive';
+import uiReducer from './reducers/ui_reducer';
 
 const store = createStore(
   combineReducers({
@@ -20,7 +21,8 @@ const store = createStore(
     expenditures: expenditureReducer,
     settings: settingsReducer,
     errors: errorReducer,
-    archive: archiveReducer
+    archive: archiveReducer,
+    currentView: uiReducer
   }),
   compose(
     applyMiddleware(thunk),
