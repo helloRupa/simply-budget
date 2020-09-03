@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Close from '../../shared/Close';
 import UpdateBudget from './UpdateBudget';
-import DeleteWrapper from '../../shared/Delete';
+import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyBudget } from '../../actions/budget_actions';
 import Archive from './Archive';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DeleteWrapper from '../../shared/Delete';
+import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyArchived } from '../../actions/archive_actions';
 
 const Delete = DeleteWrapper(destroyArchived);
