@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import Delete from './Delete';
+import DeleteWrapper from '../../shared/Delete';
+import { destroyArchived } from '../../actions/archive_actions';
+
+const Delete = DeleteWrapper(destroyArchived);
 
 function ArchivedBudget({ archived, archived: { 
     name, 
@@ -10,7 +13,7 @@ function ArchivedBudget({ archived, archived: {
     endDate
   }
 }) {
-  const [showDelete, setShowDelete] = useState(false);
+  const [remove, setRemove] = useState(false);
 
   return (
     <>
@@ -18,8 +21,8 @@ function ArchivedBudget({ archived, archived: {
       <p>Started on {startDate}, Ended on {endDate}</p>
       <p>Total Spent: {currency}{totalSpent}</p>
       <p>Total Tracking: {currency}{totalTracking}</p>
-      <button onClick={() => setShowDelete(true)}>Delete</button>
-      {showDelete ? <Delete {...{ setShowDelete, archived }} /> : null}
+      <button onClick={() => setRemove(true)}>Delete</button>
+      {remove ? <Delete deletable={archived} {...{name, setRemove}} /> : null}
     </>
   );
 }

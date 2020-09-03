@@ -8,7 +8,10 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        "one",
+        "two",
+        "three"
       ]
     }
   ],
@@ -73,7 +76,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 5
     },
     {
@@ -83,7 +86,7 @@
       "limit": 20,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 6
     },
     {
@@ -93,7 +96,7 @@
       "limit": 100,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 7
     },
     {
@@ -103,7 +106,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 8
     },
     {
