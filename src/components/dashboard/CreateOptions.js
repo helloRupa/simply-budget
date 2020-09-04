@@ -4,6 +4,7 @@ import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Close from '../../shared/Close';
 import DateComp from '../../shared/DateComp';
+import { periodOptions, periodDisplayOptions } from '../../constants/general';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -17,7 +18,7 @@ function CreateOptions({
 }) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
-  const [frequency, setFrequency] = useState('week');
+  const [frequency, setFrequency] = useState(periodOptions.default);
   const [startDate, setStartDate] = useState('');
 
   const closeOptions = () => {
@@ -48,6 +49,16 @@ function CreateOptions({
 
   const showError = () => !(currency && limit && budgetName);
 
+  const makeOptions = () => {
+    const options = [];
+
+    for (const key in periodDisplayOptions) {
+      options.push(<option key={key} value={key}>{periodDisplayOptions[key]}</option>)
+    }
+
+    return options;
+  };
+
   return (
     <form className="new-budget-options" onSubmit={saveOptions}>
       <h2>{budgetName}</h2>
@@ -67,8 +78,7 @@ function CreateOptions({
         value={limit} />
       <span>per </span>
       <select onChange={e => handleChange(e, setFrequency)} value={frequency}>
-        <option value="week">Week</option>
-        <option value="month">Month</option>
+        {makeOptions()}
       </select>
       <label>
         Choose a start date (optional): 

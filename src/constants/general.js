@@ -1,6 +1,12 @@
 export const periodOptions = {
   month: 'month',
-  week: 'week'
+  week: 'week',
+  default: 'week'
+};
+
+export const periodDisplayOptions = {
+  month: 'Month',
+  week: 'Week'
 };
 
 const dayHours = 24;
