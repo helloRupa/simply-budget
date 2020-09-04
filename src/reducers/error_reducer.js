@@ -16,12 +16,7 @@ function errorReducer(state = errorState, action) {
         debug: action.debug
       };
     case CLEAR_ERROR:
-      return {
-        ...state,
-        error: null,
-        location: null,
-        debug: null
-      };
+      return errorState;
     default:
       return state;
   }

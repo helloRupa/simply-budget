@@ -1,5 +1,6 @@
 import { formatNumber } from './format';
 import { makeDate } from './format';
+import { periodOptions, msPerDay, weekDays, monthDays } from '../constants/general';
 
 function sum(array, selector) {
   return array.reduce((sum, el) => sum + el[selector], 0);
@@ -100,11 +101,11 @@ export function formattedRemainingSpend(expenditures, budget, period) {
 // add a day to make count inclusive, and then divide by ms in a day
 // to get correct period, round up to nearest int
 export function calculatePeriod(expDate, { startDate, frequency }) {
-  const msInDay = 24 * 60 * 60 * 1000;
   const spendDate = new Date(expDate);
   const startingDate = new Date(startDate);
-  const daysDiff = (spendDate - startingDate + msInDay) / msInDay;
-  const ratio = (frequency === 'week') ? daysDiff / 7 : daysDiff / 30;
+  const daysDiff = (spendDate - startingDate + msPerDay) / msPerDay;
+  const ratio = frequency === periodOptions.week ? 
+    daysDiff / weekDays : daysDiff / monthDays;
 
   return Math.ceil(ratio);
 };
