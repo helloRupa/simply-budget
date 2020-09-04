@@ -10,9 +10,16 @@ import {
 import { changeBudget, selectBudget, makeBackup, clearBackup } from './budget_actions';
 import { selectDeletions} from '../utils/selectors';
 import { chainPromise, dispatchError } from './error_actions';
+import { 
+  ADD_EXPENDITURES, 
+  REMOVE_EXPENDITURE,
+  REMOVE_BUDGET_EXPENDITURES,
+  UPDATE_EXPENDITURE,
+  ADD_EXPENDITURE
+ } from '../constants/redux';
 
 export const addExpenditures = expenditures => ({
-  type: 'ADD_EXPENDITURES',
+  type: ADD_EXPENDITURES,
   expenditures
 });
 
@@ -33,7 +40,7 @@ export function fetchExpenditures() {
 };
 
 export const removeExpenditure = expenditure => ({
-  type: 'REMOVE_EXPENDITURE',
+  type: REMOVE_EXPENDITURE,
   expenditure
 });
 
@@ -54,12 +61,12 @@ export function destroyExpenditure(expenditure) {
 };
 
 export const removeBudgetExpenditures = budgetId => ({
-  type: 'REMOVE_BUDGET_EXPENDITURES',
+  type: REMOVE_BUDGET_EXPENDITURES,
   budgetId
 });
 
 export const editExpenditure = expenditure => ({
-  type: 'UPDATE_EXPENDITURE',
+  type: UPDATE_EXPENDITURE,
   expenditure
 });
 
@@ -80,7 +87,7 @@ export function patchExpenditure(id, updated) {
 };
 
 export const addExpenditure = expenditure => ({
-  type: 'ADD_EXPENDITURE',
+  type: ADD_EXPENDITURE,
   expenditure
 });
 

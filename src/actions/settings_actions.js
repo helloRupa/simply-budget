@@ -1,8 +1,9 @@
 import { getSettings, updateSettings } from '../utils/comms';
 import { chainPromise } from './error_actions';
+import { SET_SETTINGS } from '../constants/redux';
 
 export const setSettings = settings => ({
-  type: 'SET_SETTINGS',
+  type: SET_SETTINGS,
   settings
 });
 

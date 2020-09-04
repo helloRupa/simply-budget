@@ -6,9 +6,18 @@ import {
   updateBudgetCurrentPeriod
 } from '../utils/comms';
 import { chainPromise } from './error_actions';
+import { 
+  ADD_BUDGETS, 
+  SELECT_BUDGET, 
+  REMOVE_BUDGET, 
+  CHANGE_BUDGET, 
+  ADD_BUDGET, 
+  MAKE_BACKUP, 
+  CLEAR_BACKUP 
+} from '../constants/redux';
 
 export const addBudgets = budgets => ({
-  type: 'ADD_BUDGETS',
+  type: ADD_BUDGETS,
   budgets
 });
 
@@ -23,12 +32,12 @@ export function fetchBudgets() {
 };
 
 export const selectBudget = budget => ({
-  type: 'SELECT_BUDGET',
+  type: SELECT_BUDGET,
   budget
 });
 
 export const removeBudget = id => ({
-  type: 'REMOVE_BUDGET',
+  type: REMOVE_BUDGET,
   id
 });
 
@@ -49,7 +58,7 @@ export function destroyBudget(id) {
 };
 
 export const changeBudget = budget => ({
-  type: 'CHANGE_BUDGET',
+  type: CHANGE_BUDGET,
   budget
 });
 
@@ -70,7 +79,7 @@ export function patchBudget(id, budget) {
 };
 
 export const addBudget = budget => ({
-  type: 'ADD_BUDGET',
+  type: ADD_BUDGET,
   budget
 });
 
@@ -132,11 +141,11 @@ export function updateBudgetsCurrentPeriods() {
 };
 
 export const makeBackup = (budget, expenditures) => ({
-  type: 'MAKE_BACKUP',
+  type: MAKE_BACKUP,
   budget,
   expenditures
 });
 
 export const clearBackup = () => ({
-  type: 'CLEAR_BACKUP'
+  type: CLEAR_BACKUP
 });

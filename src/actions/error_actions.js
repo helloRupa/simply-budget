@@ -1,5 +1,7 @@
+import { SET_ERROR, CLEAR_ERROR } from '../constants/redux';
+
 export const setError = ({ error, location, debug }) => ({
-  type: 'SET_ERROR',
+  type: SET_ERROR,
   debug: debug.message,
   error, location
 });
@@ -9,7 +11,7 @@ export const dispatchError = (dispatch, error) => {
 };
 
 export const clearError = () => ({ 
-  type: 'CLEAR_ERROR' 
+  type: CLEAR_ERROR
 });
 
 export function chainPromise(dispatch, promise, callbacks, errorObj = null) {

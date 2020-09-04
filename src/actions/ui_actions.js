@@ -1,5 +1,7 @@
+import { CHANGE_VIEW } from '../constants/redux';
+
 const changeView = view => ({
-  type: 'CHANGE_VIEW',
+  type: CHANGE_VIEW,
   view
 });
 
