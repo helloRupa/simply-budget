@@ -19,7 +19,7 @@ export function fetchSettings() {
 
 export function patchSettings(settings) {
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch, 
       () => updateSettings(settings),
       [settings => dispatch(setSettings(settings))],

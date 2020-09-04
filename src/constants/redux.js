@@ -1,0 +1,3 @@
+export const ADD_ARCHIVED = 'ADD_ARCHIVED';
+export const ARCHIVE_BUDGET = 'ARCHIVE_BUDGET';
+export const DELETE_ARCHIVED = 'DELETE_ARCHIVED';

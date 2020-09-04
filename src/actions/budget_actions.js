@@ -81,7 +81,7 @@ export function newBudget(budget) {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       () => createBudget(budget),
       [budget => dispatch(addBudget(budget))],

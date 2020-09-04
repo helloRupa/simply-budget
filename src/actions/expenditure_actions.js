@@ -23,7 +23,7 @@ export function fetchExpenditures() {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       getExpenditures,
       [exps => dispatch(addExpenditures(formatExpenditures(exps)))],
@@ -44,7 +44,7 @@ export function destroyExpenditure(expenditure) {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       () => deleteExpenditure(expenditure.id),
       [() => dispatch(removeExpenditure(expenditure))],
@@ -70,7 +70,7 @@ export function patchExpenditure(id, updated) {
   };
 
   return dispatch => {
-    chainPromise(
+    return chainPromise(
       dispatch,
       () => updateExpenditure(id, updated),
       [exp =>dispatch(editExpenditure(exp))],
@@ -120,6 +120,7 @@ export function repostExpenditure(expenditure) {
 // IDEAL WAY WOULD BE TO COPY THE FILE, MUTATE COPY, REPLACE ORIGINAL
 // ONLY ON SUCCESSFUL TRUNCATION OF COPY
 // ALL OTHER METHODS LEAVE ROOM FOR ERROR
+// OR USE DB WITH ROLLBACK FEATURE AND TRANSACTIONS
 export function truncateExpenditures(expenditures, budget) {
   const budgetId = budget.id;
   const deletions = selectDeletions(expenditures, budget);

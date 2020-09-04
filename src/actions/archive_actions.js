@@ -2,9 +2,10 @@ import { getArchives, postArchive, deleteArchived } from '../utils/comms';
 import { chainPromise } from './error_actions';
 import { destroyBudget } from './budget_actions';
 import { removeBudgetExpenditures } from './expenditure_actions';
+import { ADD_ARCHIVED, ARCHIVE_BUDGET, DELETE_ARCHIVED } from '../constants/redux';
 
 export const addArchived = budgets => ({
-  type: 'ADD_ARCHIVED',
+  type: ADD_ARCHIVED,
   budgets
 });
 
@@ -20,7 +21,7 @@ export function fetchArchives() {
 };
 
 export const addToArchive = budget => ({
-  type: 'ARCHIVE_BUDGET',
+  type: ARCHIVE_BUDGET,
   budget
 });
 
@@ -42,7 +43,7 @@ export function archiveBudget(budget, expenditures) {
 };
 
 export const removeArchived = budget => ({
-  type: 'DELETE_ARCHIVED',
+  type: DELETE_ARCHIVED,
   budget
 });
 
