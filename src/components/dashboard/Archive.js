@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { archiveBudget } from '../../actions/archive_actions';
+import SubmitButton from '../../shared/SubmitButton';
 
 function Archive({ budget, archiveBudget, expenditures, setArchive }) {
   const close = () => {
@@ -15,7 +16,9 @@ function Archive({ budget, archiveBudget, expenditures, setArchive }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Archive {budget.name}?</h2>
-      <input type="submit" value="Yes"/>
+
+      <SubmitButton value="Yes" />
+      
       <button onClick={close}>No</button>
     </form>
   );
