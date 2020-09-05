@@ -4,6 +4,7 @@ import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
 import { calculatePeriodFromToday } from '../../utils/calculate';
+import SubmitButton from '../../shared/SubmitButton';
 
 function UpdateBudget({ 
   budget, 
@@ -53,7 +54,8 @@ function UpdateBudget({
         setStartDate={setStartDate} 
         disabled={shouldDisableDate} 
         date={startDate} />
-      <input type="submit" value="Update" />
+
+      <SubmitButton value="Update" />
 
       <Error msg="Budget name is required" condition={!name} />
     </form>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { patchSettings } from '../../actions/settings_actions';
 import FormHOC from '../../shared/FormHOC';
 import DateComp from '../../shared/DateComp';
+import SubmitButton from '../../shared/SubmitButton';
 
 function ExpenditureForm({
   onSubmit,
@@ -61,7 +62,8 @@ function ExpenditureForm({
         maxDate={new Date()} />
     </label>
 
-    <input type="submit" value="Save" />
+    <SubmitButton value="Save" />
+
     <Error msg="Amount is required" condition={showError} />
   </form>
 }

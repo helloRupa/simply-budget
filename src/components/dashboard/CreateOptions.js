@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Close from '../../shared/Close';
 import DateComp from '../../shared/DateComp';
 import { periodOptions, periodDisplayOptions } from '../../constants/general';
+import SubmitButton from '../../shared/SubmitButton';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -85,7 +86,7 @@ function CreateOptions({
         <DateComp setStartDate={setStartDate} date={startDate} />
       </label>
       
-      <input type="submit" value="Save Budget" />
+      <SubmitButton value="Save Budget" />
       
       <Close callback={closeOptions} display='Cancel' />
       <Error msg="All details are required" condition={showError()} />

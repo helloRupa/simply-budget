@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
 import FormHOC from '../../shared/FormHOC';
+import SubmitButton from '../../shared/SubmitButton';
 
 function CreateBudget({ handleChange, Error }) {
   const [showOptions, setShowOptions] = useState(false);
@@ -29,7 +30,8 @@ function CreateBudget({ handleChange, Error }) {
             id="new-budget-name"
             onChange={(e) => handleChange(e, setBudgetName)}
             value={budgetName} />
-          <input type="submit" value="+" />
+            
+          <SubmitButton value="+" />
         </div>
       </form>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SubmitButton from '../shared/SubmitButton';
 
 function DeleteWrapper(deleteMethod) {
   function Delete({ deletable, name, setRemove, deleteMethod }) {
@@ -15,7 +16,7 @@ function DeleteWrapper(deleteMethod) {
     return (
       <form onSubmit={handleSubmit}>
         <h2>Delete {name}?</h2>
-        <input type="submit" value="Yes"/>
+        <SubmitButton value="Yes" />
         <button onClick={close}>No</button>
       </form>
     )

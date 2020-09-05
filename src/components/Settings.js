@@ -4,6 +4,7 @@ import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
+import SubmitButton from '../shared/SubmitButton';
 
 function Settings({ 
   settings, 
@@ -66,7 +67,8 @@ function Settings({
         </span>
       </div>
 
-      <input type="submit" value="Save" />
+      <SubmitButton value="Save" />
+
       <Error 
         msg="Maximum number of line items must be 10 or more" 
         condition={!isValidLineItems()} 

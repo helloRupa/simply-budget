@@ -8,7 +8,8 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        ""
       ]
     }
   ],
@@ -43,7 +44,7 @@
       "limit": 300,
       "startDate": "2020/06/05",
       "truncated": 0,
-      "currentPeriod": 13,
+      "currentPeriod": 14,
       "id": 2
     },
     {
@@ -63,7 +64,7 @@
       "limit": 400,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 2,
+      "currentPeriod": 3,
       "id": 4
     },
     {
