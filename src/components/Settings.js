@@ -51,10 +51,10 @@ function Settings({
       <div>
         <label>
           Maximum Number of Line Items
-        <TextInputWithRegex
-          value={maxItems}
-          expr={/^\d+$/}
-          callback={setMaxItems} />
+          <TextInputWithRegex
+            value={maxItems}
+            expr={/^\d+$/}
+            callback={setMaxItems} />
         </label>
 
         <span>
