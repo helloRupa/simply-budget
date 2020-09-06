@@ -155,3 +155,18 @@ export function deleteArchived(id) {
 export function fetchDb() {
   return generalFetch(dbUrl);
 };
+
+function deleteAllBudgets() {
+  return getBudgets()
+  .then(budgets => Promise.all(budgets.map(b => deleteBudget(b.id))));
+}
+
+function deleteAllArchives() {
+  return getArchives()
+  .then(archives => Promise.all(archives.map(a => deleteArchived(a.id))));
+}
+
+export function dropAllData() {
+  return deleteAllBudgets()
+  .then(_ => deleteAllArchives());
+};

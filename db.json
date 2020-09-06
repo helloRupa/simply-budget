@@ -53,16 +53,6 @@
       "id": 2
     },
     {
-      "name": "pounds",
-      "currency": "£",
-      "frequency": "month",
-      "limit": 400,
-      "startDate": "2020/07/07",
-      "truncated": 0,
-      "currentPeriod": 3,
-      "id": 4
-    },
-    {
       "name": "rt",
       "currency": "$",
       "frequency": "week",
@@ -71,6 +61,16 @@
       "truncated": 0,
       "currentPeriod": 11,
       "id": 3
+    },
+    {
+      "name": "pounds",
+      "currency": "£",
+      "frequency": "month",
+      "limit": 400,
+      "startDate": "2020/07/07",
+      "truncated": 0,
+      "currentPeriod": 3,
+      "id": 4
     },
     {
       "name": "pounds again",
@@ -93,14 +93,14 @@
       "id": 6
     },
     {
-      "name": "old expends",
+      "name": "new testy face",
       "currency": "$",
       "frequency": "week",
-      "limit": 100,
-      "startDate": "2020/07/07",
+      "limit": 120,
+      "startDate": "2020/08/06",
       "truncated": 0,
-      "currentPeriod": 9,
-      "id": 7
+      "currentPeriod": 5,
+      "id": 9
     },
     {
       "name": "delete expends",
@@ -113,14 +113,14 @@
       "id": 8
     },
     {
-      "name": "new testy face",
+      "name": "old expends",
       "currency": "$",
       "frequency": "week",
-      "limit": 120,
-      "startDate": "2020/08/06",
+      "limit": 100,
+      "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 5,
-      "id": 9
+      "currentPeriod": 9,
+      "id": 7
     }
   ],
   "expenditures": [
@@ -157,12 +157,20 @@
       "period": 1
     },
     {
-      "id": 8,
+      "id": 6,
       "budgetId": 7,
-      "title": "Milk",
-      "amount": 30,
-      "date": "2020/7/14",
-      "period": 2
+      "title": "Croissants",
+      "amount": 15.5,
+      "date": "2020/7/10",
+      "period": 1
+    },
+    {
+      "id": 5,
+      "budgetId": 7,
+      "title": "Tea",
+      "amount": 10.5,
+      "date": "2020/7/8",
+      "period": 1
     },
     {
       "id": 4,
@@ -171,6 +179,14 @@
       "amount": 15.5,
       "date": "2020/7/7",
       "period": 1
+    },
+    {
+      "id": 8,
+      "budgetId": 7,
+      "title": "Milk",
+      "amount": 30,
+      "date": "2020/7/14",
+      "period": 2
     },
     {
       "id": 9,
@@ -189,14 +205,6 @@
       "period": 4
     },
     {
-      "id": 5,
-      "budgetId": 7,
-      "title": "Tea",
-      "amount": 10.5,
-      "date": "2020/7/8",
-      "period": 1
-    },
-    {
       "id": 11,
       "budgetId": 7,
       "title": "Toast",
@@ -205,20 +213,36 @@
       "period": 4
     },
     {
-      "id": 6,
-      "budgetId": 7,
-      "title": "Croissants",
-      "amount": 15.5,
-      "date": "2020/7/10",
-      "period": 1
-    },
-    {
       "id": 12,
       "budgetId": 7,
       "title": "Spam",
       "amount": 31.25,
       "date": "2020/7/31",
       "period": 4
+    },
+    {
+      "title": "test",
+      "amount": 14.24,
+      "budgetId": 7,
+      "date": "2020/8/9",
+      "period": 5,
+      "id": 16
+    },
+    {
+      "title": "new one",
+      "amount": 10,
+      "budgetId": 7,
+      "date": "2020/8/9",
+      "period": 5,
+      "id": 17
+    },
+    {
+      "title": "terstberst",
+      "amount": 5,
+      "budgetId": 7,
+      "date": "2020/8/9",
+      "period": 5,
+      "id": 18
     },
     {
       "id": 13,
@@ -235,6 +259,30 @@
       "date": "2020/7/9",
       "period": 3,
       "id": 14
+    },
+    {
+      "title": "test again",
+      "amount": 30.2,
+      "budgetId": 3,
+      "date": "2020/7/9",
+      "period": 3,
+      "id": 15
+    },
+    {
+      "title": "goAway0",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 1,
+      "id": 20
+    },
+    {
+      "title": "goAway1",
+      "amount": 60,
+      "budgetId": 6,
+      "date": "2020/7/15",
+      "period": 1,
+      "id": 21
     },
     {
       "title": "goAway2",
@@ -283,14 +331,6 @@
       "budgetId": 9,
       "period": 3,
       "id": 27
-    },
-    {
-      "title": "goAway1",
-      "amount": 60,
-      "budgetId": 6,
-      "date": "2020/7/15",
-      "period": 1,
-      "id": 21
     }
   ]
 }

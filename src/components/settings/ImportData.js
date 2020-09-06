@@ -2,11 +2,12 @@ import React, { useRef, useState, useEffect } from 'react';
 import { dbKeys } from '../../constants/general';
 import { connect } from 'react-redux';
 import { patchSettings, fetchSettings } from '../../actions/settings_actions';
-import { repostArchive, repostBudgets, repostExpenditures } from '../../utils/comms';
+import { repostArchive, repostBudgets, repostExpenditures, dropAllData } from '../../utils/comms';
 import { fetchArchives } from '../../actions/archive_actions'
 import { fetchBudgets } from '../../actions/budget_actions';
 import { fetchExpenditures } from '../../actions/expenditure_actions';
 import { chooseDashboard } from '../../actions/ui_actions';
+import Error from '../../shared/Error';
 
 function ImportData( {
   patchSettings,
@@ -17,6 +18,7 @@ function ImportData( {
   chooseDashboard
 }) {
   const [importedData, setImportedData] = useState({});
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const validateData = json => {
@@ -36,15 +38,23 @@ function ImportData( {
       .then(_ => fetchSettings())
       .then(_ => repostArchive(importedData.archives).then(_ => fetchArchives()))
       .then(_ => repostBudgets(importedData.budgets).then(_ => fetchBudgets()))
-      .then(_ => repostExpenditures(importedData.expenditures).then(_ => fetchExpenditures()))
-      .then(_ => chooseDashboard());
+      .then(_ => repostExpenditures(importedData.expenditures).then(_ => fetchExpenditures()));
     };
 
     if (Object.keys(importedData).length) {
       if (validateData(importedData)) {
-        updateAll();        
+        setError(false);
+
+        dropAllData()
+        .then(_ => {
+          updateAll()
+          .then(_ => {
+            setImportedData({});
+            chooseDashboard();
+          });
+        });
       } else {
-        console.log('invalid data');
+        setError(true);
       }
     }
     // eslint-disable-next-line 
@@ -72,7 +82,10 @@ function ImportData( {
       type="file" 
       accept=".json" 
       ref={filePicker} 
-      onChange={handleFile} />
+      onChange={handleFile}
+      style={{display: "none"}} />
+
+    <Error msg={"File chosen for import is invalid"} condition={error} />
   </>
 }
 
