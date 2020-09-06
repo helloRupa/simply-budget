@@ -111,6 +111,10 @@ export function makeExpenditure(expenditure) {
   return changeData(expendituresUrl, 'POST', expenditure);
 };
 
+export function repostExpenditures(exps) {
+  return Promise.all(exps.map(exp => makeExpenditure(exp)));
+}
+
 export function updateBudgetCurrentPeriod(budget) {
   budget.currentPeriod = calculatePeriodFromToday(budget);
 

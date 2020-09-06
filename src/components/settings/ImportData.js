@@ -2,15 +2,19 @@ import React, { useRef, useState, useEffect } from 'react';
 import { dbKeys } from '../../constants/general';
 import { connect } from 'react-redux';
 import { patchSettings, fetchSettings } from '../../actions/settings_actions';
-import { repostArchive, repostBudgets } from '../../utils/comms';
+import { repostArchive, repostBudgets, repostExpenditures } from '../../utils/comms';
 import { fetchArchives } from '../../actions/archive_actions'
 import { fetchBudgets } from '../../actions/budget_actions';
+import { fetchExpenditures } from '../../actions/expenditure_actions';
+import { chooseDashboard } from '../../actions/ui_actions';
 
 function ImportData( {
   patchSettings,
   fetchSettings,
   fetchArchives,
-  fetchBudgets
+  fetchBudgets,
+  fetchExpenditures,
+  chooseDashboard
 }) {
   const [importedData, setImportedData] = useState({});
 
@@ -27,21 +31,24 @@ function ImportData( {
       return true;
     };
 
+    const updateAll = () => {
+      return patchSettings(importedData.settings[0])
+      .then(_ => fetchSettings())
+      .then(_ => repostArchive(importedData.archives).then(_ => fetchArchives()))
+      .then(_ => repostBudgets(importedData.budgets).then(_ => fetchBudgets()))
+      .then(_ => repostExpenditures(importedData.expenditures).then(_ => fetchExpenditures()))
+      .then(_ => chooseDashboard());
+    };
+
     if (Object.keys(importedData).length) {
       if (validateData(importedData)) {
-        patchSettings(importedData.settings[0])
-        .then(_ => fetchSettings());
-
-        repostArchive(importedData.archives)
-        .then(_ => fetchArchives());
-
-        repostBudgets(importedData.budgets)
-        .then(_ => fetchBudgets());
+        updateAll();        
       } else {
         console.log('invalid data');
       }
     }
-  }, [importedData, patchSettings, fetchArchives, fetchSettings, fetchBudgets]);
+    // eslint-disable-next-line 
+  }, [importedData]);
 
   const filePicker = useRef(null);
 
@@ -73,5 +80,7 @@ export default connect(null, {
   patchSettings,
   fetchSettings,
   fetchArchives,
-  fetchBudgets
+  fetchBudgets,
+  fetchExpenditures,
+  chooseDashboard
 })(ImportData);
