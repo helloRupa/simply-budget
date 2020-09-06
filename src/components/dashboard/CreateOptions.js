@@ -7,6 +7,7 @@ import DateComp from '../../shared/DateComp';
 import { periodOptions, periodDisplayOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
+import TextInput from '../../shared/TextInput';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -60,11 +61,10 @@ function CreateOptions({
     <form className="new-budget-options" onSubmit={saveOptions}>
       <h2>{budgetName}</h2>
       <span>I want to spend </span>
-      <input 
-        type="text"
+
+      <TextInput 
         placeholder="$" 
-        id="new-budget-currency" 
-        onChange={e => handleChange(e, setCurrency)}
+        callback={setCurrency} 
         value={currency}
         maxLength="2" />
 

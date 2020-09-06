@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
 import FormHOC from '../../shared/FormHOC';
 import SubmitButton from '../../shared/SubmitButton';
+import TextInput from '../../shared/TextInput';
 
-function CreateBudget({ handleChange, Error }) {
+function CreateBudget({ Error }) {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
   const [showError, setShowError] = useState(false);
@@ -25,10 +26,9 @@ function CreateBudget({ handleChange, Error }) {
     <div>
       <form onSubmit={openOptions}>    
         <div className="new-budget-name">
-          <input type="text" 
+          <TextInput 
             placeholder="New Budget Name" 
-            id="new-budget-name"
-            onChange={(e) => handleChange(e, setBudgetName)}
+            callback={setBudgetName}
             value={budgetName} />
             
           <SubmitButton value="+" />

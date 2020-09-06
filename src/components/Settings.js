@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
 import SubmitButton from '../shared/SubmitButton';
+import TextInput from '../shared/TextInput';
 
 function Settings({ 
   settings, 
   patchSettings, 
-  handleChange, 
   handleChangeWithRegex,
   Error,
   chooseDashboard
@@ -42,15 +42,14 @@ function Settings({
     <Close callback={chooseDashboard} display='Close' />
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="default-currency">Default Currency</label>
-        <input 
-          type="text" 
-          id="default-currency" 
-          placeholder="$" 
-          maxLength="2" 
-          value={currency} 
-          onChange={e => handleChange(e, setCurrency)} 
-        />
+        <label>
+          Default Currency
+          <TextInput
+            placeholder="$"
+            callback={setCurrency}
+            value={currency}
+            maxLength="2" />
+        </label>
       </div>
 
       <div>

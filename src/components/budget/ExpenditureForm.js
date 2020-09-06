@@ -5,6 +5,7 @@ import FormHOC from '../../shared/FormHOC';
 import DateComp from '../../shared/DateComp';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
+import TextInput from '../../shared/TextInput';
 
 function ExpenditureForm({
   onSubmit,
@@ -15,7 +16,6 @@ function ExpenditureForm({
   amount,
   setAmount,
   patchSettings,
-  handleChange,
   Error,
   showError,
   setExpenseDate,
@@ -35,18 +35,18 @@ function ExpenditureForm({
   }
 
   return <form onSubmit={handleSubmit}>
-    <input 
-      type="text" 
-      placeholder="Title (optional)" 
+    <TextInput
+      placeholder="Title (optional)"
       value={title}
-      onChange={e => handleChange(e, setTitle)}
-      list="saved-categories"
-    />
+      callback={setTitle}
+      list="saved-categories" />
+
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }
     </datalist>
-    {currency}
     
+    {currency}
+
     <NumberInput value={amount} callback={setAmount} />
 
     <label>

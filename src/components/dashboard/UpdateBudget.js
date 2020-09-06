@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
 import { calculatePeriodFromToday } from '../../utils/calculate';
 import SubmitButton from '../../shared/SubmitButton';
+import TextInput from '../../shared/TextInput';
 
 function UpdateBudget({ 
   budget, 
@@ -45,11 +46,11 @@ function UpdateBudget({
 
   return (
     <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        placeholder={budget.name}
-        onChange={e => handleChange(e, setName)}
+      <TextInput 
+        placeholder={budget.name} 
+        callback={setName} 
         value={name} />
+
       <DateComp 
         setStartDate={setStartDate} 
         disabled={shouldDisableDate} 

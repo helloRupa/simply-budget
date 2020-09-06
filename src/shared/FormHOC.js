@@ -15,16 +15,11 @@ function Form(FormComponent) {
         handleChange(e, callback);
       }
     };
-    
-    const handleAmountChange = (e, callback) => {
-      handleChangeWithRegex(e, /^\d+(\.\d?\d?)?$/, callback);
-    };
 
     return <FormComponent 
       {...props} 
       {...{ 
         handleChange, 
-        handleAmountChange, 
         handleChangeWithRegex,
         Error 
       }}
