@@ -16,8 +16,7 @@ function CreateOptions({
   budgetName, 
   setBudgetName, 
   newBudget, 
-  defaultCurrency,
-  handleChange
+  defaultCurrency
 }) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
