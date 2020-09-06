@@ -10,7 +10,9 @@ function ArchivedBudget({ archived, archived: {
     currency, 
     totalTracking, 
     totalSpent, 
-    endDate
+    endDate,
+    limit,
+    frequency
   }
 }) {
   const [remove, setRemove] = useState(false);
@@ -18,7 +20,8 @@ function ArchivedBudget({ archived, archived: {
   return (
     <>
       <h2>{name}</h2>
-      <p>Started on {startDate}, Ended on {endDate}</p>
+      <p>Ran from {startDate} to {endDate}</p>
+      <p>Goal was to spend {currency}{limit} per {frequency}</p>
       <p>Total Spent: {currency}{totalSpent}</p>
       <p>Total Tracking: {currency}{totalTracking}</p>
       <button onClick={() => setRemove(true)}>Delete</button>
