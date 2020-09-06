@@ -143,3 +143,7 @@ export function deleteArchived(id) {
 export function fetchDb() {
   return generalFetch(dbUrl);
 };
+
+export function loadDb(json) {
+  return changeData(dbUrl, 'POST', json);
+};

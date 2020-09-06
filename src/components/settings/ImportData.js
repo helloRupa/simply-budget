@@ -1,6 +1,35 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { dbKeys } from '../../constants/general';
+import { connect } from 'react-redux';
+import { patchSettings } from '../../actions/settings_actions';
 
-function ImportData() {
+function ImportData( {
+  patchSettings,
+}) {
+  const [importedData, setImportedData] = useState({});
+
+  useEffect(() => {
+    const validateData = json => {
+      for (let i = 0; i < dbKeys.length; ++i) {
+        const key = dbKeys[i];
+
+        if (!json[key]) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+    if (Object.keys(importedData).length) {
+      if (validateData(importedData)) {
+        patchSettings(importedData.settings[0]);
+      } else {
+        console.log('invalid data');
+      }
+    }
+  }, [importedData, patchSettings]);
+
   const filePicker = useRef(null);
 
   const handleClick = e => {
@@ -8,7 +37,11 @@ function ImportData() {
   };
 
   const handleFile = e => {
-    console.log(filePicker.current.files[0])
+    const file = filePicker.current.files[0];
+
+    file.text()
+    .then(str => JSON.parse(str))
+    .then(json => setImportedData(json));
   };
 
   return <>
@@ -23,4 +56,6 @@ function ImportData() {
   </>
 }
 
-export default ImportData;
+export default connect(null, {
+  patchSettings
+})(ImportData);
