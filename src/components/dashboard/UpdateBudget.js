@@ -3,6 +3,7 @@ import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
 import { calculatePeriodFromToday } from '../../utils/calculate';
+import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
@@ -13,8 +14,6 @@ function UpdateBudget({ budget, close, patchBudget }) {
   const [shouldDisableDate, setShouldDisableDate] = useState(false);
 
   const handleSubmit = e => {
-    e.preventDefault();
-
     if (name.length > 1) {
       const budgetOptions = { name };
 
@@ -39,7 +38,7 @@ function UpdateBudget({ budget, close, patchBudget }) {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form callback={handleSubmit}>
       <TextInput 
         placeholder={budget.name} 
         callback={setName} 
@@ -53,7 +52,7 @@ function UpdateBudget({ budget, close, patchBudget }) {
       <SubmitButton value="Update" />
 
       <Error msg="Budget name is required" condition={!name} />
-    </form>
+    </Form>
   )
 }
 

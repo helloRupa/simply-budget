@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { patchSettings } from '../../actions/settings_actions';
 import DateComp from '../../shared/DateComp';
+import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
@@ -28,12 +29,11 @@ function ExpenditureForm({
   };
 
   const handleSubmit = e => {
-    e.preventDefault();
     handleCategory(title);
     onSubmit(e);
   }
 
-  return <form onSubmit={handleSubmit}>
+  return <Form callback={handleSubmit}>
     <TextInput
       placeholder="Title (optional)"
       value={title}
@@ -60,7 +60,7 @@ function ExpenditureForm({
     <SubmitButton value="Save" />
 
     <Error msg="Amount is required" condition={showError} />
-  </form>
+  </Form>
 }
 
 const mapStateToProps = state => ({

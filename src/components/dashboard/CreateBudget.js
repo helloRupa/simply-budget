@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
+import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
@@ -10,8 +11,6 @@ function CreateBudget() {
   const [showError, setShowError] = useState(false);
 
   const openOptions = e => {
-    e.preventDefault();
-
     if (budgetName) {
       setShowOptions(true);
       setShowError(false);
@@ -24,7 +23,7 @@ function CreateBudget() {
 
   return (
     <div>
-      <form onSubmit={openOptions}>    
+      <Form callback={openOptions}>    
         <div className="new-budget-name">
           <TextInput 
             placeholder="New Budget Name" 
@@ -33,7 +32,7 @@ function CreateBudget() {
             
           <SubmitButton value="+" />
         </div>
-      </form>
+      </Form>
 
       <Error msg="Budget name is required" condition={showError} />
 

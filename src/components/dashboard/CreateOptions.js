@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
+import Form from '../../shared/Form';
 import Close from '../../shared/Close';
 import DateComp from '../../shared/DateComp';
 import { periodOptions, periodDisplayOptions } from '../../constants/general';
@@ -28,8 +29,6 @@ function CreateOptions({
   };
 
   const saveOptions = e => {
-    e.preventDefault();
-
     if (currency && limit && budgetName) {
       const budgetSettings = { 
         currency, 
@@ -57,7 +56,7 @@ function CreateOptions({
   };
 
   return (
-    <form className="new-budget-options" onSubmit={saveOptions}>
+    <Form callback={saveOptions}>
       <h2>{budgetName}</h2>
       <span>I want to spend </span>
 
@@ -82,7 +81,7 @@ function CreateOptions({
       
       <Close callback={closeOptions} display='Cancel' />
       <Error msg="All details are required" condition={showError()} />
-    </form>
+    </Form>
   )
 }
 

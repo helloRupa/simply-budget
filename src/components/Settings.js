@@ -3,6 +3,7 @@ import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
+import Form from '../shared/Form';
 import SubmitButton from '../shared/SubmitButton';
 import TextInput from '../shared/TextInput';
 import TextInputWithRegex from '../shared/TextInputWithRegex';
@@ -21,8 +22,6 @@ function Settings({
   const isValidLineItems = () => parseMaxItems() >= 10;
 
   const handleSubmit = e => {
-    e.preventDefault();
-
     if (isValidLineItems()) {
       patchSettings({
         "default-currency": currency,
@@ -34,8 +33,10 @@ function Settings({
 
   return <div>
     <h2>Settings</h2>
+
     <Close callback={chooseDashboard} display='Close' />
-    <form onSubmit={handleSubmit}>
+
+    <Form callback={handleSubmit}>
       <div>
         <label>
           Default Currency
@@ -48,11 +49,13 @@ function Settings({
       </div>
 
       <div>
-        <label htmlFor="max-items">Maximum Number of Line Items</label>
+        <label>
+          Maximum Number of Line Items
         <TextInputWithRegex
           value={maxItems}
           expr={/^\d+$/}
           callback={setMaxItems} />
+        </label>
 
         <span>
           Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
@@ -64,9 +67,8 @@ function Settings({
 
       <Error 
         msg="Maximum number of line items must be 10 or more" 
-        condition={!isValidLineItems()} 
-      />
-    </form>
+        condition={!isValidLineItems()} />
+    </Form>
   </div>
 }
 
