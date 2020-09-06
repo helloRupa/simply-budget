@@ -6,6 +6,7 @@ import Close from '../../shared/Close';
 import DateComp from '../../shared/DateComp';
 import { periodOptions, periodDisplayOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
+import NumberInput from '../../shared/NumberInput';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -13,7 +14,6 @@ function CreateOptions({
   setBudgetName, 
   newBudget, 
   defaultCurrency,
-  handleAmountChange,
   handleChange,
   Error
 }) {
@@ -44,10 +44,6 @@ function CreateOptions({
     }
   };
 
-  const handleLimit = e => {
-    handleAmountChange(e, setLimit);
-  };
-
   const showError = () => !(currency && limit && budgetName);
 
   const makeOptions = () => {
@@ -71,12 +67,9 @@ function CreateOptions({
         onChange={e => handleChange(e, setCurrency)}
         value={currency}
         maxLength="2" />
-      <input 
-        type="text" 
-        placeholder="100" 
-        id="new-budget-limit"
-        onChange={handleLimit}
-        value={limit} />
+
+      <NumberInput value={limit} callback={setLimit} />
+
       <span>per </span>
       <select onChange={e => handleChange(e, setFrequency)} value={frequency}>
         {makeOptions()}

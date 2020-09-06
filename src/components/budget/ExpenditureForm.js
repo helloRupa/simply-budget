@@ -4,6 +4,7 @@ import { patchSettings } from '../../actions/settings_actions';
 import FormHOC from '../../shared/FormHOC';
 import DateComp from '../../shared/DateComp';
 import SubmitButton from '../../shared/SubmitButton';
+import NumberInput from '../../shared/NumberInput';
 
 function ExpenditureForm({
   onSubmit,
@@ -15,7 +16,6 @@ function ExpenditureForm({
   setAmount,
   patchSettings,
   handleChange,
-  handleAmountChange,
   Error,
   showError,
   setExpenseDate,
@@ -46,12 +46,8 @@ function ExpenditureForm({
       { categories.map(name => <option value={name} key={name} />) }
     </datalist>
     {currency}
-    <input 
-      type="text" 
-      placeholder="20.60" 
-      value={amount}
-      onChange={e => handleAmountChange(e, setAmount)}
-    />
+    
+    <NumberInput value={amount} callback={setAmount} />
 
     <label>
       Set date of expense (optional): 
