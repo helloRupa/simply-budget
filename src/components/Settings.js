@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FormHOC from '../shared/FormHOC';
 import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import Close from '../shared/Close';
@@ -7,11 +6,11 @@ import { chooseDashboard } from '../actions/ui_actions';
 import SubmitButton from '../shared/SubmitButton';
 import TextInput from '../shared/TextInput';
 import TextInputWithRegex from '../shared/TextInputWithRegex';
+import Error from '../shared/Error';
 
 function Settings({ 
   settings, 
   patchSettings, 
-  Error,
   chooseDashboard
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
@@ -75,4 +74,4 @@ const mapStateToProps = state => ({
   settings: state.settings
 });
 
-export default connect(mapStateToProps, { patchSettings, chooseDashboard })(FormHOC(Settings));
+export default connect(mapStateToProps, { patchSettings, chooseDashboard })(Settings);

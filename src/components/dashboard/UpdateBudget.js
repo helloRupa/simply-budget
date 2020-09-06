@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import FormHOC from '../../shared/FormHOC';
 import { patchBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import DateComp from '../../shared/DateComp';
 import { calculatePeriodFromToday } from '../../utils/calculate';
 import SubmitButton from '../../shared/SubmitButton';
 import TextInput from '../../shared/TextInput';
+import Error from '../../shared/Error';
 
-function UpdateBudget({ 
-  budget, 
-  close,
-  patchBudget, 
-  handleChange, 
-  Error 
-}) {
+function UpdateBudget({ budget, close, patchBudget }) {
   const [name, setName] = useState(budget.name);
   const [startDate, setStartDate] = useState(budget.startDate);
   const [shouldDisableDate, setShouldDisableDate] = useState(false);
@@ -63,4 +57,4 @@ function UpdateBudget({
   )
 }
 
-export default connect(null, { patchBudget })(FormHOC(UpdateBudget));
+export default connect(null, { patchBudget })(UpdateBudget);

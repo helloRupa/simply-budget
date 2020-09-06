@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import CreateOptions from './CreateOptions';
-import FormHOC from '../../shared/FormHOC';
 import SubmitButton from '../../shared/SubmitButton';
 import TextInput from '../../shared/TextInput';
+import Error from '../../shared/Error';
 
-function CreateBudget({ Error }) {
+function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);
   const [budgetName, setBudgetName] = useState('');
   const [showError, setShowError] = useState(false);
@@ -48,4 +48,4 @@ function CreateBudget({ Error }) {
   )
 }
 
-export default FormHOC(CreateBudget);
+export default CreateBudget;

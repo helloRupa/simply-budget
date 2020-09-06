@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FormHOC from '../../shared/FormHOC';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Close from '../../shared/Close';
@@ -8,6 +7,7 @@ import { periodOptions, periodDisplayOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
+import Error from '../../shared/Error';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -15,8 +15,7 @@ function CreateOptions({
   setBudgetName, 
   newBudget, 
   defaultCurrency,
-  handleChange,
-  Error
+  handleChange
 }) {
   const [currency, setCurrency] = useState(defaultCurrency);
   const [limit, setLimit] = useState('');
@@ -91,4 +90,4 @@ const mapStateToProps = state => ({
   defaultCurrency: state.settings['default-currency']
 });
 
-export default connect(mapStateToProps, { newBudget })(FormHOC(CreateOptions));
+export default connect(mapStateToProps, { newBudget })(CreateOptions);

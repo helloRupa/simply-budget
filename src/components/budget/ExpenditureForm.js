@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { patchSettings } from '../../actions/settings_actions';
-import FormHOC from '../../shared/FormHOC';
 import DateComp from '../../shared/DateComp';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
+import Error from '../../shared/Error';
 
 function ExpenditureForm({
   onSubmit,
@@ -16,7 +16,6 @@ function ExpenditureForm({
   amount,
   setAmount,
   patchSettings,
-  Error,
   showError,
   setExpenseDate,
   expenseDate,
@@ -68,4 +67,4 @@ const mapStateToProps = state => ({
   categories: state.settings.categories
 });
 
-export default connect(mapStateToProps, { patchSettings })(FormHOC(ExpenditureForm));
+export default connect(mapStateToProps, { patchSettings })(ExpenditureForm);
