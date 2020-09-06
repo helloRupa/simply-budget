@@ -36,7 +36,7 @@ function ImportData( {
         .then(_ => fetchArchives());
 
         repostBudgets(importedData.budgets)
-        .then(_ => fetchBudgets);
+        .then(_ => fetchBudgets());
       } else {
         console.log('invalid data');
       }
