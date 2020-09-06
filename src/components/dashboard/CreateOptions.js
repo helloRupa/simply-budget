@@ -9,6 +9,7 @@ import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
+import Select from '../../shared/Select';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -69,9 +70,12 @@ function CreateOptions({
       <NumberInput value={limit} callback={setLimit} />
 
       <span>per </span>
-      <select onChange={e => handleChange(e, setFrequency)} value={frequency}>
-        {makeOptions()}
-      </select>
+
+      <Select 
+        callback={setFrequency} 
+        value={frequency} 
+        optionsCallback={makeOptions} />
+
       <label>
         Choose a start date (optional): 
         <DateComp setStartDate={setStartDate} date={startDate} />
