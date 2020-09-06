@@ -6,20 +6,16 @@ import Close from '../shared/Close';
 import { chooseDashboard } from '../actions/ui_actions';
 import SubmitButton from '../shared/SubmitButton';
 import TextInput from '../shared/TextInput';
+import TextInputWithRegex from '../shared/TextInputWithRegex';
 
 function Settings({ 
   settings, 
   patchSettings, 
-  handleChangeWithRegex,
   Error,
   chooseDashboard
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
-
-  const handleMaxItems = e => {
-    handleChangeWithRegex(e, /^\d+$/, setMaxItems);
-  };
 
   const parseMaxItems = () => parseInt(maxItems, 10);
 
@@ -54,12 +50,11 @@ function Settings({
 
       <div>
         <label htmlFor="max-items">Maximum Number of Line Items</label>
-        <input 
-          type="text" 
-          id="max-items" 
+        <TextInputWithRegex
           value={maxItems}
-          onChange={handleMaxItems}
-        />
+          expr={/^\d+$/}
+          callback={setMaxItems} />
+
         <span>
           Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
           one whole period at a time.
