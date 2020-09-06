@@ -8,6 +8,7 @@ import SubmitButton from '../shared/SubmitButton';
 import TextInput from '../shared/TextInput';
 import TextInputWithRegex from '../shared/TextInputWithRegex';
 import Error from '../shared/Error';
+import ExportData from './settings/ExportData';
 
 function Settings({ 
   settings, 
@@ -69,6 +70,8 @@ function Settings({
         msg="Maximum number of line items must be 10 or more" 
         condition={!isValidLineItems()} />
     </Form>
+
+    <ExportData />
   </div>
 }
 

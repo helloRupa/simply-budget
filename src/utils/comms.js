@@ -12,6 +12,7 @@ const settingsUrl = `${baseUrl}/settings/1`;
 const expendituresUrl = `${baseUrl}/expenditures`;
 const budgetExpendituresUrl = id => `${baseUrl}/budgets/${id}/expenditures`;
 const archivesUrl = `${baseUrl}/archives`;
+const dbUrl = `${baseUrl}/db`;
 
 function createOptions(method, body={}) {
   return {
@@ -137,4 +138,8 @@ export function deleteArchived(id) {
   const deleteUrl = `${archivesUrl}/${id}`;
 
   return changeData(deleteUrl, 'DELETE');
+};
+
+export function fetchDb() {
+  return generalFetch(dbUrl);
 };
