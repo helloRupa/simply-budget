@@ -9,6 +9,7 @@ import TextInput from '../shared/TextInput';
 import TextInputWithRegex from '../shared/TextInputWithRegex';
 import Error from '../shared/Error';
 import ExportData from './settings/ExportData';
+import ImportData from './settings/ImportData';
 
 function Settings({ 
   settings, 
@@ -72,6 +73,7 @@ function Settings({
     </Form>
 
     <ExportData />
+    <ImportData />
   </div>
 }
 
