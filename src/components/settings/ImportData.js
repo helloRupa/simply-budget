@@ -1,10 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { dbKeys } from '../../constants/general';
 import { connect } from 'react-redux';
-import { patchSettings } from '../../actions/settings_actions';
+import { patchSettings, fetchSettings } from '../../actions/settings_actions';
+import { repostArchive, repostBudgets } from '../../utils/comms';
+import { fetchArchives } from '../../actions/archive_actions'
+import { fetchBudgets } from '../../actions/budget_actions';
 
 function ImportData( {
   patchSettings,
+  fetchSettings,
+  fetchArchives,
+  fetchBudgets
 }) {
   const [importedData, setImportedData] = useState({});
 
@@ -23,12 +29,19 @@ function ImportData( {
 
     if (Object.keys(importedData).length) {
       if (validateData(importedData)) {
-        patchSettings(importedData.settings[0]);
+        patchSettings(importedData.settings[0])
+        .then(_ => fetchSettings());
+
+        repostArchive(importedData.archives)
+        .then(_ => fetchArchives());
+
+        repostBudgets(importedData.budgets)
+        .then(_ => fetchBudgets);
       } else {
         console.log('invalid data');
       }
     }
-  }, [importedData, patchSettings]);
+  }, [importedData, patchSettings, fetchArchives, fetchSettings, fetchBudgets]);
 
   const filePicker = useRef(null);
 
@@ -57,5 +70,8 @@ function ImportData( {
 }
 
 export default connect(null, {
-  patchSettings
+  patchSettings,
+  fetchSettings,
+  fetchArchives,
+  fetchBudgets
 })(ImportData);

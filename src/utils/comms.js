@@ -65,6 +65,10 @@ export function deleteBudget(id) {
   return changeData(deleteUrl, 'DELETE');
 };
 
+export function repostBudgets(budgets) {
+  return Promise.all(budgets.map(budget => changeData(budgetsUrl, 'POST', budget)));
+}
+
 export function getSettings() {
   return generalFetch(settingsUrl);
 };
@@ -134,6 +138,10 @@ export function postArchive(budget, expenditures) {
   return changeData(archivesUrl, 'POST', archivedBudget);
 };
 
+export function repostArchive(archiveArray) {
+  return Promise.all(archiveArray.map(archive => changeData(archivesUrl, 'POST', archive)));
+}
+
 export function deleteArchived(id) {
   const deleteUrl = `${archivesUrl}/${id}`;
 
@@ -142,8 +150,4 @@ export function deleteArchived(id) {
 
 export function fetchDb() {
   return generalFetch(dbUrl);
-};
-
-export function loadDb(json) {
-  return changeData(dbUrl, 'POST', json);
 };
