@@ -9,9 +9,7 @@ const settingsState = {
 function settingsReducer(state = settingsState, action) {
   switch(action.type) {
     case SET_SETTINGS:
-      return {
-        ...action.settings
-      };
+      return action.settings;
     default: 
       return state;
   }
