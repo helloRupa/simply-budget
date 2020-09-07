@@ -37,6 +37,7 @@ function ImportConfirm({
   return <div>
     <h2>Are you sure you want to import {file.name}?</h2>
     <p>All of your data will be deleted before import.</p>
+    <span>Only import files exported from this app!</span>
     <button onClick={importFile}>Yes! Import My Data.</button>
     <button onClick={close}>No! Take Me Back.</button>
   </div>
