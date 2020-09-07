@@ -6,7 +6,7 @@ function Budgets({ budgets=[] }) {
     budgets.length === 0 ? <li>You don't have any budgets</li> : null;
 
   const sortBudgets = budgets => budgets.sort((a, b) => a.id - b.id);
-console.log(sortBudgets(budgets))
+
   return (
     <ul>
       { noBudgets() }
