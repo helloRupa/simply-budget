@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
-import Totals from './dashboard/Totals';
 import { updateBudgetsCurrentPeriods } from '../actions/budget_actions';
 import { fetchExpenditures } from '../actions/expenditure_actions';
 import { connect } from 'react-redux';
@@ -32,8 +31,7 @@ function Dashboard({
   return (
     <div>
       <CreateBudget />
-      <Budgets {...{ budgets }} />
-      <Totals {...{ budgets, expenditures }} />
+      <Budgets {...{ budgets, expenditures }} />
 
       <button onClick={chooseSettings}>
         Show Settings
