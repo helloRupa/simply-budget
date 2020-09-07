@@ -8,7 +8,13 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment"
+        "Entertainment",
+        "",
+        "hi",
+        "fdf",
+        "Grocerie",
+        "named",
+        "dfdf"
       ]
     }
   ],
@@ -35,16 +41,6 @@
       "truncated": 0,
       "currentPeriod": 4,
       "id": 1
-    },
-    {
-      "name": "whatever",
-      "currency": "¢",
-      "frequency": "week",
-      "limit": 20,
-      "startDate": "2020/07/07",
-      "truncated": 0,
-      "currentPeriod": 9,
-      "id": 6
     },
     {
       "name": "old expends",
@@ -77,16 +73,6 @@
       "id": 8
     },
     {
-      "name": "rt",
-      "currency": "$",
-      "frequency": "week",
-      "limit": 56,
-      "startDate": "2020/06/25",
-      "truncated": 0,
-      "currentPeriod": 11,
-      "id": 3
-    },
-    {
       "name": "new testy face",
       "currency": "$",
       "frequency": "week",
@@ -97,6 +83,16 @@
       "id": 9
     },
     {
+      "name": "rt",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 56,
+      "startDate": "2020/06/25",
+      "truncated": 0,
+      "currentPeriod": 11,
+      "id": 3
+    },
+    {
       "name": "pounds",
       "currency": "£",
       "frequency": "month",
@@ -105,6 +101,16 @@
       "truncated": 0,
       "currentPeriod": 3,
       "id": 4
+    },
+    {
+      "name": "whatever",
+      "currency": "¢",
+      "frequency": "week",
+      "limit": 20,
+      "startDate": "2020/07/07",
+      "truncated": 0,
+      "currentPeriod": 9,
+      "id": 6
     },
     {
       "name": "pounds again",
@@ -127,70 +133,6 @@
       "period": 1
     },
     {
-      "id": 5,
-      "budgetId": 7,
-      "title": "Tea",
-      "amount": 10.5,
-      "date": "2020/7/8",
-      "period": 1
-    },
-    {
-      "id": 2,
-      "budgetId": 2,
-      "title": "Pop Tarts",
-      "amount": 16.65,
-      "date": "2020/7/14",
-      "period": 1
-    },
-    {
-      "id": 6,
-      "budgetId": 7,
-      "title": "Croissants",
-      "amount": 15.5,
-      "date": "2020/7/10",
-      "period": 1
-    },
-    {
-      "id": 3,
-      "budgetId": 1,
-      "title": "",
-      "amount": 15.5,
-      "date": "2020/7/14",
-      "period": 1
-    },
-    {
-      "id": 4,
-      "budgetId": 7,
-      "title": "Bread",
-      "amount": 15.5,
-      "date": "2020/7/7",
-      "period": 1
-    },
-    {
-      "id": 7,
-      "budgetId": 7,
-      "title": "Noodles",
-      "amount": 20.75,
-      "date": "2020/7/14",
-      "period": 2
-    },
-    {
-      "id": 8,
-      "budgetId": 7,
-      "title": "Milk",
-      "amount": 30,
-      "date": "2020/7/14",
-      "period": 2
-    },
-    {
-      "id": 9,
-      "budgetId": 7,
-      "title": "Mix tapes",
-      "amount": 100,
-      "date": "2020/7/22",
-      "period": 3
-    },
-    {
       "id": 10,
       "budgetId": 7,
       "title": "Ham",
@@ -207,6 +149,14 @@
       "period": 4
     },
     {
+      "id": 3,
+      "budgetId": 1,
+      "title": "",
+      "amount": 15.5,
+      "date": "2020/7/14",
+      "period": 1
+    },
+    {
       "id": 12,
       "budgetId": 7,
       "title": "Spam",
@@ -221,6 +171,14 @@
       "amount": 20,
       "date": "2020/7/31",
       "period": 4
+    },
+    {
+      "id": 2,
+      "budgetId": 2,
+      "title": "Pop Tarts",
+      "amount": 16.65,
+      "date": "2020/7/14",
+      "period": 1
     },
     {
       "title": "test",
@@ -263,12 +221,60 @@
       "id": 18
     },
     {
+      "id": 4,
+      "budgetId": 7,
+      "title": "Bread",
+      "amount": 15.5,
+      "date": "2020/7/7",
+      "period": 1
+    },
+    {
       "title": "goAway0",
       "amount": 60,
       "budgetId": 6,
       "date": "2020/7/15",
       "period": 1,
       "id": 20
+    },
+    {
+      "id": 5,
+      "budgetId": 7,
+      "title": "Tea",
+      "amount": 10.5,
+      "date": "2020/7/8",
+      "period": 1
+    },
+    {
+      "id": 6,
+      "budgetId": 7,
+      "title": "Croissants",
+      "amount": 15.5,
+      "date": "2020/7/10",
+      "period": 1
+    },
+    {
+      "id": 7,
+      "budgetId": 7,
+      "title": "Noodles",
+      "amount": 20.75,
+      "date": "2020/7/14",
+      "period": 2
+    },
+    {
+      "id": 8,
+      "budgetId": 7,
+      "title": "Milk",
+      "amount": 30,
+      "date": "2020/7/14",
+      "period": 2
+    },
+    {
+      "id": 9,
+      "budgetId": 7,
+      "title": "Mix tapes",
+      "amount": 100,
+      "date": "2020/7/22",
+      "period": 3
     },
     {
       "title": "goAway1",
