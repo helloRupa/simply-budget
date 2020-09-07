@@ -22,8 +22,12 @@ export function formatExpenditures(expenditures) {
   return objectMapper(expenditures, 'budgetId');
 };
 
-export function sortByDateDesc(exps) {
-  return [...exps].sort((a, b) => new Date(b.date) - new Date(a.date));
+export function sortByDateDesc(arr) {
+  return [...arr].sort((a, b) => new Date(b.date) - new Date(a.date));
+};
+
+export function sortByStartDateAsc(arr) {
+  return [...arr].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 };
 
 function addLeadingZero(int) {

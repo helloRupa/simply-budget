@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { budgetsByCurrency } from '../../utils/format';
 import Budget from './Budget';
 import Total from './Total';
+import { sortByStartDateAsc } from '../../utils/format';
 
 function Budgets({ budgets=[], expenditures=[] }) {
   const [budgetGroups, setBudgetGroups] = useState({});
@@ -13,15 +14,11 @@ function Budgets({ budgets=[], expenditures=[] }) {
   const noBudgets = () => 
     budgets.length === 0 ? <p>You don't have any budgets</p> : null;
 
-  const sortBudgets = budgets => budgets.sort((a, b) => a.id - b.id);
-
-  
-
   return <section>
     { noBudgets() }
 
     { Object.keys(budgetGroups).map(key => <ul key={key}>
-      {sortBudgets(budgetGroups[key]).map(budget => 
+      {sortByStartDateAsc(budgetGroups[key]).map(budget => 
         <li key={budget.id}>
           <Budget {...{ budget }} />
         </li>)}
