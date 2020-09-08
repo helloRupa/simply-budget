@@ -22,7 +22,9 @@ function SpendLineChart({
     return accum;
   }, []);
 
-  const domain = {x: [tickValues[tickValues.length - 1], tickValues[0]]};
+  const domain = tickValues.length > 1 ? 
+    { x: [tickValues[tickValues.length - 1], tickValues[0]] } :
+    { x: [tickValues[0], tickValues[0] + 1] };
 
   return <VictoryChart theme={VictoryTheme.material} domain={domain}>
     <VictoryAxis
