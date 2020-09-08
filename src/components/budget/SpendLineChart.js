@@ -6,7 +6,6 @@ function SpendLineChart({ currency, limit, tickValues, data, domain }) {
     <VictoryAxis
       // tickValues specifies both the number of ticks and where
       // they are placed on the axis
-      
       tickValues={tickValues}
       tickFormat={tickValues.map(num => `P${num}`)}
     />
@@ -16,17 +15,19 @@ function SpendLineChart({ currency, limit, tickValues, data, domain }) {
       tickFormat={(x) => (`${currency}${x}`)}
     />
 
-<VictoryLine y={() => limit} />
-  <VictoryLine
-    x="period"
-    y="spent"
-    // style={{
-    //   data: { stroke: "#c43a31" },
-    //   parent: { border: "1px solid #ccc"}
-    // }}
-    data={data}
-  />
-</VictoryChart>
+    <VictoryLine y={() => limit} 
+      style={{ data: { opacity: 0.5, stroke: '#c43a31', strokeWidth: 1 } }} />
+
+    <VictoryLine
+      x="period"
+      y="spent"
+      // style={{
+      //   data: { stroke: "#c43a31" },
+      //   parent: { border: "1px solid #ccc"}
+      // }}
+      data={data}
+    />
+  </VictoryChart>
 }
 
 export default SpendLineChart;
