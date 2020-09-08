@@ -14,7 +14,9 @@
         "fdf",
         "Grocerie",
         "named",
-        "dfdf"
+        "dfdf",
+        "bunnies",
+        "cats"
       ]
     }
   ],
@@ -341,6 +343,22 @@
       "budgetId": 9,
       "period": 3,
       "id": 27
+    },
+    {
+      "title": "bunnies",
+      "amount": 100,
+      "date": "2020/09/08",
+      "budgetId": 10,
+      "period": 1,
+      "id": 28
+    },
+    {
+      "title": "cats",
+      "amount": 200,
+      "date": "2020/09/08",
+      "budgetId": 10,
+      "period": 1,
+      "id": 29
     }
   ]
 }

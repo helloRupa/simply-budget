@@ -22,9 +22,11 @@ function SpendLineChart({
     return accum;
   }, []);
 
+  const yDomain = [0, limit * 2];
+
   const domain = tickValues.length > 1 ? 
-    { x: [tickValues[tickValues.length - 1], tickValues[0]] } :
-    { x: [tickValues[0], tickValues[0] + 1] };
+    { x: [tickValues[tickValues.length - 1], tickValues[0]], y: yDomain } :
+    { x: [tickValues[0], tickValues[0] + 1], y: yDomain };
 
   return <VictoryChart theme={VictoryTheme.material} domain={domain}>
     <VictoryAxis
@@ -41,6 +43,8 @@ function SpendLineChart({
 
     <VictoryLine y={() => limit} 
       style={{ data: { opacity: 0.5, stroke: '#c43a31', strokeWidth: 1 } }} />
+
+    { tickValues.length === 1 ? <VictoryLine y={() => data[0].spent} /> : null }
 
     <VictoryLine
       x="period"
