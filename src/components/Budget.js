@@ -10,6 +10,7 @@ import {
   earliestPeriod 
 } from '../utils/selectors';
 import { chooseDashboard } from '../actions/ui_actions';
+import ChartsContainer from './budget/ChartsContainer';
 
 function Budget({ 
   budget, 
@@ -20,6 +21,7 @@ function Budget({
   const [periods, setPeriods] = useState(0);
   const [showMore, setShowMore] = useState(true);
   const [isTruncating, setIsTruncating] = useState(false);
+  const [showChart, setShowChart] = useState(false);
 
   const budgetExpenditures = selectBudgetExpenditures(expenditures, budget);
 
@@ -44,6 +46,10 @@ function Budget({
     }
   }, [lowestPeriod, currentPeriod, periods]);
 
+  const handleChartButton = e => {
+    setShowChart(true);
+  };
+
   return (
     <div>
       <h2>
@@ -53,6 +59,7 @@ function Budget({
         { startDate }
       </p>
       <Close callback={chooseDashboard} display={'Close'} />
+      <button onClick={handleChartButton}>Show Charts</button>
       <p>
         Spend { currency }{ formatNumber(limit) } per { frequency } or less!
       </p>
@@ -72,6 +79,13 @@ function Budget({
         expenditures={ expenditures[id] || [] } 
         setIsTruncating={setIsTruncating} 
       />
+
+      {showChart ? 
+        <ChartsContainer 
+          budget={budget} 
+          expenditures={expenditures} 
+          close={() => setShowChart(false)} /> 
+        : null}
     </div>
   )
 }

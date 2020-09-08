@@ -15,3 +15,5 @@ export const weekDays = 7;
 export const monthDays = 30;
 
 export const dbKeys = ['settings', 'budgets', 'expenditures', 'archives'];
+
+export const periodsToChart = 10;
