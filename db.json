@@ -121,6 +121,16 @@
       "truncated": 0,
       "currentPeriod": 9,
       "id": 5
+    },
+    {
+      "name": "blah",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 500,
+      "startDate": "2020/09/07",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 10
     }
   ],
   "expenditures": [

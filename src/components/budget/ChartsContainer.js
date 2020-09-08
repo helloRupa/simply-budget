@@ -16,12 +16,12 @@ function ChartsContainer({
     <Close callback={close} display="Close" />
 
     <label>
-      Spending Per {frequency}, up to last {periodsToChart} periods
+      Spending per {frequency}, up to last {periodsToChart} periods
       <SpendLineChart {...{ budget, expenditures}} />
     </label>
 
     <label>
-      Spending per title
+      Spending per category
       <CategoryPieChart {...{ budget, expenditures}} />
     </label>
   </div>
