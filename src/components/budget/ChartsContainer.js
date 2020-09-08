@@ -1,31 +1,15 @@
 import React from 'react';
 import SpendLineChart from './SpendLineChart';
 import { periodsToChart } from '../../constants/general';
-import { calculatePeriodSpent } from '../../utils/calculate';
+import CategoryPieChart from './CategoryPieChart';
 import Close from '../../shared/Close';
 
 function ChartsContainer({ 
   budget,
-  budget: { name, currency, limit, currentPeriod, frequency }, 
+  budget: { name, frequency }, 
   expenditures,
   close
 }) {
-  const totalPeriods = currentPeriod < periodsToChart ? currentPeriod : periodsToChart;
-
-  let tickValues = Array(totalPeriods).fill(null);
-  tickValues = tickValues.map((_, idx) => currentPeriod - idx);
-
-  const data = tickValues.reduce((accum, period) => {
-    accum.push({
-      period,
-      spent: calculatePeriodSpent({ expenditures, budget, period })
-    });
-
-    return accum;
-  }, []);
-
-  const domain = {x: [tickValues[tickValues.length - 1], tickValues[0]]};
-
   return <div>
     <h2>{name}</h2>
 
@@ -33,7 +17,12 @@ function ChartsContainer({
 
     <label>
       Spending Per {frequency}, up to last {periodsToChart} periods
-      <SpendLineChart {...{ currency, limit, tickValues, data, domain }} />
+      <SpendLineChart {...{ budget, expenditures}} />
+    </label>
+
+    <label>
+      Spending per title
+      <CategoryPieChart {...{ budget, expenditures}} />
     </label>
   </div>
 }

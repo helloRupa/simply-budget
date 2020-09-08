@@ -1,7 +1,29 @@
 import React from 'react';
+import { periodsToChart } from '../../constants/general';
+import { calculatePeriodSpent } from '../../utils/calculate';
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryTheme } from 'victory';
 
-function SpendLineChart({ currency, limit, tickValues, data, domain }) {
+function SpendLineChart({ 
+  budget,
+  budget: { currency, limit, currentPeriod },
+  expenditures
+}) {
+  const totalPeriods = currentPeriod < periodsToChart ? currentPeriod : periodsToChart;
+
+  let tickValues = Array(totalPeriods).fill(null);
+  tickValues = tickValues.map((_, idx) => currentPeriod - idx);
+
+  const data = tickValues.reduce((accum, period) => {
+    accum.push({
+      period,
+      spent: calculatePeriodSpent({ expenditures, budget, period })
+    });
+
+    return accum;
+  }, []);
+
+  const domain = {x: [tickValues[tickValues.length - 1], tickValues[0]]};
+
   return <VictoryChart theme={VictoryTheme.material} domain={domain}>
     <VictoryAxis
       // tickValues specifies both the number of ticks and where
