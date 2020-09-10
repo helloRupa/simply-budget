@@ -22,7 +22,8 @@ function SpendLineChart({
     return accum;
   }, []);
 
-  const yDomain = [0, limit * 2];
+  const maxSpent = data.reduce((most, obj) => most > obj.spent ? most : obj.spent, 0);
+  const yDomain = [0, Math.max(maxSpent, limit * 2)];
 
   const domain = tickValues.length > 1 ? 
     { x: [tickValues[tickValues.length - 1], tickValues[0]], y: yDomain } :
