@@ -1,11 +1,11 @@
 import React from 'react';
-import { periodsToChart } from '../../constants/general';
+import { periodsToChart, periodOptions, msPerDay } from '../../constants/general';
 import { calculatePeriodSpent } from '../../utils/calculate';
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryTheme } from 'victory';
+import { VictoryChart, VictoryLine, VictoryAxis, VictoryTheme, VictoryLabel } from 'victory';
 
 function SpendLineChart({ 
   budget,
-  budget: { currency, limit, currentPeriod },
+  budget: { currency, limit, currentPeriod, frequency, startDate },
   expenditures
 }) {
   const totalPeriods = currentPeriod < periodsToChart ? currentPeriod : periodsToChart;
@@ -14,8 +14,12 @@ function SpendLineChart({
   tickValues = tickValues.map((_, idx) => currentPeriod - idx);
 
   const data = tickValues.reduce((accum, period) => {
+    const changeInTime = msPerDay * periodOptions[frequency].days * (period - 1);
+    const date = new Date(new Date(startDate).getTime() + changeInTime);
+
     accum.push({
       period,
+      date: date.toLocaleDateString(),
       spent: calculatePeriodSpent({ expenditures, budget, period })
     });
 
@@ -34,7 +38,8 @@ function SpendLineChart({
       // tickValues specifies both the number of ticks and where
       // they are placed on the axis
       tickValues={tickValues}
-      tickFormat={tickValues.map(num => `P${num}`)}
+      tickFormat={data.map(val => val.date)}
+      tickLabelComponent={<VictoryLabel renderInPortal textAnchor="start" angle={45} dx={-10} />}
     />
     <VictoryAxis
       dependentAxis
