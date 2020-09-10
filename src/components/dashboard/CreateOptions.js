@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Form from '../../shared/Form';
 import Close from '../../shared/Close';
 import DateComp from '../../shared/DateComp';
-import { periodOptions, periodDisplayOptions } from '../../constants/general';
+import { periodOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
@@ -48,8 +48,14 @@ function CreateOptions({
   const makeOptions = () => {
     const options = [];
 
-    for (const key in periodDisplayOptions) {
-      options.push(<option key={key} value={key}>{periodDisplayOptions[key]}</option>)
+    for (const key in periodOptions) {
+      if (key === 'default') {
+        continue;
+      }
+      
+      const value = periodOptions[key].value;
+
+      options.push(<option key={value} value={value}>{periodOptions[key].display}</option>)
     }
 
     return options;

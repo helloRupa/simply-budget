@@ -1,6 +1,6 @@
 import { formatNumber } from './format';
 import { makeDate } from './format';
-import { periodOptions, msPerDay, weekDays, monthDays } from '../constants/general';
+import { periodOptions, msPerDay } from '../constants/general';
 
 function sum(array, selector) {
   return array.reduce((sum, el) => sum + el[selector], 0);
@@ -104,8 +104,8 @@ export function calculatePeriod(expDate, { startDate, frequency }) {
   const spendDate = new Date(expDate);
   const startingDate = new Date(startDate);
   const daysDiff = (spendDate - startingDate + msPerDay) / msPerDay;
-  const ratio = frequency === periodOptions.week ? 
-    daysDiff / weekDays : daysDiff / monthDays;
+  const ratio = frequency === periodOptions.week.value ? 
+    daysDiff / periodOptions.week.days : daysDiff / periodOptions.month.days;
 
   return Math.ceil(ratio);
 };
