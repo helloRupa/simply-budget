@@ -18,7 +18,7 @@ function CategoryPieChart({ budget, expenditures }) {
   }, {});
 
   const data = Object.keys(groupByTitle).reduce((accum, title) => {
-    accum.push({ x: `${title}: ${budget.currency}${groupByTitle[title]}`, y: groupByTitle[title] });
+    accum.push({ x: title, y: groupByTitle[title] });
 
     return accum;
   }, []);
@@ -28,7 +28,7 @@ function CategoryPieChart({ budget, expenditures }) {
 
     const other = data.splice(maxPieCategories).reduce((total, d) => d.y + total, 0);
 
-    data.push({ x: `Other: ${budget.currency}${other}`, y: other });
+    data.push({ x: 'Other', y: other });
   }
 
   const labelPlacement = data.length > 5 ? "parallel" : "vertical";
@@ -37,7 +37,7 @@ function CategoryPieChart({ budget, expenditures }) {
     { budgetExps.length > 0 ? <VictoryPie
     colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
     data={data}
-    labels={({ datum }) => `${datum.x}`}
+    labels={({ datum }) => `${datum.x}: ${budget.currency}${datum.y}`}
     labelPosition={(_) => "centroid"}
     labelPlacement={(_) => labelPlacement }
     style={{ labels: { padding: 5 } }}
