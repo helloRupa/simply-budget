@@ -1,5 +1,6 @@
 import React from 'react';
 import { selectBudgetExpenditures } from '../../utils/selectors';
+import { maxPieCategories } from '../../constants/general';
 import { VictoryPie, VictoryLabel } from 'victory';
 
 function CategoryPieChart({ budget, expenditures }) {
@@ -22,14 +23,25 @@ function CategoryPieChart({ budget, expenditures }) {
     return accum;
   }, []);
 
-  return <div style={{ width: "85%", margin: 'auto' }}>
+  if (data.length > maxPieCategories) {
+    data.sort((a, b) => b.y - a.y);
+
+    const other = data.splice(maxPieCategories).reduce((total, d) => d.y + total, 0);
+
+    data.push({ x: `Other: ${budget.currency}${other}`, y: other });
+  }
+
+  const labelPlacement = data.length > 5 ? "parallel" : "vertical";
+
+  return <div style={{ width: "85%", margin: '20px auto', overflow: 'visible', padding: '20px 20px 100px 20px' }}>
     { budgetExps.length > 0 ? <VictoryPie
     colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
     data={data}
     labels={({ datum }) => `${datum.x}`}
-    style={{ labels: { padding: 10 } }}
+    labelPosition={(_) => "centroid"}
+    labelPlacement={(_) => labelPlacement }
+    style={{ labels: { padding: 5 } }}
     labelComponent={<VictoryLabel renderInPortal />} /> : <p>No expenses to show</p> }
-    
   </div>
 }
 

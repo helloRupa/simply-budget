@@ -17,3 +17,4 @@ export const monthDays = 30;
 export const dbKeys = ['settings', 'budgets', 'expenditures', 'archives'];
 
 export const periodsToChart = 10;
+export const maxPieCategories = 20;
