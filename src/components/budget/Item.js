@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EditItem from './EditItem';
-import { formatNumber } from '../../utils/format';
+import { formatNumber, displayDate } from '../../utils/format';
 import { connect } from 'react-redux';
 import { destroyExpenditure } from '../../actions/expenditure_actions';
 
@@ -23,7 +23,7 @@ function Item({
 
   return (
     <>
-      { date }: { title || 'Untitled' } { currency }{ formatNumber(amount) } 
+      { displayDate(date) }: { title || 'Untitled' } { currency }{ formatNumber(amount) } 
       <button onClick={handleEdit}>Edit</button> 
       <button onClick={handleDelete}>Delete</button>
       { (showEdit) ? 

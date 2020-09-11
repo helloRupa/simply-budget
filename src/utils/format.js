@@ -55,3 +55,7 @@ export function makeDate() {
 
   return formatDate(date);
 };
+
+export function displayDate(dateString) {
+  return new Date(dateString).toLocaleDateString();
+};

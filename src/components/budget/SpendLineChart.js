@@ -2,6 +2,7 @@ import React from 'react';
 import { periodsToChart, periodOptions, msPerDay } from '../../constants/general';
 import { calculatePeriodSpent } from '../../utils/calculate';
 import { VictoryChart, VictoryLine, VictoryAxis, VictoryTheme, VictoryLabel } from 'victory';
+import { displayDate } from '../../utils/format';
 
 function SpendLineChart({ 
   budget,
@@ -19,7 +20,7 @@ function SpendLineChart({
 
     accum.push({
       period,
-      date: date.toLocaleDateString(),
+      date: displayDate(date),
       spent: calculatePeriodSpent({ expenditures, budget, period })
     });
 

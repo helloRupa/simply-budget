@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyArchived } from '../../actions/archive_actions';
+import { displayDate } from '../../utils/format';
 
 const Delete = DeleteWrapper(destroyArchived);
 
@@ -20,7 +21,7 @@ function ArchivedBudget({ archived, archived: {
   return (
     <>
       <h2>{name}</h2>
-      <p>Ran from {startDate} to {endDate}</p>
+      <p>Ran from {displayDate(startDate)} to {displayDate(endDate)}</p>
       <p>Goal was to spend {currency}{limit} per {frequency}</p>
       <p>Total Spent: {currency}{totalSpent}</p>
       <p>Total Tracking: {currency}{totalTracking}</p>

@@ -4,6 +4,7 @@ import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking } from '../../utils/calculate';
 import { chooseBudget } from '../../actions/ui_actions';
+import { displayDate } from '../../utils/format';
 
 function Budget({ 
   budget, 
@@ -30,7 +31,7 @@ function Budget({
         <span className="budget-tracking">
           {formattedSingleBudgetTracking(expenditures, budget)}
         </span>
-        <span>Start Date: {startDate}</span>
+        <span>Start Date: {displayDate(startDate)}</span>
       </span>
 
       <div>

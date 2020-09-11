@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
-import { formatNumber } from '../utils/format';
+import { formatNumber, displayDate } from '../utils/format';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking } from '../utils/calculate';
 import Close from '../shared/Close';
@@ -56,7 +56,7 @@ function Budget({
         { name }
       </h2>
       <p>
-        { startDate }
+        { displayDate(startDate) }
       </p>
       <Close callback={chooseDashboard} display={'Close'} />
       <button onClick={handleChartButton}>Show Charts</button>
