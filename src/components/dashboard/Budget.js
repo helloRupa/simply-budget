@@ -23,23 +23,27 @@ function Budget({
   };
 
   return (
-    <div>
-      <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
-      <span onClick={handleClick}>
-        <span className="budget-name">{name}</span>
-        <span className="budget-currency">{currency}</span>
-        <span className="budget-tracking">
-          {formattedSingleBudgetTracking(expenditures, budget)}
-        </span>
-        <span>Start Date: {displayDate(startDate)}</span>
-      </span>
+    <>
+      <div className="budget-menu-item">
+        <div className="flex-horizontal">
+        <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
+        <div onClick={handleClick} className="budget-menu-item-details">
+          <span className="budget-name">{name}</span>
+          <span className="budget-tracking">
+            {currency}{formattedSingleBudgetTracking(expenditures, budget)}
+          </span>
+        </div>
+        </div>
+
+        <p className="start-date">Start Date: {displayDate(startDate)}</p>
+      </div>
 
       <div>
         {showBudgetSettings ? 
           <BudgetSettings {...{ budget, setShowBudgetSettings }} /> : null
         }
       </div>
-    </div>
+    </>
   )
 }
 
