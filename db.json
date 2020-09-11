@@ -81,7 +81,7 @@
       "limit": 120,
       "startDate": "2020/08/06",
       "truncated": 0,
-      "currentPeriod": 5,
+      "currentPeriod": 6,
       "id": 9
     },
     {
@@ -91,7 +91,7 @@
       "limit": 56,
       "startDate": "2020/06/25",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 12,
       "id": 3
     },
     {
@@ -359,6 +359,14 @@
       "budgetId": 10,
       "period": 1,
       "id": 29
+    },
+    {
+      "title": "bunnies",
+      "amount": 50,
+      "date": "2020/09/10",
+      "budgetId": 1,
+      "period": 4,
+      "id": 30
     }
   ]
 }
