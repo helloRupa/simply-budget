@@ -3,9 +3,9 @@ import { formattedTotalTracking } from '../../utils/calculate';
 
 function Total({ budgets=[], expenditures, currency }) {
     return (
-    <div>
-      <span className="all-budgets-label">Total</span>
-      <span className="all-budgets-total">
+    <div className="budget-total">
+      <span className="label">Total</span>
+      <span className="amount">
         {currency} 
         {formattedTotalTracking(budgets, expenditures)}
       </span>

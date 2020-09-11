@@ -26,13 +26,13 @@ function Budget({
     <>
       <div className="budget-menu-item">
         <div className="flex-horizontal">
-        <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
-        <div onClick={handleClick} className="budget-menu-item-details">
-          <span className="budget-name">{name}</span>
-          <span className="budget-tracking">
-            {currency}{formattedSingleBudgetTracking(expenditures, budget)}
-          </span>
-        </div>
+          <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
+          <div onClick={handleClick} className="budget-menu-item-details">
+            <span className="budget-name">{name}</span>
+            <span className="budget-tracking">
+              {currency}{formattedSingleBudgetTracking(expenditures, budget)}
+            </span>
+          </div>
         </div>
 
         <p className="start-date">Start Date: {displayDate(startDate)}</p>
