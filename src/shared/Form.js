@@ -6,7 +6,7 @@ function Form(props) {
     props.callback(e);
   };
 
-  return <form onSubmit={handleSubmit}>
+  return <form onSubmit={handleSubmit} className={props.className}>
     {props.children}
   </form>
 }

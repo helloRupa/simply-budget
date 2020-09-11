@@ -23,15 +23,13 @@ function CreateBudget() {
 
   return (
     <div>
-      <Form callback={openOptions}>    
-        <div className="new-budget-name">
+      <Form callback={openOptions} className="create-budget">    
           <TextInput 
             placeholder="New Budget Name" 
             callback={setBudgetName}
             value={budgetName} />
             
           <SubmitButton value="+" />
-        </div>
       </Form>
 
       <Error msg="Budget name is required" condition={showError} />

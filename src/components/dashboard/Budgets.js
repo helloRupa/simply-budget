@@ -14,7 +14,7 @@ function Budgets({ budgets=[], expenditures=[] }) {
   const noBudgets = () => 
     budgets.length === 0 ? <p>You don't have any budgets</p> : null;
 
-  return <section>
+  return <section className="budgets-menu">
     { noBudgets() }
 
     { Object.keys(budgetGroups).map(key => <ul key={key}>
