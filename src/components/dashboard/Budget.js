@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
-import { formattedSingleBudgetTracking } from '../../utils/calculate';
+import { formattedSingleBudgetTracking, calculateTracking } from '../../utils/calculate';
 import { chooseBudget } from '../../actions/ui_actions';
 import { displayDate } from '../../utils/format';
 
@@ -15,12 +15,17 @@ function Budget({
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
   const [startedClassName, setStartedClassName] = useState('');
+  const [trackingClassName, setTrackingClassName] = useState('');
 
   useEffect(() => {
     if (currentPeriod <= 0) {
       setStartedClassName('not-started');
     }
-  }, [currentPeriod]);
+
+    if (calculateTracking({ expenditures, budget }) < 0) {
+      setTrackingClassName('negative-tracking');
+    }
+  }, [currentPeriod, budget, expenditures]);
 
   const handleClick = () => {
     if (currentPeriod > 0) {
@@ -36,7 +41,7 @@ function Budget({
           <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
           <div onClick={handleClick} className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
-            <span className="budget-tracking">
+            <span className={`budget-tracking ${trackingClassName}`}>
               {currency}{formattedSingleBudgetTracking(expenditures, budget)}
             </span>
           </div>
