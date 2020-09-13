@@ -39,19 +39,22 @@ function UpdateBudget({ budget, close, patchBudget }) {
 
   return (
     <Form callback={handleSubmit}>
-      <TextInput 
-        placeholder={budget.name} 
-        callback={setName} 
-        value={name} />
+      <div>
+        <TextInput 
+          placeholder={budget.name} 
+          callback={setName} 
+          value={name}
+          className="name-input" />
 
-      <DateComp 
-        setStartDate={setStartDate} 
-        disabled={shouldDisableDate} 
-        date={startDate} />
-
-      <SubmitButton value="Update" />
+        <DateComp 
+          setStartDate={setStartDate} 
+          disabled={shouldDisableDate} 
+          date={startDate} />
+      </div>
 
       <Error msg="Budget name is required" condition={!name} />
+      
+      <SubmitButton value="Update" className="large-submit" />
     </Form>
   )
 }

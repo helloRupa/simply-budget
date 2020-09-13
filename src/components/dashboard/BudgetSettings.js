@@ -21,19 +21,27 @@ function BudgetSettings({
 
   const close = () => setShowBudgetSettings(false);
 
-  return (
-    <div>
-      <h2>Edit {name}</h2>
+  return <div className="modal-background budget-settings">
+    <div className="modal">
+      <Close callback={close} display='X' className="close" />
 
-      <Close callback={close} display='Close' />
+      <h2>Edit {name}</h2>
+      
       <UpdateBudget {...{ budget, close }} />
 
-      <button onClick={() => setArchive(true)}>Archive</button>
-      <button onClick={() => setRemove(true)}>Delete</button>
+      <div className="special-buttons">
+        <button onClick={() => setArchive(true)} className="archive">
+          Archive
+        </button>
+        <button onClick={() => setRemove(true)} className="delete">
+          Delete
+        </button>
+      </div>
+      
       {remove ? <Delete deletable={id} {...{name, setRemove}} /> : null}
       {archive ? <Archive {...{ budget, setArchive }} /> : null}
     </div>
-  )
+  </div>
 }
 
 export default BudgetSettings;

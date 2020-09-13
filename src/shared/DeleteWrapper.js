@@ -11,12 +11,13 @@ function DeleteWrapper(deleteMethod) {
     };
   
     const handleSubmit = e => {
+      e.preventDefault();
       deleteMethod(deletable);
     };
   
     return (
-      <Form callback={handleSubmit}>
-        <h2>Delete {name}?</h2>
+      <Form callback={handleSubmit} className={"confirm"}>
+        Are you sure you want to delete {name}?
         
         <SubmitButton value="Yes" />
 

@@ -133,16 +133,6 @@
       "truncated": 0,
       "currentPeriod": 1,
       "id": 10
-    },
-    {
-      "name": "Not Started",
-      "currency": "$",
-      "frequency": "week",
-      "limit": 50,
-      "startDate": "2020/10/15",
-      "truncated": 0,
-      "currentPeriod": -4,
-      "id": 11
     }
   ],
   "expenditures": [
