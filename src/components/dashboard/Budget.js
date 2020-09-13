@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
@@ -14,6 +14,13 @@ function Budget({
   chooseBudget
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
+  const [startedClassName, setStartedClassName] = useState('');
+
+  useEffect(() => {
+    if (currentPeriod <= 0) {
+      setStartedClassName('not-started');
+    }
+  }, [currentPeriod]);
 
   const handleClick = () => {
     if (currentPeriod > 0) {
@@ -27,7 +34,7 @@ function Budget({
       <div className="budget-menu-item">
         <div className="flex-horizontal">
           <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
-          <div onClick={handleClick} className="budget-menu-item-details">
+          <div onClick={handleClick} className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
             <span className="budget-tracking">
               {currency}{formattedSingleBudgetTracking(expenditures, budget)}
@@ -35,7 +42,7 @@ function Budget({
           </div>
         </div>
 
-        <p className="start-date">Start Date: {displayDate(startDate)}</p>
+        <p className={`start-date ${startedClassName}`}>Start Date: {displayDate(startDate)}</p>
       </div>
 
       <div>

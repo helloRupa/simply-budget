@@ -33,7 +33,7 @@ function Dashboard({
       <CreateBudget />
       <Budgets {...{ budgets, expenditures }} />
 
-      <div class="dash-buttons">
+      <div className="dash-buttons">
         <button onClick={chooseSettings}>
           Settings
         </button>

@@ -112,6 +112,15 @@ form.create-budget {
   padding: 30px;
 }
 
+.start-date {
+  color: #595959;
+}
+
+.not-started {
+  color: gray;
+  cursor: auto;
+}
+
 p {
   padding: 5px 0;
 }
