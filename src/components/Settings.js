@@ -19,6 +19,8 @@ function Settings({
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
 
+  window.scrollTo(0, 0);
+
   const parseMaxItems = () => parseInt(maxItems, 10);
 
   const isValidLineItems = () => parseMaxItems() >= 10;

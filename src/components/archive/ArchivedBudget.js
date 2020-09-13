@@ -20,12 +20,12 @@ function ArchivedBudget({ archived, archived: {
 
   return (
     <>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>Ran from {displayDate(startDate)} to {displayDate(endDate)}</p>
       <p>Goal was to spend {currency}{limit} per {frequency}</p>
       <p>Total Spent: {currency}{totalSpent}</p>
       <p>Total Tracking: {currency}{totalTracking}</p>
-      <button onClick={() => setRemove(true)}>Delete</button>
+      <button onClick={() => setRemove(true)} className="delete">Delete</button>
       {remove ? <Delete deletable={archived} {...{name, setRemove}} /> : null}
     </>
   );

@@ -250,7 +250,7 @@ input[type="date"]:disabled {
   border-radius: 6px;
 }
 
-button.archive {
+button.archive-btn {
   border: 2px solid #0075dd;
   color: #0062b9;
 }
@@ -278,7 +278,7 @@ button.delete {
   padding: 0 15px 15px 0;
 }
 
-.settings {
+.settings, .archive {
   position: relative;
   width: 85%;
   margin: auto; 
@@ -336,3 +336,29 @@ button.delete {
   color: #fff;
   width: 175px;
 }
+
+.archive ul li {
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding: 15px 0;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.archive .delete {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.75em;
+}
+
+.archive ul li p:last-of-type {
+  margin-bottom: 15px;
+}
+

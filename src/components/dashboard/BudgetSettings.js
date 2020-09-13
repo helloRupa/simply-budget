@@ -30,7 +30,7 @@ function BudgetSettings({
       <UpdateBudget {...{ budget, close }} />
 
       <div className="special-buttons">
-        <button onClick={() => setArchive(true)} className="archive">
+        <button onClick={() => setArchive(true)} className="archive-btn">
           Archive
         </button>
         <button onClick={() => setRemove(true)} className="delete">

@@ -6,14 +6,17 @@ import { chooseDashboard } from '../actions/ui_actions';
 import { fetchArchives } from '../actions/archive_actions';
 
 function Archive({ archive, fetchArchives, chooseDashboard }) {
+  window.scrollTo(0, 0);
+
   useEffect(() => {
     fetchArchives();
   }, [fetchArchives]);
 
   return (
-    <div>
+    <div className="archive">
+      <Close callback={chooseDashboard} display="Back" className="back" />
+
       <h2>Archived Budgets</h2>
-      <Close callback={chooseDashboard} display='Close' />
 
       { archive.length === 0 ? <p>
           Nothing to see here! Why don't you archive something...or not, is OK!

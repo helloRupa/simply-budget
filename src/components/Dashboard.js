@@ -28,6 +28,8 @@ function Dashboard({
     fetchSettings
   ]);
 
+  window.scrollTo(0, 0);
+
   return (
     <div>
       <CreateBudget />
