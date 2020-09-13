@@ -35,7 +35,7 @@ function CreateOptions({
         frequency, 
         date: startDate,
         limit: parseFloat(limit),
-        name: budgetName
+        name: budgetName.trim()
       };
       
       newBudget(budgetSettings);

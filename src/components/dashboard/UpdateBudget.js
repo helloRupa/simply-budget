@@ -14,8 +14,8 @@ function UpdateBudget({ budget, close, patchBudget }) {
   const [shouldDisableDate, setShouldDisableDate] = useState(false);
 
   const handleSubmit = e => {
-    if (name.length > 1) {
-      const budgetOptions = { name };
+    if (name.length > 0) {
+      const budgetOptions = { name: name.trim() };
 
       if (startDate) {
         const currentPeriod = calculatePeriodFromToday({ 

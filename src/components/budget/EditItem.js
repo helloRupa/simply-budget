@@ -26,7 +26,7 @@ function EditItem({
       const expDate = expenseDate || date;
 
       patchExpenditure(id, { 
-        title: newTitle, 
+        title: newTitle.trim(), 
         amount: parseFloat(newAmount),
         date: expDate,
         period: calculatePeriod(expDate, budget)

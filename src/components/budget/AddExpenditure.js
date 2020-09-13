@@ -40,7 +40,7 @@ function AddExpenditure({
   const onSubmit = e => {
     if (amount !== '') {
       postExpenditure({ 
-        title, 
+        title: title.trim(), 
         amount: parseFloat(amount), 
         date: expenseDate 
       }, budget)

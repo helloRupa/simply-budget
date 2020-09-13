@@ -23,7 +23,7 @@ function ExpenditureForm({
   startDate
 }) {
   const handleCategory = title => {
-    if (!categories.includes(title)) {
+    if (!categories.includes(title.trim())) {
       patchSettings({ categories: [...categories, title] });
     }
   };
