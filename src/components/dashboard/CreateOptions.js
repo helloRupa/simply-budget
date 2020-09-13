@@ -61,37 +61,46 @@ function CreateOptions({
     return options;
   };
 
-  return (
-    <Form callback={saveOptions}>
+  return <div className="modal-background">
+    <Form callback={saveOptions} className="modal create-budget-options">
       <h2>{budgetName}</h2>
-      <span>I want to spend </span>
 
-      <TextInput 
-        placeholder="$" 
-        callback={setCurrency} 
-        value={currency}
-        maxLength="2" />
+      <div>
+        <span>I want to spend </span>
+        <TextInput 
+          placeholder="$" 
+          callback={setCurrency} 
+          value={currency}
+          maxLength="2"
+          className="currency" />
 
-      <NumberInput value={limit} callback={setLimit} />
+        <NumberInput value={limit} callback={setLimit} className="amount" />
 
-      <span>per </span>
+        <span>per </span>
 
-      <Select 
-        callback={setFrequency} 
-        value={frequency} 
-        optionsCallback={makeOptions} />
+        <Select 
+          callback={setFrequency} 
+          value={frequency} 
+          optionsCallback={makeOptions} />
+      </div>
 
-      <label>
-        Choose a start date (optional): 
-        <DateComp setStartDate={setStartDate} date={startDate} />
-      </label>
+      <div>
+        <label>
+          Optionally, choose a start date: 
+          <DateComp setStartDate={setStartDate} date={startDate} />
+        </label>
+      </div>
+
+      <Error msg="All details are required, except date" condition={showError()} />
       
-      <SubmitButton value="Save Budget" />
+      <div className="buttons">
+        <SubmitButton value="Save" />
       
-      <Close callback={closeOptions} display='Cancel' />
-      <Error msg="All details are required" condition={showError()} />
+        <Close callback={closeOptions} display="Cancel" />
+      </div>
+      
     </Form>
-  )
+  </div>
 }
 
 const mapStateToProps = state => ({
