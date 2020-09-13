@@ -1,6 +1,5 @@
 body {
   margin: 0 auto;
-  position: relative;
   padding: 0;
   min-width: 350px;
   max-width: 750px;
@@ -12,6 +11,17 @@ body {
 
 #root {
 
+}
+
+header {
+  font-size: 1em;
+  padding: 15px 0;
+  text-align: right;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.25em;
 }
 
 form.create-budget {

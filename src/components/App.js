@@ -5,6 +5,7 @@ import Error from './Error';
 import Archive from './Archive';
 import Settings from './Settings';
 import { connect } from 'react-redux';
+import Header from './Header';
 
 function App({ currentView }) {
   const [forceUpdate, setForceUpdate] = useState(0);
@@ -24,6 +25,7 @@ function App({ currentView }) {
 
   return (
     <div className="App">
+      <Header />
       {chooseView()}
       <Error {...{ setForceUpdate, forceUpdate }} />
     </div>
