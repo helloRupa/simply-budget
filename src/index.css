@@ -47,6 +47,7 @@ form.create-budget {
 
 .budgets-menu {
   width: 100%;
+  min-height: 500px;
   padding: 30px;
   font-size: 1.25em;
 }
@@ -98,4 +99,19 @@ form.create-budget {
 
 .label {
   margin-right: 10px;
+}
+
+.dash-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+
+.no-items {
+  text-align: center;
+  padding: 30px;
+}
+
+p {
+  padding: 5px 0;
 }

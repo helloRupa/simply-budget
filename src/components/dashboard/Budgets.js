@@ -12,7 +12,11 @@ function Budgets({ budgets=[], expenditures=[] }) {
   }, [budgets]);
 
   const noBudgets = () => 
-    budgets.length === 0 ? <p>You don't have any budgets</p> : null;
+    budgets.length === 0 ? 
+    <div className="no-items">
+      <p>You don't have any budgets.</p>
+      <p>Wanna make one? Look up!</p>
+    </div> : null;
 
   return <section className="budgets-menu">
     { noBudgets() }

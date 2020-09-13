@@ -33,13 +33,15 @@ function Dashboard({
       <CreateBudget />
       <Budgets {...{ budgets, expenditures }} />
 
-      <button onClick={chooseSettings}>
-        Show Settings
-      </button>
+      <div class="dash-buttons">
+        <button onClick={chooseSettings}>
+          Settings
+        </button>
 
-      <button onClick={chooseArchive}>
-        Show Archive
-      </button>
+        <button onClick={chooseArchive}>
+          Archive
+        </button>
+      </div>
     </div>
   )
 }
