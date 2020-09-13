@@ -11,7 +11,7 @@ function ExportData() {
     });
   };
 
-  return <button onClick={handleClick}>
+  return <button onClick={handleClick} className="import-export">
     Export Data
   </button>
 }

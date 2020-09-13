@@ -25,7 +25,7 @@ function App({ currentView }) {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {chooseView()}
       <Error {...{ setForceUpdate, forceUpdate }} />
     </div>

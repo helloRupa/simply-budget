@@ -33,47 +33,50 @@ function Settings({
     }
   };
 
-  return <div>
-    <h2>Settings</h2>
+  return <div className="settings">
+    <Close callback={chooseDashboard} display="Back" className="back" />
 
-    <Close callback={chooseDashboard} display='Close' />
+    <h2>Settings</h2>
 
     <Form callback={handleSubmit}>
       <div>
-        <label>
+        <label htmlFor="default-currency">
           Default Currency
-          <TextInput
-            placeholder="$"
-            callback={setCurrency}
-            value={currency}
-            maxLength="2" />
         </label>
+        <TextInput
+          placeholder="$"
+          callback={setCurrency}
+          value={currency}
+          maxLength="2"
+          id="default-currency" />
       </div>
 
       <div>
-        <label>
+        <label htmlFor="max-items">
           Maximum Number of Line Items
+        </label>
           <TextInputWithRegex
             value={maxItems}
             expr={/^\d+$/}
-            callback={setMaxItems} />
-        </label>
-
-        <span>
-          Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
-          one whole period at a time.
-        </span>
+            callback={setMaxItems}
+            id="max-items" />
       </div>
-
-      <SubmitButton value="Save" />
+      <p className="explainer">
+        Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
+        one whole period at a time.
+      </p>
 
       <Error 
         msg="Maximum number of line items must be 10 or more" 
         condition={!isValidLineItems()} />
-    </Form>
 
-    <ExportData />
-    <ImportData />
+      <SubmitButton value="Save" className="large-submit" />
+    </Form>    
+
+    <div className="buttons">
+      <ExportData />
+      <ImportData />
+    </div>
   </div>
 }
 

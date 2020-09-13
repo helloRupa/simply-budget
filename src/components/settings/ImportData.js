@@ -51,7 +51,7 @@ function ImportData() {
   };
 
   return <>
-    <button onClick={handleClick}>
+    <button onClick={handleClick} className="import-export">
       Import Data
     </button>
     <input 

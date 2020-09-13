@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  padding: 0;
+  padding: 30px 0;
   min-width: 350px;
   max-width: 750px;
   font-family: 'Helvetica Neue', sans-serif;
@@ -160,6 +160,7 @@ h2 {
   font-size: 1.5em;
   font-weight: bold;
   padding: 30px 0;
+  margin-bottom: 30px;
 }
 
 .create-budget-options {
@@ -167,12 +168,7 @@ h2 {
   text-align: center;
 }
 
-/* .create-budget-options input[type="text"] {
-  border-bottom: 1px solid gray;
-  margin: 10px;
-} */
-
-.modal input[type="text"] {
+.modal input[type="text"], .settings input[type="text"] {
   border-bottom: 1px solid gray;
   margin: 10px;
 }
@@ -239,6 +235,7 @@ input[type="date"]:disabled {
   color: #fff;
   width: 50%;
   padding: 15px 0;
+  text-align: center;
 }
 
 .special-buttons {
@@ -272,4 +269,70 @@ button.delete {
   padding: 10px 15px 3px 10px;
   margin: 0 30px;
   border-bottom: 1px dotted black;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 15px 15px 0;
+}
+
+.settings {
+  position: relative;
+  width: 85%;
+  margin: auto; 
+  font-size: 1.25em;
+}
+
+.settings div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 30px;
+}
+
+.settings input[type="text"] {
+  text-align: center;
+  width: 6em;
+}
+
+.explainer {
+  color: gray;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: -30px;
+}
+
+.settings input[type="submit"] {
+  margin: 60px auto;
+  display: block;
+}
+
+.settings .buttons {
+  display: block;
+}
+
+.import-export {
+  display: block;
+  margin: 30px 0;
+  padding: 15px 0 0 0;
+  border-bottom: 1px dotted black;
+  font-size: 0.8em;
+}
+
+.settings .modal {
+  display: block;
+  text-align: center;
+}
+
+.settings .modal p {
+  font-size: 1.25em;
+}
+
+.settings .special-buttons button {
+  font-size: 0.8em;
+  background-color: #000;
+  color: #fff;
+  width: 175px;
 }
