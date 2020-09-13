@@ -15,7 +15,8 @@ function Dashboard({
   forceUpdate,
   chooseSettings,
   chooseArchive,
-  fetchSettings
+  fetchSettings,
+  currentView
 }) {
   useEffect(() => {
     updateBudgetsCurrentPeriods();
@@ -28,7 +29,9 @@ function Dashboard({
     fetchSettings
   ]);
 
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView]);
 
   return (
     <div>
@@ -50,7 +53,8 @@ function Dashboard({
 
 const mapStateToProps = state => ({
   budgets: state.budget.budgets,
-  expenditures: state.expenditures
+  expenditures: state.expenditures,
+  currentView: state.currentView
 });
 
 export default connect(mapStateToProps, { 
