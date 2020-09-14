@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking, calculateTracking } from '../../utils/calculate';
 import { chooseBudget } from '../../actions/ui_actions';
 import { displayDate } from '../../utils/format';
+import ClickOrHold from '../../shared/ClickOrHold';
 
 function Budget({ 
   budget, 
@@ -17,14 +18,6 @@ function Budget({
   const [startedClassName, setStartedClassName] = useState('');
   const [trackingClassName, setTrackingClassName] = useState('');
 
-  const [timeDown, setTimeDown] = useState(0);
-  const [pressState, setPressState] = useState('');
-
-  const startTimer = () => setTimeDown(Date.now());
-  const setClickType = () => {
-    Date.now() - timeDown < 500 ? setPressState('click') : setPressState('hold');
-  };
-
   useEffect(() => {
     if (currentPeriod <= 0) {
       setStartedClassName('not-started');
@@ -35,32 +28,28 @@ function Budget({
     }
   }, [currentPeriod, budget, expenditures]);
 
-  const handleClick = () => {
-    if (pressState === 'click' && currentPeriod > 0) {
+  const clickCallback = () => {
+    if (currentPeriod > 0) {
       selectBudget(budget);
       chooseBudget();
     }
+  };
 
-    if (pressState === 'hold') {
-      setShowBudgetSettings(true);
-    }
+  const holdCallback = () => {
+    setShowBudgetSettings(true);
   };
 
   return (
     <>
       <div className="budget-menu-item">
-        <div className="flex-horizontal">
-          <div 
-            onClick={handleClick} 
-            className={`budget-menu-item-details ${startedClassName}`}
-            onMouseDown={startTimer}
-            onMouseUp={setClickType}>
+          <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback} className="flex-horizontal" >
+          <div className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
             <span className={`budget-tracking ${trackingClassName}`}>
               {currency}{formattedSingleBudgetTracking(expenditures, budget)}
             </span>
           </div>
-        </div>
+          </ClickOrHold>
 
         <p className={`start-date ${startedClassName}`}>Start Date: {displayDate(startDate)}</p>
       </div>
