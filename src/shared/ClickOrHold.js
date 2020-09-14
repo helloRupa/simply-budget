@@ -17,6 +17,8 @@ function ClickOrHold(props) {
     if (pressState === 'click') {
       props.clickCallback(e);
     }
+
+    setPressState('');
   };
 
   return <span onMouseDown={startTime} onMouseUp={setClickType} onClick={handleClick}>
