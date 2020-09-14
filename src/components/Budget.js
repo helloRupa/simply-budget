@@ -3,7 +3,7 @@ import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
 import { formatNumber, displayDate } from '../utils/format';
 import { connect } from 'react-redux';
-import { formattedSingleBudgetTracking } from '../utils/calculate';
+import { formattedSingleBudgetTracking, calculateTracking } from '../utils/calculate';
 import Close from '../shared/Close';
 import { 
   selectBudgetExpenditures, 
@@ -11,6 +11,7 @@ import {
 } from '../utils/selectors';
 import { chooseDashboard } from '../actions/ui_actions';
 import ChartsContainer from './budget/ChartsContainer';
+import { setTrackingClassName } from '../utils/classNameSelectors';
 
 function Budget({ 
   budget, 
@@ -22,6 +23,8 @@ function Budget({
   const [showMore, setShowMore] = useState(true);
   const [isTruncating, setIsTruncating] = useState(false);
   const [showChart, setShowChart] = useState(false);
+
+  const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
 
   const budgetExpenditures = selectBudgetExpenditures(expenditures, budget);
 
@@ -65,8 +68,10 @@ function Budget({
         </span>
 
         <span className="total-tracking">
-          Total under/over budget since { displayDate(startDate) }: {currency}
-          {formattedSingleBudgetTracking(expenditures, budget)}
+          Total under/over budget since { displayDate(startDate) }: <span className={trackingClassName}>
+            {currency}
+            {formattedSingleBudgetTracking(expenditures, budget)}
+          </span>
         </span>
       </div>
 

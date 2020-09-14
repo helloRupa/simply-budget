@@ -14,7 +14,7 @@ function SimpleExpenditureForm({ currency, amount, setAmount, holdCallback, clic
   return <div className="absolute">
   <div className="fixed-bottom" onKeyPress={handleEnterKey}>
   <Form className="simple-expenditure-form">
-    <span class="currency">{currency}</span>
+    <span className="currency">{currency}</span>
     <NumberInput value={amount} callback={setAmount} />
 
     <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback}>

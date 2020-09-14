@@ -19,7 +19,8 @@
         "cats",
         "test",
         "testing",
-        "Testing"
+        "Testing",
+        "bunniesyes"
       ]
     }
   ],
@@ -385,7 +386,7 @@
       "id": 29
     },
     {
-      "title": "bunnies",
+      "title": "",
       "amount": 50,
       "date": "2020/09/10",
       "budgetId": 1,
