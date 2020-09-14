@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyArchived } from '../../actions/archive_actions';
 import { displayDate } from '../../utils/format';
+import { setTrackingClassName } from '../../utils/classNameSelectors';
 
 const Delete = DeleteWrapper(destroyArchived);
 
@@ -17,15 +18,30 @@ function ArchivedBudget({ archived, archived: {
   }
 }) {
   const [remove, setRemove] = useState(false);
+  const trackingClassName = setTrackingClassName(totalTracking);
 
   return (
     <>
-      <h3>{name}</h3>
-      <p>Ran from {displayDate(startDate)} to {displayDate(endDate)}</p>
-      <p>Goal was to spend {currency}{limit} per {frequency}</p>
-      <p>Total Spent: {currency}{totalSpent}</p>
-      <p>Total Tracking: {currency}{totalTracking}</p>
       <button onClick={() => setRemove(true)} className="delete">Delete</button>
+
+      <h3>{name}</h3>
+      <div className="archive-details">
+        <p>Ran from {displayDate(startDate)} to {displayDate(endDate)}</p>
+        <p>Goal was to spend {currency}{limit} per {frequency}</p>
+      </div>
+      
+      <div className="archive-results">
+        <p>
+          <span>Total Spent:</span>
+          <span>{currency}{totalSpent}</span>
+        </p>
+
+        <p>
+          <span>Total Under/Over Budget:</span>
+          <span className={`${trackingClassName}`}>{currency}{totalTracking}</span>
+        </p>
+      </div>
+      
       {remove ? <Delete deletable={archived} {...{name, setRemove}} /> : null}
     </>
   );

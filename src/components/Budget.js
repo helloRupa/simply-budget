@@ -51,22 +51,24 @@ function Budget({
   };
 
   return (
-    <div>
+    <div className="single-budget">
+      <Close callback={chooseDashboard} display="Back" className="back" />
+      <button onClick={handleChartButton} className="charts-btn">Charts</button>
+
       <h2>
         { name }
       </h2>
-      <p>
-        { displayDate(startDate) }
-      </p>
-      <Close callback={chooseDashboard} display={'Close'} />
-      <button onClick={handleChartButton}>Show Charts</button>
-      <p>
-        Spend { currency }{ formatNumber(limit) } per { frequency } or less!
-      </p>
-      <p>
-        Tracking (lifetime): { currency }
+
+      <div className="budget-details">
+        <span className="goal">
+          Spend { currency }{ formatNumber(limit) } per { frequency } or less!
+        </span>
+
+        <span className="total-tracking">
+          Total under/over budget since { displayDate(startDate) }: {currency}
           {formattedSingleBudgetTracking(expenditures, budget)}
-      </p>
+        </span>
+      </div>
 
       <Expenditures 
         {...{ expenditures, currentPeriod, currency, periods, budget }}

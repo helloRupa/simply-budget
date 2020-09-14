@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
@@ -6,6 +6,7 @@ import { formattedSingleBudgetTracking, calculateTracking } from '../../utils/ca
 import { chooseBudget } from '../../actions/ui_actions';
 import { displayDate } from '../../utils/format';
 import ClickOrHold from '../../shared/ClickOrHold';
+import { setStartedClassName, setTrackingClassName } from '../../utils/classNameSelectors';
 
 function Budget({ 
   budget, 
@@ -15,18 +16,9 @@ function Budget({
   chooseBudget
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
-  const [startedClassName, setStartedClassName] = useState('');
-  const [trackingClassName, setTrackingClassName] = useState('');
 
-  useEffect(() => {
-    if (currentPeriod <= 0) {
-      setStartedClassName('not-started');
-    }
-
-    if (calculateTracking({ expenditures, budget }) < 0) {
-      setTrackingClassName('negative-tracking');
-    }
-  }, [currentPeriod, budget, expenditures]);
+  const startedClassName = setStartedClassName(currentPeriod);
+  const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
 
   const clickCallback = () => {
     if (currentPeriod > 0) {

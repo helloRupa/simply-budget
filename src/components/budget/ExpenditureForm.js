@@ -33,12 +33,13 @@ function ExpenditureForm({
     onSubmit(e);
   }
 
-  return <Form callback={handleSubmit}>
+  return <Form callback={handleSubmit} className="expenditure-form">
     <TextInput
       placeholder="Title (optional)"
       value={title}
       callback={setTitle}
-      list="saved-categories" />
+      list="saved-categories"
+      className="expense-title" />
 
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }
@@ -46,10 +47,10 @@ function ExpenditureForm({
     
     {currency}
 
-    <NumberInput value={amount} callback={setAmount} />
+    <NumberInput value={amount} callback={setAmount} className="expense-amount" />
 
     <label>
-      Set date of expense (optional): 
+      Date (optional): 
       <DateComp 
         setStartDate={setExpenseDate} 
         date={expenseDate} 

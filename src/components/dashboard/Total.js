@@ -1,8 +1,9 @@
 import React from 'react';
 import { formattedTotalTracking, calculateTotalTracking } from '../../utils/calculate';
+import { setTrackingClassName } from '../../utils/classNameSelectors';
 
 function Total({ budgets=[], expenditures, currency }) {
-  const trackingClassName = calculateTotalTracking(budgets, expenditures) < 0 ? 'negative-tracking' : '';
+  const trackingClassName = setTrackingClassName(calculateTotalTracking(budgets, expenditures));
 
     return (
     <div className="budget-total">
