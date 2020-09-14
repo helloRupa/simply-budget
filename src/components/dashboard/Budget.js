@@ -17,6 +17,14 @@ function Budget({
   const [startedClassName, setStartedClassName] = useState('');
   const [trackingClassName, setTrackingClassName] = useState('');
 
+  const [timeDown, setTimeDown] = useState(0);
+  const [pressState, setPressState] = useState('');
+
+  const startTimer = () => setTimeDown(Date.now());
+  const setClickType = () => {
+    Date.now() - timeDown < 500 ? setPressState('click') : setPressState('hold');
+  };
+
   useEffect(() => {
     if (currentPeriod <= 0) {
       setStartedClassName('not-started');
@@ -28,9 +36,13 @@ function Budget({
   }, [currentPeriod, budget, expenditures]);
 
   const handleClick = () => {
-    if (currentPeriod > 0) {
+    if (pressState === 'click' && currentPeriod > 0) {
       selectBudget(budget);
       chooseBudget();
+    }
+
+    if (pressState === 'hold') {
+      setShowBudgetSettings(true);
     }
   };
 
@@ -38,8 +50,11 @@ function Budget({
     <>
       <div className="budget-menu-item">
         <div className="flex-horizontal">
-          <button onClick={() => setShowBudgetSettings(true)}>Edit</button>
-          <div onClick={handleClick} className={`budget-menu-item-details ${startedClassName}`}>
+          <div 
+            onClick={handleClick} 
+            className={`budget-menu-item-details ${startedClassName}`}
+            onMouseDown={startTimer}
+            onMouseUp={setClickType}>
             <span className="budget-name">{name}</span>
             <span className={`budget-tracking ${trackingClassName}`}>
               {currency}{formattedSingleBudgetTracking(expenditures, budget)}
