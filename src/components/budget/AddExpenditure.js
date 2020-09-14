@@ -5,6 +5,7 @@ import {
   truncateExpenditures } from '../../actions/expenditure_actions';
 import { earliestPeriod } from '../../utils/selectors';
 import ExpenditureForm from './ExpenditureForm';
+import SimpleExpenditureForm from './SimpleExpenditureForm';
 
 function AddExpenditure({ 
   budget, 
@@ -19,6 +20,7 @@ function AddExpenditure({
   const [amount, setAmount] = useState('');
   const [expenseDate, setExpenseDate] = useState('');
   const [showError, setShowError] = useState(false);
+  const [showExpenditureForm, setShowExpenditureForm] = useState(false);
 
   // Only truncate periods earlier than current period when over limit
   const handleTruncation = () => {
@@ -54,9 +56,14 @@ function AddExpenditure({
     }
   };
 
+  const clickCallback = () => {
+    setShowExpenditureForm(true);
+  };
+
   return (
     <>
-    <ExpenditureForm {...{ 
+    <SimpleExpenditureForm {...{ amount, setAmount }} holdCallback={onSubmit} clickCallback={clickCallback} />
+    { showExpenditureForm ? <ExpenditureForm {...{ 
       onSubmit, 
       title, 
       currency, 
@@ -67,7 +74,7 @@ function AddExpenditure({
       expenseDate,
       setExpenseDate,
       startDate
-    }} />
+    }} /> : null }
     </>
   )
 }

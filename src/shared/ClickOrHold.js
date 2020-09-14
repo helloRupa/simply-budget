@@ -9,13 +9,13 @@ function ClickOrHold(props) {
     Date.now() - timeDown < 500 ? setPressState('click') : setPressState('hold');
   };
 
-  const handleClick = () => {
+  const handleClick = e => {
     if (pressState === 'hold') {
-      props.holdCallback();
+      props.holdCallback(e);
     }
 
     if (pressState === 'click') {
-      props.clickCallback();
+      props.clickCallback(e);
     }
   };
 

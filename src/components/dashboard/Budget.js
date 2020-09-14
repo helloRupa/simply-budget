@@ -34,7 +34,7 @@ function Budget({
   return (
     <>
       <div className="budget-menu-item">
-          <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback}  >
+          <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback} >
           <div className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
             <span className={`budget-tracking ${trackingClassName}`}>

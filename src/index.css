@@ -24,20 +24,27 @@ h1 {
   font-size: 1.25em;
 }
 
-form.create-budget {
+form.create-budget, form.simple-expenditure-form {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+form.create-budget {
   border-bottom: 1px solid gray;
 }
 
-.create-budget input[type="text"] {
+form.simple-expenditure-form {
+  border-top: 1px solid gray;
+}
+
+.create-budget input[type="text"], .simple-expenditure-form input[type="text"] {
   flex: 30;
   font-size: 1.25em;
   padding: 20px 10px;
 }
 
-.create-budget input[type="submit"] {
+.create-budget input[type="submit"], .simple-expenditure-form input[type="submit"] {
   min-width: 45px;
   flex: 1;
   font-size: 2.5em;
@@ -403,5 +410,18 @@ h3 {
   width: 100%;
   border-top: 1px solid gray;
   padding: 30px;
+  background-color: #fff;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
   background-color: #fff;
 }

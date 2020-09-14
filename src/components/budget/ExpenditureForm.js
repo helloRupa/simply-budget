@@ -38,8 +38,7 @@ function ExpenditureForm({
       placeholder="Title (optional)"
       value={title}
       callback={setTitle}
-      list="saved-categories"
-      className="expense-title" />
+      list="saved-categories" />
 
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }
@@ -47,7 +46,7 @@ function ExpenditureForm({
     
     {currency}
 
-    <NumberInput value={amount} callback={setAmount} className="expense-amount" />
+    <NumberInput value={amount} callback={setAmount} />
 
     <label>
       Date (optional): 
