@@ -4,7 +4,7 @@ function ClickOrHold(props) {
   const [timeDown, setTimeDown] = useState(0);
   const [pressState, setPressState] = useState('');
 
-  const startTimer = () => setTimeDown(Date.now());
+  const startTime = () => setTimeDown(Date.now());
   const setClickType = () => {
     Date.now() - timeDown < 500 ? setPressState('click') : setPressState('hold');
   };
@@ -19,9 +19,9 @@ function ClickOrHold(props) {
     }
   };
 
-  return <div onMouseDown={startTimer} onMouseUp={setClickType} onClick={handleClick}>
+  return <span onMouseDown={startTime} onMouseUp={setClickType} onClick={handleClick}>
     {props.children}
-  </div>
+  </span>
 }
 
 export default ClickOrHold;

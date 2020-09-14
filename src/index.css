@@ -67,7 +67,6 @@ form.create-budget {
 }
 
 .budget-menu-item-details {
-  margin-left: 15px;
   cursor: pointer;
   padding: 15px 0;
   display: flex;
