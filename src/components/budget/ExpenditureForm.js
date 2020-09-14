@@ -7,6 +7,7 @@ import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
+import Close from '../../shared/Close';
 
 function ExpenditureForm({
   onSubmit,
@@ -20,7 +21,8 @@ function ExpenditureForm({
   showError,
   setExpenseDate,
   expenseDate,
-  startDate
+  startDate,
+  close
 }) {
   const handleCategory = title => {
     if (!categories.includes(title.trim())) {
@@ -33,34 +35,46 @@ function ExpenditureForm({
     onSubmit(e);
   }
 
-  return <Form callback={handleSubmit} className="expenditure-form">
+  return <div className="modal-background">
+  <Form callback={handleSubmit} className="modal expenditure-form">
+    <h2>Add an Expense</h2>
+
     <TextInput
       placeholder="Title (optional)"
       value={title}
       callback={setTitle}
-      list="saved-categories" />
+      list="saved-categories"
+      className="expense-title" />
 
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }
     </datalist>
     
-    {currency}
-
-    <NumberInput value={amount} callback={setAmount} />
-
-    <label>
+    <div class="expense-amount">
+      {currency}
+      <NumberInput value={amount} callback={setAmount} className="amount" />
+    </div>
+    
+    <div className="expense-date">
+    <label htmlFor="expense-date">
       Date (optional): 
+    </label>
       <DateComp 
         setStartDate={setExpenseDate} 
         date={expenseDate} 
         minDate={startDate}
         maxDate={new Date()} />
-    </label>
-
-    <SubmitButton value="Save" />
+    </div>
 
     <Error msg="Amount is required" condition={showError} />
+
+    <div className="buttons">
+      <SubmitButton value="Save" />
+      
+      <Close callback={close} display="Cancel" />
+    </div>
   </Form>
+  </div>
 }
 
 const mapStateToProps = state => ({

@@ -37,6 +37,7 @@ function AddExpenditure({
     setAmount('');
     setShowError(false);
     setExpenseDate('');
+    setShowExpenditureForm(false);
   };
 
   const onSubmit = e => {
@@ -62,8 +63,8 @@ function AddExpenditure({
 
   return (
     <>
-    <SimpleExpenditureForm {...{ amount, setAmount }} holdCallback={onSubmit} clickCallback={clickCallback} />
-    { showExpenditureForm ? <ExpenditureForm {...{ 
+    <SimpleExpenditureForm {...{ currency, amount, setAmount }} holdCallback={onSubmit} clickCallback={clickCallback} />
+    { showExpenditureForm ? <ExpenditureForm close={reset} {...{ 
       onSubmit, 
       title, 
       currency, 

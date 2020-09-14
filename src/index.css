@@ -28,6 +28,7 @@ form.create-budget, form.simple-expenditure-form {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 form.create-budget {
@@ -218,6 +219,7 @@ input[type="date"]:disabled {
   color: #fff;
   padding: 15px 0;
   width: 100px;
+  text-align: center;
 }
 
 .close {
@@ -403,16 +405,6 @@ h3 {
   margin-bottom: 10px;
 }
 
-.expenditure-form {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-top: 1px solid gray;
-  padding: 30px;
-  background-color: #fff;
-}
-
 .absolute {
   position: absolute;
 }
@@ -425,3 +417,22 @@ h3 {
   padding: 0 30px;
   background-color: #fff;
 }
+.expenditure-form {
+  text-align: center;
+}
+
+.expenditure-form .expense-title, .expense-amount {
+  display: block;
+  margin: 30px auto !important;
+  text-align: center;
+}
+
+.expenditure-form .expense-title {
+  width: 15em;
+}
+
+.expense-date {
+  margin: auto;
+  width: 321px;
+}
+

@@ -4,7 +4,7 @@ import NumberInput from '../../shared/NumberInput';
 import SubmitButton from '../../shared/SubmitButton';
 import ClickOrHold from '../../shared/ClickOrHold';
 
-function SimpleExpenditureForm({ amount, setAmount, holdCallback, clickCallback }) {
+function SimpleExpenditureForm({ currency, amount, setAmount, holdCallback, clickCallback }) {
   const handleEnterKey = e => {
     if (e.key === 'Enter') {
       clickCallback();
@@ -14,6 +14,7 @@ function SimpleExpenditureForm({ amount, setAmount, holdCallback, clickCallback 
   return <div className="absolute">
   <div className="fixed-bottom" onKeyPress={handleEnterKey}>
   <Form className="simple-expenditure-form">
+    <span class="currency">{currency}</span>
     <NumberInput value={amount} callback={setAmount} />
 
     <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback}>

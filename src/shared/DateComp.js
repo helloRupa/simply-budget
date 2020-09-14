@@ -11,7 +11,8 @@ function DateComp({
   date, 
   disabled = false, 
   minDate,
-  maxDate
+  maxDate,
+  id=""
 }) {
   const [dateVal, setDateVal] = useState(replaceForwardSlashes(date));
   const today = makeDate();
@@ -42,6 +43,7 @@ function DateComp({
       onChange={handleChange} 
       disabled={disabled} 
       value={dateVal}
+      id={id}
     />
   );
 }
