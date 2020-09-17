@@ -59,6 +59,10 @@ form.simple-expenditure-form {
   font-size: 1.25em;
 }
 
+.single-budget {
+  padding: 0 30px 30px 30px;
+}
+
 .budgets-menu ul {
   margin-bottom: 60px;
 }
@@ -403,10 +407,20 @@ h3 {
   margin-bottom: 0;
 }
 
-.goal, .total-tracking {
+.budget-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.goal span, .total-tracking span {
   display: block;
-  text-align: right;
-  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.goal span:nth-of-type(2), .total-tracking span:nth-of-type(2) {
+  font-size: 1.75em;
+  padding: 5px 0;
 }
 
 .absolute {
@@ -452,10 +466,13 @@ h3 {
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 30px;
+  background-color: #b5b3b3;
+  color: white;
+  padding: 5px 0;
 }
 
 .old-expenses {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .period:first-of-type {
@@ -476,9 +493,10 @@ button:disabled {
 }
 
 .no-expenses {
-  text-align: center;
+  text-align: left;
   color: gray;
-  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
 }
 
 .period-details {
@@ -521,4 +539,5 @@ button:disabled {
 
 .banner h2 {
   margin: 0;
+  font-size: 2em;
 }

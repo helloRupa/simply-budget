@@ -65,14 +65,17 @@ function Budget({
     <div className="single-budget">
       <div className="budget-details">
         <span className="goal">
-          Spend { currency }{ formatNumber(limit) } per { frequency } or less!
+          <span>Goal</span> 
+          <span>{ currency }{ formatNumber(limit) }</span> 
+          <span>per { frequency }</span>
         </span>
 
         <span className="total-tracking">
-          Total under/over budget since { displayDate(startDate) }: <span className={trackingClassName}>
-            {currency}
-            {formattedSingleBudgetTracking(expenditures, budget)}
+          <span>Total Saved</span>
+          <span className={trackingClassName}>
+            {currency}{formattedSingleBudgetTracking(expenditures, budget)}
           </span>
+          <span>since { displayDate(startDate) }</span>
         </span>
       </div>
 
