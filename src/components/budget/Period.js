@@ -6,9 +6,11 @@ import {
 } from '../../utils/selectors';
 import { 
   formattedPeriodSpent, 
-  formattedRemainingSpend 
+  formattedRemainingSpend,
+  calculateRemainingSpend
 } from '../../utils/calculate';
 import { sortByDateDesc } from '../../utils/format';
+import { setTrackingClassName } from '../../utils/classNameSelectors';
 
 function Period({ title, expenditures, currency, budget, period }) {
   const budgetExpenditures = () => {
@@ -21,24 +23,30 @@ function Period({ title, expenditures, currency, budget, period }) {
   };
 
   const displayExpenditures = () => budgetExpenditures().length > 0 ? 
-    <ul>
+    <ul className="period-expense">
       { budgetExpenditures().map(item => <li key={`exp-${item.id}`}>
         <Item {...{ item, currency, budget }} />
       </li>) }
-    </ul> : 'No expenses for this period';
+    </ul> : <p className="no-expenses">No expenses for this period</p>;
+
+  const setTitle = () => title ? <h3>{title}</h3> : null;
+
+  const trackingClassName = setTrackingClassName(calculateRemainingSpend({
+    expenditures, budget, period
+  }));
 
   return (
-    <div>
-      <h3>{ title }</h3>
+    <div className="period">
+      {setTitle()}
       {displayExpenditures()}
-      <ul>
+      <ul className="period-details">
         <li>
-          Left to Spend (period): { currency }
-          {formattedRemainingSpend(expenditures, budget, period)}
+          Left to Spend: <span className={trackingClassName}>{ currency }
+          {formattedRemainingSpend(expenditures, budget, period)}</span>
         </li>
         <li>
-          Spent (period): { currency }
-            {formattedPeriodSpent(expenditures, budget, period)}
+          Total Spent: <span className={trackingClassName}>{ currency }
+          {formattedPeriodSpent(expenditures, budget, period)}</span>
         </li>
       </ul>
     </div>

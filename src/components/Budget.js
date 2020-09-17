@@ -78,7 +78,7 @@ function Budget({
       <Expenditures 
         {...{ expenditures, currentPeriod, currency, periods, budget }}
       />
-      <button onClick={incrementPeriods} disabled={!showMore}>
+      <button onClick={incrementPeriods} disabled={!showMore} className="load-more">
         Load More
       </button>
       { isTruncating ? <p><strong>Truncating oldest expenses</strong></p> : null }

@@ -24,7 +24,7 @@ function Expenditures({
   };
 
   return( 
-  <section>
+  <div className="expenses">
     <Period {...{ budget, expenditures, currency }}
       title="Current Period" 
       period={currentPeriod}
@@ -32,13 +32,13 @@ function Expenditures({
 
     {
       (periods < 1) ? null : 
-        <section>
+        <div className="old-expenses">
           <h3>Older Expenses</h3>
           {makePeriods()}
-        </section>
+        </div>
     }
     
-  </section>
+  </div>
   );
 }
 

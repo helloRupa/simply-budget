@@ -22,7 +22,8 @@ function ExpenditureForm({
   setExpenseDate,
   expenseDate,
   startDate,
-  close
+  close,
+  edit=false
 }) {
   const handleCategory = title => {
     if (!categories.includes(title.trim())) {
@@ -37,7 +38,7 @@ function ExpenditureForm({
 
   return <div className="modal-background">
   <Form callback={handleSubmit} className="modal expenditure-form">
-    <h2>Add an Expense</h2>
+    <h2>{edit ? "Edit" : "Add"} an Expense</h2>
 
     <TextInput
       placeholder="Title (optional)"
@@ -50,7 +51,7 @@ function ExpenditureForm({
       { categories.map(name => <option value={name} key={name} />) }
     </datalist>
     
-    <div class="expense-amount">
+    <div className="expense-amount">
       {currency}
       <NumberInput value={amount} callback={setAmount} className="amount" />
     </div>

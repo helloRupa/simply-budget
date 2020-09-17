@@ -1,6 +1,5 @@
 body {
   margin: 0 auto;
-  padding: 30px 0;
   min-width: 350px;
   max-width: 750px;
   font-family: 'Helvetica Neue', sans-serif;
@@ -10,7 +9,7 @@ body {
 }
 
 #root {
-
+  padding: 30px 0;
 }
 
 header {
@@ -386,6 +385,10 @@ h3 {
   color:  #d90d0d;
 }
 
+.positive-tracking {
+  color: #007d00;
+}
+
 .single-budget {
   position: relative;
 }
@@ -439,4 +442,74 @@ h3 {
 
 .currency {
   font-size: 1.25em;
+}
+
+.expenses {
+  margin: 60px 0;
+}
+
+.expenses h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.old-expenses {
+  margin-top: 30px;
+}
+
+.period:first-of-type {
+  padding-top: 0;
+}
+
+.period {
+  padding: 15px;
+}
+
+.load-more {
+  margin-bottom: 60px;
+}
+
+button:disabled {
+  cursor: auto;
+  color: gray;
+}
+
+.no-expenses {
+  text-align: center;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.period-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 0.85em;
+}
+
+.period-expense li {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-bottom: 1px solid gray;
+}
+
+.period-expense li span {
+  display: flex;
+  /* justify-content: space-between; */
+  flex: 25;
+}
+
+.delete-expense {
+  flex: 1;
+  font-weight: bold;
+}
+
+.expense-title {
+  justify-content: center;
+}
+
+.expense-spent {
+  justify-content: flex-end;
 }

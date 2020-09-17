@@ -3,5 +3,5 @@ export function setStartedClassName(testValue) {
 };
 
 export function setTrackingClassName(testValue) {
-  return testValue < 0 ? 'negative-tracking' : '';
+  return testValue < 0 ? 'negative-tracking' : 'positive-tracking';
 };

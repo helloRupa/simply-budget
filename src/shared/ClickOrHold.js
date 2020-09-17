@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ClickOrHold(props) {
+function ClickOrHold({ holdCallback, clickCallback, children }) {
   const [timeDown, setTimeDown] = useState(0);
   const [pressState, setPressState] = useState('');
 
@@ -10,19 +10,19 @@ function ClickOrHold(props) {
   };
 
   const handleClick = e => {
-    if (pressState === 'hold') {
-      props.holdCallback(e);
+    if (pressState === 'hold' && typeof holdCallback === 'function') {
+      holdCallback(e);
     }
 
-    if (pressState === 'click') {
-      props.clickCallback(e);
+    if (pressState === 'click' && typeof clickCallback === 'function') {
+      clickCallback(e);
     }
 
     setPressState('');
   };
 
   return <span onMouseDown={startTime} onMouseUp={setClickType} onClick={handleClick}>
-    {props.children}
+    {children}
   </span>
 }
 

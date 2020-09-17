@@ -20,7 +20,8 @@
         "test",
         "testing",
         "Testing",
-        "bunniesyes"
+        "bunniesyes",
+        "Pop Tarts"
       ]
     }
   ],
@@ -66,7 +67,7 @@
       "limit": 100,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 11,
       "id": 7
     },
     {
@@ -86,7 +87,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 11,
       "id": 8
     },
     {
@@ -126,7 +127,7 @@
       "limit": 20,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 11,
       "id": 6
     },
     {
@@ -136,7 +137,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 11,
       "id": 5
     },
     {
@@ -156,7 +157,7 @@
       "limit": 50,
       "startDate": "2020/09/30",
       "truncated": 0,
-      "currentPeriod": -2,
+      "currentPeriod": -1,
       "id": 11
     }
   ],
@@ -215,7 +216,7 @@
       "title": "Pop Tarts",
       "amount": 16.65,
       "date": "2020/7/14",
-      "period": 1
+      "period": 6
     },
     {
       "title": "test",
@@ -392,6 +393,22 @@
       "budgetId": 1,
       "period": 4,
       "id": 30
+    },
+    {
+      "title": "",
+      "amount": 50,
+      "date": "2020/09/16",
+      "budgetId": 10,
+      "period": 2,
+      "id": 31
+    },
+    {
+      "title": "",
+      "amount": 600,
+      "date": "2020/09/16",
+      "budgetId": 10,
+      "period": 2,
+      "id": 32
     }
   ]
 }

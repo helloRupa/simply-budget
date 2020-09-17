@@ -49,6 +49,7 @@ function EditItem({
         title={newTitle}
         amount={newAmount}
         showError={newAmount === ''}
+        edit={true}
       />
       <Close callback={close} display='Cancel' />
     </>
