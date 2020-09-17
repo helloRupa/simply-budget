@@ -13,10 +13,14 @@ function Archive({ archive, fetchArchives, chooseDashboard }) {
   }, [fetchArchives]);
 
   return (
-    <div className="archive">
+    <>
+    <div className="banner">
       <Close callback={chooseDashboard} display="Back" className="back" />
 
       <h2>Archived Budgets</h2>
+    </div>
+
+    <div className="archive">
 
       { archive.length === 0 ? <p>
           Nothing to see here! Why don't you archive something...or not, is OK!
@@ -26,6 +30,7 @@ function Archive({ archive, fetchArchives, chooseDashboard }) {
         </li>)}
       </ul>}
     </div>
+    </>
   )
 }
 

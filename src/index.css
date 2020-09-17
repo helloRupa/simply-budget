@@ -282,13 +282,13 @@ button.delete {
 
 .back {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 30px;
+  left: 30px;
   padding: 0 15px 15px 0;
 }
 
 .settings, .archive {
-  position: relative;
+  /* position: relative; */
   width: 85%;
   margin: auto; 
   font-size: 1.25em;
@@ -395,8 +395,8 @@ h3 {
 
 .charts-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 30px;
+  right: 30px;
 }
 
 .single-budget h2 {
@@ -512,4 +512,13 @@ button:disabled {
 
 .expense-spent {
   justify-content: flex-end;
+}
+
+.banner {
+  border-bottom: 1px solid gray;
+  margin-bottom: 60px;
+}
+
+.banner h2 {
+  margin: 0;
 }

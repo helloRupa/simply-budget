@@ -54,14 +54,15 @@ function Budget({
   };
 
   return (
-    <div className="single-budget">
+    <>
+    <div className="banner">
       <Close callback={chooseDashboard} display="Back" className="back" />
       <button onClick={handleChartButton} className="charts-btn">Charts</button>
 
-      <h2>
-        { name }
-      </h2>
+      <h2>{ name }</h2>
+    </div>
 
+    <div className="single-budget">
       <div className="budget-details">
         <span className="goal">
           Spend { currency }{ formatNumber(limit) } per { frequency } or less!
@@ -94,6 +95,7 @@ function Budget({
           close={() => setShowChart(false)} /> 
         : null}
     </div>
+    </>
   )
 }
 

@@ -35,11 +35,14 @@ function Settings({
     }
   };
 
-  return <div className="settings">
-    <Close callback={chooseDashboard} display="Back" className="back" />
+  return <>
+    <div className="banner">
+      <Close callback={chooseDashboard} display="Back" className="back" />
 
-    <h2>Settings</h2>
+      <h2>Settings</h2>
+    </div>
 
+  <div className="settings">    
     <Form callback={handleSubmit}>
       <div>
         <label htmlFor="default-currency">
@@ -80,6 +83,7 @@ function Settings({
       <ImportData />
     </div>
   </div>
+  </>
 }
 
 const mapStateToProps = state => ({
