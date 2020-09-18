@@ -44,6 +44,10 @@ function Budget({
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (currentPeriod - periods < lowestPeriod) {
       setPeriods(periods - 1);
     }

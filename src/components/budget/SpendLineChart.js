@@ -1,7 +1,7 @@
 import React from 'react';
 import { periodsToChart, periodOptions, msPerDay } from '../../constants/general';
 import { calculatePeriodSpent } from '../../utils/calculate';
-import { VictoryChart, VictoryLine, VictoryAxis, VictoryTheme, VictoryLabel } from 'victory';
+import { VictoryChart, VictoryLine, VictoryAxis, VictoryLabel } from 'victory';
 import { displayDate } from '../../utils/format';
 
 function SpendLineChart({ 
@@ -34,7 +34,7 @@ function SpendLineChart({
     { x: [tickValues[tickValues.length - 1], tickValues[0]], y: yDomain } :
     { x: [tickValues[0], tickValues[0] + 1], y: yDomain };
 
-  return <VictoryChart theme={VictoryTheme.material} domain={domain}>
+  return <VictoryChart domain={domain}>
     <VictoryAxis
       // tickValues specifies both the number of ticks and where
       // they are placed on the axis

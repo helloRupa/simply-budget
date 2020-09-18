@@ -33,14 +33,17 @@ function CategoryPieChart({ budget, expenditures }) {
 
   const labelPlacement = data.length > 5 ? "parallel" : "vertical";
 
-  return <div style={{ width: "85%", margin: '20px auto', overflow: 'visible', padding: '20px 20px 100px 20px' }}>
+  const truncateLabel = label => label.length < 13 ? label : 
+    `${label.slice(0, 12)}…`;
+
+  return <div className="pie-chart">
     { budgetExps.length > 0 ? <VictoryPie
     colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
     data={data}
-    labels={({ datum }) => `${datum.x}: ${budget.currency}${datum.y}`}
+    labels={({ datum }) => `${truncateLabel(datum.x)}: ${budget.currency}${datum.y}`}
     labelPosition={(_) => "centroid"}
     labelPlacement={(_) => labelPlacement }
-    style={{ labels: { padding: 5 } }}
+    style={{ labels: { padding: 15 } }}
     labelComponent={<VictoryLabel renderInPortal />} /> : <p>No expenses to show</p> }
   </div>
 }

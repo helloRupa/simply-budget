@@ -27,7 +27,7 @@ function Item({
       <button onClick={handleDelete} className="delete-expense">X</button>
 
       <ClickOrHold holdCallback={handleEdit}>
-        <span>{ displayDate(date) }</span>
+        <span className="expense-date">{ displayDate(date) }</span>
         <span className="expense-title">{ title || 'Untitled' }</span> 
         <span className="expense-spent">{ currency }{ formatNumber(amount) }</span>
       </ClickOrHold>

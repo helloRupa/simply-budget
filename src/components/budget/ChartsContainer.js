@@ -10,20 +10,24 @@ function ChartsContainer({
   expenditures,
   close
 }) {
-  return <div>
+  window.scrollTo(0, 0);
+  
+  return <div className="modal-background">
+    <div className="modal">
+    <Close callback={close} display="X" className="close" />
+
     <h2>{name}</h2>
 
-    <Close callback={close} display="Close" />
-
-    <label>
-      Spending per {frequency}, up to last {periodsToChart} periods
+    <div className="chart-container">
+      <h4>Spending per {frequency}, up to last {periodsToChart} periods</h4>
       <SpendLineChart {...{ budget, expenditures}} />
-    </label>
+    </div>
 
-    <label>
-      Spending per category
+    <div className="chart-container">
+      <h4>Spending per category</h4>
       <CategoryPieChart {...{ budget, expenditures}} />
-    </label>
+    </div>
+    </div>
   </div>
 }
 

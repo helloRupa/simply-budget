@@ -157,14 +157,16 @@ input:focus {
 
 .modal {
   min-width: 350px;
-  width: 80%;
+  width: 95%;
   min-height: 450px;
+  height: 95%;
   background-color: #fff;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   padding: 30px;
+  overflow-y: auto;
 }
 
 h2 {
@@ -186,7 +188,7 @@ h2 {
 }
 
 .modal div {
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 
 input[type="text"].currency {
@@ -514,23 +516,30 @@ button:disabled {
   border-bottom: 1px solid gray;
 }
 
-.period-expense li span {
+.period-expense li > span {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   flex: 25;
 }
 
 .delete-expense {
   flex: 1;
   font-weight: bold;
+  align-self: baseline;
+}
+
+.expense-date {
+  flex: 1;
 }
 
 .expense-title {
-  justify-content: center;
+  text-align: center;
+  flex: 3;
 }
 
 .expense-spent {
-  justify-content: flex-end;
+  flex: 1;
+  text-align: right;
 }
 
 .banner {
@@ -541,4 +550,27 @@ button:disabled {
 .banner h2 {
   margin: 0;
   font-size: 2em;
+}
+
+.VictoryContainer {
+  margin-top: -45px;
+}
+
+.pie-chart {
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.chart-container {
+  width: 95%; 
+  margin: 0 auto; 
+  overflow: visible;
+  padding: 20px;
+}
+
+h4 {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-bottom: 30px;
 }
