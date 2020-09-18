@@ -504,6 +504,7 @@ button:disabled {
   justify-content: space-between;
   margin-top: 15px;
   font-size: 0.85em;
+  font-weight: bold;
 }
 
 .period-expense li {

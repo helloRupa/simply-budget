@@ -25,8 +25,8 @@ function Expenditures({
 
   return( 
   <div className="expenses">
+    <h3>Current Period</h3>
     <Period {...{ budget, expenditures, currency }}
-      title="Current Period" 
       period={currentPeriod}
     />
 
