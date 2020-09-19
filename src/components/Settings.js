@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
-import Close from '../shared/Close';
+import BackButton from '../shared/BackButton';
 import { chooseDashboard } from '../actions/ui_actions';
 import Form from '../shared/Form';
 import SubmitButton from '../shared/SubmitButton';
@@ -37,7 +37,7 @@ function Settings({
 
   return <>
     <div className="banner">
-      <Close callback={chooseDashboard} display="Back" className="back" />
+      <BackButton callback={chooseDashboard} />
 
       <h2>Settings</h2>
     </div>

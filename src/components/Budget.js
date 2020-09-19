@@ -4,7 +4,7 @@ import Expenditures from './budget/Expenditures';
 import { formatNumber, displayDate } from '../utils/format';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking, calculateTracking } from '../utils/calculate';
-import Close from '../shared/Close';
+import BackButton from '../shared/BackButton';
 import { 
   selectBudgetExpenditures, 
   earliestPeriod 
@@ -60,7 +60,7 @@ function Budget({
   return (
     <>
     <div className="banner">
-      <Close callback={chooseDashboard} display="Back" className="back" />
+      <BackButton callback={chooseDashboard} />
       <button onClick={handleChartButton} className="charts-btn">Charts</button>
 
       <h2>{ name }</h2>
