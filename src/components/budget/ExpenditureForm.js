@@ -7,7 +7,7 @@ import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
-import Close from '../../shared/Close';
+import CancelButton from '../../shared/CancelButton';
 
 function ExpenditureForm({
   onSubmit,
@@ -72,7 +72,7 @@ function ExpenditureForm({
     <div className="buttons">
       <SubmitButton value="Save" />
       
-      <Close callback={close} display="Cancel" />
+      <CancelButton callback={close} />
     </div>
   </Form>
   </div>

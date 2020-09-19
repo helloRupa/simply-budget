@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { newBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
 import Form from '../../shared/Form';
-import Close from '../../shared/Close';
+import CancelButton from '../../shared/CancelButton';
 import DateComp from '../../shared/DateComp';
 import { periodOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
@@ -23,7 +23,7 @@ function CreateOptions({
   const [frequency, setFrequency] = useState(periodOptions.default);
   const [startDate, setStartDate] = useState('');
 
-  const closeOptions = () => {
+  const close = () => {
     setBudgetName('');
     setShowOptions(false);
   };
@@ -39,7 +39,7 @@ function CreateOptions({
       };
       
       newBudget(budgetSettings);
-      closeOptions();
+      close();
     }
   };
 
@@ -96,7 +96,7 @@ function CreateOptions({
       <div className="buttons">
         <SubmitButton value="Save" />
       
-        <Close callback={closeOptions} display="Cancel" />
+        <CancelButton callback={close} />
       </div>
       
     </Form>
