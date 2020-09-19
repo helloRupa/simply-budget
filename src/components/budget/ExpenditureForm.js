@@ -37,27 +37,35 @@ function ExpenditureForm({
   }
 
   return <div className="modal-background">
-  <Form callback={handleSubmit} className="modal expenditure-form">
+    <div className="modal">
+  <Form callback={handleSubmit} className="expenditure-form">
     <h2>{edit ? "Edit" : "Add"} an Expense</h2>
 
+    <div>
+    <label htmlFor="expense-title">Title (optional)</label>
     <TextInput
-      placeholder="Title (optional)"
+      placeholder="Groceries"
       value={title}
       callback={setTitle}
       list="saved-categories"
-      className="expense-title"
-      autoFocus={true} />
-
+      autoFocus={true}
+      id="expense-title" />
+    </div>
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }
     </datalist>
     
-    <div className="expense-amount">
-      {currency}
-      <NumberInput value={amount} callback={setAmount} className="amount" />
+    <div>
+    <label htmlFor="expense-amount">Amount</label>
+      <span>{currency}
+      <NumberInput 
+        value={amount} 
+        callback={setAmount} 
+        id="expense-amount" />
+        </span>
     </div>
-    
-    <div className="expense-date">
+
+    <div>
     <label htmlFor="expense-date">
       Date (optional): 
     </label>
@@ -65,7 +73,8 @@ function ExpenditureForm({
         setStartDate={setExpenseDate} 
         date={expenseDate} 
         minDate={startDate}
-        maxDate={new Date()} />
+        maxDate={new Date()}
+        id="expense-date" />
     </div>
 
     <Error msg="Amount is required" condition={showError} />
@@ -76,6 +85,7 @@ function ExpenditureForm({
       <CancelButton callback={close} />
     </div>
   </Form>
+  </div>
   </div>
 }
 

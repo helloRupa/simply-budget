@@ -143,6 +143,8 @@ input:focus {
 .error {
   color: #d90d0d;
   padding: 10px 0;
+  text-align: center;
+  display: block !important;
 }
 
 .modal-background {
@@ -224,7 +226,7 @@ input[type="date"]:disabled {
   background-color: #000;
   color: #fff;
   padding: 15px 0;
-  width: 100px;
+  width: 125px;
   text-align: center;
 }
 
@@ -293,14 +295,20 @@ button.delete {
   padding: 0 15px 15px 0;
 }
 
-.settings, .archive {
-  /* position: relative; */
+.settings, .archive, .expenditure-form {
   width: 85%;
   margin: auto; 
+}
+
+.settings, .archive {
   font-size: 1.25em;
 }
 
-.settings div {
+.expenditure-form {
+  font-size: 1em;
+}
+
+.settings div, .expenditure-form div {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -310,6 +318,11 @@ button.delete {
 .settings input[type="text"] {
   text-align: center;
   width: 6em;
+}
+
+.expenditure-form input[type="text"], .expenditure-form input[type="date"] {
+  text-align: center;
+  width: 8em;
 }
 
 .explainer {
@@ -436,19 +449,6 @@ h3 {
   width: 100%;
   padding: 0 30px;
   background-color: #fff;
-}
-.expenditure-form {
-  text-align: center;
-}
-
-.expenditure-form .expense-title, .expense-amount {
-  display: block;
-  margin: 30px auto !important;
-  text-align: center;
-}
-
-.expenditure-form .expense-title {
-  width: 15em;
 }
 
 .expense-date {

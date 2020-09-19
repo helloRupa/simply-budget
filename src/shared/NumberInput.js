@@ -1,7 +1,7 @@
 import React from 'react';
 import { handleAmountChange } from '../utils/formMethods';
 
-function NumberInput({ value, callback, className="", autoFocus=false }) {
+function NumberInput({ value, callback, className="", autoFocus=false, id="" }) {
   return <input 
     type="text" 
     placeholder="100.00" 
@@ -9,6 +9,7 @@ function NumberInput({ value, callback, className="", autoFocus=false }) {
     onChange={e => handleAmountChange(e, callback)}
     className={className}
     autoFocus={autoFocus}
+    id={id}
   />
 }
 

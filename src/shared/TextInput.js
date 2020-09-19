@@ -8,7 +8,8 @@ function TextInput({
   maxLength="100", 
   list="", 
   className="", 
-  autoFocus=false 
+  autoFocus=false,
+  id=""
 }) {
   return <input 
     type="text" 
@@ -18,7 +19,8 @@ function TextInput({
     maxLength={maxLength}
     list={list}
     className={className}
-    autoFocus={autoFocus} />
+    autoFocus={autoFocus}
+    id={id} />
 }
 
 export default TextInput;
