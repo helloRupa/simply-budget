@@ -24,7 +24,12 @@
         "Pop Tarts",
         "hi there",
         "really long name for an expense",
-        "this is a rather long name i think"
+        "this is a rather long name i think",
+        "stay",
+        "goAway1",
+        "goAway0",
+        "goAway2",
+        "stays"
       ]
     }
   ],
@@ -274,7 +279,7 @@
       "amount": 60,
       "budgetId": 6,
       "date": "2020/7/15",
-      "period": 1,
+      "period": 2,
       "id": 20
     },
     {
@@ -322,7 +327,7 @@
       "amount": 60,
       "budgetId": 6,
       "date": "2020/7/15",
-      "period": 1,
+      "period": 2,
       "id": 21
     },
     {
@@ -330,7 +335,7 @@
       "amount": 60,
       "budgetId": 6,
       "date": "2020/7/15",
-      "period": 1,
+      "period": 2,
       "id": 22
     },
     {
@@ -338,7 +343,7 @@
       "amount": 60,
       "budgetId": 6,
       "date": "2020/7/15",
-      "period": 3,
+      "period": 2,
       "id": 23
     },
     {

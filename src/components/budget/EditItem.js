@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { patchExpenditure } from '../../actions/expenditure_actions';
 import { connect } from 'react-redux';
-import Close from '../../shared/Close';
 import ExpenditureForm from './ExpenditureForm';
 import { calculatePeriod } from '../../utils/calculate';
 
@@ -45,13 +44,13 @@ function EditItem({
         setAmount, 
         expenseDate,
         setExpenseDate,
-        startDate }}
+        startDate,
+        close }}
         title={newTitle}
         amount={newAmount}
         showError={newAmount === ''}
         edit={true}
       />
-      <Close callback={close} display='Cancel' />
     </>
   )
 }
