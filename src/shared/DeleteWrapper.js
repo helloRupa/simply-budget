@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SubmitButton from '../shared/SubmitButton';
 import Form from '../shared/Form';
-import Button from '../shared/Button';
+import NoButton from '../shared/NoButton';
 
 function DeleteWrapper(deleteMethod) {
   function Delete({ deletable, name, setRemove, deleteMethod }) {
@@ -21,7 +21,7 @@ function DeleteWrapper(deleteMethod) {
         
         <SubmitButton value="Yes" />
 
-        <Button callback={close} display="No" />
+        <NoButton callback={close} />
       </Form>
     )
   }
