@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Close from '../../shared/Close';
+import CloseButton from '../../shared/CloseButton';
 import UpdateBudget from './UpdateBudget';
 import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyBudget } from '../../actions/budget_actions';
@@ -23,7 +23,7 @@ function BudgetSettings({
 
   return <div className="modal-background budget-settings">
     <div className="modal">
-      <Close callback={close} display='X' className="close" />
+      <CloseButton callback={close} />
 
       <h2>Edit {name}</h2>
       

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { archiveBudget } from '../../actions/archive_actions';
 import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
-import Close from '../../shared/Close';
+import Button from '../../shared/Button';
 
 function Archive({ budget, archiveBudget, expenditures, setArchive }) {
   const close = () => {
@@ -21,7 +21,7 @@ function Archive({ budget, archiveBudget, expenditures, setArchive }) {
 
       <SubmitButton value="Yes" />
 
-      <Close callback={close} display="No" />
+      <Button callback={close} display="No" />
     </Form>
   );
 }

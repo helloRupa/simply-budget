@@ -2,7 +2,7 @@ import React from 'react';
 import SpendLineChart from './SpendLineChart';
 import { periodsToChart } from '../../constants/general';
 import CategoryPieChart from './CategoryPieChart';
-import Close from '../../shared/Close';
+import CloseButton from '../../shared/CloseButton';
 
 function ChartsContainer({ 
   budget,
@@ -14,7 +14,7 @@ function ChartsContainer({
   
   return <div className="modal-background">
     <div className="modal">
-    <Close callback={close} display="X" className="close" />
+    <CloseButton callback={close} />
 
     <h2>{name}</h2>
 
