@@ -1,7 +1,15 @@
 import React from 'react';
 import { handleChange } from '../utils/formMethods';
 
-function TextInput({ placeholder, callback, value, maxLength="100", list="", className="" }) {
+function TextInput({ 
+  placeholder, 
+  callback, 
+  value, 
+  maxLength="100", 
+  list="", 
+  className="", 
+  autoFocus=false 
+}) {
   return <input 
     type="text" 
     placeholder={placeholder}
@@ -9,7 +17,8 @@ function TextInput({ placeholder, callback, value, maxLength="100", list="", cla
     value={value}
     maxLength={maxLength}
     list={list}
-    className={className} />
+    className={className}
+    autoFocus={autoFocus} />
 }
 
 export default TextInput;

@@ -53,7 +53,8 @@ function Settings({
           callback={setCurrency}
           value={currency}
           maxLength="2"
-          id="default-currency" />
+          id="default-currency"
+          autoFocus={true} />
       </div>
 
       <div>

@@ -72,7 +72,8 @@ function CreateOptions({
           callback={setCurrency} 
           value={currency}
           maxLength="2"
-          className="currency" />
+          className="currency"
+          autoFocus={true} />
 
         <NumberInput value={limit} callback={setLimit} className="amount" />
 

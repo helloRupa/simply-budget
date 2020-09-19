@@ -45,7 +45,8 @@ function ExpenditureForm({
       value={title}
       callback={setTitle}
       list="saved-categories"
-      className="expense-title" />
+      className="expense-title"
+      autoFocus={true} />
 
     <datalist id="saved-categories">
       { categories.map(name => <option value={name} key={name} />) }

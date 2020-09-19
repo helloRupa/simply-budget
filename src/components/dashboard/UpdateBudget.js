@@ -44,7 +44,8 @@ function UpdateBudget({ budget, close, patchBudget }) {
           placeholder={budget.name} 
           callback={setName} 
           value={name}
-          className="name-input" />
+          className="name-input"
+          autoFocus={true} />
 
         <DateComp 
           setStartDate={setStartDate} 
