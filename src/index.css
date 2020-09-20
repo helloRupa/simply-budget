@@ -1,28 +1,3 @@
-body {
-  margin: 0 auto;
-  min-width: 350px;
-  max-width: 750px;
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  padding: 60px 0;
-}
-
-header {
-  font-size: 1em;
-  padding: 15px 0;
-  text-align: right;
-}
-
-h1 {
-  font-weight: bold;
-  font-size: 1.25em;
-}
-
 form.create-budget, form.simple-expenditure-form {
   width: 100%;
   display: flex;
@@ -83,6 +58,7 @@ form.simple-expenditure-form {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .budget-menu-item-details .budget-name {
@@ -132,14 +108,6 @@ form.simple-expenditure-form {
   cursor: auto;
 }
 
-p {
-  padding: 5px 0;
-}
-
-input:focus {
-  outline: none;
-}
-
 .error {
   color: #d90d0d;
   padding: 10px 0;
@@ -172,14 +140,6 @@ input:focus {
   overflow-y: auto;
 }
 
-h2 {
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: bold;
-  padding: 30px 0;
-  margin-bottom: 30px;
-}
-
 .create-budget-options {
   font-size: 1.25em;
   text-align: center;
@@ -200,22 +160,6 @@ input[type="text"].currency {
 
 input[type="text"].amount {
   width: 5em;
-}
-
-select {
-  appearance: none;
-  border-bottom: 1px solid gray;
-  padding: 0 15px;
-}
-
-input[type="date"] {
-  border-bottom: 1px solid gray;
-  padding: 0 10px;
-  margin: 0 10px;
-}
-
-input[type="date"]:disabled {
-  color: gray;
 }
 
 .modal .buttons {
@@ -360,11 +304,6 @@ button.delete {
   margin-top: 30px;
 }
 
-h3 {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
 .archive .delete {
   position: absolute;
   top: 15px;
@@ -480,12 +419,6 @@ h3 {
   color: #fff;
 }
 
-button:disabled {
-  cursor: auto;
-  color: lightgray;
-  background-color: gray;
-}
-
 .no-expenses {
   text-align: left;
   color: gray;
@@ -559,10 +492,4 @@ button:disabled {
   margin: 0 auto; 
   overflow: visible;
   padding: 20px;
-}
-
-h4 {
-  font-size: 0.8em;
-  font-style: italic;
-  margin-bottom: 30px;
 }
