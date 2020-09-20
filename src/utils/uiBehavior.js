@@ -1,3 +1,13 @@
+function scrollToY(top) {
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
 export function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  scrollToY(0);
+};
+
+export function scrollToEl(id) {
+  const el = document.getElementById(id);
+
+  scrollToY(el.offsetTop);
 };

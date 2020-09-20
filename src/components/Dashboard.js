@@ -48,9 +48,9 @@ function Dashboard({
         <button onClick={chooseArchive}>
           Archive
         </button>
-
-        <ScrollToTop />
       </div>
+
+      <ScrollToTop />
     </div>
   )
 }

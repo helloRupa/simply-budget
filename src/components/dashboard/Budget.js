@@ -10,7 +10,7 @@ import { setStartedClassName, setTrackingClassName } from '../../utils/className
 
 function Budget({ 
   budget, 
-  budget: { name, currency, currentPeriod, startDate }, 
+  budget: { id, name, currency, currentPeriod, startDate }, 
   selectBudget, 
   expenditures,
   chooseBudget
@@ -33,7 +33,7 @@ function Budget({
 
   return (
     <>
-      <div className="budget-menu-item">
+      <div id={`budget-${id}`} className="budget-menu-item">
           <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback} >
           <div className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>

@@ -10,6 +10,7 @@ import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
 import Select from '../../shared/Select';
+import { scrollToEl } from '../../utils/uiBehavior';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -38,7 +39,10 @@ function CreateOptions({
         name: budgetName.trim()
       };
       
-      newBudget(budgetSettings);
+      newBudget(budgetSettings)
+      .then(data => {
+        setTimeout(() => scrollToEl(`budget-${data.budget.id}`), 1);
+      });
       close();
     }
   };
