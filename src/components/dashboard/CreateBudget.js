@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../styles/create-budget.css';
 import CreateOptions from './CreateOptions';
 import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';

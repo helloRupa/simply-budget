@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/budget.css';
+import '../styles/expenditure.css';
 import AddExpenditure from './budget/AddExpenditure';
 import Expenditures from './budget/Expenditures';
 import { formatNumber, displayDate } from '../utils/format';

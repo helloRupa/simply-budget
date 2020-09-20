@@ -1,0 +1,82 @@
+.budgets-menu {
+  width: 100%;
+  min-height: 500px;
+  padding: 30px;
+  font-size: 1.25em;
+}
+
+.budgets-menu ul {
+  margin-bottom: 60px;
+}
+
+.budgets-menu li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.budget-menu-item {
+  width: 100%;
+}
+
+.budget-menu-item .start-date {
+  text-align: right;
+  font-size: 0.75em;
+}
+
+.budget-menu-item-details {
+  cursor: pointer;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.budget-menu-item-details .budget-name {
+  margin-left: 15px;
+}
+
+.budget-menu-item-details .budget-tracking {
+  float: right;
+}
+
+.budget-total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.budget-settings {
+  width: 85%;
+  margin: auto; 
+  font-size: 1em;
+}
+
+.budget-settings div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 30px;
+}
+
+.budget-settings input[type="text"],
+.budget-settings input[type="date"] {
+  text-align: center;
+  width: 8em;
+}
+
+.start-date {
+  color: #595959;
+}
+
+.archive-btn, .delete-btn {
+  display: block;
+  margin: 30px 0;
+  padding: 15px 0 0 0;
+  border-bottom: 1px dotted black;
+  font-size: 0.8em;
+}

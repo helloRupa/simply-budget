@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import '../styles/archive.css';
 import { connect } from 'react-redux';
 import ArchivedBudget from './archive/ArchivedBudget';
 import BackButton from '../shared/BackButton';

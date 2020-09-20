@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../../styles/budgets-menu.css';
 import { budgetsByCurrency } from '../../utils/format';
 import Budget from './Budget';
 import Total from './Total';

@@ -1,0 +1,135 @@
+.not-started {
+  color: gray;
+  cursor: auto;
+}
+
+.error {
+  color: #d90d0d;
+  padding: 10px 0;
+  text-align: center;
+  display: block !important;
+  margin-top: 30px;
+}
+
+.modal-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.85);
+  z-index: 100;
+}
+
+.modal {
+  min-width: 350px;
+  width: 95%;
+  min-height: 450px;
+  height: 95%;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 60px;
+  overflow-y: auto;
+}
+
+.modal input[type="text"] {
+  border-bottom: 1px solid gray;
+  margin: 10px;
+}
+
+.modal div {
+  margin-bottom: 45px;
+}
+
+input[type="text"].currency {
+  width: 2em;
+}
+
+input[type="text"].amount {
+  width: 5em;
+}
+
+.modal .buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.modal .buttons button, .modal .buttons input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 15px 0;
+  width: 125px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.modal .name-input {
+  width: 50%;
+}
+
+.large-submit {
+  background-color: #000;
+  color: #fff;
+  width: 50%;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.confirm {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.confirm input[type="submit"], .confirm button {
+  padding: 10px 15px 3px 10px;
+  margin: 0 30px;
+  border-bottom: 1px dotted black;
+}
+
+.back {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 0 15px 15px 0;
+}
+
+.explainer {
+  color: gray;
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: -30px;
+}
+
+.negative-tracking {
+  color:  #d90d0d;
+}
+
+.positive-tracking {
+  color: #007d00;
+}
+
+.currency {
+  font-size: 1.25em;
+}
+
+.banner {
+  border-bottom: 1px solid gray;
+  margin-bottom: 60px;
+}
+
+.banner h2 {
+  margin: 0;
+  font-size: 2em;
+}

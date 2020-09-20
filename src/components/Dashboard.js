@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import '../styles/dashboard.css';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
 import { updateBudgetsCurrentPeriods } from '../actions/budget_actions';

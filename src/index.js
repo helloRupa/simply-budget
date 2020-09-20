@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './reset.css';
-import './index.css';
+import './styles/reset.css';
+import './styles/index.css';
 import App from './components/App';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';

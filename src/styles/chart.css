@@ -1,0 +1,16 @@
+.VictoryContainer {
+  margin-top: -45px;
+}
+
+.pie-chart {
+  width: 90%;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.chart-container {
+  width: 95%; 
+  margin: 0 auto; 
+  overflow: visible;
+  padding: 20px;
+}

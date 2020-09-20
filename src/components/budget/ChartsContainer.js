@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/chart.css';
 import SpendLineChart from './SpendLineChart';
 import { periodsToChart } from '../../constants/general';
 import CategoryPieChart from './CategoryPieChart';

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/settings.css';
 import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
 import BackButton from '../shared/BackButton';
