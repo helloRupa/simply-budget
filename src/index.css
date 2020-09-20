@@ -253,16 +253,14 @@ input[type="date"]:disabled {
   text-align: center;
 }
 
-.special-buttons {
+.buttons.import {
   display: flex;
-  justify-content: space-between;
-  margin-top: 60px;
+  flex-wrap: wrap;
 }
 
-.special-buttons button {
-  padding: 15px 0;
-  width: 100px;
-  border-radius: 6px;
+.buttons.import button {
+  width: 215px;
+  margin-bottom: 30px;
 }
 
 button.delete {
@@ -352,13 +350,6 @@ button.delete {
 
 .settings .modal p {
   font-size: 1.25em;
-}
-
-.settings .special-buttons button {
-  font-size: 0.8em;
-  background-color: #000;
-  color: #fff;
-  width: 175px;
 }
 
 .archive ul li {
