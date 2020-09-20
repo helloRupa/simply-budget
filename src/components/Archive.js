@@ -5,6 +5,7 @@ import ArchivedBudget from './archive/ArchivedBudget';
 import BackButton from '../shared/BackButton';
 import { chooseDashboard } from '../actions/ui_actions';
 import { fetchArchives } from '../actions/archive_actions';
+import ScrollToTop from '../shared/ScrollToTop';
 
 function Archive({ archive, fetchArchives, chooseDashboard }) {
   window.scrollTo(0, 0);
@@ -30,6 +31,8 @@ function Archive({ archive, fetchArchives, chooseDashboard }) {
           <ArchivedBudget {...{archived}} />
         </li>)}
       </ul>}
+
+      <ScrollToTop />
     </div>
     </>
   )

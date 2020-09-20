@@ -14,6 +14,7 @@ import {
 import { chooseDashboard } from '../actions/ui_actions';
 import ChartsContainer from './budget/ChartsContainer';
 import { setTrackingClassName } from '../utils/classNameSelectors';
+import ScrollToTop from '../shared/ScrollToTop';
 
 function Budget({ 
   budget, 
@@ -104,6 +105,8 @@ function Budget({
           close={() => setShowChart(false)} /> 
         : null}
     </div>
+
+    <ScrollToTop />
     </>
   )
 }

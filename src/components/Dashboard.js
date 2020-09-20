@@ -7,6 +7,7 @@ import { fetchExpenditures } from '../actions/expenditure_actions';
 import { connect } from 'react-redux';
 import { chooseSettings, chooseArchive } from '../actions/ui_actions';
 import { fetchSettings } from '../actions/settings_actions';
+import ScrollToTop from '../shared/ScrollToTop';
 
 function Dashboard({ 
   budgets, 
@@ -47,6 +48,8 @@ function Dashboard({
         <button onClick={chooseArchive}>
           Archive
         </button>
+
+        <ScrollToTop />
       </div>
     </div>
   )
