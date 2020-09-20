@@ -5,6 +5,7 @@ import DateComp from '../../shared/DateComp';
 import { calculatePeriodFromToday } from '../../utils/calculate';
 import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
+import CancelButton from '../../shared/CancelButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
 
@@ -38,24 +39,36 @@ function UpdateBudget({ budget, close, patchBudget }) {
   }, []);
 
   return (
-    <Form callback={handleSubmit}>
+    <Form callback={handleSubmit} className="budget-settings">
       <div>
+        <label htmlFor="budget-name">Budget Name</label>
         <TextInput 
           placeholder={budget.name} 
           callback={setName} 
           value={name}
           className="name-input"
-          autoFocus={true} />
+          autoFocus={true}
+          id="budget-name" />
+      </div>
 
+      <div>
+        <label htmlFor="start-date">Start Date (optional)</label>
         <DateComp 
           setStartDate={setStartDate} 
           disabled={shouldDisableDate} 
-          date={startDate} />
+          date={startDate}
+          id="start-date" />
       </div>
+      <p className="explainer">
+        Start date cannot be changed once a budget has started.
+      </p>
 
       <Error msg="Budget name is required" condition={!name} />
       
-      <SubmitButton value="Update" className="large-submit" />
+      <div className="buttons">
+        <SubmitButton value="Update" />
+        <CancelButton callback={close} />
+      </div>
     </Form>
   )
 }

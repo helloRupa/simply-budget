@@ -145,6 +145,7 @@ input:focus {
   padding: 10px 0;
   text-align: center;
   display: block !important;
+  margin-top: 30px;
 }
 
 .modal-background {
@@ -220,6 +221,7 @@ input[type="date"]:disabled {
 .modal .buttons {
   display: flex;
   justify-content: space-around;
+  margin-top: 60px;
 }
 
 .modal .buttons button, .modal .buttons input[type="submit"] {
@@ -237,10 +239,6 @@ input[type="date"]:disabled {
   padding: 15px 30px;
   font-size: 1.5em;
   font-weight: bold;
-}
-
-.budget-settings {
-  text-align: center;
 }
 
 .modal .name-input {
@@ -267,11 +265,6 @@ input[type="date"]:disabled {
   border-radius: 6px;
 }
 
-button.archive-btn {
-  border: 2px solid #0075dd;
-  color: #0062b9;
-}
-
 button.delete {
   border: 2px solid #d90d0d;
   color: #d90d0d;
@@ -295,7 +288,7 @@ button.delete {
   padding: 0 15px 15px 0;
 }
 
-.settings, .archive, .expenditure-form {
+.settings, .archive, .expenditure-form, .budget-settings {
   width: 85%;
   margin: auto; 
 }
@@ -304,11 +297,11 @@ button.delete {
   font-size: 1.25em;
 }
 
-.expenditure-form {
+.expenditure-form, .budget-settings {
   font-size: 1em;
 }
 
-.settings div, .expenditure-form div {
+.settings div, .expenditure-form div, .budget-settings div {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -320,7 +313,10 @@ button.delete {
   width: 6em;
 }
 
-.expenditure-form input[type="text"], .expenditure-form input[type="date"] {
+.expenditure-form input[type="text"], 
+.expenditure-form input[type="date"],
+.budget-settings input[type="text"],
+.budget-settings input[type="date"] {
   text-align: center;
   width: 8em;
 }
@@ -341,7 +337,7 @@ button.delete {
   display: block;
 }
 
-.import-export {
+.import-export, .archive-btn, .delete-btn {
   display: block;
   margin: 30px 0;
   padding: 15px 0 0 0;

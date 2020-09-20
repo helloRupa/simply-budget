@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CloseButton from '../../shared/CloseButton';
 import UpdateBudget from './UpdateBudget';
 import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyBudget } from '../../actions/budget_actions';
@@ -21,25 +20,22 @@ function BudgetSettings({
 
   const close = () => setShowBudgetSettings(false);
 
-  return <div className="modal-background budget-settings">
+  return <div className="modal-background">
     <div className="modal">
-      <CloseButton callback={close} />
-
       <h2>Edit {name}</h2>
       
       <UpdateBudget {...{ budget, close }} />
 
-      <div className="special-buttons">
+      <div>
         <button onClick={() => setArchive(true)} className="archive-btn">
           Archive
         </button>
-        <button onClick={() => setRemove(true)} className="delete">
+        {archive ? <Archive {...{ budget, setArchive }} /> : null}
+        <button onClick={() => setRemove(true)} className="delete-btn">
           Delete
         </button>
+        {remove ? <Delete deletable={id} {...{name, setRemove}} /> : null}
       </div>
-      
-      {remove ? <Delete deletable={id} {...{name, setRemove}} /> : null}
-      {archive ? <Archive {...{ budget, setArchive }} /> : null}
     </div>
   </div>
 }
