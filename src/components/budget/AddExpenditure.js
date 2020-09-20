@@ -4,6 +4,7 @@ import {
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
 import { earliestPeriod } from '../../utils/selectors';
+import { scrollToEl } from '../../utils/uiBehavior';
 import ExpenditureForm from './ExpenditureForm';
 import SimpleExpenditureForm from './SimpleExpenditureForm';
 
@@ -40,6 +41,14 @@ function AddExpenditure({
     setShowExpenditureForm(false);
   };
 
+  const loadUntilFound = id => {
+    const loadMoreBtn = document.getElementById('load-more');
+
+    while (!document.getElementById(id)) {
+      loadMoreBtn.click();
+    }
+  };
+
   const onSubmit = e => {
     if (amount !== '') {
       postExpenditure({ 
@@ -47,8 +56,14 @@ function AddExpenditure({
         amount: parseFloat(amount), 
         date: expenseDate 
       }, budget)
-      .then(_ => {
+      .then(exp => {
         handleTruncation();
+        setTimeout(() => {
+          const id = `exp-${exp.expenditure.id}`;
+          
+          loadUntilFound(id);
+          scrollToEl(id);
+        }, 1);
       });
 
       reset();
@@ -63,7 +78,11 @@ function AddExpenditure({
 
   return (
     <>
-    <SimpleExpenditureForm {...{ currency, amount, setAmount }} holdCallback={onSubmit} clickCallback={clickCallback} />
+    <SimpleExpenditureForm 
+      {...{ currency, amount, setAmount }} 
+      holdCallback={onSubmit} 
+      clickCallback={clickCallback} />
+
     { showExpenditureForm ? <ExpenditureForm close={reset} {...{ 
       onSubmit, 
       title, 

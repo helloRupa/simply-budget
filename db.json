@@ -9,27 +9,11 @@
         "Electronics",
         "Clothes",
         "Entertainment",
-        "",
-        "hi",
-        "fdf",
-        "Grocerie",
-        "named",
-        "dfdf",
-        "bunnies",
-        "cats",
-        "test",
-        "testing",
-        "Testing",
-        "bunniesyes",
-        "Pop Tarts",
-        "hi there",
-        "really long name for an expense",
-        "this is a rather long name i think",
-        "stay",
-        "goAway1",
-        "goAway0",
-        "goAway2",
-        "stays"
+        "Old expense",
+        "find me",
+        "find me too",
+        "Find Me Now",
+        "Aug"
       ]
     }
   ],
@@ -171,14 +155,6 @@
   ],
   "expenditures": [
     {
-      "id": 1,
-      "budgetId": 1,
-      "title": "",
-      "amount": 25.5,
-      "date": "2020/7/13",
-      "period": 1
-    },
-    {
       "id": 10,
       "budgetId": 7,
       "title": "Ham",
@@ -200,7 +176,7 @@
       "title": "",
       "amount": 15.5,
       "date": "2020/7/14",
-      "period": 1
+      "period": 2
     },
     {
       "id": 12,
@@ -425,6 +401,46 @@
       "budgetId": 7,
       "period": 11,
       "id": 33
+    },
+    {
+      "title": "find me",
+      "amount": 5,
+      "date": "2020/06/30",
+      "budgetId": 1,
+      "period": 1,
+      "id": 34
+    },
+    {
+      "title": "find me too",
+      "amount": 2,
+      "date": "2020/07/13",
+      "budgetId": 1,
+      "period": 2,
+      "id": 35
+    },
+    {
+      "title": "Find Me Now",
+      "amount": 1,
+      "date": "2020/06/16",
+      "budgetId": 1,
+      "period": 1,
+      "id": 36
+    },
+    {
+      "title": "",
+      "amount": 10,
+      "date": "2020/09/20",
+      "budgetId": 1,
+      "period": 4,
+      "id": 37
+    },
+    {
+      "title": "Aug",
+      "amount": 30,
+      "date": "2020/08/12",
+      "budgetId": 1,
+      "period": 3,
+      "id": 38
     }
   ]
 }
