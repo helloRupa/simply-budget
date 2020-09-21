@@ -2,6 +2,14 @@
   margin-top: -45px;
 }
 
+.VictoryContainer svg g text tspan {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+.VictoryContainer div svg text tspan {
+  font-family: 'Manrope', sans-serif !important;
+}
+
 .pie-chart {
   width: 90%;
   margin: auto;

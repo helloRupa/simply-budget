@@ -89,11 +89,10 @@ input[type="date"] {
 }
 
 input[type="date"]:disabled {
-  color: gray;
+  opacity: 0.6;
 }
 
 button:disabled {
   cursor: auto;
-  color: lightgray;
-  background-color: gray;
+  opacity: 0.6;
 }

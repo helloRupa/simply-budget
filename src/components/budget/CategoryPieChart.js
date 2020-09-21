@@ -38,7 +38,7 @@ function CategoryPieChart({ budget, expenditures }) {
 
   return <div className="pie-chart">
     { budgetExps.length > 0 ? <VictoryPie
-    colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+    colorScale={["#FA7E61", "#FFD046", "#31AFD4", "#003F91", "#D8FDD9"]}
     data={data}
     labels={({ datum }) => `${truncateLabel(datum.x)}: ${budget.currency}${datum.y}`}
     labelPosition={(_) => "centroid"}

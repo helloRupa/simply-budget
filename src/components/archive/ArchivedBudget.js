@@ -22,7 +22,7 @@ function ArchivedBudget({ archived, archived: {
 
   return (
     <>
-      <button onClick={() => setRemove(true)} className="delete">Delete</button>
+      <button onClick={() => setRemove(true)} className="delete">X</button>
 
       <h3>{name}</h3>
       <div className="archive-details">
