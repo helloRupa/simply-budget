@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/settings.css';
 import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
@@ -11,16 +11,21 @@ import TextInputWithRegex from '../shared/TextInputWithRegex';
 import Error from '../shared/Error';
 import ExportData from './settings/ExportData';
 import ImportData from './settings/ImportData';
+import Button from '../shared/Button';
 
 function Settings({ 
   settings, 
   patchSettings, 
-  chooseDashboard
+  chooseDashboard,
+  currentView
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
+  const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
 
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentView]);
 
   const parseMaxItems = () => parseInt(maxItems, 10);
 
@@ -30,10 +35,16 @@ function Settings({
     if (isValidLineItems()) {
       patchSettings({
         "default-currency": currency,
-        "max-length": parseMaxItems()
+        "max-length": parseMaxItems(),
+        "quick-add": quickAdd
       });
       chooseDashboard();
     }
+  };
+
+  const handleQuickAdd = e => {
+    e.preventDefault();
+    setQuickAdd(!quickAdd);
   };
 
   return <>
@@ -74,6 +85,17 @@ function Settings({
       </p>
 
       <div>
+        <label htmlFor="quick-add">
+          Enable Quick Add
+        </label>
+        <Button display={quickAdd ? 'On' : 'Off'} callback={handleQuickAdd} className="quick-add" />
+      </div>
+      <p className="explainer">
+        When Quick Add is On, clicking the "+" button to add a new expense to a budget will 
+        immediately add the expense without a title.
+      </p>
+
+      <div>
         <label htmlFor="notification">
           Notification
         </label>
@@ -99,7 +121,8 @@ function Settings({
 }
 
 const mapStateToProps = state => ({
-  settings: state.settings
+  settings: state.settings,
+  currentView: state.currentView
 });
 
 export default connect(mapStateToProps, { patchSettings, chooseDashboard })(Settings);

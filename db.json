@@ -14,7 +14,8 @@
         "find me too",
         "Find Me Now",
         "Aug"
-      ]
+      ],
+      "quick-add": true
     }
   ],
   "archives": [
@@ -139,7 +140,7 @@
       "limit": 500,
       "startDate": "2020/09/07",
       "truncated": 0,
-      "currentPeriod": 2,
+      "currentPeriod": 3,
       "id": 10
     },
     {

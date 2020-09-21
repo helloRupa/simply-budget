@@ -3,7 +3,8 @@ import { SET_SETTINGS } from '../constants/redux';
 const settingsState = {
   'default-currency': '',
   'max-length': 250,
-  'categories': []
+  'categories': [],
+  'quick-add': false
 };
 
 function settingsReducer(state = settingsState, action) {

@@ -56,3 +56,10 @@
 .settings .modal p {
   font-size: 1.25em;
 }
+
+.quick-add {
+  border-bottom: 1px solid gray;
+  width: 6em;
+  text-align: center;
+  margin: 10px;
+}
