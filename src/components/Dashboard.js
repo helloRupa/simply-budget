@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { chooseSettings, chooseArchive } from '../actions/ui_actions';
 import { fetchSettings } from '../actions/settings_actions';
 import ScrollToTop from '../shared/ScrollToTop';
+import clock from '../images/clock.svg';
+import cog from '../images/cog.svg';
 
 function Dashboard({ 
   budgets, 
@@ -42,11 +44,11 @@ function Dashboard({
 
       <div className="dash-buttons">
         <button onClick={chooseSettings}>
-          Settings
+          <img src={cog} alt="Settings" />
         </button>
 
         <button onClick={chooseArchive}>
-          Archive
+          <img src={clock} alt="Archive" />
         </button>
       </div>
 

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Manrope;
+  src: url(../fonts/Manrope/Manrope-VariableFont_wght.ttf);
+}
+
 html, body, header, section, div, form, input, select, button, ul, ol, p, h1, h2, h3, h4, p {
   margin: 0;
   padding: 0;
@@ -21,8 +26,10 @@ body {
   margin: 0 auto;
   min-width: 350px;
   max-width: 750px;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Manrope', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
   font-size: 16px;
+  color: #3c3c3c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

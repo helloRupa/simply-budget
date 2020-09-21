@@ -15,6 +15,7 @@ import { chooseDashboard } from '../actions/ui_actions';
 import ChartsContainer from './budget/ChartsContainer';
 import { setTrackingClassName } from '../utils/classNameSelectors';
 import ScrollToTop from '../shared/ScrollToTop';
+import graph from '../images/graph.svg';
 
 function Budget({ 
   budget, 
@@ -64,7 +65,9 @@ function Budget({
     <>
     <div className="banner">
       <BackButton callback={chooseDashboard} />
-      <button onClick={handleChartButton} className="charts-btn">Charts</button>
+      <button onClick={handleChartButton} className="charts-btn">
+        <img src={graph} alt="Charts" />
+      </button>
 
       <h2>{ name }</h2>
     </div>

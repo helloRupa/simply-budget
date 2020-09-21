@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Heebo;
+  src: url(../fonts/Heebo/Heebo-VariableFont_wght.ttf);
+}
+
 .not-started {
   color: gray;
   cursor: auto;
@@ -46,6 +51,7 @@
 
 input[type="text"].currency {
   width: 2em;
+  font-size: 1em;
 }
 
 input[type="text"].amount {
@@ -102,7 +108,7 @@ input[type="text"].amount {
   position: absolute;
   top: 30px;
   left: 30px;
-  padding: 0 15px 15px 0;
+  width: 35px;
 }
 
 .explainer {
@@ -132,16 +138,15 @@ input[type="text"].amount {
 .banner h2 {
   margin: 0;
   font-size: 2em;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 15px;
 }
 
 .scroll-to-top {
   position: fixed;
-  bottom: 120px;
-  right: 0;
-  background-color: gray;
-  width: 50px;
-  height: 65px;
-  color: #fff;
-  text-align: center;
-  border-radius: 10px 0 1px 10px;
+  bottom: 90px;
+  right: 15px;
+  width: 40px;
 }

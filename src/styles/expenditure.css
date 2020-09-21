@@ -36,7 +36,7 @@ form.simple-expenditure-form {
 .expenditure-form input[type="text"], 
 .expenditure-form input[type="date"] {
   text-align: center;
-  width: 8em;
+  width: 8.5em;
 }
 
 .expenses {
@@ -50,6 +50,7 @@ form.simple-expenditure-form {
   background-color: #b5b3b3;
   color: white;
   padding: 5px 0;
+  letter-spacing: 5px;
 }
 
 .old-expenses {
