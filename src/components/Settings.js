@@ -73,6 +73,16 @@ function Settings({
         one whole period at a time.
       </p>
 
+      <div>
+        <label htmlFor="notification">
+          Notification
+        </label>
+        <TextInput
+          placeholder="Native Only"
+          id="notification"
+          disabled={true} />
+      </div>
+
       <Error 
         msg="Maximum number of line items must be 10 or more" 
         condition={!isValidLineItems()} />

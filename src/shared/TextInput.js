@@ -9,7 +9,8 @@ function TextInput({
   list="", 
   className="", 
   autoFocus=false,
-  id=""
+  id="",
+  disabled=false
 }) {
   return <input 
     type="text" 
@@ -20,7 +21,8 @@ function TextInput({
     list={list}
     className={className}
     autoFocus={autoFocus}
-    id={id} />
+    id={id}
+    disabled={disabled} />
 }
 
 export default TextInput;
