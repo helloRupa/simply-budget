@@ -4,7 +4,17 @@ import NumberInput from '../../shared/NumberInput';
 import SubmitButton from '../../shared/SubmitButton';
 import ClickOrHold from '../../shared/ClickOrHold';
 
-function SimpleExpenditureForm({ currency, amount, setAmount, holdCallback, clickCallback }) {
+function SimpleExpenditureForm({ 
+  currency, 
+  amount, 
+  setAmount, 
+  onSubmit, 
+  showModal,
+  quickAdd
+}) {
+  const clickCallback = quickAdd ? onSubmit : showModal;
+  const holdCallback = quickAdd ? showModal : onSubmit;
+  
   const handleEnterKey = e => {
     if (e.key === 'Enter') {
       clickCallback();

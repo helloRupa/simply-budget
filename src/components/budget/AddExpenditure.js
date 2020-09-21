@@ -15,7 +15,8 @@ function AddExpenditure({
   truncateExpenditures,
   expenditures,
   maxLength,
-  setIsTruncating
+  setIsTruncating,
+  quickAdd
 }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
@@ -72,16 +73,14 @@ function AddExpenditure({
     }
   };
 
-  const clickCallback = () => {
+  const showModal = () => {
     setShowExpenditureForm(true);
   };
 
   return (
     <>
     <SimpleExpenditureForm 
-      {...{ currency, amount, setAmount }} 
-      holdCallback={onSubmit} 
-      clickCallback={clickCallback} />
+      {...{ currency, amount, setAmount, quickAdd, onSubmit, showModal }} />
 
     { showExpenditureForm ? <ExpenditureForm close={reset} {...{ 
       onSubmit, 
@@ -101,7 +100,8 @@ function AddExpenditure({
 
 const mapStateToProps = state => ({
   budget: state.budget.selected,
-  maxLength: state.settings['max-length']
+  maxLength: state.settings['max-length'],
+  quickAdd: state.settings['quick-add']
 });
 
 export default connect(mapStateToProps, { 
