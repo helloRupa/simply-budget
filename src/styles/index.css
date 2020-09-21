@@ -65,7 +65,7 @@ input[type="text"].amount {
 }
 
 .modal .buttons button, .modal .buttons input[type="submit"] {
-  background-color: #776799;
+  background-color: #677699;
   color: #fff;
   padding: 15px 0;
   width: 125px;
@@ -73,10 +73,11 @@ input[type="text"].amount {
 }
 
 .close {
+  width: 40px;
+  height: 40px;
   position: absolute;
   right: 0;
-  top: 0;
-  padding: 15px 30px;
+  top: 15px;
   font-size: 1.5em;
   font-weight: bold;
 }
@@ -86,7 +87,7 @@ input[type="text"].amount {
 }
 
 .large-submit {
-  background-color: #776799;
+  background-color: #677699;
   color: #fff;
   width: 50%;
   padding: 15px 0;
@@ -119,11 +120,11 @@ input[type="text"].amount {
 }
 
 .negative-tracking {
-  color:  #d90d0d;
+  color:  #d90d0d !important;
 }
 
 .positive-tracking {
-  color: #007d00;
+  color: #007d00 !important;
 }
 
 .currency {
