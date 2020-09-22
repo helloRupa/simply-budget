@@ -11,6 +11,7 @@ import ScrollToTop from '../shared/ScrollToTop';
 import clock from '../images/clock.svg';
 import cog from '../images/cog.svg';
 import useJumpToTop from '../effects/useJumpToTop';
+import Button from '../shared/Button';
 
 function Dashboard({ 
   budgets, 
@@ -41,13 +42,13 @@ function Dashboard({
       <Budgets {...{ budgets, expenditures }} />
 
       <div className="dash-buttons">
-        <button onClick={chooseSettings}>
-          <img src={cog} alt="Settings" />
-        </button>
+        <Button 
+          callback={chooseSettings} 
+          display={<img src={cog} alt="Settings" />} />
 
-        <button onClick={chooseArchive}>
-          <img src={clock} alt="Archive" />
-        </button>
+        <Button 
+          callback={chooseArchive}
+          display={<img src={clock} alt="Archive" />} />
       </div>
 
       <ScrollToTop />
