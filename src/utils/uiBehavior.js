@@ -11,3 +11,7 @@ export function scrollToEl(id) {
 
   scrollToY(el.offsetTop);
 };
+
+export function jumpToTop() {
+  window.scrollTo(0, 0);
+};

@@ -12,20 +12,21 @@ import Error from '../shared/Error';
 import ExportData from './settings/ExportData';
 import ImportData from './settings/ImportData';
 import Button from '../shared/Button';
+import CurrencyInput from '../shared/CurrencyInput';
+import { jumpToTop } from '../utils/uiBehavior';
 
 function Settings({ 
   settings, 
   patchSettings, 
-  chooseDashboard,
-  currentView
+  chooseDashboard
 }) {
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
   const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentView]);
+    jumpToTop();
+  }, [settings]);
 
   const parseMaxItems = () => parseInt(maxItems, 10);
 
@@ -37,8 +38,8 @@ function Settings({
         "default-currency": currency,
         "max-length": parseMaxItems(),
         "quick-add": quickAdd
-      });
-      chooseDashboard();
+      })
+      .then(_ => chooseDashboard());
     }
   };
 
@@ -60,13 +61,8 @@ function Settings({
         <label htmlFor="default-currency">
           Default Currency
         </label>
-        <TextInput
-          placeholder="$"
-          callback={setCurrency}
-          value={currency}
-          maxLength="2"
-          id="default-currency"
-          autoFocus={true} />
+
+        <CurrencyInput callback={setCurrency} value={currency} id="default-currency" />
       </div>
 
       <div>
@@ -121,8 +117,7 @@ function Settings({
 }
 
 const mapStateToProps = state => ({
-  settings: state.settings,
-  currentView: state.currentView
+  settings: state.settings
 });
 
 export default connect(mapStateToProps, { patchSettings, chooseDashboard })(Settings);

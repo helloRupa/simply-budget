@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/chart.css';
 import SpendLineChart from './SpendLineChart';
 import { periodsToChart } from '../../constants/general';
 import CategoryPieChart from './CategoryPieChart';
 import CloseButton from '../../shared/CloseButton';
+import { jumpToTop } from '../../utils/uiBehavior';
 
 function ChartsContainer({ 
   budget,
@@ -11,7 +12,9 @@ function ChartsContainer({
   expenditures,
   close
 }) {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    jumpToTop();
+  }, []);
   
   return <div className="modal-background">
     <div className="modal">

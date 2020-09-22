@@ -16,6 +16,7 @@ import ChartsContainer from './budget/ChartsContainer';
 import { setTrackingClassName } from '../utils/classNameSelectors';
 import ScrollToTop from '../shared/ScrollToTop';
 import graph from '../images/graph.svg';
+import { jumpToTop } from '../utils/uiBehavior';
 
 function Budget({ 
   budget, 
@@ -48,7 +49,7 @@ function Budget({
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    jumpToTop();
   }, []);
 
   useEffect(() => {

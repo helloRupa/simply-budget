@@ -10,6 +10,7 @@ import { fetchSettings } from '../actions/settings_actions';
 import ScrollToTop from '../shared/ScrollToTop';
 import clock from '../images/clock.svg';
 import cog from '../images/cog.svg';
+import { jumpToTop } from '../utils/uiBehavior';
 
 function Dashboard({ 
   budgets, 
@@ -34,7 +35,7 @@ function Dashboard({
   ]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    jumpToTop();
   }, [currentView]);
 
   return (

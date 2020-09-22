@@ -3,17 +3,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## To Do:
 
 - Test fully
-- Style
-- Archive
-    - Calculate total spent
-    - Put in archives structure
-        - name
-        - start date
-        - end date
-        - total spent
-        - total leftover (or just this)
-    - Delete expenditures for that budget
-    - How should this affect totals?
+- Responsiveness
+- Style error screen
+- Style truncating message
+- Animations
+- Load screens
+- Dark mode ??
 
 ## Future Features:
 

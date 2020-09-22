@@ -7,10 +7,10 @@ import DateComp from '../../shared/DateComp';
 import { periodOptions } from '../../constants/general';
 import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
-import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
 import Select from '../../shared/Select';
 import { scrollToEl } from '../../utils/uiBehavior';
+import CurrencyInput from '../../shared/CurrencyInput';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -71,13 +71,11 @@ function CreateOptions({
 
       <div>
         <span>I want to spend </span>
-        <TextInput 
-          placeholder="$" 
+        
+        <CurrencyInput 
           callback={setCurrency} 
-          value={currency}
-          maxLength="2"
-          className="currency"
-          autoFocus={true} />
+          value={currency} 
+          className="currency" />
 
         <NumberInput value={limit} callback={setLimit} className="amount" />
 

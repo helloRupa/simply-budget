@@ -6,9 +6,12 @@ import BackButton from '../shared/BackButton';
 import { chooseDashboard } from '../actions/ui_actions';
 import { fetchArchives } from '../actions/archive_actions';
 import ScrollToTop from '../shared/ScrollToTop';
+import { jumpToTop } from '../utils/uiBehavior';
 
 function Archive({ archive, fetchArchives, chooseDashboard }) {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    jumpToTop();
+  }, []);
 
   useEffect(() => {
     fetchArchives();
