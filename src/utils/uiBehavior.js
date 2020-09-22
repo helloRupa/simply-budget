@@ -15,3 +15,7 @@ export function scrollToEl(id) {
 export function jumpToTop() {
   window.scrollTo(0, 0);
 };
+
+export function delay(callback) {
+  setTimeout(callback, 1);
+};

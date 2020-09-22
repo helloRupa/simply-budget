@@ -9,7 +9,7 @@ import SubmitButton from '../../shared/SubmitButton';
 import NumberInput from '../../shared/NumberInput';
 import Error from '../../shared/Error';
 import Select from '../../shared/Select';
-import { scrollToEl } from '../../utils/uiBehavior';
+import { delay, scrollToEl } from '../../utils/uiBehavior';
 import CurrencyInput from '../../shared/CurrencyInput';
 
 function CreateOptions({ 
@@ -42,7 +42,7 @@ function CreateOptions({
       newBudget(budgetSettings)
       .then(data => {
         if (data) {
-          setTimeout(() => scrollToEl(`budget-${data.budget.id}`), 1);
+          delay(() => scrollToEl(`budget-${data.budget.id}`));
         }
       });
       close();

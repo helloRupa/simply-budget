@@ -4,7 +4,7 @@ import {
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
 import { earliestPeriod } from '../../utils/selectors';
-import { scrollToEl } from '../../utils/uiBehavior';
+import { delay, scrollToEl } from '../../utils/uiBehavior';
 import ExpenditureForm from './ExpenditureForm';
 import SimpleExpenditureForm from './SimpleExpenditureForm';
 
@@ -61,12 +61,12 @@ function AddExpenditure({
         handleTruncation();
 
         if (exp) {
-          setTimeout(() => {
+          delay(() => {
             const id = `exp-${exp.expenditure.id}`;
             
             loadUntilFound(id);
             scrollToEl(id);
-          }, 1);
+          });
         }
       });
 
