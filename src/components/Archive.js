@@ -6,12 +6,10 @@ import BackButton from '../shared/BackButton';
 import { chooseDashboard } from '../actions/ui_actions';
 import { fetchArchives } from '../actions/archive_actions';
 import ScrollToTop from '../shared/ScrollToTop';
-import { jumpToTop } from '../utils/uiBehavior';
+import useJumpToTop from '../effects/useJumpToTop';
 
 function Archive({ archive, fetchArchives, chooseDashboard }) {
-  useEffect(() => {
-    jumpToTop();
-  }, []);
+  useJumpToTop();
 
   useEffect(() => {
     fetchArchives();

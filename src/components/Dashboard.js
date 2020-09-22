@@ -10,7 +10,7 @@ import { fetchSettings } from '../actions/settings_actions';
 import ScrollToTop from '../shared/ScrollToTop';
 import clock from '../images/clock.svg';
 import cog from '../images/cog.svg';
-import { jumpToTop } from '../utils/uiBehavior';
+import useJumpToTop from '../effects/useJumpToTop';
 
 function Dashboard({ 
   budgets, 
@@ -20,8 +20,7 @@ function Dashboard({
   forceUpdate,
   chooseSettings,
   chooseArchive,
-  fetchSettings,
-  currentView
+  fetchSettings
 }) {
   useEffect(() => {
     updateBudgetsCurrentPeriods();
@@ -34,9 +33,7 @@ function Dashboard({
     fetchSettings
   ]);
 
-  useEffect(() => {
-    jumpToTop();
-  }, [currentView]);
+  useJumpToTop();
 
   return (
     <div>
@@ -60,8 +57,7 @@ function Dashboard({
 
 const mapStateToProps = state => ({
   budgets: state.budget.budgets,
-  expenditures: state.expenditures,
-  currentView: state.currentView
+  expenditures: state.expenditures
 });
 
 export default connect(mapStateToProps, { 

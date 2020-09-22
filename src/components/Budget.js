@@ -16,7 +16,7 @@ import ChartsContainer from './budget/ChartsContainer';
 import { setTrackingClassName } from '../utils/classNameSelectors';
 import ScrollToTop from '../shared/ScrollToTop';
 import graph from '../images/graph.svg';
-import { jumpToTop } from '../utils/uiBehavior';
+import useJumpToTop from '../effects/useJumpToTop';
 
 function Budget({ 
   budget, 
@@ -48,9 +48,7 @@ function Budget({
     }
   };
 
-  useEffect(() => {
-    jumpToTop();
-  }, []);
+  useJumpToTop();
 
   useEffect(() => {
     if (currentPeriod - periods < lowestPeriod) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/settings.css';
 import { patchSettings } from '../actions/settings_actions';
 import { connect } from 'react-redux';
@@ -13,7 +13,7 @@ import ExportData from './settings/ExportData';
 import ImportData from './settings/ImportData';
 import Button from '../shared/Button';
 import CurrencyInput from '../shared/CurrencyInput';
-import { jumpToTop } from '../utils/uiBehavior';
+import useJumpToTop from '../effects/useJumpToTop';
 
 function Settings({ 
   settings, 
@@ -24,9 +24,7 @@ function Settings({
   const [maxItems, setMaxItems] = useState(settings['max-length']);
   const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
 
-  useEffect(() => {
-    jumpToTop();
-  }, [settings]);
+  useJumpToTop([settings]);
 
   const parseMaxItems = () => parseInt(maxItems, 10);
 
