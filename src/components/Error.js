@@ -39,12 +39,14 @@ function Error({
 
   return (
     <div>
-      { error ? <div>
+      { error ? <div className="modal-background serious-error">
+      <div className="modal">
         <h2>Oops, something went wrong</h2>
-        <p>{error}</p>
-        <p>Location: {location}</p>
-        <p>Debug Message: {debug}</p>
-        <button onClick={reload}>Reload</button>
+        <p className="main-message">{error}</p>
+        <p><span className="label">Location:</span> {location}</p>
+        <p><span className="label">Debug Message:</span> {debug}</p>
+        <button onClick={reload} className="large-submit">Reload</button>
+      </div>
       </div> : null  }
     </div>
   )

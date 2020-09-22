@@ -152,3 +152,34 @@ input[type="text"].amount {
   right: 15px;
   width: 40px;
 }
+
+.serious-error {
+  text-align: center;
+}
+
+.serious-error h2 {
+  background-color: #d90d0d;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.serious-error .main-message {
+  color: #d90d0d;
+  font-weight: 600;
+}
+
+.serious-error p {
+  font-size: 1.25em;
+  padding: 15px 0;
+}
+
+.serious-error .label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.serious-error .large-submit {
+  margin: 30px auto;
+  font-size: 1.25em;
+}

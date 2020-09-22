@@ -41,7 +41,9 @@ function CreateOptions({
       
       newBudget(budgetSettings)
       .then(data => {
-        setTimeout(() => scrollToEl(`budget-${data.budget.id}`), 1);
+        if (data) {
+          setTimeout(() => scrollToEl(`budget-${data.budget.id}`), 1);
+        }
       });
       close();
     }

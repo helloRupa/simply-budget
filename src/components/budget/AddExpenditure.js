@@ -59,12 +59,15 @@ function AddExpenditure({
       }, budget)
       .then(exp => {
         handleTruncation();
-        setTimeout(() => {
-          const id = `exp-${exp.expenditure.id}`;
-          
-          loadUntilFound(id);
-          scrollToEl(id);
-        }, 1);
+
+        if (exp) {
+          setTimeout(() => {
+            const id = `exp-${exp.expenditure.id}`;
+            
+            loadUntilFound(id);
+            scrollToEl(id);
+          }, 1);
+        }
       });
 
       reset();
