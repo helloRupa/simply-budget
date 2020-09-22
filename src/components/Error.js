@@ -4,6 +4,7 @@ import { clearError } from '../actions/error_actions';
 import { patchBudget, clearBackup } from '../actions/budget_actions';
 import { repostExpenditure } from '../actions/expenditure_actions';
 import { selectBudgetExpenditures } from '../utils/selectors';
+import Button from '../shared/Button';
 
 function Error({ 
   errors: { error, location, debug }, 
@@ -45,7 +46,11 @@ function Error({
         <p className="main-message">{error}</p>
         <p><span className="label">Location:</span> {location}</p>
         <p><span className="label">Debug Message:</span> {debug}</p>
-        <button onClick={reload} className="large-submit">Reload</button>
+
+        <Button
+          callback={reload}
+          className="large-submit"
+          display="Reload" />
       </div>
       </div> : null  }
     </div>

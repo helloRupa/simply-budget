@@ -7,6 +7,7 @@ import { formatNumber, displayDate } from '../utils/format';
 import { connect } from 'react-redux';
 import { formattedSingleBudgetTracking, calculateTracking } from '../utils/calculate';
 import BackButton from '../shared/BackButton';
+import Button from '../shared/Button';
 import { 
   selectBudgetExpenditures, 
   earliestPeriod 
@@ -64,9 +65,11 @@ function Budget({
     <>
     <div className="banner">
       <BackButton callback={chooseDashboard} />
-      <button onClick={handleChartButton} className="charts-btn">
-        <img src={graph} alt="Charts" />
-      </button>
+
+      <Button
+        callback={handleChartButton}
+        className="charts-btn"
+        display={<img src={graph} alt="Charts" />} />
 
       <h2>{ name }</h2>
     </div>
@@ -91,9 +94,14 @@ function Budget({
       <Expenditures 
         {...{ expenditures, currentPeriod, currency, periods, budget }}
       />
-      <button onClick={incrementPeriods} disabled={!showMore} className="load-more" id="load-more">
-        Load More
-      </button>
+
+      <Button 
+        callback={incrementPeriods} 
+        disabled={!showMore} 
+        className="load-more" 
+        id="load-more"
+        display="Load More" />
+
       { isTruncating ? <p><strong>Truncating oldest expenses</strong></p> : null }
       <AddExpenditure 
         expenditures={ expenditures[id] || [] } 

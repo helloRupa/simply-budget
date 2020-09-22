@@ -1,6 +1,7 @@
 import React from 'react';
 import { saveAs } from 'file-saver';
 import { fetchDb } from '../../utils/comms';
+import Button from '../../shared/Button';
 
 function ExportData() {
   const handleClick = e => {
@@ -11,9 +12,10 @@ function ExportData() {
     });
   };
 
-  return <button onClick={handleClick} className="import-export">
-    Export Data
-  </button>
+  return <Button 
+    callback={handleClick} 
+    className="import-export" 
+    display="Export Data" />
 }
 
 export default ExportData;

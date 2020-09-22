@@ -4,8 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Responsiveness
-- Style error screen
-- Style truncating message
 - Animations
 - Load screens
 - Dark mode ??

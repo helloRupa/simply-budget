@@ -4,6 +4,7 @@ import { formatNumber, displayDate } from '../../utils/format';
 import { connect } from 'react-redux';
 import { destroyExpenditure } from '../../actions/expenditure_actions';
 import ClickOrHold from '../../shared/ClickOrHold';
+import Button from '../../shared/Button';
 
 function Item({ 
   item, 
@@ -24,7 +25,10 @@ function Item({
 
   return (
     <>
-      <button onClick={handleDelete} className="delete-expense">X</button>
+      <Button 
+        callback={handleDelete}
+        className="delete-expense"
+        display="X" />
 
       <ClickOrHold holdCallback={handleEdit}>
         <span className="expense-date">{ displayDate(date) }</span>

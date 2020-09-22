@@ -3,6 +3,7 @@ import UpdateBudget from './UpdateBudget';
 import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyBudget } from '../../actions/budget_actions';
 import Archive from './Archive';
+import Button from '../../shared/Button';
 
 /** DELETING A BUDGET DELETES ALL DEPENDENT RECORDS **/
 /** THIS IS DEFAULT BEHAVIOR WITH JSON-SERVER BUT NOT **/
@@ -27,13 +28,18 @@ function BudgetSettings({
       <UpdateBudget {...{ budget, close }} />
 
       <div>
-        <button onClick={() => setArchive(true)} className="archive-btn">
-          Archive
-        </button>
+        <Button 
+          callback={() => setArchive(true)}
+          className="archive-btn"
+          display="Archive" />
+
         {archive ? <Archive {...{ budget, setArchive }} /> : null}
-        <button onClick={() => setRemove(true)} className="delete-btn">
-          Delete
-        </button>
+
+        <Button
+          callback={() => setRemove(true)}
+          className="delete-btn"
+          display="Delete" />
+
         {remove ? <Delete deletable={id} {...{name, setRemove}} /> : null}
       </div>
     </div>

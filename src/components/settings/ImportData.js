@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { dbKeys } from '../../constants/general';
 import Error from '../../shared/Error';
 import ImportConfirm from './ImportConfirm';
+import Button from '../../shared/Button';
 
 function ImportData() {
   const [importedData, setImportedData] = useState({});
@@ -51,9 +52,11 @@ function ImportData() {
   };
 
   return <>
-    <button onClick={handleClick} className="import-export">
-      Import Data
-    </button>
+    <Button
+      callback={handleClick}
+      className="import-export"
+      display="Import Data" />
+
     <input 
       type="file" 
       accept=".json" 

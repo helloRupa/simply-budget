@@ -63,7 +63,7 @@
       "limit": 100,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 12,
       "id": 7
     },
     {
@@ -83,7 +83,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 12,
       "id": 8
     },
     {
@@ -123,7 +123,7 @@
       "limit": 20,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 12,
       "id": 6
     },
     {
@@ -133,7 +133,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 12,
       "id": 5
     },
     {

@@ -6,6 +6,7 @@ import { fetchBudgets } from '../../actions/budget_actions';
 import { fetchExpenditures } from '../../actions/expenditure_actions';
 import { chooseDashboard } from '../../actions/ui_actions';
 import { connect } from 'react-redux';
+import Button from '../../shared/Button';
 
 function ImportConfirm({ 
   file, 
@@ -41,8 +42,13 @@ function ImportConfirm({
     <p>Only import files exported from this app!</p>
 
     <div className="buttons import">
-      <button onClick={importFile}>Yes! Import My Data</button>
-      <button onClick={close}>No! Take Me Back</button>
+      <Button
+        callback={importFile}
+        display="Yes! Import My Data" />
+
+      <Button
+        callback={close}
+        display="No! Take Me Back" />
     </div>
     
   </div>

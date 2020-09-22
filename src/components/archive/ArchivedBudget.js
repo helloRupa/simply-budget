@@ -3,6 +3,7 @@ import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyArchived } from '../../actions/archive_actions';
 import { displayDate } from '../../utils/format';
 import { setTrackingClassName } from '../../utils/classNameSelectors';
+import Button from '../../shared/Button';
 
 const Delete = DeleteWrapper(destroyArchived);
 
@@ -22,7 +23,10 @@ function ArchivedBudget({ archived, archived: {
 
   return (
     <>
-      <button onClick={() => setRemove(true)} className="delete">X</button>
+      <Button
+        callback={() => setRemove(true)}
+        className="delete"
+        display="X" />
 
       <h3>{name}</h3>
       <div className="archive-details">
