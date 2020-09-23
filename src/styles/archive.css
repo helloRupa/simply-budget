@@ -19,7 +19,7 @@ button.delete {
 
 .archive .delete {
   position: absolute;
-  top: 15px;
+  top: -15px;
   left: 0;
   padding: 6px 11px;
   border-radius: 6px;

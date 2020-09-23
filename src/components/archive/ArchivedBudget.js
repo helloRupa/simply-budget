@@ -41,7 +41,7 @@ function ArchivedBudget({ archived, archived: {
         </p>
 
         <p>
-          <span>Total Under/Over Budget:</span>
+          <span>Total Savings:</span>
           <span className={`${trackingClassName}`}>{currency}{totalTracking}</span>
         </p>
       </div>
