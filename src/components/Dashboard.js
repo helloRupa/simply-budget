@@ -10,7 +10,7 @@ import { fetchSettings } from '../actions/settings_actions';
 import ScrollToTop from '../shared/ScrollToTop';
 import clock from '../images/clock.svg';
 import cog from '../images/cog.svg';
-import useJumpToTop from '../effects/useJumpToTop';
+import useJumpToTop from '../hooks/useJumpToTop';
 import Button from '../shared/Button';
 
 function Dashboard({ 

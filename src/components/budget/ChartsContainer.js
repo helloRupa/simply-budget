@@ -4,7 +4,7 @@ import SpendLineChart from './SpendLineChart';
 import { periodsToChart } from '../../constants/general';
 import CategoryPieChart from './CategoryPieChart';
 import CloseButton from '../../shared/CloseButton';
-import useJumpToTop from '../../effects/useJumpToTop';
+import useJumpToTop from '../../hooks/useJumpToTop';
 
 function ChartsContainer({ 
   budget,

@@ -17,7 +17,7 @@ import ChartsContainer from './budget/ChartsContainer';
 import { setTrackingClassName } from '../utils/classNameSelectors';
 import ScrollToTop from '../shared/ScrollToTop';
 import graph from '../images/graph.svg';
-import useJumpToTop from '../effects/useJumpToTop';
+import useJumpToTop from '../hooks/useJumpToTop';
 
 function Budget({ 
   budget, 

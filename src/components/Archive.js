@@ -6,7 +6,7 @@ import BackButton from '../shared/BackButton';
 import { chooseDashboard } from '../actions/ui_actions';
 import { fetchArchives } from '../actions/archive_actions';
 import ScrollToTop from '../shared/ScrollToTop';
-import useJumpToTop from '../effects/useJumpToTop';
+import useJumpToTop from '../hooks/useJumpToTop';
 
 function Archive({ archive, fetchArchives, chooseDashboard }) {
   useJumpToTop();

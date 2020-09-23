@@ -13,7 +13,7 @@ import ExportData from './settings/ExportData';
 import ImportData from './settings/ImportData';
 import Button from '../shared/Button';
 import CurrencyInput from '../shared/CurrencyInput';
-import useJumpToTop from '../effects/useJumpToTop';
+import useJumpToTop from '../hooks/useJumpToTop';
 
 function Settings({ 
   settings, 
