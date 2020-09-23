@@ -4,6 +4,7 @@ form.simple-expenditure-form {
   justify-content: center;
   align-items: center;
   border-top: 1px solid gray;
+  padding: 0 15px;
 }
 
 .simple-expenditure-form input[type="text"] {
@@ -18,6 +19,7 @@ form.simple-expenditure-form {
   font-size: 2.5em;
   padding: 0 0 5px 0;
   margin-top: -8px;
+  text-align: right;
 }
 
 .expenditure-form {
@@ -66,6 +68,12 @@ form.simple-expenditure-form {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 30px;
+  padding: 0;
   background-color: #fff;
+}
+
+@media all and (min-width: 750px) {
+  .fixed-bottom {
+    padding: 0 30px;
+  }
 }
