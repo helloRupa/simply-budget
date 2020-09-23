@@ -29,6 +29,7 @@ body {
   font-family: 'Manrope', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   font-size: 14px;
+  line-height: 2;
   color: #3c3c3c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -72,6 +73,10 @@ p {
   padding: 5px 0;
 }
 
+input, select, button {
+  line-height: 1.25;
+}
+
 select {
   appearance: none;
   border-bottom: 1px solid gray;
@@ -84,8 +89,8 @@ input:focus {
 
 input[type="date"] {
   border-bottom: 1px solid gray;
-  padding: 0 10px;
-  margin: 0 10px;
+  /* padding: 0 10px; */
+  /* margin: 0 10px; */
 }
 
 input[type="date"]:disabled {
