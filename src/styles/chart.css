@@ -1,3 +1,11 @@
+.modal.charts {
+  padding: 60px 15px;
+}
+
+.small-width {
+  width: 95px;
+}
+
 .VictoryContainer {
   margin-top: -45px;
 }
@@ -11,14 +19,25 @@
 }
 
 .pie-chart {
-  width: 90%;
+  width: 75%;
   margin: auto;
   margin-top: 60px;
 }
 
 .chart-container {
-  width: 95%; 
+  width: 100%; 
   margin: 0 auto; 
   overflow: visible;
-  padding: 20px;
+  padding: 0;
+}
+
+.charts .chart-container:last-of-type {
+  padding-bottom: 30px;
+}
+
+@media all and (min-width: 600px) {
+  .chart-container {
+    width: 95%; 
+    padding: 20px;
+  }
 }

@@ -15,7 +15,7 @@ function ChartsContainer({
   useJumpToTop();
   
   return <div className="modal-background">
-    <div className="modal">
+    <div className="modal charts">
     <CloseButton callback={close} />
 
     <h2>{name}</h2>
@@ -26,7 +26,7 @@ function ChartsContainer({
     </div>
 
     <div className="chart-container">
-      <h4>Spending per category</h4>
+      <h4 className="small-width">Spending per category</h4>
       <CategoryPieChart {...{ budget, expenditures}} />
     </div>
     </div>
