@@ -29,6 +29,7 @@
 .modal {
   min-width: 350px;
   width: 95%;
+  max-width: 700px;
   min-height: 450px;
   height: 95%;
   background-color: #fff;
@@ -36,7 +37,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 60px;
+  padding: 60px 15px;
   overflow-y: auto;
 }
 
@@ -59,16 +60,17 @@ input[type="text"].amount {
 }
 
 .modal .buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 60px;
+  display: block;
+  margin-top: 30px;
 }
 
 .modal .buttons button, .modal .buttons input[type="submit"] {
+  display: block;
+  margin: 30px auto;
+  width: 85%;
   background-color: #677699;
   color: #fff;
   padding: 15px 0;
-  width: 125px;
   text-align: center;
 }
 
@@ -187,5 +189,21 @@ input[type="text"].amount {
 @media all and (min-width: 450px) {
   .scroll-to-top {
     bottom: 90px;
+  }
+
+  .modal .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+  }
+
+  .modal .buttons button, .modal .buttons input[type="submit"] {
+    width: 125px;
+  }
+}
+
+@media all and (min-width: 570px) {
+  .modal {
+    padding: 60px;
   }
 }
