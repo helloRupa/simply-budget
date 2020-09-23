@@ -1,5 +1,8 @@
 export function formatNumber(value) {
-  return parseFloat(value).toFixed(2);
+  return value.toLocaleString('en-US', {
+    maximumFractionDigits: 2, 
+    minimumFractionDigits: 2
+  });
 };
 
 function objectMapper(itemsArray, selector) {

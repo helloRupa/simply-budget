@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Dark mode ??
 - Add code format on save
 - Add commas to display
+    - Double check
 
 ## Future Features:
 
