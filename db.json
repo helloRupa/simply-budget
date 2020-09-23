@@ -16,7 +16,8 @@
         "Aug",
         "jiji",
         "dfef",
-        "Things"
+        "Things",
+        "This one will have a really really long name ok"
       ],
       "quick-add": false
     }
@@ -445,6 +446,14 @@
       "budgetId": 1,
       "period": 3,
       "id": 38
+    },
+    {
+      "title": "This one will have a really really long name ok",
+      "amount": 10,
+      "date": "2020/09/22",
+      "budgetId": 1,
+      "period": 4,
+      "id": 39
     }
   ]
 }
