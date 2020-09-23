@@ -96,7 +96,7 @@ input[type="text"].amount {
 .large-submit {
   background-color: #677699;
   color: #fff;
-  width: 50%;
+  width: 85%;
   padding: 15px 0;
   text-align: center;
 }
@@ -114,9 +114,9 @@ input[type="text"].amount {
 
 .back {
   position: absolute;
-  top: 30px;
-  left: 30px;
-  width: 35px;
+  top: 15px;
+  left: 15px;
+  width: 30px;
 }
 
 .explainer {
@@ -205,10 +205,24 @@ input[type="text"].amount {
   .modal .buttons button, .modal .buttons input[type="submit"] {
     width: 125px;
   }
+
+  .large-submit {
+    background-color: #677699;
+    color: #fff;
+    width: 50%;
+    padding: 15px 0;
+    text-align: center;
+  }
 }
 
 @media all and (min-width: 570px) {
   .modal {
     padding: 60px;
+  }
+
+  .back {
+    top: 30px;
+    left: 30px;
+    width: 35px;
   }
 }

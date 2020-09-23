@@ -26,17 +26,17 @@
 }
 
 .buttons.import {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 }
 
 .buttons.import button {
-  width: 215px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
+  display: block;
+  width: 85%;
 }
 
 .settings input[type="submit"] {
-  margin: 90px auto 0 auto;
+  margin: 30px auto 0 auto;
   display: block;
 }
 
@@ -62,4 +62,20 @@
   width: 6em;
   text-align: center;
   margin: 10px;
+}
+
+@media all and (min-width: 450px) {
+  .settings input[type="submit"] {
+    margin: 90px auto 0 auto;
+  }
+}
+
+@media all and (min-width: 620px) {
+  .buttons.import {
+    display: flex;
+  }
+
+  .buttons.import button {
+    width: 215px;
+  }
 }
