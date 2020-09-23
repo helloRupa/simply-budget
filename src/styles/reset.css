@@ -28,14 +28,14 @@ body {
   max-width: 750px;
   font-family: 'Manrope', 'Helvetica Neue', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #3c3c3c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  padding: 60px 0;
+  padding: 30px 0;
 }
 
 header {
@@ -95,4 +95,14 @@ input[type="date"]:disabled {
 button:disabled {
   cursor: auto;
   opacity: 0.6;
+}
+
+@media all and (min-width: 450px) {
+  body {
+    font-size: 16px;
+  }
+
+  #root {
+    padding: 60px 0;
+  }
 }

@@ -13,7 +13,7 @@
   padding: 10px 0;
   text-align: center;
   display: block !important;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .modal-background {
@@ -148,7 +148,7 @@ input[type="text"].amount {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 90px;
+  bottom: 120px;
   right: 15px;
   width: 40px;
 }
@@ -182,4 +182,10 @@ input[type="text"].amount {
 .serious-error .large-submit {
   margin: 30px auto;
   font-size: 1.25em;
+}
+
+@media all and (min-width: 450px) {
+  .scroll-to-top {
+    bottom: 90px;
+  }
 }

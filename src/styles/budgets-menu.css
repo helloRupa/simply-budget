@@ -31,11 +31,13 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  flex-wrap: wrap;
 }
 
 .budget-menu-item-details .budget-name {
   margin-left: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .budget-menu-item-details .budget-tracking {
