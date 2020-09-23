@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Responsiveness
+    - Double check this works
 - Animations
 - Load screens
 - Dark mode ??

@@ -43,10 +43,10 @@
   color: #1a86bb;
 }
 
-.expense-date {
+/* .expense-date {
   margin: auto;
   width: 321px;
-}
+} */
 
 .period:first-of-type {
   padding-top: 0;
@@ -110,11 +110,14 @@
 
 .expense-date {
   flex: 1;
+  padding-right: 15px;
+  margin: auto;
 }
 
 .expense-title {
   text-align: center;
   line-height: 1.25;
+  word-break: break-all;
   flex: 3;
 }
 

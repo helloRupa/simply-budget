@@ -49,6 +49,7 @@ function ExpenditureForm({
       callback={setTitle}
       list="saved-categories"
       autoFocus={true}
+      maxLength="50"
       id="expense-title" />
     </div>
     <datalist id="saved-categories">
