@@ -13,7 +13,6 @@
   padding: 10px 0;
   text-align: center;
   display: block !important;
-  /* margin-top: 30px; */
 }
 
 .modal-background {
@@ -48,7 +47,6 @@
 
 .modal input[type="text"] {
   border-bottom: 1px solid gray;
-  /* margin: 10px; */
 }
 
 .modal div {

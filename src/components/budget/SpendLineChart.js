@@ -46,6 +46,7 @@ function SpendLineChart({
       dependentAxis
       // tickFormat specifies how ticks should be displayed
       tickFormat={(x) => (`${currency}${x}`)}
+      tickLabelComponent={<VictoryLabel renderInPortal textAnchor="end" />}
     />
 
     <VictoryLine y={() => limit} 
@@ -56,10 +57,6 @@ function SpendLineChart({
     <VictoryLine
       x="period"
       y="spent"
-      // style={{
-      //   data: { stroke: "#c43a31" },
-      //   parent: { border: "1px solid #ccc"}
-      // }}
       data={data}
     />
   </VictoryChart>

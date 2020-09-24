@@ -7,7 +7,7 @@
 }
 
 .VictoryContainer {
-  margin-top: -45px;
+  margin: -45px auto 45px auto;
 }
 
 .VictoryContainer svg g text tspan {
