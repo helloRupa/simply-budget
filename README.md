@@ -3,14 +3,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## To Do:
 
 - Test fully
-- Responsiveness
-    - Double check this works
 - Animations
 - Load screens
 - Dark mode ??
 - Add code format on save
-- Add commas to display
-    - Double check
 
 ## Future Features:
 

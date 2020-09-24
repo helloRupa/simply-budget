@@ -23,11 +23,6 @@ function ArchivedBudget({ archived, archived: {
 
   return (
     <>
-      <Button
-        callback={() => setRemove(true)}
-        className="delete"
-        display="X" />
-
       <h3>{name}</h3>
       <div className="archive-details">
         <p>Ran from {displayDate(startDate)} to {displayDate(endDate)}</p>
@@ -46,6 +41,11 @@ function ArchivedBudget({ archived, archived: {
         </p>
       </div>
       
+      <Button
+        callback={() => setRemove(true)}
+        className="delete-btn"
+        display="Delete" />
+        
       {remove ? <Delete deletable={archived} {...{name, setRemove}} /> : null}
     </>
   );
