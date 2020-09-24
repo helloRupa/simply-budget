@@ -57,7 +57,7 @@
   font-size: 1.25em;
 }
 
-.quick-add {
+.quick-add, .dark-mode {
   border-bottom: 1px solid gray;
   width: 6em;
   text-align: center;

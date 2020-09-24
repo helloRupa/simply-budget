@@ -23,6 +23,7 @@ function Settings({
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
   const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
+  const [darkMode, setDarkMode] = useState(settings['dark-mode']);
 
   useJumpToTop([settings]);
 
@@ -35,7 +36,8 @@ function Settings({
       patchSettings({
         "default-currency": currency,
         "max-length": parseMaxItems(),
-        "quick-add": quickAdd
+        "quick-add": quickAdd,
+        "dark-mode": darkMode
       })
       .then(_ => chooseDashboard());
     }
@@ -44,6 +46,11 @@ function Settings({
   const handleQuickAdd = e => {
     e.preventDefault();
     setQuickAdd(!quickAdd);
+  };
+
+  const handleDarkMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
   };
 
   return <>
@@ -80,7 +87,7 @@ function Settings({
 
       <div>
         <label htmlFor="quick-add">
-          Enable Quick Add
+          Quick Add
         </label>
         <Button display={quickAdd ? 'On' : 'Off'} callback={handleQuickAdd} className="quick-add" />
       </div>
@@ -88,6 +95,13 @@ function Settings({
         When Quick Add is On, clicking the "+" button to add a new expense to a budget will 
         immediately add the expense without a title.
       </p>
+
+      <div>
+        <label htmlFor="dark-mode">
+          Dark Mode
+        </label>
+        <Button display={darkMode ? 'On' : 'Off'} callback={handleDarkMode} className="dark-mode" />
+      </div>
 
       <div>
         <label htmlFor="notification">

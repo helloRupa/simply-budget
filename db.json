@@ -8,20 +8,10 @@
         "Groceries",
         "Electronics",
         "Clothes",
-        "Entertainment",
-        "Old expense",
-        "find me",
-        "find me too",
-        "Find Me Now",
-        "Aug",
-        "jiji",
-        "dfef",
-        "Things",
-        "This one will have a really really long name ok",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabb",
-        "things"
+        "Entertainment"
       ],
-      "quick-add": false
+      "quick-add": false,
+      "dark-mode": false
     }
   ],
   "archives": [
