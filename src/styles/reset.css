@@ -22,8 +22,8 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 2;
-  background-color: #fff;
-  color: #3c3c3c;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

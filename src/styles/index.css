@@ -4,12 +4,12 @@
 }
 
 .not-started {
-  color: gray;
+  color: var(--main-disabled-color);
   cursor: auto;
 }
 
 .error {
-  color: #d90d0d;
+  color: var(--main-error-color);
   padding: 10px 0;
   text-align: center;
   display: block !important;
@@ -21,7 +21,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.85);
+  background-color: var(--modal-bg-color);
   z-index: 100;
 }
 
@@ -31,7 +31,7 @@
   max-width: 700px;
   min-height: 450px;
   height: 95%;
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -71,8 +71,8 @@ input[type="text"].amount {
   display: block;
   margin: 30px auto;
   width: 85%;
-  background-color: #677699;
-  color: #fff;
+  background-color: var(--main-purple-bg-color);
+  color: var(--form-btn-text-color);
   padding: 15px 0;
   text-align: center;
 }
@@ -92,8 +92,8 @@ input[type="text"].amount {
 }
 
 .large-submit {
-  background-color: #677699;
-  color: #fff;
+  background-color: var(--main-purple-bg-color);
+  color: var(--form-btn-text-color);
   width: 85%;
   padding: 15px 0;
   text-align: center;
@@ -118,7 +118,7 @@ input[type="text"].amount {
 }
 
 .explainer {
-  color: gray;
+  color: var(--explainer-text-color);
   font-size: 0.8em;
   font-style: italic;
   margin-top: -30px;
@@ -126,11 +126,11 @@ input[type="text"].amount {
 }
 
 .negative-tracking {
-  color:  #d90d0d !important;
+  color:  var(--negative-no-color) !important;
 }
 
 .positive-tracking {
-  color: #007d00 !important;
+  color: var(--positive-no-color) !important;
 }
 
 .currency {
@@ -163,13 +163,13 @@ input[type="text"].amount {
 }
 
 .serious-error h2 {
-  background-color: #d90d0d;
-  color: #fff;
+  background-color: var(--main-error-color);
+  color: var(--light-text-color);
   text-transform: uppercase;
 }
 
 .serious-error .main-message {
-  color: #d90d0d;
+  color: var(--main-error-color);
   font-weight: 600;
 }
 
@@ -212,11 +212,7 @@ input[type="text"].amount {
   }
 
   .large-submit {
-    background-color: #677699;
-    color: #fff;
     width: 50%;
-    padding: 15px 0;
-    text-align: center;
   }
 }
 
