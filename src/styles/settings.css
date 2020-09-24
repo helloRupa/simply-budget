@@ -57,13 +57,6 @@
   font-size: 1.25em;
 }
 
-.quick-add, .dark-mode {
-  border-bottom: 1px solid gray;
-  width: 6em;
-  text-align: center;
-  margin: 10px;
-}
-
 @media all and (min-width: 450px) {
   .settings input[type="submit"] {
     margin: 90px auto 0 auto;

@@ -189,6 +189,13 @@ input[type="text"].amount {
   font-size: 1.25em;
 }
 
+.on-off-btn {
+  border-bottom: 1px solid gray;
+  width: 6em;
+  text-align: center;
+  margin: 10px;
+}
+
 @media all and (min-width: 450px) {
   .scroll-to-top {
     bottom: 90px;

@@ -11,7 +11,7 @@ import TextInputWithRegex from '../shared/TextInputWithRegex';
 import Error from '../shared/Error';
 import ExportData from './settings/ExportData';
 import ImportData from './settings/ImportData';
-import Button from '../shared/Button';
+import OnOffButton from '../shared/OnOffButton';
 import CurrencyInput from '../shared/CurrencyInput';
 import useJumpToTop from '../hooks/useJumpToTop';
 
@@ -89,7 +89,7 @@ function Settings({
         <label htmlFor="quick-add">
           Quick Add
         </label>
-        <Button display={quickAdd ? 'On' : 'Off'} callback={handleQuickAdd} className="quick-add" />
+        <OnOffButton condition={quickAdd} callback={handleQuickAdd} />
       </div>
       <p className="explainer">
         When Quick Add is On, clicking the "+" button to add a new expense to a budget will 
@@ -100,7 +100,7 @@ function Settings({
         <label htmlFor="dark-mode">
           Dark Mode
         </label>
-        <Button display={darkMode ? 'On' : 'Off'} callback={handleDarkMode} className="dark-mode" />
+        <OnOffButton condition={darkMode} callback={handleDarkMode} />
       </div>
 
       <div>
