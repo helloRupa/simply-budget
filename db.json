@@ -18,30 +18,7 @@
       "dark-mode": true
     }
   ],
-  "archives": [
-    {
-      "name": "First Archived",
-      "currency": "$",
-      "frequency": "month",
-      "limit": 300,
-      "startDate": "2020/06/06",
-      "endDate": "2020/08/30",
-      "totalSpent": 1290.56,
-      "totalTracking": 50.89,
-      "id": 1
-    },
-    {
-      "name": "Second Archived",
-      "currency": "$",
-      "frequency": "month",
-      "limit": 300,
-      "startDate": "2020/05/30",
-      "endDate": "2020/08/30",
-      "totalSpent": 3004.43,
-      "totalTracking": -100.89,
-      "id": 2
-    }
-  ],
+  "archives": [],
   "budgets": [
     {
       "name": "Testing",

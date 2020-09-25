@@ -25,9 +25,10 @@ function Archive({ archive, fetchArchives, chooseDashboard }) {
 
     <div className="archive">
 
-      { archive.length === 0 ? <p>
-          Nothing to see here! Why don't you archive something...or not, is OK!
-        </p> : <ul>
+      { archive.length === 0 ? <div className="no-items">
+          <p>Nothing to see here!</p> 
+          <p>Why don't you archive something...or not, it's OK!</p>
+        </div> : <ul>
         {archive.map(archived => <li key={archived.id}>
           <ArchivedBudget {...{archived}} />
         </li>)}
