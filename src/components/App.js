@@ -23,10 +23,12 @@ function App({ currentView }) {
   };
 
   return (
-    <div className="App">
-      {chooseView()}
-      <Error {...{ setForceUpdate, forceUpdate }} />
-    </div>
+    <main>
+      <div className="wrapper">
+        {chooseView()}
+        <Error {...{ setForceUpdate, forceUpdate }} />
+      </div>
+    </main>
   );
 }
 
