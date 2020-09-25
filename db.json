@@ -10,7 +10,9 @@
         "Clothes",
         "Entertainment",
         "",
-        "s"
+        "s",
+        "Stuff",
+        "New Stuff"
       ],
       "quick-add": false,
       "dark-mode": true
@@ -459,11 +461,27 @@
     },
     {
       "title": "",
-      "amount": 100,
+      "amount": 30,
       "date": "2020/09/24",
       "budgetId": 6,
       "period": 12,
       "id": 41
+    },
+    {
+      "title": "New Stuff",
+      "amount": 23,
+      "date": "2020/09/24",
+      "budgetId": 1,
+      "period": 4,
+      "id": 42
+    },
+    {
+      "title": "",
+      "amount": 234,
+      "date": "2020/09/24",
+      "budgetId": 1,
+      "period": 4,
+      "id": 43
     }
   ]
 }
