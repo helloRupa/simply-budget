@@ -21,7 +21,6 @@ function AddExpenditure({
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [expenseDate, setExpenseDate] = useState('');
-  // const [showError, setShowError] = useState(false);
   const [showExpenditureForm, setShowExpenditureForm] = useState(false);
 
   // Only truncate periods earlier than current period when over limit
@@ -37,7 +36,6 @@ function AddExpenditure({
   const reset = () => {
     setTitle('');
     setAmount('');
-    // setShowError(false);
     setExpenseDate('');
     setShowExpenditureForm(false);
   };
@@ -71,9 +69,7 @@ function AddExpenditure({
       });
 
       reset();
-    } //else {
-      // setShowError(true);
-    //}
+    }
   };
 
   const showModal = () => {
