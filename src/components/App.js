@@ -5,8 +5,9 @@ import Error from './Error';
 import Archive from './Archive';
 import Settings from './Settings';
 import { connect } from 'react-redux';
+import '../styles/colors-darkmode.css';
 
-function App({ currentView }) {
+function App({ currentView, darkMode }) {
   const [forceUpdate, setForceUpdate] = useState(0);
 
   const chooseView = () => {
@@ -22,8 +23,10 @@ function App({ currentView }) {
     }
   };
 
+  const toggleDarkMode = darkMode ? 'dark-mode' : '';
+
   return (
-    <main>
+    <main className={toggleDarkMode}>
       <div className="wrapper">
         {chooseView()}
         <Error {...{ setForceUpdate, forceUpdate }} />
@@ -33,7 +36,8 @@ function App({ currentView }) {
 }
 
 const mapStateToProps = state => ({
-  currentView: state.currentView
+  currentView: state.currentView,
+  darkMode: state.settings['dark-mode']
 });
 
 export default connect(mapStateToProps)(App);

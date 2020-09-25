@@ -104,10 +104,14 @@ input[type="text"].amount {
   font-size: 0.8em;
 }
 
+.confirm span {
+  display: block;
+}
+
 .confirm input[type="submit"], .confirm button {
   padding: 10px 15px 3px 10px;
   margin: 0 30px;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted var(--dark-border-color);
 }
 
 .back {

@@ -1,3 +1,33 @@
-:root {
-  --main-bg-color: #000;
+.dark-mode {
+  --main-bg-color: #202124;
+  --main-text-color: #e0e9ec;
+  --light-text-color: #f0eaf0;
+  --main-disabled-color: #88838c;
+  --main-error-color: #df4a58;
+  --modal-bg-color: rgba(0,0,0,0.85);
+  --main-purple-bg-color: #613a73;
+  --form-btn-text-color: #f0eaf0;
+  --explainer-text-color: #a7abae;
+  --negative-no-color: #f9bb85;
+  --positive-no-color: #86dd54;
+  --info-text-color: #eee;
+  --goal-text-color: #71f5fb;
+  --main-border-color: #5b616c;
+  --light-border-color: #5b616c;
+  --dark-border-color: #e0e9ec;
+  --start-date-color: #f8ffff;
+  --dash-button-color: #3e4044;
+  --button-border-color: #4a5057;
+}
+
+.dark-mode .charts-btn img, .dark-mode .close img {
+  filter: invert(1) hue-rotate(177deg) brightness(85%);
+}
+
+.dark-mode .chart-container svg {
+  filter: invert(1);
+}
+
+.dark-mode .scroll-to-top img {
+  filter: brightness(75%);
 }

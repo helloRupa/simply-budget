@@ -17,7 +17,10 @@ function Archive({ budget, archiveBudget, expenditures, setArchive }) {
 
   return (
     <Form callback={handleSubmit} className={"confirm"}>
-      Are you sure you want to archive {budget.name}?
+      <span>
+        Are you sure you want to archive {budget.name}?
+      </span>
+      
 
       <SubmitButton value="Yes" />
 

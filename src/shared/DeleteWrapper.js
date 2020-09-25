@@ -17,7 +17,9 @@ function DeleteWrapper(deleteMethod) {
   
     return (
       <Form callback={handleSubmit} className={"confirm"}>
-        Are you sure you want to delete {name}?
+        <span>
+          Are you sure you want to delete {name}?
+        </span>
         
         <SubmitButton value="Yes" />
 
