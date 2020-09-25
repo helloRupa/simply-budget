@@ -28,6 +28,7 @@ body {
 }
 
 main {
+  min-height: 100vh;
   background-color: var(--main-bg-color);
 }
 
@@ -37,6 +38,7 @@ main {
   min-width: 350px;
   max-width: 750px;
   color: var(--main-text-color);
+  position: relative;
 }
 
 h1 {
