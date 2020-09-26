@@ -14,6 +14,7 @@ import ImportData from './settings/ImportData';
 import OnOffButton from '../shared/OnOffButton';
 import CurrencyInput from '../shared/CurrencyInput';
 import useJumpToTop from '../hooks/useJumpToTop';
+import Explainer from '../shared/Explainer';
 
 function Settings({ 
   settings, 
@@ -73,9 +74,8 @@ function Settings({
             callback={setMaxItems}
             id="max-items" />
       </div>
-      <p className="explainer">
-        Expenses are deleted one period at a time (oldest first) from a budget over this limit.
-      </p>
+      <Explainer 
+        text="Expenses are deleted one period at a time (oldest first) from a budget over this limit." />
 
       <div>
         <label htmlFor="quick-add">
@@ -83,9 +83,7 @@ function Settings({
         </label>
         <OnOffButton condition={quickAdd} callback={handleQuickAdd} />
       </div>
-      <p className="explainer">
-        Add an Untitled expense when clicking the "+" button.
-      </p>
+      <Explainer text='Add an Untitled expense when clicking the "+" button.' />
 
       <div>
         <label htmlFor="notification">

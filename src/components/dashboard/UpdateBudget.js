@@ -8,6 +8,7 @@ import SubmitButton from '../../shared/SubmitButton';
 import CancelButton from '../../shared/CancelButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
+import Explainer from '../../shared/Explainer';
 
 function UpdateBudget({ budget, close, patchBudget }) {
   const [name, setName] = useState(budget.name);
@@ -59,9 +60,7 @@ function UpdateBudget({ budget, close, patchBudget }) {
           date={startDate}
           id="start-date" />
       </div>
-      <p className="explainer">
-        Start date cannot be changed once a budget has started.
-      </p>
+      <Explainer text="Start date cannot be changed once a budget has started." />
 
       <Error msg="Budget name is required" condition={!name} />
       
