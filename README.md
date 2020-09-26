@@ -9,6 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Add code format on save
 - Hidden labels for inputs without labels
 - Move dark mode button
+- Positive messages for certain changes
 
 ## Future Features:
 
