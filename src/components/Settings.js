@@ -24,7 +24,7 @@ function Settings({
   const [maxItems, setMaxItems] = useState(settings['max-length']);
   const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
 
-  useJumpToTop([settings]);
+  useJumpToTop([]);
 
   const parseMaxItems = () => parseInt(maxItems, 10);
 
