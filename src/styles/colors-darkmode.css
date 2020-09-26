@@ -1,31 +1,43 @@
 .dark-mode {
-  --main-bg-color: #202124;
-  --main-text-color: #e0e9ec;
+  --main-bg-color: #1d1828;
+  --main-text-color: #ecf1f2;
   --light-text-color: #f0eaf0;
-  --main-disabled-color: #88838c;
-  --main-error-color: #df4a58;
-  --modal-bg-color: rgba(0,0,0,0.85);
-  --main-purple-bg-color: #613a73;
-  --form-btn-text-color: #f0eaf0;
-  --explainer-text-color: #a7abae;
-  --negative-no-color: #ffc593;
-  --positive-no-color: #86dd54;
-  --info-text-color: #eee;
-  --goal-text-color: #71f5fb;
-  --main-border-color: #5b616c;
-  --light-border-color: #5b616c;
-  --dark-border-color: #e0e9ec;
-  --start-date-color: #f8ffff;
-  --dash-button-color: #3e4044;
-  --button-border-color: #4a5057;
+  --main-disabled-color: #8d86b9;
+  --main-error-color: #fb965a;
+  --modal-bg-color: rgba(0, 0, 0, 0.85);
+  --main-purple-bg-color: #351966;
+  --form-btn-text-color: #ecf1f2;
+  --explainer-text-color: #7e5db7;
+  --negative-no-color: #f47070;
+  --positive-no-color: #88ffd1;
+  --info-text-color: #ecf1f2;
+  --goal-text-color: #ffed4a;
+  --main-border-color: #583a8c;
+  --light-border-color: #7e5db7;
+  --dark-border-color: #ecf1f2;
+  --start-date-color: #ecf1f2;
+  --dash-button-color: #361f68;
+  --button-border-color: #7351ae;
 }
 
-.dark-mode .charts-btn img, .dark-mode .close img {
-  filter: invert(1) hue-rotate(177deg) brightness(85%);
+.dark-mode select {
+  background-color: transparent;
+}
+
+.dark-mode select:focus {
+  background-color: var(--main-border-color);
+}
+
+.dark-mode .charts-btn img, .dark-mode .close img, .back img {
+  filter: invert(1) brightness(1.4);
 }
 
 .dark-mode .chart-container svg {
-  filter: invert(1);
+  filter: invert(1) brightness(1.5);
+}
+
+.chart-container .pie-chart svg {
+  filter: invert(0.9) brightness(1.5);
 }
 
 .dark-mode .scroll-to-top img {

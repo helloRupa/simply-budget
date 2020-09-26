@@ -86,7 +86,7 @@ input, select, button {
 
 select {
   appearance: none;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--main-border-color);
   padding: 0 15px;
 }
 
@@ -95,7 +95,7 @@ input:focus {
 }
 
 input[type="date"] {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--main-border-color);
 }
 
 input[type="date"]:disabled {
@@ -105,6 +105,11 @@ input[type="date"]:disabled {
 button:disabled {
   cursor: auto;
   opacity: 0.6;
+}
+
+::placeholder {
+  color: var(--main-disabled-color);
+  opacity: 0.8;
 }
 
 @media all and (min-width: 450px) {
