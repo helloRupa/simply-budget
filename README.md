@@ -5,10 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Test fully
 - Animations
 - Load screens
-- Dark mode ??
 - Add code format on save
 - Hidden labels for inputs without labels
-- Move dark mode button
 - Positive messages for certain changes
 
 ## Future Features:
