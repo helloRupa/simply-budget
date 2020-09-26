@@ -5,6 +5,7 @@ import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
+import HiddenLabel from '../../shared/HiddenLabel';
 
 function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);
@@ -24,11 +25,13 @@ function CreateBudget() {
 
   return (
     <div>
-      <Form callback={openOptions} className="create-budget">    
+      <Form callback={openOptions} className="create-budget">
+          <HiddenLabel id="new-budget" text="New Budget Name" />    
           <TextInput 
             placeholder="New Budget Name" 
             callback={setBudgetName}
-            value={budgetName} />
+            value={budgetName}
+            id="new-budget" />
             
           <SubmitButton value="+" />
       </Form>

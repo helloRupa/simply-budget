@@ -11,6 +11,7 @@ import Error from '../../shared/Error';
 import Select from '../../shared/Select';
 import { delay, scrollToEl } from '../../utils/uiBehavior';
 import CurrencyInput from '../../shared/CurrencyInput';
+import HiddenLabel from '../../shared/HiddenLabel';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -74,19 +75,24 @@ function CreateOptions({
       <div>
         <span>I want to spend </span>
         
+        <HiddenLabel id="new-budget-currency" text="Currency" />
         <CurrencyInput 
           callback={setCurrency} 
           value={currency} 
-          className="currency" />
+          className="currency"
+          id="new-budget-currency" />
 
-        <NumberInput value={limit} callback={setLimit} className="amount" />
+        <HiddenLabel id="new-budget-limit" text="Spending Limit" />
+        <NumberInput value={limit} callback={setLimit} className="amount" id="new-budget-limit" />
 
         <span>per </span>
 
+        <HiddenLabel id="new-budget-frequency" text="Frequency" />
         <Select 
           callback={setFrequency} 
           value={frequency} 
-          optionsCallback={makeOptions} />
+          optionsCallback={makeOptions}
+          id="new-budget-frequency" />
       </div>
 
       <div>

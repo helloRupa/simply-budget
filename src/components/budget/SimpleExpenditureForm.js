@@ -3,6 +3,7 @@ import Form from '../../shared/Form';
 import NumberInput from '../../shared/NumberInput';
 import SubmitButton from '../../shared/SubmitButton';
 import ClickOrHold from '../../shared/ClickOrHold';
+import HiddenLabel from '../../shared/HiddenLabel';
 
 function SimpleExpenditureForm({ 
   currency, 
@@ -25,7 +26,9 @@ function SimpleExpenditureForm({
   <div className="fixed-bottom" onKeyPress={handleEnterKey}>
   <Form className="simple-expenditure-form">
     <span className="currency">{currency}</span>
-    <NumberInput value={amount} callback={setAmount} />
+
+    <HiddenLabel id="expense-amount" text="Expense Amount" />
+    <NumberInput value={amount} callback={setAmount} id="expense-amount" />
 
     <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback}>
       <SubmitButton value="+" />

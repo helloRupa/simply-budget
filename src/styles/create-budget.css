@@ -1,6 +1,7 @@
 .create-budget-options {
   font-size: 1.25em;
   text-align: center;
+  position: relative;
 }
 
 form.create-budget {
@@ -9,6 +10,7 @@ form.create-budget {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--main-border-color);
+  position: relative;
 }
 
 .create-budget-options input {
