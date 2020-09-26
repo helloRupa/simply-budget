@@ -23,7 +23,6 @@ function Settings({
   const [currency, setCurrency] = useState(settings['default-currency']);
   const [maxItems, setMaxItems] = useState(settings['max-length']);
   const [quickAdd, setQuickAdd] = useState(settings['quick-add']);
-  const [darkMode, setDarkMode] = useState(settings['dark-mode']);
 
   useJumpToTop([settings]);
 
@@ -36,8 +35,7 @@ function Settings({
       patchSettings({
         "default-currency": currency,
         "max-length": parseMaxItems(),
-        "quick-add": quickAdd,
-        "dark-mode": darkMode
+        "quick-add": quickAdd
       })
       .then(_ => chooseDashboard());
     }
@@ -46,11 +44,6 @@ function Settings({
   const handleQuickAdd = e => {
     e.preventDefault();
     setQuickAdd(!quickAdd);
-  };
-
-  const handleDarkMode = e => {
-    e.preventDefault();
-    setDarkMode(!darkMode);
   };
 
   return <>
@@ -81,7 +74,7 @@ function Settings({
             id="max-items" />
       </div>
       <p className="explainer">
-        Once a budget goes over the maximum, items are deleted one period at a time (oldest first).
+        Expenses are deleted one period at a time (oldest first) from a budget over this limit.
       </p>
 
       <div>
@@ -93,13 +86,6 @@ function Settings({
       <p className="explainer">
         Add an Untitled expense when clicking the "+" button.
       </p>
-
-      <div>
-        <label htmlFor="dark-mode">
-          Dark Mode
-        </label>
-        <OnOffButton condition={darkMode} callback={handleDarkMode} />
-      </div>
 
       <div>
         <label htmlFor="notification">

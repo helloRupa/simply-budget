@@ -8,8 +8,7 @@ import { patchSettings } from '../../actions/settings_actions';
 function DarkModeBtn({ darkMode, patchSettings }) {
   const displayImage = darkMode ? lightbulbOn : lightbulbOff;
   const handleClick = () => {
-    patchSettings({ 'dark-mode': !darkMode })
-    .then(settings => console.log(settings));
+    patchSettings({ 'dark-mode': !darkMode });
   };
 
   return <Button 
