@@ -3,6 +3,13 @@
   src: url(../fonts/Manrope/Manrope-VariableFont_wght.ttf);
 }
 
+* {
+  transition: background-color 1.5s ease-in-out, 
+    color 1.5s ease-in-out, 
+    filter 1.5s ease-in-out, 
+    border 1.5s ease-in-out;
+}
+
 html, body, main, header, section, div, form, input, select, button, ul, ol, p, h1, h2, h3, h4, p {
   margin: 0;
   padding: 0;
