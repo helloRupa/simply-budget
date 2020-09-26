@@ -18,7 +18,41 @@
       "dark-mode": true
     }
   ],
-  "archives": [],
+  "archives": [
+    {
+      "name": "First Archived",
+      "currency": "$",
+      "frequency": "month",
+      "limit": 300,
+      "startDate": "2020/06/06",
+      "endDate": "2020/08/30",
+      "totalSpent": 1290.56,
+      "totalTracking": 50.89,
+      "id": 1
+    },
+    {
+      "name": "Second Archived",
+      "currency": "$",
+      "frequency": "month",
+      "limit": 300,
+      "startDate": "2020/06/06",
+      "endDate": "2020/08/30",
+      "totalSpent": 19990.56,
+      "totalTracking": -765450.89,
+      "id": 2
+    },
+    {
+      "name": "Third Archived",
+      "currency": "$",
+      "frequency": "month",
+      "limit": 1000,
+      "startDate": "2020/06/06",
+      "endDate": "2020/08/30",
+      "totalSpent": 879990.56,
+      "totalTracking": 50.89,
+      "id": 3
+    }
+  ],
   "budgets": [
     {
       "name": "Testing",

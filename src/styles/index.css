@@ -194,7 +194,7 @@ input[type="text"].amount {
 }
 
 .on-off-btn {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--main-border-color);
   width: 6em;
   text-align: center;
   margin: 10px;

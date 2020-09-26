@@ -81,8 +81,7 @@ function Settings({
             id="max-items" />
       </div>
       <p className="explainer">
-        Once a budget goes over the maximum, items will be deleted in first-in-first-out order, 
-        one whole period at a time.
+        Once a budget goes over the maximum, items are deleted one period at a time (oldest first).
       </p>
 
       <div>
@@ -92,8 +91,7 @@ function Settings({
         <OnOffButton condition={quickAdd} callback={handleQuickAdd} />
       </div>
       <p className="explainer">
-        When Quick Add is On, clicking the "+" button to add a new expense to a budget will 
-        immediately add the expense without a title.
+        Add an Untitled expense when clicking the "+" button.
       </p>
 
       <div>
