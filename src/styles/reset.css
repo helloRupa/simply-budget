@@ -3,14 +3,7 @@
   src: url(../fonts/Manrope/Manrope-VariableFont_wght.ttf);
 }
 
-* {
-  transition: background-color 1.5s ease-in-out, 
-    color 1.5s ease-in-out, 
-    filter 1.5s ease-in-out, 
-    border 1.5s ease-in-out;
-}
-
-html, body, main, header, section, div, form, input, select, button, ul, ol, p, h1, h2, h3, h4, p {
+html, body, main, header, section, div, span, form, input, select, button, ul, ol, p, h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -19,6 +12,13 @@ html, body, main, header, section, div, form, input, select, button, ul, ol, p, 
   font: inherit;
   color: inherit;
   text-align: inherit;
+}
+
+body, main, section, div, span, button, img, svg, ul, ol, li, h1, h2, h3, h4, p {
+  transition: background-color 1.5s ease-in-out, 
+    color 1.5s ease-in-out, 
+    filter 1.5s ease-in-out, 
+    border 1.5s ease-in-out;
 }
 
 body, main {
