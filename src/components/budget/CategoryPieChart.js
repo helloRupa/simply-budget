@@ -40,6 +40,7 @@ function CategoryPieChart({ budget, expenditures }) {
     { budgetExps.length > 0 ? <VictoryPie
     colorScale={["#FA7E61", "#FFD046", "#31AFD4", "#003F91", "#D8FDD9"]}
     data={data}
+    padAngle={3}
     labels={({ datum }) => `${truncateLabel(datum.x)}: ${budget.currency}${datum.y}`}
     labelPosition={(_) => "centroid"}
     labelPlacement={(_) => labelPlacement }
