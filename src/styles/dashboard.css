@@ -1,6 +1,7 @@
 .dash-buttons {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   padding: 30px 60px;
 }
 
@@ -15,4 +16,10 @@
   padding: 7px;
   background-color: var(--dash-button-color);
   border-radius: 15%;
+}
+
+button.dark-mode-btn {
+  padding: 0;
+  background: transparent;
+  width: 60px;
 }

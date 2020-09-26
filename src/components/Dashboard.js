@@ -12,6 +12,7 @@ import clock from '../images/clock.svg';
 import cog from '../images/cog.svg';
 import useJumpToTop from '../hooks/useJumpToTop';
 import Button from '../shared/Button';
+import DarkModeBtn from './dashboard/DarkModeBtn';
 
 function Dashboard({ 
   budgets, 
@@ -45,6 +46,8 @@ function Dashboard({
         <Button 
           callback={chooseSettings} 
           display={<img src={cog} alt="Settings" />} />
+
+        <DarkModeBtn />
 
         <Button 
           callback={chooseArchive}
