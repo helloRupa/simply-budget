@@ -28,7 +28,7 @@ function Item({
       <Button 
         callback={handleDelete}
         className="delete-expense"
-        display="X" />
+        display="x" />
 
       <ClickOrHold holdCallback={handleEdit}>
         <span className="expense-date">{ displayDate(date) }</span>
