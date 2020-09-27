@@ -209,12 +209,17 @@ input[type="text"].amount {
 
 .tooltip {
   position: fixed;
-  bottom: 30px;
+  bottom: -200px;
   right: 30px;
   width: 200px;
   line-height: 1.35;
   font-size: 0.9em;
   z-index: 1000;
+  transition: bottom ease-out 0.5s;
+}
+
+.move-tooltip {
+  bottom: 30px;
 }
 
 .tooltip div {
