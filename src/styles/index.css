@@ -207,6 +207,35 @@ input[type="text"].amount {
   visibility: hidden;
 }
 
+.tooltip {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 200px;
+  line-height: 1.35;
+  font-size: 0.9em;
+  z-index: 1000;
+}
+
+.tooltip div {
+  width: 100%;
+  background-color: var(--tool-tip-bg-color);
+  padding: 15px;
+  color: var(--tool-tip-text-color);
+  border-radius: 10px;
+}
+
+.tooltip .triangle {
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  border-top: 20px solid var(--tool-tip-bg-color);
+  border-right: 18px solid transparent;
+}
+
 @media all and (min-width: 450px) {
   .scroll-to-top {
     bottom: 90px;

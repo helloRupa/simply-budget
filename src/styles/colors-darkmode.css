@@ -18,6 +18,8 @@
   --start-date-color: #ecf1f2;
   --dash-button-color: #361f68;
   --button-border-color: #7351ae;
+  --tool-tip-bg-color: #fff;
+  --tool-tip-text-color: #1d1828;
 }
 
 .dark-mode select {
