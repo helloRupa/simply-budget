@@ -13,17 +13,18 @@
   margin-bottom: 15px;
   border-bottom: 1px solid var(--light-border-color);
   padding-bottom: 10px;
+  margin-top: -170px;
+  opacity: 0;
+  transition: opacity ease-in 1.5s 0.75s, margin ease-in 1.2s;
+}
+
+li.show-budget-menu-item {
+  opacity: 1;
+  margin-top: 0;
 }
 
 .budget-menu-item {
   width: 100%;
-  margin-top: -170;
-  opacity: 0;
-  transition: opacity ease-in 1.5s;
-}
-
-.show-budget-menu-item {
-  opacity: 1;
 }
 
 .budget-menu-item .start-date {

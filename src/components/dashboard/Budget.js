@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
@@ -7,6 +7,7 @@ import { chooseBudget } from '../../actions/ui_actions';
 import { displayDate } from '../../utils/format';
 import ClickOrHold from '../../shared/ClickOrHold';
 import { setStartedClassName, setTrackingClassName } from '../../utils/classNameSelectors';
+import useAnimationIn from '../../hooks/useAnimationIn';
 
 function Budget({ 
   budget, 
@@ -21,9 +22,7 @@ function Budget({
   const startedClassName = setStartedClassName(currentPeriod);
   const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
 
-  useEffect(() => {
-    setTimeout(() => setShowItem(() => 'show-budget-menu-item'), 5);
-  }, []);
+  useAnimationIn({ callback: () => setShowItem(() => 'show-budget-menu-item') });
 
   const clickCallback = () => {
     if (currentPeriod > 0) {
@@ -37,8 +36,8 @@ function Budget({
   };
 
   return (
-    <>
-      <div id={`budget-${id}`} className={`budget-menu-item ${showItem}`}>
+    <li className={showItem}>
+      <div id={`budget-${id}`} className="budget-menu-item">
           <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback} >
           <div className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
@@ -56,7 +55,7 @@ function Budget({
           <BudgetSettings {...{ budget, setShowBudgetSettings }} /> : null
         }
       </div>
-    </>
+    </li>
   )
 }
 
