@@ -39,6 +39,15 @@
   padding: 5px 0;
 }
 
+.total-tracking span:nth-of-type(2) {
+  opacity: 0;
+  transition: opacity ease-in 0.35s;
+}
+
+.total-tracking span.show-total-tracking {
+  opacity: 1;
+}
+
 .goal span:nth-of-type(2) {
   color: var(--goal-text-color);
 }
