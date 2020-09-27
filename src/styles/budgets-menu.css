@@ -17,6 +17,13 @@
 
 .budget-menu-item {
   width: 100%;
+  margin-top: -170;
+  opacity: 0;
+  transition: opacity ease-in 1.5s;
+}
+
+.show-budget-menu-item {
+  opacity: 1;
 }
 
 .budget-menu-item .start-date {

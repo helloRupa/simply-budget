@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BudgetSettings from './BudgetSettings';
 import { selectBudget } from '../../actions/budget_actions';
 import { connect } from 'react-redux';
@@ -16,9 +16,14 @@ function Budget({
   chooseBudget
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
+  const [showItem, setShowItem] = useState('');
 
   const startedClassName = setStartedClassName(currentPeriod);
   const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
+
+  useEffect(() => {
+    setTimeout(() => setShowItem(() => 'show-budget-menu-item'), 5);
+  }, []);
 
   const clickCallback = () => {
     if (currentPeriod > 0) {
@@ -33,7 +38,7 @@ function Budget({
 
   return (
     <>
-      <div id={`budget-${id}`} className="budget-menu-item">
+      <div id={`budget-${id}`} className={`budget-menu-item ${showItem}`}>
           <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback} >
           <div className={`budget-menu-item-details ${startedClassName}`}>
             <span className="budget-name">{name}</span>
