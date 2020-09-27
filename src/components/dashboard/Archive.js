@@ -4,15 +4,17 @@ import { archiveBudget } from '../../actions/archive_actions';
 import Form from '../../shared/Form';
 import SubmitButton from '../../shared/SubmitButton';
 import NoButton from '../../shared/NoButton';
+import { setTooltip } from '../../actions/tooltip_actions';
 
-function Archive({ budget, archiveBudget, expenditures, setArchive }) {
+function Archive({ budget, archiveBudget, expenditures, setArchive, setTooltip }) {
   const close = () => {
     setArchive(false);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    archiveBudget(budget, expenditures);
+    archiveBudget(budget, expenditures)
+    .then(_ => setTooltip(`${budget.name} was archived.`));
   };
 
   return (
@@ -33,4 +35,4 @@ const mapStateToProps = state => ({
   expenditures: state.expenditures
 });
 
-export default connect(mapStateToProps, { archiveBudget })(Archive);
+export default connect(mapStateToProps, { archiveBudget, setTooltip })(Archive);
