@@ -100,7 +100,8 @@
 
 .delete-expense {
   font-weight: bold;
-  background-color: var(--light-border-color);
+  background-color: var(--delete-expense-bg-color);
+  color: var(--light-text-color);
   text-align: center;
   margin-right: 10px;
   width: 25px;

@@ -20,6 +20,7 @@
   --button-border-color: #7351ae;
   --tool-tip-bg-color: #fff;
   --tool-tip-text-color: #1d1828;
+  --delete-expense-bg-color: #e6743c;
 }
 
 .dark-mode select {
