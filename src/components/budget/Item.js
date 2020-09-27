@@ -23,7 +23,7 @@ function Item({
 
   const handleDelete = () => {
     destroyExpenditure(item)
-    .then(_ => setTooltip(`${title} was deleted.`));
+    .then(_ => setTooltip(`${title || 'Untitled'} was deleted.`));
   };
 
   return (
