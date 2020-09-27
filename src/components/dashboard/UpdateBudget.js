@@ -9,8 +9,9 @@ import CancelButton from '../../shared/CancelButton';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
 import Explainer from '../../shared/Explainer';
+import { setTooltip } from '../../actions/tooltip_actions';
 
-function UpdateBudget({ budget, close, patchBudget }) {
+function UpdateBudget({ budget, close, patchBudget, setTooltip }) {
   const [name, setName] = useState(budget.name);
   const [startDate, setStartDate] = useState(budget.startDate);
   const [shouldDisableDate, setShouldDisableDate] = useState(false);
@@ -29,7 +30,9 @@ function UpdateBudget({ budget, close, patchBudget }) {
         budgetOptions.currentPeriod = currentPeriod;
       }
 
-      patchBudget(budget.id, budgetOptions);
+      patchBudget(budget.id, budgetOptions)
+      .then(({ budget }) => setTooltip(`${budget.name} has been updated.`));
+
       close();
     }
   };
@@ -72,4 +75,4 @@ function UpdateBudget({ budget, close, patchBudget }) {
   )
 }
 
-export default connect(null, { patchBudget })(UpdateBudget);
+export default connect(null, { patchBudget, setTooltip })(UpdateBudget);

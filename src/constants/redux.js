@@ -22,3 +22,6 @@ export const ADD_EXPENDITURE = 'ADD_EXPENDITURE';
 export const SET_SETTINGS = 'SET_SETTINGS';
 
 export const CHANGE_VIEW = 'CHANGE_VIEW';
+
+export const SET_TOOLTIP = 'SET_TOOLTIP';
+export const CLEAR_TOOLTIP = 'CLEAR_TOOLTIP';

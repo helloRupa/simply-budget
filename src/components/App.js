@@ -6,6 +6,7 @@ import Archive from './Archive';
 import Settings from './Settings';
 import { connect } from 'react-redux';
 import '../styles/colors-darkmode.css';
+import Tooltip from './Tooltip';
 
 function App({ currentView, darkMode }) {
   const [forceUpdate, setForceUpdate] = useState(0);
@@ -29,6 +30,7 @@ function App({ currentView, darkMode }) {
     <main className={toggleDarkMode}>
       <div className="wrapper">
         {chooseView()}
+        <Tooltip />
         <Error {...{ setForceUpdate, forceUpdate }} />
       </div>
     </main>
