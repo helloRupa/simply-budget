@@ -1,13 +1,13 @@
 import { SET_TOOLTIP, CLEAR_TOOLTIP } from '../constants/redux';
 
-const tooltipState = null;
+const tooltipState = [];
 
 function tooltipReducer(state = tooltipState, action) {
   switch(action.type) {
     case SET_TOOLTIP:
-      return action.tooltip;
+      return [...state, action.tooltip];
     case CLEAR_TOOLTIP:
-      return null;
+      return state.filter(tt => tt !== action.tooltip);
     default:
       return state;
   }
