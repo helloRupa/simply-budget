@@ -22,7 +22,7 @@ function Budget({
   const startedClassName = setStartedClassName(currentPeriod);
   const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
 
-  useAnimationIn({ callback: () => setShowItem(() => 'show-budget-menu-item') });
+  useAnimationIn(() => setShowItem(() => 'show-budget-menu-item'));
 
   const clickCallback = () => {
     if (currentPeriod > 0) {

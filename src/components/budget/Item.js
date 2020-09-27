@@ -6,16 +6,20 @@ import { destroyExpenditure } from '../../actions/expenditure_actions';
 import ClickOrHold from '../../shared/ClickOrHold';
 import Button from '../../shared/Button';
 import { setTooltip } from '../../actions/tooltip_actions';
+import useAnimationIn from '../../hooks/useAnimationIn';
 
 function Item({ 
   item, 
-  item: { date, title, amount }, 
+  item: { id, date, title, amount }, 
   currency, 
   destroyExpenditure,
   budget,
   setTooltip
 }) {
   const [showEdit, setShowEdit] = useState(false);
+  const [showExpense, setShowExpense] = useState('');
+
+  useAnimationIn(() => setShowExpense('show-period-expense'));
 
   const handleEdit = () => {
     setShowEdit(!showEdit);
@@ -27,7 +31,7 @@ function Item({
   };
 
   return (
-    <>
+    <li id={`exp-${id}`} className={showExpense}>
       <Button 
         callback={handleDelete}
         className="delete-expense"
@@ -41,7 +45,7 @@ function Item({
 
       { (showEdit) ? 
         <EditItem {...{ item, currency, setShowEdit, budget }} /> : null }
-    </>
+    </li>
   );
 }
 

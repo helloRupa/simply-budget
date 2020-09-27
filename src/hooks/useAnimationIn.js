@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useAnimationIn({ callback }) {
+function useAnimationIn(callback) {
   useEffect(() => {
     setTimeout(() => callback(), 5);
   }, [callback]);

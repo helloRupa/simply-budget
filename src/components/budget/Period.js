@@ -24,9 +24,9 @@ function Period({ title, expenditures, currency, budget, period }) {
 
   const displayExpenditures = () => budgetExpenditures().length > 0 ? 
     <ul className="period-expense">
-      { budgetExpenditures().map(item => <li key={`exp-${item.id}`} id={`exp-${item.id}`}>
-        <Item {...{ item, currency, budget }} />
-      </li>) }
+      { budgetExpenditures().map(item => 
+        <Item {...{ item, currency, budget }} key={`exp-${item.id}`} />
+      ) }
     </ul> : <p className="no-expenses">No expenses for this period</p>;
 
   const setTitle = () => title ? <h3>{title}</h3> : null;

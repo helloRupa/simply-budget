@@ -12,7 +12,10 @@
         "",
         "s",
         "Stuff",
-        "New Stuff"
+        "New Stuff",
+        "Food",
+        "Old one",
+        "New One"
       ],
       "quick-add": false,
       "dark-mode": true
@@ -163,6 +166,16 @@
       "truncated": 0,
       "currentPeriod": 0,
       "id": 11
+    },
+    {
+      "name": "furbyies",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 43,
+      "startDate": "2020/09/27",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 12
     }
   ],
   "expenditures": [
@@ -421,14 +434,6 @@
       "budgetId": 1,
       "period": 1,
       "id": 34
-    },
-    {
-      "title": "find me too",
-      "amount": 2,
-      "date": "2020/07/13",
-      "budgetId": 1,
-      "period": 2,
-      "id": 35
     },
     {
       "title": "Find Me Now",

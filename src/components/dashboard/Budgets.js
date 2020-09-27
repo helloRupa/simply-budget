@@ -24,9 +24,7 @@ function Budgets({ budgets=[], expenditures=[] }) {
 
     { Object.keys(budgetGroups).map(key => <ul key={key}>
       {sortByStartDateAsc(budgetGroups[key]).map(budget => 
-        // <li key={budget.id}>
           <Budget {...{ budget }} key={budget.id} /> )
-        // </li>)}
       }
         <Total budgets={budgetGroups[key]} expenditures={expenditures} currency={key} />
       </ul>)
