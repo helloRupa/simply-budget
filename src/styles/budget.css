@@ -125,7 +125,6 @@
 
 .expense-spent {
   flex: 1;
-  text-align: right;
 }
 
 @media all and (min-width: 570px) {
@@ -147,5 +146,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .period-expense li .expense-spent {
+    text-align: right;
   }
 }

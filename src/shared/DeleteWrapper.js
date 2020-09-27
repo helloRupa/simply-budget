@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import SubmitButton from '../shared/SubmitButton';
 import Form from '../shared/Form';
 import NoButton from '../shared/NoButton';
+import { setTooltip } from '../actions/tooltip_actions';
 
 function DeleteWrapper(deleteMethod) {
-  function Delete({ deletable, name, setRemove, deleteMethod }) {
+  function Delete({ deletable, name, setRemove, deleteMethod, setTooltip }) {
     const close = () => {
       setRemove(false);
     };
   
     const handleSubmit = e => {
       e.preventDefault();
-      deleteMethod(deletable);
+      deleteMethod(deletable)
+      .then(_ => setTooltip(`${name} was deleted.`));
     };
   
     return (
@@ -28,7 +30,7 @@ function DeleteWrapper(deleteMethod) {
     )
   }
 
-  return connect(null, { deleteMethod })(Delete);
+  return connect(null, { deleteMethod, setTooltip })(Delete);
 }
 
 export default DeleteWrapper;
