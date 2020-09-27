@@ -15,7 +15,9 @@
         "New Stuff",
         "Food",
         "Old one",
-        "New One"
+        "New One",
+        "Toys",
+        "bananas"
       ],
       "quick-add": false,
       "dark-mode": true
@@ -166,16 +168,6 @@
       "truncated": 0,
       "currentPeriod": 0,
       "id": 11
-    },
-    {
-      "name": "furbyies",
-      "currency": "$",
-      "frequency": "week",
-      "limit": 43,
-      "startDate": "2020/09/27",
-      "truncated": 0,
-      "currentPeriod": 1,
-      "id": 12
     }
   ],
   "expenditures": [

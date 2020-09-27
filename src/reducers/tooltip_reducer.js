@@ -5,9 +5,9 @@ const tooltipState = [];
 function tooltipReducer(state = tooltipState, action) {
   switch(action.type) {
     case SET_TOOLTIP:
-      return [...state, action.tooltip];
+      return [...state, { tooltip: action.tooltip, id: state.length }];
     case CLEAR_TOOLTIP:
-      return state.filter(tt => tt !== action.tooltip);
+      return state.filter(tt => tt.id !== action.id);
     default:
       return state;
   }

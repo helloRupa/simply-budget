@@ -5,7 +5,7 @@ export const setTooltip = tooltip => ({
   tooltip
 });
 
-export const clearTooltip = tooltip => ({
+export const clearTooltip = id => ({
   type: CLEAR_TOOLTIP,
-  tooltip
+  id
 });

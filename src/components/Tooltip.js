@@ -1,31 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { clearTooltip } from '../actions/tooltip_actions';
+import SingleTooltip from './tooltip/SingleTooltip';
 
-function Tooltip({ tooltip, clearTooltip }) {
-  const [moveTooltip, setMoveTooltip] = useState('');
-return null;
-  // if (tooltip) {
-  //   setTimeout(() => {
-  //     setMoveTooltip(() => '');
-  //     clearTooltip();
-  //   }, 3000);
+function Tooltip({ tooltips, clearTooltip }) {
+  if (!tooltips.length) {
+    return null;
+  }
 
-  //   setTimeout(() => setMoveTooltip(() => 'move-tooltip'), 5);
-
-  //   return (
-  //     <div className={`tooltip ${moveTooltip}`}>
-  //       <div>{ tooltip }</div>  
-  //       <span className="triangle"></span>
-  //     </div>
-  //   );
-  // } else {
-  //   return null;
-  // }
+  return <div className="tooltip">{tooltips.map(tt => 
+    <SingleTooltip key={tt.id} tooltip={tt} clearTooltip={clearTooltip} />)}
+  </div>
 }
 
 const mapStateToProps = state => ({
-  tooltip: state.tooltip
+  tooltips: state.tooltip
 });
 
 export default connect(mapStateToProps, { clearTooltip })(Tooltip);
