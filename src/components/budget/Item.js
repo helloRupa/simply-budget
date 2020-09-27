@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 import { destroyExpenditure } from '../../actions/expenditure_actions';
 import ClickOrHold from '../../shared/ClickOrHold';
 import Button from '../../shared/Button';
+import { setTooltip } from '../../actions/tooltip_actions';
 
 function Item({ 
   item, 
   item: { date, title, amount }, 
   currency, 
   destroyExpenditure,
-  budget
+  budget,
+  setTooltip
 }) {
   const [showEdit, setShowEdit] = useState(false);
 
@@ -20,7 +22,8 @@ function Item({
   };
 
   const handleDelete = () => {
-    destroyExpenditure(item);
+    destroyExpenditure(item)
+    .then(_ => setTooltip(`${title} was deleted.`));
   };
 
   return (
@@ -42,4 +45,4 @@ function Item({
   );
 }
 
-export default connect(null, { destroyExpenditure })(Item);
+export default connect(null, { destroyExpenditure, setTooltip })(Item);
