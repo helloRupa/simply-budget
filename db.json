@@ -168,6 +168,16 @@
       "truncated": 0,
       "currentPeriod": 0,
       "id": 11
+    },
+    {
+      "name": "newest",
+      "currency": "$",
+      "frequency": "week",
+      "limit": 100,
+      "startDate": "2020/09/27",
+      "truncated": 0,
+      "currentPeriod": 1,
+      "id": 12
     }
   ],
   "expenditures": [
