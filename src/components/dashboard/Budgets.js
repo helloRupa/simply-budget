@@ -11,6 +11,10 @@ function Budgets({ budgets=[], expenditures=[] }) {
   const firstLoad = useRef(true);
 
   useEffect(() => {
+    setTimeout(() => firstLoad.current = false, 5000);
+  }, []);
+
+  useEffect(() => {
     setBudgetGroups(budgetsByCurrency(budgets));
   }, [budgets]);
 
