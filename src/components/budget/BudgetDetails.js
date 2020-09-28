@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
+import useDidMount from '../../hooks/useDidMount';
 import { calculateTracking, formattedSingleBudgetTracking } from '../../utils/calculate';
 import { setTrackingClassName } from '../../utils/classNameSelectors';
 import { displayDate, formatNumber } from '../../utils/format';
@@ -10,15 +11,10 @@ function BudgetDetails({
 }) {
   const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
   const [showTotalTracking, setShowTotalTracking] = useState('show-total-tracking');
-  const firstLoad = useRef(true);
 
-  useEffect(() => {
-    if (!firstLoad.current) {
-      setShowTotalTracking('');
-      setTimeout(() => setShowTotalTracking('show-total-tracking'), 500);
-    }
-
-    firstLoad.current = false;
+  useDidMount(() => {
+    setShowTotalTracking('');
+    setTimeout(() => setShowTotalTracking('show-total-tracking'), 500);
   }, [expenditures]);
 
   return <div className="budget-details">

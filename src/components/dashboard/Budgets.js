@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/budgets-menu.css';
 import { budgetsByCurrency } from '../../utils/format';
 import Budget from './Budget';
@@ -7,10 +7,18 @@ import { sortByStartDateAsc } from '../../utils/format';
 
 function Budgets({ budgets=[], expenditures=[] }) {
   const [budgetGroups, setBudgetGroups] = useState({});
+  const budgetCount = useRef(0);
+  const firstLoad = useRef(true);
 
   useEffect(() => {
     setBudgetGroups(budgetsByCurrency(budgets));
   }, [budgets]);
+
+  useEffect(() => {
+    if (budgets.length && budgetCount.current === budgets.length) {
+      firstLoad.current = false;
+    }
+  });
 
   const noBudgets = () => 
     budgets.length === 0 ? 
@@ -21,10 +29,13 @@ function Budgets({ budgets=[], expenditures=[] }) {
 
   return <section className="budgets-menu">
     { noBudgets() }
-
     { Object.keys(budgetGroups).map(key => <ul key={key}>
-      {sortByStartDateAsc(budgetGroups[key]).map(budget => 
-          <Budget {...{ budget }} key={budget.id} /> )
+      {sortByStartDateAsc(budgetGroups[key]).map(budget => {
+        budgetCount.current++;
+
+        return <Budget {...{ budget, firstLoad }} key={budget.id} /> 
+      }
+        )
       }
         <Total budgets={budgetGroups[key]} expenditures={expenditures} currency={key} />
       </ul>)

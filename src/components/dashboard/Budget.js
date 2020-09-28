@@ -12,17 +12,22 @@ import useAnimationIn from '../../hooks/useAnimationIn';
 function Budget({ 
   budget, 
   budget: { id, name, currency, currentPeriod, startDate }, 
+  firstLoad,
   selectBudget, 
   expenditures,
   chooseBudget
 }) {
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
-  const [showItem, setShowItem] = useState('');
+  const [showItem, setShowItem] = useState(firstLoad.current ? 'show-budget-menu-item' : '');
 
   const startedClassName = setStartedClassName(currentPeriod);
   const trackingClassName = setTrackingClassName(calculateTracking({ expenditures, budget }));
 
-  useAnimationIn(() => setShowItem(() => 'show-budget-menu-item'));
+  useAnimationIn(() => {
+    if (!firstLoad.current) {
+      setShowItem(() => 'show-budget-menu-item');
+    }
+  });
 
   const clickCallback = () => {
     if (currentPeriod > 0) {
