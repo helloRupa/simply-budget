@@ -135,7 +135,7 @@ function updateAllBudgets(budgets, dispatch) {
 
 export function updateBudgetsCurrentPeriods() {
   return dispatch => {
-    getBudgetsChained(budgets => updateAllBudgets(budgets, dispatch), 
+    return getBudgetsChained(budgets => updateAllBudgets(budgets, dispatch), 
       dispatch, 'getBudgets()');
   };
 };

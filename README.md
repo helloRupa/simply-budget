@@ -3,7 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## To Do:
 
 - Test fully
-- Animations
 - Load screens
 - Add code format on save
 - Positive messages for certain changes
