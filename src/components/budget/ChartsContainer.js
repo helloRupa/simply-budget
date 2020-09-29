@@ -5,6 +5,7 @@ import { periodsToChart } from '../../constants/general';
 import CategoryPieChart from './CategoryPieChart';
 import CloseButton from '../../shared/CloseButton';
 import useJumpToTop from '../../hooks/useJumpToTop';
+import Modal from '../../shared/Modal';
 
 function ChartsContainer({ 
   budget,
@@ -14,8 +15,7 @@ function ChartsContainer({
 }) {
   useJumpToTop();
   
-  return <div className="modal-background">
-    <div className="modal charts">
+  return <Modal className="charts">
     <CloseButton callback={close} />
 
     <h2>{name}</h2>
@@ -29,8 +29,7 @@ function ChartsContainer({
       <h4 className="small-width">Spending per category</h4>
       <CategoryPieChart {...{ budget, expenditures}} />
     </div>
-    </div>
-  </div>
+    </Modal>
 }
 
 export default ChartsContainer;

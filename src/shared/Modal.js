@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { disableScroll, enableScroll } from '../utils/uiBehavior';
 
-function Modal({ children }) {
+function Modal({ children, className='' }) {
   useEffect(() => {
     disableScroll();
 
@@ -9,7 +9,7 @@ function Modal({ children }) {
   }, []);
 
   return <div className="modal-background">
-    <div className="modal">
+    <div className={`modal ${className}`}>
       { children }
     </div>
   </div>
