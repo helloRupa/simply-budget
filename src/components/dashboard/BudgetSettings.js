@@ -4,6 +4,7 @@ import DeleteWrapper from '../../shared/DeleteWrapper';
 import { destroyBudget } from '../../actions/budget_actions';
 import Archive from './Archive';
 import Button from '../../shared/Button';
+import Modal from '../../shared/Modal';
 
 /** DELETING A BUDGET DELETES ALL DEPENDENT RECORDS **/
 /** THIS IS DEFAULT BEHAVIOR WITH JSON-SERVER BUT NOT **/
@@ -21,8 +22,7 @@ function BudgetSettings({
 
   const close = () => setShowBudgetSettings(false);
 
-  return <div className="modal-background">
-    <div className="modal">
+  return <Modal>
       <h2>Edit {name}</h2>
       
       <UpdateBudget {...{ budget, close }} />
@@ -42,8 +42,7 @@ function BudgetSettings({
 
         {remove ? <Delete deletable={id} {...{name, setRemove}} /> : null}
       </div>
-    </div>
-  </div>
+    </Modal>
 }
 
 export default BudgetSettings;
