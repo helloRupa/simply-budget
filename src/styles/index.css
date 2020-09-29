@@ -244,6 +244,10 @@ div.move-tooltip {
   border-right: 18px solid transparent;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media all and (min-width: 450px) {
   .scroll-to-top {
     bottom: 90px;

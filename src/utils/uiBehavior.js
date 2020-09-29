@@ -19,3 +19,11 @@ export function jumpToTop() {
 export function delay(callback) {
   setTimeout(callback, 1);
 };
+
+export function disableScroll() {
+  document.body.classList.add('no-scroll');
+};
+
+export function enableScroll() {
+  document.body.classList.remove('no-scroll');
+};

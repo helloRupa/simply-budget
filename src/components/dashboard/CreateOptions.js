@@ -12,6 +12,7 @@ import Select from '../../shared/Select';
 import { delay, scrollToEl } from '../../utils/uiBehavior';
 import CurrencyInput from '../../shared/CurrencyInput';
 import HiddenLabel from '../../shared/HiddenLabel';
+import Modal from '../../shared/Modal';
 
 function CreateOptions({ 
   setShowOptions, 
@@ -68,8 +69,8 @@ function CreateOptions({
     return options;
   };
 
-  return <div className="modal-background">
-    <Form callback={saveOptions} className="modal create-budget-options">
+  return <Modal>
+    <Form callback={saveOptions} className="create-budget-options">
       <h2>{budgetName}</h2>
 
       <div>
@@ -109,9 +110,8 @@ function CreateOptions({
       
         <CancelButton callback={close} />
       </div>
-      
     </Form>
-  </div>
+    </Modal>
 }
 
 const mapStateToProps = state => ({
