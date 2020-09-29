@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/dashboard.css';
 import CreateBudget from './dashboard/CreateBudget';
 import Budgets from './dashboard/Budgets';
@@ -13,6 +13,7 @@ import cog from '../images/cog.svg';
 import useJumpToTop from '../hooks/useJumpToTop';
 import Button from '../shared/Button';
 import DarkModeBtn from './dashboard/DarkModeBtn';
+import Loading from '../shared/Loading';
 
 function Dashboard({ 
   budgets, 
@@ -24,10 +25,16 @@ function Dashboard({
   chooseArchive,
   fetchSettings
 }) {
+  const [showLoad, setShowLoad] = useState(true);
+
   useEffect(() => {
-    updateBudgetsCurrentPeriods();
-    fetchExpenditures();
-    fetchSettings();
+    Promise.all(
+      [
+        updateBudgetsCurrentPeriods(),
+        fetchExpenditures(),
+        fetchSettings(),
+      ]
+    ).then(_ => setTimeout(() => setShowLoad(false), 1500));
   }, [
     updateBudgetsCurrentPeriods, 
     fetchExpenditures, 
@@ -39,6 +46,8 @@ function Dashboard({
 
   return (
     <div>
+      <Loading condition={showLoad} />
+
       <CreateBudget />
       <Budgets {...{ budgets, expenditures }} />
 

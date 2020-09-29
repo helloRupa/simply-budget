@@ -248,6 +248,19 @@ div.move-tooltip {
   overflow: hidden;
 }
 
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  z-index: 100;
+  font-size: 2.5em;
+  text-align: center;
+}
+
 @media all and (min-width: 450px) {
   .scroll-to-top {
     bottom: 90px;
