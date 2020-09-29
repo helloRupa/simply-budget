@@ -7,6 +7,7 @@ import { fetchExpenditures } from '../../actions/expenditure_actions';
 import { chooseDashboard } from '../../actions/ui_actions';
 import { connect } from 'react-redux';
 import Button from '../../shared/Button';
+import Modal from '../../shared/Modal';
 
 function ImportConfirm({ 
   file, 
@@ -35,8 +36,7 @@ function ImportConfirm({
     });
   };
 
-  return <div className="modal-background">
-    <div className="modal">
+  return <Modal>
     <h2>Are you sure you want to import <br/>{file.name}?</h2>
     <p>All of your data will be deleted before import.</p>
     <p>Only import files exported from this app!</p>
@@ -50,9 +50,7 @@ function ImportConfirm({
         callback={close}
         display="No! Take Me Back" />
     </div>
-    
-  </div>
-  </div>
+  </Modal>
 }
 
 export default connect(null, {
