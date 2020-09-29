@@ -8,6 +8,7 @@ import NumberInput from '../../shared/NumberInput';
 import TextInput from '../../shared/TextInput';
 import Error from '../../shared/Error';
 import CancelButton from '../../shared/CancelButton';
+import Modal from '../../shared/Modal';
 
 function ExpenditureForm({
   onSubmit,
@@ -36,8 +37,7 @@ function ExpenditureForm({
     onSubmit(e);
   }
 
-  return <div className="modal-background">
-    <div className="modal">
+  return <Modal>
   <Form callback={handleSubmit} className="expenditure-form">
     <h2>{edit ? "Edit" : "Add"} an Expense</h2>
 
@@ -86,8 +86,7 @@ function ExpenditureForm({
       <CancelButton callback={close} />
     </div>
   </Form>
-  </div>
-  </div>
+  </Modal>
 }
 
 const mapStateToProps = state => ({
