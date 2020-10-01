@@ -14,13 +14,17 @@ function Loading({ condition=false }) {
       setTimeout(() => {
         setShow(false);
         enableScroll();
-      }, 500);
+      }, 300);
     }
   }, [condition]);
 
   if (show) {
     return <div className={`loading ${fade}`}>
-      <p>Loading</p>
+      {/* <h1>Simply Budget</h1>
+      <div className="message">
+        <p>Gotta save that cish cash</p>
+        <p>for the splish splash!</p>
+      </div> */}
     </div>
   }
 
