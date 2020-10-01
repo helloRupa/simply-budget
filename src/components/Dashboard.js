@@ -34,7 +34,7 @@ function Dashboard({
         fetchExpenditures(),
         fetchSettings(),
       ]
-    ).then(_ => setTimeout(() => setShowLoad(false), 1500));
+    ).then(_ => setTimeout(() => setShowLoad(false), 200));
   }, [
     updateBudgetsCurrentPeriods, 
     fetchExpenditures, 
