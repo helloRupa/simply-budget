@@ -42,7 +42,7 @@ li.show-budget-menu-item {
 }
 
 .budget-menu-item-details .budget-name {
-  margin-left: 15px;
+  margin-left: 5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

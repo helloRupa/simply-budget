@@ -16,7 +16,7 @@ html, body, main, header, section, div, span, form, input, select, button, ul, o
 
 body, main, section, div, span, button, img, svg, ul, ol, li, h1, h2, h3, h4, p {
   transition: background-color 1.5s ease-in-out, 
-    color 1.5s ease-in-out, 
+    color 0.5s ease-in-out, 
     filter 1.5s ease-in-out, 
     border 1.5s ease-in-out;
 }
@@ -118,6 +118,11 @@ button:disabled {
 ::placeholder {
   color: var(--main-disabled-color);
   opacity: 0.8;
+}
+
+::-webkit-calendar-picker-indicator {
+  margin: 0;
+  padding: 0;
 }
 
 @media all and (min-width: 450px) {

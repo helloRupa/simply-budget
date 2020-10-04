@@ -45,7 +45,7 @@ function Dashboard({
   useJumpToTop();
 
   return (
-    <div>
+    <>
       <Loading condition={showLoad} />
 
       <CreateBudget />
@@ -64,7 +64,7 @@ function Dashboard({
       </div>
 
       <ScrollToTop />
-    </div>
+    </>
   )
 }
 

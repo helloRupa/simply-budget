@@ -55,11 +55,9 @@ function Budget({
         <p className={`start-date ${startedClassName}`}>Start Date: {displayDate(startDate)}</p>
       </div>
 
-      <div>
         {showBudgetSettings ? 
           <BudgetSettings {...{ budget, setShowBudgetSettings }} /> : null
         }
-      </div>
     </li>
   )
 }

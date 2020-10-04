@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { disableScroll, enableScroll } from '../utils/uiBehavior';
 
-function AppLoad({ firstMount }) {
-  const [show, setShow] = useState(firstMount);
+function AppLoad({ didMount }) {
+  const [show, setShow] = useState(didMount.current);
   const [fade, setFade] = useState('');
 
   disableScroll();
 
   useEffect(() => {
-    if (!firstMount) {
-      setTimeout(() => {
-        setFade('fade-out');
-        setShow(false);
-        enableScroll();
-      }, 2000);
-    }
-  }, [firstMount]);
+    setTimeout(() => {
+      setFade('fade-out');
+      setShow(false);
+      enableScroll();
+    }, 2000);
+
+    setTimeout(() => {
+      didMount.current = false;
+    }, 2500);
+  }, [didMount]);
 
   if (!show) {
     return null;

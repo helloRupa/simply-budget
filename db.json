@@ -66,7 +66,7 @@
       "limit": 300,
       "startDate": "2020/06/05",
       "truncated": 0,
-      "currentPeriod": 4,
+      "currentPeriod": 5,
       "id": 1
     },
     {
@@ -86,7 +86,7 @@
       "limit": 300,
       "startDate": "2020/06/05",
       "truncated": 0,
-      "currentPeriod": 17,
+      "currentPeriod": 18,
       "id": 2
     },
     {
@@ -106,7 +106,7 @@
       "limit": 120,
       "startDate": "2020/08/06",
       "truncated": 0,
-      "currentPeriod": 8,
+      "currentPeriod": 9,
       "id": 9
     },
     {
@@ -116,7 +116,7 @@
       "limit": 56,
       "startDate": "2020/06/25",
       "truncated": 0,
-      "currentPeriod": 14,
+      "currentPeriod": 15,
       "id": 3
     },
     {
