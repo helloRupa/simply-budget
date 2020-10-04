@@ -28,7 +28,7 @@ function SimpleExpenditureForm({
     <span className="currency">{currency}</span>
 
     <HiddenLabel id="expense-amount" text="Expense Amount" />
-    <NumberInput value={amount} callback={setAmount} id="expense-amount" />
+    <NumberInput value={amount} allowNeg={true} callback={setAmount} id="expense-amount" />
 
     <ClickOrHold clickCallback={clickCallback} holdCallback={holdCallback}>
       <SubmitButton value="+" />

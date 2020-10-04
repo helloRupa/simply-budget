@@ -14,3 +14,18 @@ export const handleChangeWithRegex = (e, expr, callback) => {
 export const handleAmountChange = (e, callback) => {
   handleChangeWithRegex(e, /^\d+(\.\d?\d?)?$/, callback);
 };
+
+export const handleAmountChangeNeg = (e, callback) => {
+  const regex = RegExp(/^\d+(\.\d?\d?)?$/);
+  let negStr = '';
+  let value = e.target.value;
+
+  if (value.startsWith('-')) {
+    negStr = '-';
+    value = value.slice(1);
+  }
+
+  if (regex.test(value) || !value) {
+    callback(negStr + value);
+  }
+};

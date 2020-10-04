@@ -62,6 +62,7 @@ function ExpenditureForm({
       <NumberInput 
         value={amount} 
         callback={setAmount} 
+        allowNeg={true}
         id="expense-amount" />
         </span>
     </div>
