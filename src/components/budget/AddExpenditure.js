@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { 
   postExpenditure, 
   truncateExpenditures } from '../../actions/expenditure_actions';
+import { validateAmount } from '../../utils/formMethods';
 import { earliestPeriod } from '../../utils/selectors';
 import { delay, scrollToEl } from '../../utils/uiBehavior';
 import ExpenditureForm from './ExpenditureForm';
@@ -49,7 +50,7 @@ function AddExpenditure({
   };
 
   const onSubmit = e => {
-    if (amount !== '') {
+    if (validateAmount(amount)) {
       postExpenditure({ 
         title: title.trim(), 
         amount: parseFloat(amount), 
@@ -82,7 +83,7 @@ function AddExpenditure({
       {...{ currency, amount, setAmount, quickAdd, onSubmit, showModal }} />
 
     { showExpenditureForm ? <ExpenditureForm 
-      close={reset} showError={amount === ''}
+      close={reset} showError={!validateAmount(amount)}
       {...{ 
       onSubmit, 
       title, 

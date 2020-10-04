@@ -29,3 +29,5 @@ export const handleAmountChangeNeg = (e, callback) => {
     callback(negStr + value);
   }
 };
+
+export const validateAmount = amount => !isNaN(parseFloat(amount));
