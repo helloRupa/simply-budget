@@ -18,7 +18,8 @@
         "New One",
         "Toys",
         "bananas",
-        "return plant"
+        "return plant",
+        "hi"
       ],
       "quick-add": false,
       "dark-mode": true
@@ -177,7 +178,7 @@
       "limit": 100,
       "startDate": "2020/09/27",
       "truncated": 0,
-      "currentPeriod": 1,
+      "currentPeriod": 2,
       "id": 12
     }
   ],

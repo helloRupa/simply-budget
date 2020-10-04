@@ -1,22 +1,30 @@
 export const handleChange = (e, callback) => {
-  callback(e.target.value);
+  const value = e.target ? e.target.value : e;
+
+  callback(value);
+};
+
+const testRegex = (expr, value) => {
+  const regex = RegExp(expr);
+
+  return regex.test(value) || !value;
 };
 
 export const handleChangeWithRegex = (e, expr, callback) => {
-  const regex = RegExp(expr);
   const value = e.target.value;
 
-  if (regex.test(value) || !value) {
+  if (testRegex(expr, value)) {
     handleChange(e, callback);
   }
 };
 
+const numberRegex = /^\d+(\.\d?\d?)?$/;
+
 export const handleAmountChange = (e, callback) => {
-  handleChangeWithRegex(e, /^\d+(\.\d?\d?)?$/, callback);
+  handleChangeWithRegex(e, numberRegex, callback);
 };
 
 export const handleAmountChangeNeg = (e, callback) => {
-  const regex = RegExp(/^\d+(\.\d?\d?)?$/);
   let negStr = '';
   let value = e.target.value;
 
@@ -25,8 +33,8 @@ export const handleAmountChangeNeg = (e, callback) => {
     value = value.slice(1);
   }
 
-  if (regex.test(value) || !value) {
-    callback(negStr + value);
+  if (testRegex(numberRegex, value)) {
+    handleChange(negStr + value, callback);
   }
 };
 
