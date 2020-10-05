@@ -4,7 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Test fully
 - Add code format on save
-- Positive messages for certain changes
 
 ## Future Features:
 
