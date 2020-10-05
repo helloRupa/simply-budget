@@ -15,6 +15,7 @@ import {
   MAKE_BACKUP, 
   CLEAR_BACKUP 
 } from '../constants/redux';
+import { removeBudgetExpenditures } from './expenditure_actions';
 
 export const addBudgets = budgets => ({
   type: ADD_BUDGETS,
@@ -51,7 +52,10 @@ export function destroyBudget(id) {
     return chainPromise(
       dispatch,
       () => deleteBudget(id),
-      [() => dispatch(removeBudget(id))],
+      [
+        () => dispatch(removeBudget(id)),
+        () => dispatch(removeBudgetExpenditures(id))
+      ],
       errorObj
     );
   };
