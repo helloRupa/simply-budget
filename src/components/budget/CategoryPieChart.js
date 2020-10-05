@@ -33,7 +33,7 @@ function CategoryPieChart({ budget, expenditures }) {
     data.push({ x: "Other", y: other });
   }
 
-  const labelPlacement = data.length > 5 ? "parallel" : "vertical";
+  const labelPlacement = data.length > 1 ? "parallel" : "vertical";
 
   const truncateLabel = (label) =>
     label.length < 13 ? label : `${label.slice(0, 12)}…`;
