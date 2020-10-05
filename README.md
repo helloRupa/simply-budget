@@ -18,6 +18,10 @@ In the project directory, you can run:
 
 Start the json-server and app at same time: 8000 and 3000, respectively
 
+### `npm run naked`
+
+Start the json-server w/ a copy of the empty db and run the app: ports 8000 and 3000
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
