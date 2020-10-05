@@ -25,8 +25,8 @@
 }
 
 .chart-container {
-  width: 100%; 
-  margin: 0 auto; 
+  width: 100%;
+  margin: 0 auto;
   overflow: visible;
   padding: 0;
 }
@@ -37,7 +37,7 @@
 
 @media all and (min-width: 600px) {
   .chart-container {
-    width: 95%; 
+    width: 95%;
     padding: 20px;
   }
 }

@@ -1,14 +1,14 @@
-import { CHANGE_VIEW } from '../constants/redux';
+import { CHANGE_VIEW } from "../constants/redux";
 
-const changeView = view => ({
+const changeView = (view) => ({
   type: CHANGE_VIEW,
-  view
+  view,
 });
 
-export const chooseDashboard = () => changeView('DASHBOARD');
+export const chooseDashboard = () => changeView("DASHBOARD");
 
-export const chooseBudget = () => changeView('BUDGET');
+export const chooseBudget = () => changeView("BUDGET");
 
-export const chooseSettings = () => changeView('SETTINGS');
+export const chooseSettings = () => changeView("SETTINGS");
 
-export const chooseArchive = () => changeView('ARCHIVE');
+export const chooseArchive = () => changeView("ARCHIVE");

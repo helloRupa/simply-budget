@@ -67,7 +67,8 @@ input[type="text"].amount {
   margin-top: 30px;
 }
 
-.modal .buttons button, .modal .buttons input[type="submit"] {
+.modal .buttons button,
+.modal .buttons input[type="submit"] {
   display: block;
   margin: 30px auto;
   width: 85%;
@@ -108,7 +109,8 @@ input[type="text"].amount {
   display: block;
 }
 
-.confirm input[type="submit"], .confirm button {
+.confirm input[type="submit"],
+.confirm button {
   padding: 10px 15px 3px 10px;
   margin: 0 30px;
   border-bottom: 1px dotted var(--dark-border-color);
@@ -130,7 +132,7 @@ input[type="text"].amount {
 }
 
 .negative-tracking {
-  color:  var(--negative-no-color) !important;
+  color: var(--negative-no-color) !important;
 }
 
 .positive-tracking {
@@ -217,7 +219,7 @@ input[type="text"].amount {
   z-index: 1000;
 }
 
-.tooltip > div {
+.tooltip>div {
   position: relative;
   width: 100%;
   background-color: var(--tool-tip-bg-color);
@@ -304,7 +306,8 @@ div.move-tooltip {
     margin-top: 60px;
   }
 
-  .modal .buttons button, .modal .buttons input[type="submit"] {
+  .modal .buttons button,
+  .modal .buttons input[type="submit"] {
     width: 125px;
   }
 

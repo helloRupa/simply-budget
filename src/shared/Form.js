@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 
 function Form(props) {
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const cb = props.callback;
 
-    if (typeof cb === 'function') {
+    if (typeof cb === "function") {
       cb(e);
     }
   };
 
-  return <form onSubmit={handleSubmit} className={props.className}>
-    {props.children}
-  </form>
+  return (
+    <form onSubmit={handleSubmit} className={props.className}>
+      {props.children}
+    </form>
+  );
 }
 
 export default Form;

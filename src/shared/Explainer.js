@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Explainer({ text }) {
-  return <p className="explainer">{ text }</p>
+  return <p className="explainer">{text}</p>;
 }
 
 export default Explainer;

@@ -1,9 +1,9 @@
-import { CHANGE_VIEW } from '../constants/redux';
+import { CHANGE_VIEW } from "../constants/redux";
 
-const uiState = 'DASHBOARD';
+const uiState = "DASHBOARD";
 
 function uiReducer(state = uiState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case CHANGE_VIEW:
       return action.view;
     default:

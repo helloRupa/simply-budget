@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { disableScroll, enableScroll } from '../utils/uiBehavior';
+import { useEffect } from "react";
+import { disableScroll, enableScroll } from "../utils/uiBehavior";
 
 function useDisableScroll(autoEnable = false) {
   useEffect(() => {

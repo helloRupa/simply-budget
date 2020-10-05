@@ -31,7 +31,9 @@
   background-color: var(--main-border-color);
 }
 
-.dark-mode .charts-btn img, .dark-mode .close img, .dark-mode .back img {
+.dark-mode .charts-btn img,
+.dark-mode .close img,
+.dark-mode .back img {
   filter: grayscale(100%) brightness(35%) sepia(100%) hue-rotate(130deg) saturate(10000%) contrast(0.8);
 }
 

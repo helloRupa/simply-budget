@@ -1,17 +1,17 @@
-import { SET_SETTINGS } from '../constants/redux';
+import { SET_SETTINGS } from "../constants/redux";
 
 const settingsState = {
-  'default-currency': '',
-  'max-length': 250,
-  'categories': [],
-  'quick-add': false
+  "default-currency": "",
+  "max-length": 250,
+  categories: [],
+  "quick-add": false,
 };
 
 function settingsReducer(state = settingsState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case SET_SETTINGS:
       return action.settings;
-    default: 
+    default:
       return state;
   }
 }

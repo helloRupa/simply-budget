@@ -1,11 +1,11 @@
-import { SET_TOOLTIP, CLEAR_TOOLTIP } from '../constants/redux';
+import { SET_TOOLTIP, CLEAR_TOOLTIP } from "../constants/redux";
 
-export const setTooltip = tooltip => ({
+export const setTooltip = (tooltip) => ({
   type: SET_TOOLTIP,
-  tooltip
+  tooltip,
 });
 
-export const clearTooltip = id => ({
+export const clearTooltip = (id) => ({
   type: CLEAR_TOOLTIP,
-  id
+  id,
 });

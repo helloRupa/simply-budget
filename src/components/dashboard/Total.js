@@ -1,19 +1,24 @@
-import React from 'react';
-import { formattedTotalTracking, calculateTotalTracking } from '../../utils/calculate';
-import { setTrackingClassName } from '../../utils/classNameSelectors';
+import React from "react";
+import {
+  formattedTotalTracking,
+  calculateTotalTracking,
+} from "../../utils/calculate";
+import { setTrackingClassName } from "../../utils/classNameSelectors";
 
-function Total({ budgets=[], expenditures, currency }) {
-  const trackingClassName = setTrackingClassName(calculateTotalTracking(budgets, expenditures));
+function Total({ budgets = [], expenditures, currency }) {
+  const trackingClassName = setTrackingClassName(
+    calculateTotalTracking(budgets, expenditures)
+  );
 
-    return (
+  return (
     <div className="budget-total">
       <span className="label">Total</span>
       <span className={`amount ${trackingClassName}`}>
-        {currency} 
+        {currency}
         {formattedTotalTracking(budgets, expenditures)}
       </span>
     </div>
-  )
+  );
 }
 
 export default Total;

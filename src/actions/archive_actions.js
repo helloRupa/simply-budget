@@ -1,59 +1,63 @@
-import { getArchives, postArchive, deleteArchived } from '../utils/comms';
-import { chainPromise } from './error_actions';
-import { destroyBudget } from './budget_actions';
-import { removeBudgetExpenditures } from './expenditure_actions';
-import { ADD_ARCHIVED, ARCHIVE_BUDGET, DELETE_ARCHIVED } from '../constants/redux';
+import { getArchives, postArchive, deleteArchived } from "../utils/comms";
+import { chainPromise } from "./error_actions";
+import { destroyBudget } from "./budget_actions";
+import { removeBudgetExpenditures } from "./expenditure_actions";
+import {
+  ADD_ARCHIVED,
+  ARCHIVE_BUDGET,
+  DELETE_ARCHIVED,
+} from "../constants/redux";
 
-export const addArchived = budgets => ({
+export const addArchived = (budgets) => ({
   type: ADD_ARCHIVED,
-  budgets
+  budgets,
 });
 
 export function fetchArchives() {
-  return dispatch => {
+  return (dispatch) => {
     return chainPromise(
       dispatch,
       getArchives,
-      [budgets => dispatch(addArchived(budgets))],
-      { error: 'Could not fetch archives', location: 'fetchArchives()' }
+      [(budgets) => dispatch(addArchived(budgets))],
+      { error: "Could not fetch archives", location: "fetchArchives()" }
     );
   };
-};
+}
 
-export const addToArchive = budget => ({
+export const addToArchive = (budget) => ({
   type: ARCHIVE_BUDGET,
-  budget
+  budget,
 });
 
 // Deleting budget will automatically delete its expenditures
 // Also update expenditures in store
 export function archiveBudget(budget, expenditures) {
-  return dispatch => {
+  return (dispatch) => {
     return chainPromise(
       dispatch,
       () => postArchive(budget, expenditures),
       [
-        archived => dispatch(addToArchive(archived)), 
+        (archived) => dispatch(addToArchive(archived)),
         () => destroyBudget(budget.id)(dispatch),
-        () => dispatch(removeBudgetExpenditures(budget.id))
+        () => dispatch(removeBudgetExpenditures(budget.id)),
       ],
-      { error: 'Could not archive budget', location: 'archiveBudget()' }
+      { error: "Could not archive budget", location: "archiveBudget()" }
     );
   };
-};
+}
 
-export const removeArchived = budget => ({
+export const removeArchived = (budget) => ({
   type: DELETE_ARCHIVED,
-  budget
+  budget,
 });
 
 export function destroyArchived(budget) {
-  return dispatch => {
+  return (dispatch) => {
     return chainPromise(
       dispatch,
       () => deleteArchived(budget.id),
       [() => dispatch(removeArchived(budget))],
-      { error: 'Budget might not have deleted', location: 'destroyArchived()' }
+      { error: "Budget might not have deleted", location: "destroyArchived()" }
     );
   };
-};
+}

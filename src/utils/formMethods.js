@@ -25,11 +25,11 @@ export const handleAmountChange = (e, callback) => {
 };
 
 export const handleAmountChangeNeg = (e, callback) => {
-  let negStr = '';
+  let negStr = "";
   let value = e.target.value;
 
-  if (value.startsWith('-')) {
-    negStr = '-';
+  if (value.startsWith("-")) {
+    negStr = "-";
     value = value.slice(1);
   }
 
@@ -38,4 +38,4 @@ export const handleAmountChangeNeg = (e, callback) => {
   }
 };
 
-export const validateAmount = amount => !isNaN(parseFloat(amount));
+export const validateAmount = (amount) => !isNaN(parseFloat(amount));

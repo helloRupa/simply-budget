@@ -3,7 +3,24 @@
   src: url(../fonts/Manrope/Manrope-VariableFont_wght.ttf);
 }
 
-html, body, main, header, section, div, span, form, input, select, button, ul, ol, p, h1, h2, h3, h4 {
+html,
+body,
+main,
+header,
+section,
+div,
+span,
+form,
+input,
+select,
+button,
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -14,14 +31,30 @@ html, body, main, header, section, div, span, form, input, select, button, ul, o
   text-align: inherit;
 }
 
-body, main, section, div, span, button, img, svg, ul, ol, li, h1, h2, h3, h4, p {
-  transition: background-color 1.5s ease-in-out, 
-    color 0.5s ease-in-out, 
-    filter 1.5s ease-in-out, 
+body,
+main,
+section,
+div,
+span,
+button,
+img,
+svg,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+p {
+  transition: background-color 1.5s ease-in-out,
+    color 0.5s ease-in-out,
+    filter 1.5s ease-in-out,
     border 1.5s ease-in-out;
 }
 
-body, main {
+body,
+main {
   width: 100%;
 }
 
@@ -84,11 +117,15 @@ li {
   list-style: none;
 }
 
-button, input[type="submit"], select {
+button,
+input[type="submit"],
+select {
   cursor: pointer;
 }
 
-input, select, button {
+input,
+select,
+button {
   line-height: 1.25;
 }
 
