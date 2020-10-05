@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { disableScroll, enableScroll } from '../utils/uiBehavior';
+import useDisableScroll from '../hooks/useDisableScroll';
+import { enableScroll } from '../utils/uiBehavior';
 
 function Loading({ condition=false }) {
   const [show, setShow] = useState(condition);
   const [fade, setFade] = useState('');
 
-  disableScroll();
-
+  useDisableScroll();
+  
   useEffect(() => {
     if (!condition) {
       setFade('fade-out');

@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
-import { disableScroll, enableScroll } from '../utils/uiBehavior';
+import React from 'react';
+import useDisableScroll from '../hooks/useDisableScroll';
 
 function Modal({ children, className='' }) {
-  useEffect(() => {
-    disableScroll();
-
-    return enableScroll;
-  }, []);
+  useDisableScroll(true);
 
   return <div className="modal-background">
     <div className={`modal ${className}`}>
