@@ -29,10 +29,21 @@
   margin: 0 auto;
   overflow: visible;
   padding: 0;
+  position: relative;
 }
 
 .charts .chart-container:last-of-type {
   padding-bottom: 30px;
+}
+
+.charts-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  background-color: transparent;
 }
 
 @media all and (min-width: 600px) {

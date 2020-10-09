@@ -6,6 +6,7 @@ import CategoryPieChart from "./CategoryPieChart";
 import CloseButton from "../../shared/CloseButton";
 import useJumpToTop from "../../hooks/useJumpToTop";
 import Modal from "../../shared/Modal";
+import ChartContainer from "../../shared/ChartContainer";
 
 function ChartsContainer({
   budget,
@@ -21,17 +22,17 @@ function ChartsContainer({
 
       <h2>{name}</h2>
 
-      <div className="chart-container">
+      <ChartContainer>
         <h4>
           Spending per {frequency}, up to last {periodsToChart} periods
         </h4>
         <SpendLineChart {...{ budget, expenditures }} />
-      </div>
+      </ChartContainer>
 
-      <div className="chart-container">
+      <ChartContainer>
         <h4 className="small-width">Spending per category</h4>
         <CategoryPieChart {...{ budget, expenditures }} />
-      </div>
+      </ChartContainer>
     </Modal>
   );
 }
