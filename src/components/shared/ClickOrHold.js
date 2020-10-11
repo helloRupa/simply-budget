@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { getBodyOffsetY } from "../../utils/uiBehavior";
 
 function ClickOrHold({ holdCallback, clickCallback, children }) {
   const [timer, setTimer] = useState("");
   const [wasHeld, setWasHeld] = useState(false);
+  const offsetY = useRef(getBodyOffsetY());
+
+  const isSwipe = () => offsetY.current !== getBodyOffsetY();
 
   const startHold = (e) => {
     setWasHeld(false);
+    offsetY.current = getBodyOffsetY();
 
     setTimer(
       setTimeout(() => {
-        if (typeof holdCallback === "function") {
+        if (!isSwipe() && typeof holdCallback === "function") {
           holdCallback(e);
           setWasHeld(true);
         }
@@ -18,8 +23,9 @@ function ClickOrHold({ holdCallback, clickCallback, children }) {
   };
 
   const handleClick = (e) => {
-    if (!wasHeld && typeof clickCallback === "function") {
-      clearTimeout(timer);
+    clearTimeout(timer);
+
+    if (!wasHeld && !isSwipe() && typeof clickCallback === "function") {
       clickCallback(e);
     }
   };

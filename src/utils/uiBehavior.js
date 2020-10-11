@@ -27,3 +27,7 @@ export function disableScroll() {
 export function enableScroll() {
   document.body.classList.remove("no-scroll");
 }
+
+export function getBodyOffsetY() {
+  return document.body.getBoundingClientRect().top;
+}
