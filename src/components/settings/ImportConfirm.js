@@ -11,8 +11,8 @@ import { fetchBudgets } from "../../actions/budget_actions";
 import { fetchExpenditures } from "../../actions/expenditure_actions";
 import { chooseDashboard } from "../../actions/ui_actions";
 import { connect } from "react-redux";
-import Button from "../../shared/Button";
-import Modal from "../../shared/Modal";
+import Button from "../shared/Button";
+import Modal from "../shared/Modal";
 
 function ImportConfirm({
   file,

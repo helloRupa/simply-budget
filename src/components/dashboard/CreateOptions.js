@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { newBudget } from "../../actions/budget_actions";
 import { connect } from "react-redux";
-import Form from "../../shared/Form";
-import CancelButton from "../../shared/CancelButton";
-import DateComp from "../../shared/DateComp";
+import Form from "../shared/Form";
+import CancelButton from "../shared/CancelButton";
+import DateComp from "../shared/DateComp";
 import { periodOptions } from "../../constants/general";
-import SubmitButton from "../../shared/SubmitButton";
-import NumberInput from "../../shared/NumberInput";
-import Error from "../../shared/Error";
-import Select from "../../shared/Select";
+import SubmitButton from "../shared/SubmitButton";
+import NumberInput from "../shared/NumberInput";
+import Error from "../shared/Error";
+import Select from "../shared/Select";
 import { delay, scrollToEl } from "../../utils/uiBehavior";
-import CurrencyInput from "../../shared/CurrencyInput";
-import HiddenLabel from "../../shared/HiddenLabel";
-import Modal from "../../shared/Modal";
+import CurrencyInput from "../shared/CurrencyInput";
+import HiddenLabel from "../shared/HiddenLabel";
+import Modal from "../shared/Modal";
 
 function CreateOptions({
   setShowOptions,

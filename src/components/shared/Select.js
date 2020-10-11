@@ -1,5 +1,5 @@
 import React from "react";
-import { handleChange } from "../utils/formMethods";
+import { handleChange } from "../../utils/formMethods";
 
 function Select({ callback, value, optionsCallback, id = "" }) {
   return (

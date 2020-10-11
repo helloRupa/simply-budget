@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import SubmitButton from "../shared/SubmitButton";
-import Form from "../shared/Form";
-import NoButton from "../shared/NoButton";
-import { setTooltip } from "../actions/tooltip_actions";
+import SubmitButton from "./SubmitButton";
+import Form from "./Form";
+import NoButton from "./NoButton";
+import { setTooltip } from "../../actions/tooltip_actions";
 
 function DeleteWrapper(deleteMethod) {
   function Delete({ deletable, name, setRemove, deleteMethod, setTooltip }) {

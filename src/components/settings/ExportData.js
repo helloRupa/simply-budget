@@ -1,7 +1,7 @@
 import React from "react";
 import { saveAs } from "file-saver";
 import { fetchDb } from "../../utils/comms";
-import Button from "../../shared/Button";
+import Button from "../shared/Button";
 
 function ExportData() {
   const handleClick = (e) => {

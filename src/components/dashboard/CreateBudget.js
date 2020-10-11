@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/create-budget.css";
 import CreateOptions from "./CreateOptions";
-import Form from "../../shared/Form";
-import SubmitButton from "../../shared/SubmitButton";
-import TextInput from "../../shared/TextInput";
-import Error from "../../shared/Error";
-import HiddenLabel from "../../shared/HiddenLabel";
+import Form from "../shared/Form";
+import SubmitButton from "../shared/SubmitButton";
+import TextInput from "../shared/TextInput";
+import Error from "../shared/Error";
+import HiddenLabel from "../shared/HiddenLabel";
 
 function CreateBudget() {
   const [showOptions, setShowOptions] = useState(false);

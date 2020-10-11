@@ -3,7 +3,7 @@ import {
   formatDate,
   replaceHyphens,
   replaceForwardSlashes,
-} from "../utils/format";
+} from "../../utils/format";
 
 const makeDate = (date = null) => {
   const dateValue = date ? new Date(date) : new Date();

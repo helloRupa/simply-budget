@@ -8,7 +8,7 @@ import {
 } from "../../utils/calculate";
 import { chooseBudget } from "../../actions/ui_actions";
 import { displayDate } from "../../utils/format";
-import ClickOrHold from "../../shared/ClickOrHold";
+import ClickOrHold from "../shared/ClickOrHold";
 import {
   setStartedClassName,
   setTrackingClassName,

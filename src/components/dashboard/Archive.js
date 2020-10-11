@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { archiveBudget } from "../../actions/archive_actions";
-import Form from "../../shared/Form";
-import SubmitButton from "../../shared/SubmitButton";
-import NoButton from "../../shared/NoButton";
+import Form from "../shared/Form";
+import SubmitButton from "../shared/SubmitButton";
+import NoButton from "../shared/NoButton";
 import { setTooltip } from "../../actions/tooltip_actions";
 
 function Archive({

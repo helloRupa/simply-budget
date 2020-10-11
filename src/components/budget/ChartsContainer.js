@@ -3,10 +3,10 @@ import "../../styles/chart.css";
 import SpendLineChart from "./SpendLineChart";
 import { periodsToChart } from "../../constants/general";
 import CategoryPieChart from "./CategoryPieChart";
-import CloseButton from "../../shared/CloseButton";
+import CloseButton from "../shared/CloseButton";
 import useJumpToTop from "../../hooks/useJumpToTop";
-import Modal from "../../shared/Modal";
-import ChartContainer from "../../shared/ChartContainer";
+import Modal from "../shared/Modal";
+import ChartContainer from "./ChartContainer";
 
 function ChartsContainer({
   budget,

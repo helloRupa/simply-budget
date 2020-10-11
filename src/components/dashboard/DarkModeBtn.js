@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../shared/Button";
+import Button from "../shared/Button";
 import lightbulbOn from "../../images/lightbulb-on.svg";
 import lightbulbOff from "../../images/lightbulb-off.svg";
 import { connect } from "react-redux";

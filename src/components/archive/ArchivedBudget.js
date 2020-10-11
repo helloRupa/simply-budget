@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import DeleteWrapper from "../../shared/DeleteWrapper";
+import DeleteWrapper from "../shared/DeleteWrapper";
 import { destroyArchived } from "../../actions/archive_actions";
 import { displayDate } from "../../utils/format";
 import { setTrackingClassName } from "../../utils/classNameSelectors";
-import Button from "../../shared/Button";
+import Button from "../shared/Button";
 import { formatNumber } from "../../utils/format";
 
 const Delete = DeleteWrapper(destroyArchived);

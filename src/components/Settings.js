@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import "../styles/settings.css";
 import { patchSettings } from "../actions/settings_actions";
 import { connect } from "react-redux";
-import BackButton from "../shared/BackButton";
+import BackButton from "./shared/BackButton";
 import { chooseDashboard } from "../actions/ui_actions";
-import Form from "../shared/Form";
-import SubmitButton from "../shared/SubmitButton";
-import TextInput from "../shared/TextInput";
-import TextInputWithRegex from "../shared/TextInputWithRegex";
-import Error from "../shared/Error";
+import Form from "./shared/Form";
+import SubmitButton from "./shared/SubmitButton";
+import TextInput from "./shared/TextInput";
+import TextInputWithRegex from "./shared/TextInputWithRegex";
+import Error from "./shared/Error";
 import ExportData from "./settings/ExportData";
 import ImportData from "./settings/ImportData";
-import OnOffButton from "../shared/OnOffButton";
-import CurrencyInput from "../shared/CurrencyInput";
+import OnOffButton from "./shared/OnOffButton";
+import CurrencyInput from "./shared/CurrencyInput";
 import useJumpToTop from "../hooks/useJumpToTop";
-import Explainer from "../shared/Explainer";
+import Explainer from "./shared/Explainer";
 
 function Settings({ settings, patchSettings, chooseDashboard }) {
   const [currency, setCurrency] = useState(settings["default-currency"]);

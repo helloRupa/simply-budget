@@ -1,9 +1,9 @@
 import React from "react";
-import Form from "../../shared/Form";
-import NumberInput from "../../shared/NumberInput";
-import SubmitButton from "../../shared/SubmitButton";
-import ClickOrHold from "../../shared/ClickOrHold";
-import HiddenLabel from "../../shared/HiddenLabel";
+import Form from "../shared/Form";
+import NumberInput from "../shared/NumberInput";
+import SubmitButton from "../shared/SubmitButton";
+import ClickOrHold from "../shared/ClickOrHold";
+import HiddenLabel from "../shared/HiddenLabel";
 
 function SimpleExpenditureForm({
   currency,

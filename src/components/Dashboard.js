@@ -7,13 +7,13 @@ import { fetchExpenditures } from "../actions/expenditure_actions";
 import { connect } from "react-redux";
 import { chooseSettings, chooseArchive } from "../actions/ui_actions";
 import { fetchSettings } from "../actions/settings_actions";
-import ScrollToTop from "../shared/ScrollToTop";
+import ScrollToTop from "./shared/ScrollToTop";
 import clock from "../images/clock.svg";
 import cog from "../images/cog.svg";
 import useJumpToTop from "../hooks/useJumpToTop";
-import Button from "../shared/Button";
+import Button from "./shared/Button";
 import DarkModeBtn from "./dashboard/DarkModeBtn";
-import Loading from "../shared/Loading";
+import Loading from "./shared/Loading";
 
 function Dashboard({
   budgets,

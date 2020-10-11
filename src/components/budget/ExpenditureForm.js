@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { patchSettings } from "../../actions/settings_actions";
-import DateComp from "../../shared/DateComp";
-import Form from "../../shared/Form";
-import SubmitButton from "../../shared/SubmitButton";
-import NumberInput from "../../shared/NumberInput";
-import TextInput from "../../shared/TextInput";
-import Error from "../../shared/Error";
-import CancelButton from "../../shared/CancelButton";
-import Modal from "../../shared/Modal";
+import DateComp from "../shared/DateComp";
+import Form from "../shared/Form";
+import SubmitButton from "../shared/SubmitButton";
+import NumberInput from "../shared/NumberInput";
+import TextInput from "../shared/TextInput";
+import Error from "../shared/Error";
+import CancelButton from "../shared/CancelButton";
+import Modal from "../shared/Modal";
 
 function ExpenditureForm({
   onSubmit,

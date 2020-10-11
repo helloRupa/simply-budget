@@ -1,5 +1,5 @@
 import React from "react";
-import { handleChangeWithRegex } from "../utils/formMethods";
+import { handleChangeWithRegex } from "../../utils/formMethods";
 
 function TextInputWithRegex({
   placeholder = "",

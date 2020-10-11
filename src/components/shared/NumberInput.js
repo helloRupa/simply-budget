@@ -2,7 +2,7 @@ import React from "react";
 import {
   handleAmountChange,
   handleAmountChangeNeg,
-} from "../utils/formMethods";
+} from "../../utils/formMethods";
 
 function NumberInput({
   value,

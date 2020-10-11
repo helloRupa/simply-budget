@@ -4,7 +4,7 @@ import { clearError } from "../actions/error_actions";
 import { patchBudget, clearBackup } from "../actions/budget_actions";
 import { repostExpenditure } from "../actions/expenditure_actions";
 import { selectBudgetExpenditures } from "../utils/selectors";
-import Button from "../shared/Button";
+import Button from "./shared/Button";
 
 function Error({
   errors: { error, location, debug },

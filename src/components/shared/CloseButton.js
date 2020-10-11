@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import close from "../images/close.svg";
+import close from "../../images/close.svg";
 
 function CloseButton({ callback }) {
   return (

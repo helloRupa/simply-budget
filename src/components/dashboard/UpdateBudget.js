@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { patchBudget } from "../../actions/budget_actions";
 import { connect } from "react-redux";
-import DateComp from "../../shared/DateComp";
+import DateComp from "../shared/DateComp";
 import { calculatePeriodFromToday } from "../../utils/calculate";
-import Form from "../../shared/Form";
-import SubmitButton from "../../shared/SubmitButton";
-import CancelButton from "../../shared/CancelButton";
-import TextInput from "../../shared/TextInput";
-import Error from "../../shared/Error";
-import Explainer from "../../shared/Explainer";
+import Form from "../shared/Form";
+import SubmitButton from "../shared/SubmitButton";
+import CancelButton from "../shared/CancelButton";
+import TextInput from "../shared/TextInput";
+import Error from "../shared/Error";
+import Explainer from "../shared/Explainer";
 import { setTooltip } from "../../actions/tooltip_actions";
 
 function UpdateBudget({ budget, close, patchBudget, setTooltip }) {

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { dbKeys } from "../../constants/general";
-import Error from "../../shared/Error";
+import Error from "../shared/Error";
 import ImportConfirm from "./ImportConfirm";
-import Button from "../../shared/Button";
+import Button from "../shared/Button";
 
 function ImportData() {
   const [importedData, setImportedData] = useState({});

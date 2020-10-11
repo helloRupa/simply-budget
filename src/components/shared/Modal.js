@@ -1,5 +1,5 @@
 import React from "react";
-import useDisableScroll from "../hooks/useDisableScroll";
+import useDisableScroll from "../../hooks/useDisableScroll";
 
 function Modal({ children, className = "" }) {
   useDisableScroll(true);

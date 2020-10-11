@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import back from "../images/back.svg";
+import back from "../../images/back.svg";
 
 function BackButton({ callback }) {
   return (

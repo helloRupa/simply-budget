@@ -3,8 +3,8 @@ import EditItem from "./EditItem";
 import { formatNumber, displayDate } from "../../utils/format";
 import { connect } from "react-redux";
 import { destroyExpenditure } from "../../actions/expenditure_actions";
-import ClickOrHold from "../../shared/ClickOrHold";
-import Button from "../../shared/Button";
+import ClickOrHold from "../shared/ClickOrHold";
+import Button from "../shared/Button";
 import { setTooltip } from "../../actions/tooltip_actions";
 import useAnimationIn from "../../hooks/useAnimationIn";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { scrollToTop } from "../utils/uiBehavior";
-import upArrow from "../images/up-arrow.svg";
+import { scrollToTop } from "../../utils/uiBehavior";
+import upArrow from "../../images/up-arrow.svg";
 
 function ScrollToTop() {
   return (
