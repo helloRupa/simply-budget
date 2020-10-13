@@ -1,80 +1,18 @@
 {
-  "settings": [
-    {
-      "id": 1,
-      "default-currency": "$",
-      "max-length": 250,
-      "categories": [
-        "Groceries",
-        "Electronics",
-        "Clothes",
-        "Entertainment",
-        "Sunscreen",
-        "Candy",
-        "Scarf",
-        "Timotei"
-      ],
-      "quick-add": false,
-      "dark-mode": true
-    }
-  ],
+  "settings": [{
+    "id": 1,
+    "default-currency": "",
+    "max-length": 250,
+    "categories": [
+      "Groceries",
+      "Electronics",
+      "Clothes",
+      "Entertainment"
+    ],
+    "quick-add": false,
+    "dark-mode": true
+  }],
   "archives": [],
-  "budgets": [
-    {
-      "name": "first budget",
-      "currency": "$",
-      "frequency": "week",
-      "limit": 100,
-      "startDate": "2020/10/12",
-      "truncated": 0,
-      "currentPeriod": 1,
-      "id": 1
-    },
-    {
-      "name": "Upcoming trip",
-      "currency": "$",
-      "frequency": "week",
-      "limit": 50,
-      "startDate": "2020/10/14",
-      "truncated": 0,
-      "currentPeriod": 0,
-      "id": 2
-    },
-    {
-      "name": "Pounds",
-      "currency": "£",
-      "frequency": "week",
-      "limit": 50,
-      "startDate": "2020/10/12",
-      "truncated": 0,
-      "currentPeriod": 1,
-      "id": 4
-    }
-  ],
-  "expenditures": [
-    {
-      "title": "Sunscreen",
-      "amount": 10.5,
-      "date": "2020/10/12",
-      "budgetId": 1,
-      "period": 1,
-      "id": 1
-    },
-    {
-      "title": "Candy",
-      "amount": 5.5,
-      "date": "2020/10/12",
-      "budgetId": 1,
-      "period": 1,
-      "id": 2
-    },
-    {
-      "title": "Timotei",
-      "amount": 5,
-      "date": "2020/10/12",
-      "budgetId": 4,
-      "period": 1,
-      "id": 4
-    }
-  ]
+  "budgets": [],
+  "expenditures": []
 }
