@@ -2,6 +2,7 @@ import React from "react";
 import { selectBudgetExpenditures } from "../../utils/selectors";
 import { maxPieCategories } from "../../constants/general";
 import { VictoryPie, VictoryLabel } from "victory";
+import { formatNumber } from "../../utils/format";
 
 function CategoryPieChart({ budget, expenditures }) {
   const budgetExps = selectBudgetExpenditures(expenditures, budget) || [];
@@ -46,7 +47,9 @@ function CategoryPieChart({ budget, expenditures }) {
           data={data}
           padAngle={3}
           labels={({ datum }) =>
-            `${truncateLabel(datum.x)}: ${budget.currency}${datum.y}`
+            `${truncateLabel(datum.x)}: ${budget.currency}${formatNumber(
+              datum.y
+            )}`
           }
           labelPosition={(_) => "centroid"}
           labelPlacement={(_) => labelPlacement}
