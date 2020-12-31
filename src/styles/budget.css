@@ -124,6 +124,7 @@ li.show-period-expense {
   width: 25px;
   padding-bottom: 4px;
   line-height: 1;
+  z-index: 1;
 }
 
 .expense-date {
