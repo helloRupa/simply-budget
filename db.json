@@ -79,7 +79,7 @@
       "limit": 100,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 22,
+      "currentPeriod": 26,
       "id": 7
     },
     {
@@ -89,7 +89,7 @@
       "limit": 300,
       "startDate": "2020/06/05",
       "truncated": 0,
-      "currentPeriod": 27,
+      "currentPeriod": 30,
       "id": 2
     },
     {
@@ -99,7 +99,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 22,
+      "currentPeriod": 26,
       "id": 8
     },
     {
@@ -109,7 +109,7 @@
       "limit": 120,
       "startDate": "2020/08/06",
       "truncated": 0,
-      "currentPeriod": 18,
+      "currentPeriod": 22,
       "id": 9
     },
     {
@@ -119,7 +119,7 @@
       "limit": 56,
       "startDate": "2020/06/25",
       "truncated": 0,
-      "currentPeriod": 24,
+      "currentPeriod": 28,
       "id": 3
     },
     {
@@ -139,7 +139,7 @@
       "limit": 20,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 22,
+      "currentPeriod": 26,
       "id": 6
     },
     {
@@ -149,7 +149,7 @@
       "limit": 200,
       "startDate": "2020/07/07",
       "truncated": 0,
-      "currentPeriod": 22,
+      "currentPeriod": 26,
       "id": 5
     },
     {
@@ -159,7 +159,7 @@
       "limit": 500,
       "startDate": "2020/09/07",
       "truncated": 0,
-      "currentPeriod": 13,
+      "currentPeriod": 17,
       "id": 10
     },
     {
@@ -169,7 +169,7 @@
       "limit": 50,
       "startDate": "2020/09/30",
       "truncated": 0,
-      "currentPeriod": 10,
+      "currentPeriod": 14,
       "id": 11
     },
     {
@@ -179,7 +179,7 @@
       "limit": 100,
       "startDate": "2020/09/27",
       "truncated": 0,
-      "currentPeriod": 11,
+      "currentPeriod": 14,
       "id": 12
     }
   ],

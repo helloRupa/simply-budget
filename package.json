@@ -21,11 +21,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy": "cp ./db_empty.json ./db_test.json",
-    "json-server-naked": "json-server db_test.json --port 8000",
+    "copy": "cp ./db_empty.json ./db_blank.json",
+    "json-server-naked": "json-server db_blank.json --port 8000",
     "json-server": "json-server db.json --port 8000",
     "dev": "yarn json-server & yarn start",
-    "naked": "npm run copy & yarn json-server-naked & yarn start"
+    "naked": "npm run copy && yarn json-server-naked & yarn start"
   },
   "eslintConfig": {
     "extends": "react-app"
