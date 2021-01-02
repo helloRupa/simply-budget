@@ -70,33 +70,18 @@ describe("calculations", () => {
 
   describe("calculateTotalTracking", () => {
     it("returns the total amount left to spend across all budgets", () => {
-      const budgets = [
-        { id: 1, currentPeriod: 4, truncated: 100.5, limit: 100 },
-        { id: 2, currentPeriod: 7, truncated: 0, limit: 90.8 },
-      ];
-      const exps = {
-        1: [
-          { budgetId: 1, amount: 50 },
-          { budgetId: 1, amount: 10.45 },
-        ],
-        2: [
-          { budgetId: 2, amount: 80 },
-          { budgetId: 2, amount: 100.34 },
-        ],
-      };
-
-      const totalAllowed = budgets.reduce(
-        (sum, b) => sum + b.limit * b.currentPeriod - b.truncated,
-        0
+      const budgetsExpenses = factory.generateBudgetsAndExpenses(
+        1,
+        Date.now(),
+        7,
+        factory.randomAmount(200, 27)
       );
-      const totalSpent = Object.values(exps).reduce(
-        (total, expenses) =>
-          expenses.reduce((sum, exp) => sum + exp.amount, 0) + total,
-        0
-      );
-      const total = totalAllowed - totalSpent;
+      const { budgets, expenses } = budgetsExpenses;
 
-      expect(calc.calculateTotalTracking(budgets, exps)).toBe(total);
+      const testTotal = calc.calculateTotalTracking(budgets, expenses);
+      const total = validators.allBudgetsTracking(budgetsExpenses);
+
+      expect(roundedDecimal(testTotal)).toBe(roundedDecimal(total));
     });
 
     it("returns 0 when there are no budgets", () => {

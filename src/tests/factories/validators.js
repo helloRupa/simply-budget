@@ -14,3 +14,18 @@ export const budgetTracking = (budgetsExpenses, budgetId) => {
     budget.truncated
   );
 };
+
+export const allBudgetsTracking = (budgetsExpenses) => {
+  const { budgets } = budgetsExpenses;
+  const totalAllowed = budgets.reduce(
+    (total, budget) =>
+      budget.limit * budget.currentPeriod + total - budget.truncated,
+    0
+  );
+  const allSpent = budgets.reduce(
+    (total, budget) => totalSpent(budgetsExpenses, budget.id) + total,
+    0
+  );
+
+  return totalAllowed - allSpent;
+};
