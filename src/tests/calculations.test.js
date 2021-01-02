@@ -1,4 +1,7 @@
 import * as calc from "../utils/calculate";
+import * as factory from "./factories/budgets_expenses";
+import * as validators from "./factories/validators";
+import { roundedDecimal } from "./factories/normalizers";
 
 describe("calculations", () => {
   describe("totalSpent", () => {
@@ -6,78 +9,62 @@ describe("calculations", () => {
       expect(calc.totalSpent({}, 4)).toBe(0);
     });
 
-    it("can sums the correct amount for a chosen budget", () => {
-      const exps = {
-        1: [{ amount: 20.25 }, { amount: 30 }],
-        2: [{ amount: 13.5 }, { amount: 20.89 }],
-        3: [{ amount: 10 }, { amount: 15.6 }, { amount: 5.89 }],
-      };
+    it("sums the correct amount for a chosen budget", () => {
       const budgetId = 3;
-      const total = exps[budgetId].reduce(
-        (total, exp) => total + exp.amount,
+      const budgetsExpenses = factory.generateBudgetsAndExpenses(
+        budgetId,
+        "2020/12/25",
+        10,
         0
       );
+      const total = validators.totalSpent(budgetsExpenses, budgetId);
 
-      expect(calc.totalSpent(exps, budgetId)).toBe(total);
+      expect(calc.totalSpent(budgetsExpenses.expenses, budgetId)).toBe(total);
     });
   });
 
   describe("calculateTracking", () => {
-    const budget = () => ({
-      id: 1,
-      limit: 200.5,
-      currentPeriod: 5,
-      truncated: 0,
-    });
+    const budgetsExpenses = factory.generateBudgetsAndExpenses(
+      1,
+      Date.now(),
+      7,
+      factory.randomAmount(200, 27)
+    );
+    const { budgets, expenses } = budgetsExpenses;
 
-    const spent = 1000;
-    const expenditures = () => ({
-      1: [{ budgetId: 1, amount: spent }],
-    });
+    it("returns the amount left to spend based on the current period, truncated value, and amount spent", () => {
+      const budget = budgets[0];
+      const testTotal = calc.calculateTracking({
+        expenditures: expenses,
+        budget,
+      });
+      const total = validators.budgetTracking(budgetsExpenses, budget.id);
 
-    it("returns the amount left to spend based on the current period and amount spent", () => {
-      const b = budget();
-      const exps = expenditures();
-      const total = b.currentPeriod * b.limit - spent;
-
-      expect(calc.calculateTracking({ expenditures: exps, budget: b })).toBe(
-        total
-      );
-    });
-
-    it("can accounts for truncated values", () => {
-      const truncated = 10.5;
-      const b = budget();
-      b.truncated = truncated;
-      const exps = expenditures();
-      const total = b.currentPeriod * b.limit - spent - truncated;
-
-      expect(calc.calculateTracking({ expenditures: exps, budget: b })).toBe(
-        total
-      );
+      expect(roundedDecimal(testTotal)).toBe(roundedDecimal(total));
     });
 
     it("can handle overspending", () => {
-      const b = budget();
-      const overspend = b.limit * b.currentPeriod * 3;
-      const exps = expenditures();
-      exps[1][0].amount = overspend;
-      const total = b.currentPeriod * b.limit - overspend;
+      const budget = budgets[0];
 
-      expect(calc.calculateTracking({ expenditures: exps, budget: b })).toBe(
-        total
-      );
+      expenses[budget.id].push({
+        amount: budget.limit * budget.currentPeriod + 100,
+      });
+
+      const total = validators.budgetTracking(budgetsExpenses, budget.id);
+      const testTotal = calc.calculateTracking({
+        expenditures: expenses,
+        budget,
+      });
+
+      expect(roundedDecimal(testTotal)).toBe(roundedDecimal(total));
     });
 
-    it("can returns 0 for a budget that hasn't started", () => {
-      const b = budget();
-      b.currentPeriod = 0;
-      const exps = expenditures();
+    it("returns 0 for a budget that hasn't started", () => {
+      const budget = factory.generateBudget(1, Date.now(), 0, 0);
+      const expenditures = { 1: [] };
       const total = 0;
 
-      expect(calc.calculateTracking({ expenditures: exps, budget: b })).toBe(
-        total
-      );
+      expect(calc.calculateTracking({ expenditures, budget })).toBe(total);
     });
   });
 
