@@ -490,3 +490,17 @@ export const trackingPerBudget = {
 };
 
 export const totalTrackingAllBudgets = 3442.47;
+
+export const spendingPerPeriodBudgetOne = {
+  2: 167.62,
+  4: 550.62,
+  1: 57.05,
+  3: 315.13,
+};
+
+export const leftToSpendPerPeriodBudgetOne = {
+  2: 58.49,
+  4: -324.51,
+  1: 169.06,
+  3: -89.02,
+};

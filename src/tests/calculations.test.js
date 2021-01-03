@@ -47,7 +47,6 @@ describe("calculations", () => {
 
   describe("calculateTotalTracking", () => {
     it("returns the total amount left to spend across all budgets", () => {
-      const { budgets, expenses } = budgetsExpenses;
       const testTotal = calc.calculateTotalTracking(budgets, expenses);
 
       expect(roundedDecimal(testTotal)).toBe(
@@ -57,6 +56,88 @@ describe("calculations", () => {
 
     it("returns 0 when there are no budgets", () => {
       expect(calc.calculateTotalTracking([], {})).toBe(0);
+    });
+  });
+
+  describe("calculatePeriodSpent", () => {
+    const budget = budgets[0];
+
+    it("returns the total amount spent during a given period for a budget", () => {
+      for (let period = 1; period <= budget.currentPeriod; ++period) {
+        const testTotal = calc.calculatePeriodSpent({
+          expenditures: expenses,
+          budget,
+          period,
+        });
+        const total = staticData.spendingPerPeriodBudgetOne[period];
+
+        expect(roundedDecimal(testTotal)).toBe(roundedDecimal(total));
+      }
+    });
+
+    it("returns 0 when there are no expenses", () => {
+      expect(
+        calc.calculatePeriodSpent({ expenditures: {}, budget, period: 1 })
+      ).toBe(0);
+    });
+  });
+
+  describe("calculateRemainingSpend", () => {
+    const budget = budgets[0];
+
+    it("returns the amount left to spend for a period based on the limit and expenses for that period", () => {
+      for (let period = 1; period <= budget.currentPeriod; ++period) {
+        const testTotal = calc.calculateRemainingSpend({
+          expenditures: expenses,
+          budget,
+          period,
+        });
+        const total = staticData.leftToSpendPerPeriodBudgetOne[period];
+
+        expect(roundedDecimal(testTotal)).toBe(roundedDecimal(total));
+      }
+    });
+  });
+
+  describe("calculatePeriod", () => {
+    it("returns the correct period given an expense date, start date, and weekly frequency", () => {
+      const frequency = "week";
+      const weekExpenseDates = [
+        "2020/07/09",
+        "2020/07/15",
+        "2020/07/16",
+        "2020/11/23",
+      ];
+      const weekResults = [1, 1, 2, 20];
+
+      weekExpenseDates.forEach((date, idx) => {
+        expect(
+          calc.calculatePeriod(date, {
+            startDate: "2020/07/09",
+            frequency,
+          })
+        ).toBe(weekResults[idx]);
+      });
+    });
+
+    it("returns the correct period given an expense date, start date, and monthly frequency", () => {
+      const frequency = "month";
+      const monthExpenseDates = [
+        "2020/07/09",
+        "2020/08/07",
+        "2020/08/08",
+        "2021/01/05",
+      ];
+      const monthResults = [1, 1, 2, 7];
+
+      monthExpenseDates.forEach((date, idx) => {
+        expect(
+          calc.calculatePeriod(date, {
+            startDate: "2020/07/09",
+            frequency,
+          })
+        ).toBe(monthResults[idx]);
+      });
     });
   });
 });
