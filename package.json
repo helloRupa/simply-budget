@@ -11,7 +11,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "victory": "^35.0.8"
+    "victory": "^36.6.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
